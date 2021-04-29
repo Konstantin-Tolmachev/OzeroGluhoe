@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+}
+
+.sidebar{
+  /*  position: fixed;
+
+   */
+
+    width: 450px;
+    background: #f7d2fa;
+    opacity: 0.7;
+    border-radius: 10px;
+
+    -moz-transition: all 600ms;
+    -webkit-transition: all 600ms;
+    transition-duration: all 600ms;
+}
+
+
+/*Добавляем свойство*/
+@media screen and (min-width: 900px) {
+    .sidebar {
+        float: right;
+    }
+}
+.sidebar .hh1 {
+    border: none; /* Убираем границу */
+    background-color: red; /* Цвет линии */
+    color: red; /* Цвет линии для IE6-7 */
+    height: 2px; /* Толщина линии */
+    width: 290px;
+    text-align: center;
+}
+
+
+.tours{
+    padding: 10px;
+    list-style: none;
+}
+
+.sidebar hr {
+    border:none;
+    border-top:1px dotted #f00;
+    color:#fff;
+    background-color:#fff;
+    height:1px;
+    width:50%;
+}
+
+h1.name{
+    color: #ba1c85; /* Цвет текста всего шрифта  */
+    text-align: center;
+    font-family:Lobster, cursive;
+    font-size:30px;
+}
+
+h2.nametour{
+    text-align: center;
+
+}
+h3.a{
+    text-align: center;
+    color: black;
+    font-size: 1.4em;
+}
+
+
+
+
+body {
+   /* height:100%; */
+   /* margin: 0; */
+  /*  padding: 10px 10px; */
+  /*  background:  #c7b39b  url(../../static.img/fon.jpg) no-repeat 0/cover;*/
+    background: #c7b39b url(/img/fon.jpg) no-repeat 0 / cover;
+    color: #ba1c85; /* Цвет текста всего шрифта  */
+    background-attachment: fixed;
+    background-position: center top;
+   /* border-radius: .2rem; */
+}
+
+
+/*ШАПКА ПРОЗРАЧНОСТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+nav ul {
+    opacity: 0.8;
+}
+/*Слова в шапке без подчеркивания линией!!!!!!!!!!!!!!!!!!*/
+nav a {
+    text-decoration: none;
+}
+
+
+/*Шапка бара*/
+    .topmenu {
+        width: 100%;
+        /*Резиновая шапка*/
+        padding: 25px;
+        border-radius: 20px;
+        /*Радиус бара*/
+        background-color: #f2f2f2;
+
+}
+/*Расположение текста в баре*/
+.topmenu > li {
+    display: inline; /*текст в шапке в строчку*/
+}
+
+/*Текст в шапке бара*/
+.topmenu > li > a {
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
+
+}
+
+.ab {
+    display: inline;
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
+}
+h4 {
+
+
+    text-align: center;
+    font-style: italic;
+    font-size: 20px;
+
+
+
+}
+
+
+h3 {
+
+    height: 20px;
+    text-align: center;
+    font-style: italic;
+    font-size: 30px;
+    color: #d7f2acdc;
+
+
+}
+
+
+/*Изменения цвета при наведении курсора*/
+.topmenu li a:hover {
+    color: #E6855F;
+}
+
+/*Добавляем свойство*/
+@media screen and (min-width: 900px) {
+    .float {
+        float: right;
+    }
+}
+
+.booking{
+    width: 410px;
+    height: auto;
+    border-radius: 5px;
+    background-color: #0303039d;
+}
+
+.wrap {
+    display: table;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.allDiv{
+    column-count: 2;
+    padding: 5px;
+}
+
+input#fname,#lname,#pname,#phone,#tourId,#myRoomId,#days,#email{
+    width: 185px;
+    height: 30px;
+}
+
+
+input#fname,#lname,#pname,#phone,#tourId,#RoomId,#days,#dateIn{
+    width: 185px;
+    height: 30px;
+}
+
+div.btn{
+    text-align: center;
+    padding-bottom: 15px;
+}
+.glow-button {
+    padding: 8px 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 40px 40px white inset, 0 0 0 0 yellow;
+    color: black;
+    opacity: 0.5;
+}
+
+.glow-button:hover {
+    box-shadow: 0 0 1px 0 black inset, 0 0 10px 1px white;
+    color: black;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.inline{
+    display: inline; /* Отображать как строчный элемент */
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
+}
+
+
+
+.bteen {
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #8C959D; /* Серый цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 1rem 1.5rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+}
+
+
+
+
+
+
+
+
+
+
+

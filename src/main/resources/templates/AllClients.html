@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/allClients.css"/>
+    <title th:text="${'Клиенты'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/header :: header"></header>
+
+
+
+</head>
+<body>
+
+
+
+<section class="booking">
+    <h3 >Бронирование</h3>
+
+    <div class="allDiv">
+        <div class="wrap">ID</div>  <br>  <br>
+        <div class="wrap">№ тура</div> <br>  <br>
+        <div class="wrap">№ комнаты</div> <br>  <br>
+        <div class="wrap">Фамилия</div> <br>  <br>
+        <div class="wrap">Имя</div> <br>  <br>
+        <div class="wrap">Отчество</div> <br>  <br>
+        <div class="wrap">№ телефона</div> <br>  <br>
+    </div>
+
+
+        <div th:each="el : ${bookings}" class="allDiv">
+            <div th:text="${el.id}" class="wrap"><input type="text" id="id" name="id" placeholder="Фамилия"></div>
+            <div th:text="${el.tourId}" class="wrap"><input type="text" id="tourId" name="tourId" placeholder="Фамилия"></div>
+            <div th:text="${el.myRoomId}" class="wrap"><input type="text" id="myRoomId" name="myRoomId" placeholder="Имя"></div>
+            <div th:text="${el.lname}" class="wrap"><input type="text" id="lname" name="lname" placeholder="Отчество"></div>
+            <div th:text="${el.fname}" class="wrap"><input type="text" id="fname" name="fname" placeholder="Номер телефона"></div>
+            <div th:text="${el.pname}" class="wrap"><input type="text" id="pname" name="pname" placeholder="Тур"></div>
+            <div th:text="${el.phone}" class="wrap"><input type="text" id="phone" name="phone" placeholder="Комната"></div>
+            <div><a th:href="'/AllClients/' + ${el.id} + '/edit'" class="test">Редактировать</a></div>
+            <form th:action="'/AllClients/' + ${el.id} +'/remove'" method="post">
+                <button class="btn btn-warning" type="submit">Удалить</button>
+            </form>
+        </div>
+
+
+</section>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>

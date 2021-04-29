@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/addTour.css"/>
+    <title th:text="${'Клиенты'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+
+<section class="newPeoples">
+    <h3 >Добавить нового сотрудника</h3>
+    <br>
+
+    <div class="allDivNewPeoples">
+     <!--   <div class="wrap1">ID</div> -->
+        <div class="wrap1">Корпус</div>
+        <div class="wrap1">Дата заезда</div>
+        <div class="wrap1">Дата выезда</div>
+        <div class="wrap1">Кол-во дней</div>
+        <div class="wrap1">Наименование тура</div>
+        <div class="wrap1"></div>
+
+    </div>
+
+    <form action="/AddTour" method="post">
+        <div class="allDivNewPeoples">
+                <!-- <div><input type="text" onkeyup="checkParams()" id="id" name="id" placeholder="ID"></div> -->
+                    <div><input type="text" onkeyup="checkParams()" id="tourKorpus" name="tourKorpus" placeholder="Корпус"></div>
+                    <div><input type="text" onkeyup="checkParams()" id="tourDateIn" name="tourDateIn" placeholder="Дата заезда"></di>
+                    <div><input type="text" onkeyup="checkParams()" id="tourDateOut" name="tourDateOut" placeholder="Дата выезда"></div>
+                    <div><input type="text" onkeyup="checkParams()" id="tourDays" name="tourDays" placeholder="Кол-во дней"></div>
+                    <div><input type="text" onkeyup="checkParams()" id="tourName" name="tourName" placeholder="Наименование тура"></div>
+
+                <form action="/AddTour" method="post">
+                    <button class="btn btn-warning" type="submit">Добавить</button>
+                </form>
+            </div>
+            </div>
+    </form>
+</section>
+<!--
+ <form th:action="'/blog/' + ${el.id} +'/remove'" method="post">
+                <button class="btn btn-warning" type="submit">Удалить</button>
+            </form>
+            -->
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>

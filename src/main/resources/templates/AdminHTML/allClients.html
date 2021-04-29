@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/allClients.css"/>
+    <title th:text="${'Клиенты'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+
+<section class="booking">
+    <h3 >Бронирование</h3>
+
+    <div class="allDiv">
+        <div class="wrap">№ тура</div>
+        <div class="wrap">№ комнаты</div>
+        <div class="wrap">Дата заезда</div>
+        <div class="wrap">Кол-во Дней</div>
+        <div class="wrap">Фамилия</div>
+        <div class="wrap">Имя</div>
+        <div class="wrap">Отчество</div>
+        <div class="wrap">№ телефона</div>
+        <div class="wrap">&nbsp;</div>
+        <div class="wrap">&nbsp;</div>
+
+    </div>
+
+    <br>
+
+
+        <div th:each="el : ${bookings}" class="allDiv">
+          <!--  <div th:text="${el.id}" class="wrap"><input type="text" id="id" name="id" placeholder="Фамилия"></div> -->
+            <div th:text="${el.tourId}" class="wrap"><input type="text" id="tourId" name="tourId" placeholder="Фамилия"></div>
+            <div th:text="${el.myRoomId}" class="wrap"><input type="text" id="myRoomId" name="myRoomId" placeholder="Имя"></div>
+            <div th:text="${el.dateIn}" class="wrap"><input type="text" id="dateIn" name="dateIn" placeholder="Дата заезда"></div>
+            <div th:text="${el.days}" class="wrap"><input type="text" id="days" name="days" placeholder="Кол-во дней"></div>
+            <div th:text="${el.lname}" class="wrap"><input type="text" id="lname" name="lname" placeholder="Отчество"></div>
+            <div th:text="${el.fname}" class="wrap"><input type="text" id="fname" name="fname" placeholder="Номер телефона"></div>
+            <div th:text="${el.pname}" class="wrap"><input type="text" id="pname" name="pname" placeholder="Тур"></div>
+            <div th:text="${el.phone}" class="wrap"><input type="text" id="phone" name="phone" placeholder="Комната"></div>
+         <!--   <div th:text="${el.email}" class="wrap"><input type="text" id="email" name="email" placeholder="E-mail"></div>
+          -->  <div><a th:href="'/AllClients/' + ${el.id} + '/edit'" class="test">Редактировать</a></div>
+
+            <form th:action="'/AllClients/' + ${el.id} +'/remove'" method="post">
+                <button class="btn btn-warning" type="submit">Удалить</button>
+            </form>
+        </div>
+
+
+</section>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>

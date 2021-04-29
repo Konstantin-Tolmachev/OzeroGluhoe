@@ -1,0 +1,69 @@
+<div  th:fragment="headerAdmin" xmlns:th="http://www.w3.org/1999/xhtml">
+    <h1 class="name" align="center"><span style="font-family:Lobster, cursive; Font-size:30px;">Панель Администратора</span></h1>
+
+    <nav>
+        <ul class="topmenu">
+            <div class="dropdown">
+                <button class="dropbtn">Главное меню</button>
+                <div class="dropdown-content">
+                    <a href="/">Главная</a>
+                    <a href="/Accommodation">Проживание</a>
+                    <a href="/Infrastructure">Инфаструктура</a>
+                    <a href="/Price">Прайс</a>
+                    <a href="/Сommunications">Контакты</a>
+                    <a href="/AboutUs">О нас</a>
+                    <a href="/Rules">Правила</a>
+                    <a href="/Comment">Отзывы</a>
+                </div>
+            </div>
+
+
+            <div class="dropdown">
+                <button class="dropbtn">Сотрудники</button>
+                <div class="dropdown-content">
+                    <a href="/AddStaff">Добавить сотрудника</a>
+                    <a href="/AllStaff">Редактор сотрудников</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Клиенты</button>
+                <div class="dropdown-content">
+                    <a href="/AllClients">Редактор клиентов</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Роли</button>
+                <div class="dropdown-content">
+                    <a href="#">Все роли</a> <!-- Роли которые есть в системе ID - Developer, ID - Admin, ID - Staff  -->
+                    <a href="#">Роли сотрудников</a> <!-- Разработчик сам присваивает роль нужному сотруднику (Логин, пароль, роль) -->
+                    <a href="#">Роли клиентов</a> <!-- Роли у авторизованного клиента после подтверждения роль по умолчанию -->
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Учетная запись комнат</button>
+                <div class="dropdown-content">
+                    <a href="#">Редактировать запись</a> <!-- После выезда обновляем пароль -->
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Туры</button>
+                <div class="dropdown-content">
+                    <a href="/AddTour">Добавить тур</a>
+                    <a href="/AllTour">Редактор туров</a>
+                </div>
+            </div>
+
+
+
+
+            <li class="float"><a href="/Authorization">Авторизоваться</a></li>
+           <!-- <li class="float"><a href="/AllClients">AllClients</a></li>
+            <li class="float"><a href="/AllRegistrations">allRegistrations</a></li> -->
+
+        </ul>
+    </nav>
+</div>

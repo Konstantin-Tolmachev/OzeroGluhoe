@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height:100%;
+    margin: 0;
+    padding: 10px 10px;
+    /*  background:  #c7b39b  url(../../static.img/fon.jpg) no-repeat 0/cover;*/
+    background: #c7b39b url(/img/fon.jpg) no-repeat 0 / cover;
+    color: #ba1c85; /* Цвет текста всего шрифта  */
+    background-attachment: fixed;
+    background-position: center top;
+    border-radius: .2rem;
+}
+
+/*ШАПКА ПРОЗРАЧНОСТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+nav ul {
+    opacity: 0.8;
+}
+
+/*Слова в шапке без подчеркивания линией!!!!!!!!!!!!!!!!!!*/
+nav a {
+    text-decoration: none;
+}
+
+h1.name{
+    color: #ba1c85; /* Цвет текста всего шрифта !!!!!!!!!!!!!!!!!!!! */
+}
+
+/*Шапка бара*/
+.topmenu {
+    width: 100%;
+    /*Резиновая шапка*/
+    padding: 25px;
+    border-radius: 20px;
+    /*Радиус бара*/
+    background-color: #f2f2f2;
+}
+/*Расположение текста в баре*/
+.topmenu > li {
+    display: inline; /*текст в шапке в строчку*/
+}
+
+/*Текст в шапке бара*/
+.topmenu > li > a {
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
+}
+
+/*Изменения цвета при наведении курсора*/
+.topmenu li a:hover {
+    color: #E6855F;
+}
+
+/*Добавляем свойство*/
+@media screen and (min-width: 900px) {
+    .float {
+        float: right;
+    }
+}
+
+#footer {
+    position: absolute; /* Фиксированное положение */
+    opacity: 0.5;
+    right: 0;
+    bottom: 0; /* Левый нижний угол */
+    padding: 10px; /* Поля вокруг текста */
+    background: black; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+    font-size:0.75em;
+    text-align: left;
+}
+

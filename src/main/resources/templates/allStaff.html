@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/allStaff.css"/>
+    <title th:text="${'Клиенты'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/header :: header"></header>
+
+
+
+</head>
+<body>
+
+
+<section class="newPeoples">
+    <h3 >Все сотруднии</h3>
+
+    <div class="nameColumn">
+        <!--   <div class="wrap1">ID</div> -->
+
+        <div class="wrap1">Фамилия</div>
+        <div class="wrap1">Имя</div>
+        <div class="wrap1">Отчество</div>
+        <div class="wrap1">Должность</div>
+        <div class="wrap1"></div>
+        <div class="wrap1"></div>
+    </div>
+    <br>
+    <br>
+
+
+    <div th:each="el : ${staffs}" class="editStaff">
+       <!-- <div  th:text="${el.id}" class="wrap"><input type="text" id="id" name="id" placeholder="Фамилия"></div> -->
+        <div th:text="${el.lname}" class="wrap"><input type="text" id="lname" name="lname" placeholder="Имя"></div>
+        <div th:text="${el.fname}" class="wrap"><input type="text" id="fname" name="fname" placeholder="Фамилия"></div>
+        <div th:text="${el.pname}" class="wrap"><input type="text" id="pname" name="pname" placeholder="Отчество"></div>
+        <div th:text="${el.position}" class="wrap"><input type="text" id="phone" name="phone" placeholder="Должность"></div>
+        <div><a th:href="'/AllStaff/' + ${el.id} + '/edit'" class="test">Редактировать</a></div>
+        <form th:action="'/AllStaff/' + ${el.id} +'/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</section>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>

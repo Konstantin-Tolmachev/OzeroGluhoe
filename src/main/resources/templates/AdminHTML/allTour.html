@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/allTour.css"/>
+    <title th:text="${'Клиенты'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+<section class="newPeoples">
+    <h3 >Все туры</h3>
+
+    <div class="nameColumn">
+        <!--   <div class="wrap1">ID</div> -->
+        <div class="wrap1">Корпус</div>
+        <div class="wrap1">Дата заезда</div>
+        <div class="wrap1">Дата выезда</div>
+        <div class="wrap1">Кол-во дней</div>
+        <div class="wrap1">Наименование тура</div>
+        <div class="wrap1"></div>
+        <div class="wrap1"></div>
+    </div>
+    <br>
+    <br>
+
+
+    <div th:each="el : ${tours}" class="editStaff">
+        <div  th:text="${el.tourKorpus}" class="wrap"><input type="text" id="tourKorpus" name="tourKorpus" placeholder="Корпус"></div>
+        <div th:text="${el.tourDateIn}" class="wrap"><input type="text" id="tourDateIn" name="tourDateIn" placeholder="Дата заезда"></div>
+        <div th:text="${el.tourDateOut}" class="wrap"><input type="text" id="tourDateOut" name="tourDateOut" placeholder="Дата выезда"></div>
+        <div th:text="${el.tourDays}" class="wrap"><input type="text" id="tourDays" name="tourDays" placeholder="Кол-во дней"></div>
+        <div th:text="${el.tourName}" class="wrap"><input type="text" id="tourName" name="tourName" placeholder="Наименование тура"></div>
+        <div><a th:href="'/AllTour/' + ${el.id} + '/edit'" class="test">Редактировать</a></div>
+        <form th:action="'/AllTour/' + ${el.id} +'/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</section>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>

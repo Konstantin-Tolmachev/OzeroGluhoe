@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/home.css"/>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://unpkg.com/imask"></script>
+
+<header th:insert="blocks/header :: header"></header>
+</head>
+<body>
+
+
+
+<!---->
+
+<div   class="sidebar">
+
+    <h2 class="nametour">Выбери свой тур</h2>
+
+    <div th:each="el : ${tours}">
+
+        <ul class="tours">
+
+            <hr class="hh1">
+
+            <h2  class="korpus" th:text="${el.tourKorpus}" ></h2>
+            <h4 class="ab" th:text="${el.tourName}"></h4>
+            <h4 class="ab" th:text="${el.tourDays}"></h4>
+            <br>
+            <br>
+            <li class="inline" > <a th:text="${el.tourDateIn}"></a></li>
+            <li class="inline" > <a th:text="${el.tourDateOut}"></a></li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<section class="booking">
+    <h3 >Бронирование</h3>
+
+
+
+    <form action="/payment" method="post">
+        <div class="allDiv">
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="tourId" name="tourId" placeholder="№ тура*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="Комната*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="days" name="days" placeholder="Количество дней*"></div>
+           <!-- <div class="">&nbsp;</div>
+            <div class="">&nbsp;</div> -->
+        </div>
+
+        <div class="btn">
+            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате" disabled >
+        </div> <!-- disabled onclick="window.open('/payment' , '_self')"-->
+
+    </form>
+
+</section>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+
+</html>

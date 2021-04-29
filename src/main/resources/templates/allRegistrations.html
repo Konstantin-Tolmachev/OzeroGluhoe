@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/allRegistrations.css"/>
+    <title th:text="${'Зарегистриованные пользователи'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+
+<section class="booking">
+    <h3 >Зарегистрированные пользователи</h3>
+
+    <div class="allDiv">
+        <div class="wrap">ID</div>  <br>  <br>
+        <div class="wrap">Логин</div>  <br>  <br>
+        <div class="wrap">Пароль</div>  <br>  <br>
+       <!-- <div class="wrap">Подтвержденный пароль</div>  <br>  <br> -->
+        <div> <button class="bbb"></button></div>  <br>  <br>
+        <div> <button class="bbb"></button></div>  <br>  <br>
+        <div > <button class="bbb"></button></div>  <br>  <br>
+    </div>
+
+    <div th:each="el : ${registrations}" class="allDiv">
+        <div th:text="${el.id}" class="wrap"><input type="text" id="id" name="id" placeholder="id"></div>
+        <div th:text="${el.login}" class="wrap"><input type="text" id="login" name="login" placeholder="login"></div>
+        <div th:text="${el.password}" class="wrap"><input type="text" id="password" name="password" placeholder="password"></div>
+        <!--    <div th:text="${el.passwordConfirm}" class="wrap"><input type="text" id="passwordConfirm" name="passwordConfirm" placeholder="passwordConfirm"></div>  -->
+           <div> <button>Редактировать</button></div>
+           <div> <button>Удалить</button></div>
+
+       </div>
+
+
+   </section>
+
+
+   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="https://unpkg.com/imask"></script>
+   <script src="/scripts/home.js"></script>
+   <!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+
+</html>
