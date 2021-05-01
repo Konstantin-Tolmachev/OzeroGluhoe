@@ -2,6 +2,9 @@ package com.company.blog.controllers;
 
 
 
+import com.company.blog.models.ActualInformation;
+import com.company.blog.models.Staff;
+import com.company.blog.repo.ActualInformationRepository;
 import com.company.blog.repo.BookingRepository;
 import com.company.blog.models.Booking;
 import com.company.blog.models.Registration;
@@ -24,6 +27,8 @@ public class AdminControllers {
     private RegistrationRepository registrationRepository;
     @Autowired
     private BookingRepository bookingRepository;
+    @Autowired
+    private ActualInformationRepository actualInformationRepository;
 
     @GetMapping("/AdminHome")
     public String Test(Model model) {
@@ -97,6 +102,79 @@ public class AdminControllers {
         bookingRepository.delete(post);
         return "redirect:/AllClients";
     }
+
+    /*Создаем страницу*/
+
+    @GetMapping("/AddActualInformation")
+    public String addActualInformation(Model model) {
+        model.addAttribute("title", "Добавление информации");
+        return "AdminHTML/addActualInformation";
+    }
+
+
+
+    /* Добавить новую информацию */
+
+    @PostMapping("/AddActualInformation") //AllClients; home; / можо попробовать
+    public String AllActualInformation(@RequestParam String text,
+                           Model model) {
+        ActualInformation post = new ActualInformation (text);
+        actualInformationRepository.save(post);
+        return "AdminHTML/addActualInformation";
+    }
+
+    /* Вывод всей добавленной информации */
+
+    @GetMapping("/AllActualInformation")
+    public String addNewActualInformation(Model model) {
+        Iterable<ActualInformation> ActualInformations = actualInformationRepository.findAll();
+        model.addAttribute("ActualInformations", ActualInformations);
+        return "AdminHTML/AllActualInformation";
+    }
+
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+
+    @GetMapping("/AllActualInformation/{id}/edit")
+    public String AllActualInformation (@PathVariable(value = "id") long id, Model model) {
+        if(!actualInformationRepository.existsById (id)){
+            return "redirect:/AllActualInformation";
+        }
+        Optional<ActualInformation> post = actualInformationRepository.findById(id);
+        ArrayList<ActualInformation> res = new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post", res);
+        return "AdminHTML/AllActualInformationEdit";
+    }
+
+    /*Редактирование информации*/
+
+    @PostMapping("/AllActualInformation/{id}/edit")
+    public String AllStaffUpdate(@PathVariable(value = "id") long id,
+                                 @RequestParam String text,
+                                 Model model) throws Exception {
+        ActualInformation post = actualInformationRepository.findById(id).orElseThrow(Exception::new);
+        post.setText(text);
+       actualInformationRepository.save(post);
+        return "redirect:/AllActualInformation";
+    }
+
+    /* Удалить информацию */
+
+    @PostMapping("/AllActualInformation/{id}/remove")
+    public String AllActualInformationDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
+        ActualInformation post = actualInformationRepository.findById(id).orElseThrow(Exception::new);
+        actualInformationRepository.delete(post);
+        return "redirect:/AllActualInformation";
+    }
+
+
+
+
+
 }
 
 

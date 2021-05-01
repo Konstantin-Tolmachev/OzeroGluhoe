@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/addActualInformation.css"/>
+    <title th:text="${'Актуальная информация'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+
+<section class="newPeoples">
+    <h3 >Добавить информацию</h3>
+    <br>
+
+    <div class="allDivNewPeoples">
+     <!--   <div class="wrap1">ID</div>
+        <div class="wrap1">Табельный номер</div> -->
+        <div class="wrap1">Текст</div>
+
+        <div class="wrap1"></div>
+
+    </div>
+
+    <form action="/AddActualInformation" method="post">
+        <div class="allDivNewPeoples">
+                <!-- <div><input type="text" onkeyup="checkParams()" id="id" name="id" placeholder="ID"></div> -->
+                   <!-- <div><input type="text" onkeyup="checkParams()" id="personnelNumber" name="personnelNumber" placeholder="Табельный номер"></div> -->
+                    <div><input type="text" onkeyup="checkParams()" id="text" name="text" placeholder="Текст"></di>
+
+                <form action="/AddActualInformation/1/remove" method="post">
+                    <button class="btn btn-warning" type="submit">Добавить</button>
+                </form>
+            </div>
+            </div>
+    </form>
+</section>
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/allActualInformationEdit.css"/>
+    <title th:text="${'Актуальная информация'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+
+<section class="newPeoples">
+    <h3 >Вся информация</h3>
+
+    <div class="nameColumn">
+        <!--   <div class="wrap1">ID</div> -->
+
+        <div class="wrap1">Текст</div>
+
+        <div class="wrap1"></div>
+        <div class="wrap1"></div>
+    </div>
+
+
+    <form  method="post">
+        <div  th:each="el : ${post}" class="editStaff">
+            <div class="wrap"><input type="text" th:value="${el.text}" onkeyup="checkParams()" id="text" name="text" placeholder="Текст"></div>
+
+            <div class="wrap"><input type="submit"   class="glow-button" value="Обновить"  ></div> <!-- disabled onclick="window.open('/payment' , '_self')"-->
+            <!--  <div class="wrap"><input type="submit"  id="submit1" class="glow-button" value="Remove"  ></div>  disabled onclick="window.open('/payment' , '_self')"-->
+        </div>
+    </form>
+
+
+</section>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+
+
+
+</body>
+
+
+
+
+</html>

@@ -30,7 +30,7 @@ public class RegistrationsController {
     @GetMapping("/Authorization")
     public String Authorization(Model model) {
         model.addAttribute("title", "Авторизация");
-        return "authorization";
+        return "HomeHTML/authorization";
     }
 
     /*
@@ -45,7 +45,7 @@ public class RegistrationsController {
     @GetMapping("/Registration")
     public String Registration(Model model) {
         model.addAttribute("title", "Регистрация");
-        return "registration";
+        return "HomeHTML/registration";
     }
 
 
@@ -56,7 +56,7 @@ public class RegistrationsController {
                            Model model) {
         Registration post = new Registration (login, password/*, passwordConfirm*/);
         registrationRepository.save(post);
-        return "registration";
+        return "HomeHTML/registration";
     }
 
 

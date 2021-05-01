@@ -33,43 +33,43 @@ public class MainController {
     @GetMapping("/Accommodation")
     public String Accommodation(Model model) {
         model.addAttribute("title", "Проживание");
-        return "accommodation";
+        return "HomeHTML/accommodation";
     }
 
     @GetMapping("/Infrastructure")
     public String Infrastructure(Model model) {
         model.addAttribute("title", "Инфраструктура");
-        return "infrastructure";
+        return "HomeHTML/infrastructure";
     }
 
     @GetMapping("/Price")
     public String Price(Model model) {
         model.addAttribute("title", "Прайс");
-        return "price";
+        return "HomeHTML/price";
     }
 
     @GetMapping("/Сommunications")
     public String Сommunications(Model model) {
         model.addAttribute("title", "Отзывы");
-        return "communications";
+        return "HomeHTML/communications";
     }
 
     @GetMapping("/AboutUs")
     public String AboutUs(Model model) {
         model.addAttribute("title", "О нас");
-        return "aboutUs";
+        return "HomeHTML/aboutUs";
     }
 
     @GetMapping("/Rules")
     public String Rules(Model model) {
         model.addAttribute("title", "Правила");
-        return "rules";
+        return "HomeHTML/rules";
     }
 
     @GetMapping("/Comment")
     public String Comment(Model model) {
         model.addAttribute("title", "Контакты");
-        return "comment";
+        return "HomeHTML/comment";
     }
 
 
