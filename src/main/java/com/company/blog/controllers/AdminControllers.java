@@ -2,12 +2,10 @@ package com.company.blog.controllers;
 
 
 
-import com.company.blog.models.ActualInformation;
-import com.company.blog.models.Staff;
+import com.company.blog.models.*;
 import com.company.blog.repo.ActualInformationRepository;
 import com.company.blog.repo.BookingRepository;
-import com.company.blog.models.Booking;
-import com.company.blog.models.Registration;
+import com.company.blog.repo.EventRepository;
 import com.company.blog.repo.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +27,8 @@ public class AdminControllers {
     private BookingRepository bookingRepository;
     @Autowired
     private ActualInformationRepository actualInformationRepository;
+    @Autowired
+    private EventRepository eventRepository;
 
     @GetMapping("/AdminHome")
     public String Test(Model model) {
@@ -169,6 +169,79 @@ public class AdminControllers {
         ActualInformation post = actualInformationRepository.findById(id).orElseThrow(Exception::new);
         actualInformationRepository.delete(post);
         return "redirect:/AllActualInformation";
+    }
+
+
+
+
+
+
+
+
+
+    /*Создаем страницу*/
+
+    @GetMapping("/AddEvent")
+    public String addEvent(Model model) {
+        model.addAttribute("title", "Добавление мероприятия");
+        return "AdminHTML/addEvent";
+    }
+
+
+
+    /* Добавить новую информацию */
+
+    @PostMapping("/AddEvent") //AllClients; home; / можо попробовать
+    public String AddNewEvent(@RequestParam String text,
+                                       Model model) {
+        Event post = new Event(text);
+        eventRepository.save(post);
+        return "AdminHTML/addEvent";
+    }
+
+    /* Вывод всей добавленной информации */
+
+    @GetMapping("/AllEvent")
+    public String addViewEvent(Model model) {
+        Iterable<Event> Events = eventRepository.findAll();
+        model.addAttribute("Events", Events);
+        return "AdminHTML/AllEvent";
+    }
+
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+
+
+    @GetMapping("/AllEvent/{id}/edit")
+    public String AllEvent (@PathVariable(value = "id") long event_id, Model model) {
+        if(!eventRepository.existsById (event_id)){
+            return "redirect:/AllEvent";
+        }
+        Optional<Event> post = eventRepository.findById(event_id);
+        ArrayList<Event> res = new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post", res);
+        return "AdminHTML/AllEventEdit";
+    }
+
+    /*Редактирование информации*/
+
+    @PostMapping("/AllEvent/{id}/edit")
+    public String AllEventUpdate(@PathVariable(value = "id") long event_id,
+                                 @RequestParam String text,
+                                 Model model) throws Exception {
+        Event post = eventRepository.findById(event_id).orElseThrow(Exception::new);
+        post.setText(text);
+        eventRepository.save(post);
+        return "redirect:/AllEvent";
+    }
+
+    /* Удалить информацию */
+
+    @PostMapping("/AllEvent/{id}/remove")
+    public String AllEventDelete(@PathVariable(value = "id") long event_id, Model model) throws Exception {
+        Event post = eventRepository.findById(event_id).orElseThrow(Exception::new);
+        eventRepository.delete(post);
+        return "redirect:/AllEvent";
     }
 
 

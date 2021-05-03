@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/addStaff.css"/>
-    <title th:text="${'Клиенты'}"/>
+    <link rel="stylesheet" href="/css/addActualInformation.css"/>
+    <title th:text="${'Мероприятия'}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="">
     <script src="https://unpkg.com/imask"></script>
@@ -16,28 +16,24 @@
 
 
 <section class="newPeoples">
-    <h3 >Добавить нового сотрудника</h3>
+    <h3 >Мероприятия</h3>
     <br>
 
     <div class="allDivNewPeoples">
      <!--   <div class="wrap1">ID</div>
         <div class="wrap1">Табельный номер</div> -->
-        <div class="wrap1">Фамилия</div>
-        <div class="wrap1">Имя</div>
-        <div class="wrap1">Отчество</div>
-        <div class="wrap1">Должность</div>
+        <div class="wrap1">Текст</div>
+
         <div class="wrap1"></div>
 
     </div>
 
-    <form action="/AddStaff" method="post">
+    <form action="/AddEvent" method="post">
         <div class="allDivNewPeoples">
                 <!-- <div><input type="text" onkeyup="checkParams()" id="id" name="id" placeholder="ID"></div> -->
-                   <!-- <div><input type="text" onkeyup="checkParams()" id="personnelNumber" name="personnelNumber" placeholder="Табельный номер"></div> -->
-                    <div><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Фамилия"></di>
-                    <div><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Имя"></div>
-                    <div><input type="text" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество"></div>
-                    <div><input type="text" onkeyup="checkParams()" id="position" name="position" placeholder="Должность"></div>
+                   <!-- <div><input type="text" onkeyup="checkParams()" id="personnelNumber" name="personnelNumber" placeholder="Табельный номер"></div>
+                    <div><input type="text" onkeyup="checkParams()" id="tex1t" name="text" placeholder="Текст"></div> -->
+                       <div> <textarea class="size" name="text" id="text" placeholder="Текст"></textarea> </div>
 
 
                     <button class="btn btn-warning" type="submit">Добавить</button>

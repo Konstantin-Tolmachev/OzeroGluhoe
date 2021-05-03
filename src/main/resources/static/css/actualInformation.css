@@ -82,15 +82,15 @@ h1.name{
 
 
 
-
+/*
 .allDivNewPeoples{
-    column-count: 2;
+    column-count: 6;
     padding-right: 10px;
-    padding-top: 5px; /*Растояние между строками*/
+    padding-top: 5px; Растояние между строками
 }
-
+*/
 .allDivPeoples{
-    column-count: 2;
+    column-count: 6;
     padding-right: 10px;
     padding-top: 5px; /*Растояние между строками*/
 }
@@ -147,10 +147,6 @@ h1.name{
     column-count: 5;
     padding-right: 10px;
     padding-top: 5px; /*Растояние между строками*/
-}
-.size{
-    width: 400px;
-    height: 100px;
 }
 
 
@@ -234,20 +230,52 @@ h3 {
 
 
 
+.AllActualInformation{
+    margin: 0 auto; /* Выравниваем по центру */
+    width: 1300px;
+    height: auto;
+    border-radius: 5px;
+    background-color: white; /*Цвет рамки где записи из БД*/
+    opacity: 0.9;
+    padding: 5px;
+}
+
+.editInformation{
+    padding: 5px; /*Растояние между строками*/
+}
+
+
+.size{
+    width: 900px;
+    height: auto;
+    min-width: 300px;
+    min-height: auto;
+    max-width: 900px;
+    max-height: auto;
+    text-indent: 20px; /* Отступ первой строки в пикселах */
+    padding: 10px; /* Поля */
+    font-size: 1.5em; /* Размер шрифта */
+    word-wrap: break-word; /* Перенос слов */
+}
+
+
+
+
+/*
 #footer {
-    position: absolute; /* Фиксированное положение */
+    position: absolute; Фиксированное положение
     opacity: 0.5;
     right: 0;
-    bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-    background: black; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
+    bottom: 0;
+    padding: 10px;
+    background: black;
+    color: #fff;
+    width: 100%;
     font-size:0.75em;
     text-align: left;
 }
 
-
+*/
 
 
 

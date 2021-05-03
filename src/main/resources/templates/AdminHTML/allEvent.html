@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/css/allActualInformation.css"/>
-    <title th:text="${'Актуальная информация'}"/>
+    <title th:text="${'Мероприятия'}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="">
     <script src="https://unpkg.com/imask"></script>
@@ -15,17 +15,17 @@
 
 
 <section class="AllActualInformation">
-    <h3 >Актуальная информация</h3>
-    <div th:each="el : ${ActualInformations}" class="editInformation">
+    <h3 >Мероприятия</h3>
+    <div th:each="el : ${Events}" class="editInformation">
         <div>
             <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
         </div>
 
         <div class="edit">
-            <a th:href="'/AllActualInformation/' + ${el.id} + '/edit'" class="test">Редактировать</a>
+            <a th:href="'/AllEvent/' + ${el.event_id} + '/edit'" class="test">Редактировать</a>
         </div>
         <br>
-        <form class="edit"  th:action="'/AllActualInformation/' + ${el.id} +'/remove'" method="post">
+        <form class="edit"  th:action="'/AllEvent/' + ${el.event_id} +'/remove'" method="post">
             <button class="delete"  type="submit">Удалить</button>
         </form>
         <hr class="hh1">

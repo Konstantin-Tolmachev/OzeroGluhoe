@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/events.css">
+    <link rel="stylesheet" href="/css/actualInformation.css">
 
     <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,7 +10,18 @@
     <header th:insert="blocks/headerClientAccount :: headerClientAccount"></header>
 </head>
 <body>
-<h1>Мой акаунт</h1>
+
+<section class="AllActualInformation">
+    <h3 >Мероприятия</h3>
+    <div th:each="el : ${Events}" class="editInformation">
+        <div>
+            <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
+        </div>
+
+
+        <hr class="hh1">
+    </div>
+</section>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="/scripts/home.js"></script>
@@ -19,17 +30,6 @@
 
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
 
 <footer th:insert="blocks/footer :: footer"></footer>
 

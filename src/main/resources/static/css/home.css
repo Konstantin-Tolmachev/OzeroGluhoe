@@ -173,7 +173,7 @@ h3 {
 
 .allDiv{
     column-count: 2;
-    padding: 5px;
+    padding: 15px;
 }
 
 input#fname,#lname,#pname,#phone,#tourId,#myRoomId,#days,#email{
