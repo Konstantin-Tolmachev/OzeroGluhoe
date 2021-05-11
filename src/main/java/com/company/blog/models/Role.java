@@ -1,7 +1,8 @@
 package com.company.blog.models;
 
 public enum Role {
-    STAFF;
+    STAFF, CLIENT, ADMIN;
+
 }
 
 

@@ -10,7 +10,7 @@ public class AccountStaffControllers {
 
     @GetMapping("/StaffAccount")
     public String StaffAccount(Model model) {
-        model.addAttribute("title", "аккаунт сотрудника");
+        model.addAttribute("title", "Аккаунт сотрудника");
         return "StaffHTML/staffAccount";
     }
 }

@@ -1,6 +1,7 @@
-
+/*!!!!!!!!!!!!!!!!!
 package com.company.blog.config;
 
+import ch.qos.logback.core.net.server.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,22 +29,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
+                    .authorizeRequests()
                     .antMatchers("/","/Accommodation", "/Infrastructure", "/Price", "/Сommunications",
-                                            "/AboutUs", "/Rules", "/Comment", "/payment")
+                                                "/AboutUs", "/Rules", "/Comment", "/payment")
                     .permitAll()
-
-                    .anyRequest().authenticated()
+                .antMatchers("/StaffAccount").hasRole("STAFF")
+                .antMatchers("/MyAccount").hasRole("CLIENT")
+                    .anyRequest()
+                    .authenticated()
                 .and()
                     .formLogin()
                     .loginPage("/Authorization")
                 //Перенарпавление на страницу после успешного входа
-                    .defaultSuccessUrl("/MyAccount",true)
+                    //.defaultSuccessUrl("/StaffAccount")
+               // .antMatchers("/StaffAccount").hasRole("STAFF")
                     .permitAll()
                 .and()
                     .logout()
-                    .permitAll();
+                    .permitAll()
+                    .logoutSuccessUrl("/");
     }
+
+
+
+
 
 
     @Bean
@@ -51,13 +60,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
         UserDetails user =
                 User.withDefaultPasswordEncoder()
-                        .username("u")
-                        .password("p")
+                        .username("1")
+                        .password("1")
                         .roles("STAFF")
                         .build();
 
+
         return new InMemoryUserDetailsManager(user);
     }
+
+        */
+
 /*
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -71,7 +84,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  */
 
 
-    /* Разрешаем Spring Security допускать следующие директории*/
+    /* Разрешаем Spring Security допускать следующие директории
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/css/**","/img/**","/scripts/**");
@@ -79,7 +92,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          }
 }
 
-
+        */
 
 
 
