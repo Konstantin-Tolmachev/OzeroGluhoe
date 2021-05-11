@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/allActualInformationEdit.css"/>
+    <link rel="stylesheet" href="/css/allEventEdit.css"/>
     <title th:text="${'Мероприятия'}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="">
@@ -15,25 +15,17 @@
 
 
 
-<section class="newPeoples">
+<section class="allDivEvent">
     <h3 >Мероприятия</h3>
 
-    <div class="nameColumn">
-        <!--   <div class="wrap1">ID</div> -->
-
-        <div class="wrap1">Текст</div>
-
-        <div class="wrap1"></div>
-        <div class="wrap1"></div>
-    </div>
-
-    <div  th:each="el : ${post}" class="editStaff">
+    <div  th:each="el : ${post}" >
     <form  method="post">
-
-            <textarea  class="size" name="text" id="text" placeholder="Текст" th:text="${el.text}"></textarea>
-            <div class="wrap"><input type="submit"   class="glow-button" value="Обновить"  ></div> <!-- disabled onclick="window.open('/payment' , '_self')"-->
-            <!--  <div class="wrap"><input type="submit"  id="submit1" class="glow-button" value="Remove"  ></div>  disabled onclick="window.open('/payment' , '_self')"-->
-
+        <div class="DivEvent">
+            <textarea  class="size" name="text" id="text" placeholder="Обновить актуальную информацию" th:text="${el.text}"></textarea>
+        </div>
+        <div class="DivEvent">
+            <input type="submit"   class="glow-button" value="Обновить">
+        </div>
     </form>
     </div>
 

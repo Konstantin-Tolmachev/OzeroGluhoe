@@ -1,3 +1,14 @@
+package com.company.blog.models;
+
+public enum Role {
+    STAFF;
+}
+
+
+
+
+
+
 /*
 package com.company.blog.models;
 

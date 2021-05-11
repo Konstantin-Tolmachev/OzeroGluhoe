@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -92,6 +93,21 @@ public class StaffController {
         staffRepository.delete(post);
         return "redirect:/AllStaff";
     }
+
+    @PostMapping("StaffFilter")
+    public String filter(@RequestParam String filter, Model model) {
+        Iterable<Staff> staffs;
+
+        if (filter !=null && !filter.isEmpty()){
+            staffs = staffRepository.findByPosition(filter);
+        } else {
+            staffs = staffRepository.findAll();
+        }
+
+        model.addAttribute("staffs", staffs);
+        return "AdminHTML/allStaff";
+    }
+
 
 
 

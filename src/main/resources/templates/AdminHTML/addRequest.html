@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/css/addActualInformation.css"/>
-    <title th:text="${'Актуальная информация'}"/>
+    <title th:text="${'Написать заявку'}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="">
     <script src="https://unpkg.com/imask"></script>
@@ -15,23 +15,18 @@
 
 
 
-<section class="newActualInformation">
-    <h3 >Добавить информацию</h3>
-    <br>
+<section class="sectionRequest">
+    <h3 >Написать заявку</h3>
 
-
-    <form action="/AddActualInformation" method="post">
-        <div class="allDivctualInformation">
-            <div class="DivActualInformation">
-                <textarea class="size" name="text" id="text" placeholder="Добавить актуальную информацию"></textarea>
+    <form action="/AddRequest" method="post">
+        <div class="allDivRequest">
+            <div>
+                <textarea class="size" name="text" id="text" placeholder="Текст"></textarea>
             </div>
-
-            <div class="DivActualInformation">
-                <button  type="submit">Добавить</button>
+            <div>
+                <button type="submit">Добавить</button>
             </div>
-
-            </div>
-
+        </div>
     </form>
 </section>
 

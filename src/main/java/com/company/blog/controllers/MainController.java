@@ -21,14 +21,13 @@ public class MainController {
         return "home";
     }
 
-    /* Вывод всех добавленных туров
 
-    @GetMapping("/AllTour")
-    public String addNewTour(Model model) {
-        Iterable<Tour> tours = tourRepository.findAll();
-        model.addAttribute("tours", tours);
-        return "AdminHTML/allTour";
-    } */
+    @GetMapping("/Authorization")
+    public String Authorization(Model model) {
+        model.addAttribute("title", "Авторизация");
+        return "HomeHTML/authorization";
+
+    }
 
     @GetMapping("/Accommodation")
     public String Accommodation(Model model) {
@@ -71,37 +70,6 @@ public class MainController {
         model.addAttribute("title", "Контакты");
         return "HomeHTML/comment";
     }
-
-
-  /*  @GetMapping("/AdminHome")
-    public String Test(Model model) {
-        model.addAttribute("title", "Админ");
-        return "adminHome";
-    }
-
-/*
-    @GetMapping("/Authorization")
-    public String Authorization(Model model) {
-        model.addAttribute("title", "Авторизация");
-        return "authorization";
-    }
-  @GetMapping("/authorization/registration")            // Поиграть с заглавными буквами
-    public String AuthorizationRegistration(Model model){
-        return "registration";
-    }
-
-   @GetMapping("/Registration")
-    public String Registration(Model model) {
-        model.addAttribute("title", "Регистрация");
-        return "registration";
-    }
-*/
-
-
-
-
-
-
 
     @GetMapping("/payment")
     public String payment(Model model) {

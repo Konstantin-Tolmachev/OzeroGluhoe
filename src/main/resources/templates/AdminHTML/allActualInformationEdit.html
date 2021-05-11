@@ -15,25 +15,18 @@
 
 
 
-<section class="newPeoples">
+<section class="allDivctualInformation">
     <h3 >Вся информация</h3>
 
-    <div class="nameColumn">
-        <!--   <div class="wrap1">ID</div> -->
 
-        <div class="wrap1">Текст</div>
-
-        <div class="wrap1"></div>
-        <div class="wrap1"></div>
-    </div>
-
-    <div  th:each="el : ${post}" class="editStaff">
+    <div  th:each="el : ${post}" >
     <form  method="post">
-
-            <textarea  class="size" name="text" id="text" placeholder="Текст" th:text="${el.text}"></textarea>
-            <div class="wrap"><input type="submit"   class="glow-button" value="Обновить"  ></div> <!-- disabled onclick="window.open('/payment' , '_self')"-->
-            <!--  <div class="wrap"><input type="submit"  id="submit1" class="glow-button" value="Remove"  ></div>  disabled onclick="window.open('/payment' , '_self')"-->
-
+        <div class="DivActualInformation">
+            <textarea  class="size" name="text" id="text" placeholder="Обновить актуальную информацию" th:text="${el.text}"></textarea>
+        </div>
+        <div class="DivActualInformation">
+            <input type="submit"   class="glow-button" value="Обновить">
+        </div>
     </form>
     </div>
 

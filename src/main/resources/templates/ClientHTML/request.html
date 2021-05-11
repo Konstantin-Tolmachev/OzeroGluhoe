@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/myAccount.css">
+    <link rel="stylesheet" href="/css/request.css">
 
     <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,7 +10,32 @@
     <header th:insert="blocks/headerClientAccount :: headerClientAccount"></header>
 </head>
 <body>
-<h1>Мой акаунт</h1>
+<section class="newRequest">
+    <h3 >Написать заявку</h3>
+    <br>
+    <form action="/Request" method="post">
+        <div class="allDivRequest">
+
+            <div class="DivRequest">
+                <input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Ваш № корпуса">
+            </div>
+
+            <div class="DivRequest">
+                <input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="Ваш № комнаты">
+            </div>
+
+            <div class="DivRequest">
+                <textarea class="size" name="text" id="text" placeholder="Опишите проблему"></textarea>
+            </div>
+
+            <div class="DivRequest">
+                <button  type="submit">Добавить</button>
+            </div>
+
+        </div>
+    </form>
+
+</section>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="/scripts/home.js"></script>

@@ -63,7 +63,7 @@ h1.name{
     }
 }
 
-.allDivctualInformation{
+.allDivEvent{
     margin: 0 auto; /* Выравниваем по центру */
     width: 1300px;
     height: auto;
@@ -75,7 +75,7 @@ h1.name{
     padding-bottom: 10px;
 }
 
-.DivActualInformation{
+.DivEvent{
     padding: 5px;
 }
 

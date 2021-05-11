@@ -1,15 +1,18 @@
 package com.company.blog.controllers;
 
 
-import com.company.blog.models.ActualInformation;
-import com.company.blog.models.Event;
-import com.company.blog.models.Tour;
+import com.company.blog.models.*;
 import com.company.blog.repo.ActualInformationRepository;
 import com.company.blog.repo.EventRepository;
+import com.company.blog.repo.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.sql.Timestamp;
 
 @Controller
 public class AccountClientControllers {
@@ -17,6 +20,8 @@ public class AccountClientControllers {
     private ActualInformationRepository actualInformationRepository;
     @Autowired
     private EventRepository eventRepository;
+    @Autowired
+    private RequestRepository requestRepository;
 
   @GetMapping("/MyAccount")
       public String MyAccount(Model model){
@@ -30,13 +35,7 @@ public class AccountClientControllers {
         return "ClientHTML/timeTable";
     }
 
- /*   @GetMapping("/ActualInformation")
-    public String ActualInformation(Model model){
-        model.addAttribute("title", "Актуальная информация");
 
-        return "ClientHTML/actualInformation";
-    }
-!!!*/
 
     @GetMapping("/ActualInformation")
     public String ViewActualInformation(Model model) {
@@ -44,14 +43,7 @@ public class AccountClientControllers {
         model.addAttribute("ActualInformations", ActualInformations);
         return "ClientHTML/actualInformation";
     }
-/*
-    @GetMapping("/Events")
-    public String Events(Model model){
-        model.addAttribute("title", "Мероприятия");
-        return "ClientHTML/events";
-    }
 
- */
 
     @GetMapping("/Event")
     public String ViewEvent(Model model) {
@@ -65,43 +57,23 @@ public class AccountClientControllers {
         model.addAttribute("title", "Заявки");
         return "ClientHTML/request";
     }
-/*
-    @GetMapping("/HealthImprovingComplex")
-    public String HealthImprovingComplex(Model model){
-        model.addAttribute("title", "ЛОК");
-        return "ClientHTML/healthImprovingComplex";
-    }
 
-    @GetMapping("/DiningRoom")
-    public String DiningRoom(Model model){
-        model.addAttribute("title", "Столовая");
-        return "ClientHTML/diningRoom";
-    }
+    /*Создать первую часть БД*/
 
-    @GetMapping("/Club")
-    public String Club(Model model){
-        model.addAttribute("title", "Клуб");
-        return "ClientHTML/club";
+    @PostMapping("/Request")
+    public String Request( @RequestParam("date") Timestamp createDate,
+                           @RequestParam String korpus,
+                           @RequestParam String myRoomId,
+                           @RequestParam String textRequest,
+                           @RequestParam String toWhom,
+                           @RequestParam Timestamp createEndDate,
+                           @RequestParam String fulfilled,
+                           Model model) {
+        Request post = new Request (createDate,korpus, myRoomId, textRequest,
+                                    toWhom,createEndDate,fulfilled);
+        requestRepository.save(post);
+        return "request";
     }
-
-    @GetMapping("/Rental")
-    public String Rental(Model model){
-        model.addAttribute("title", "Прокат");
-        return "ClientHTML/rental";
-    }
-
-    @GetMapping("/Cafe")
-    public String Cafe(Model model){
-        model.addAttribute("title", "Кафе");
-        return "ClientHTML/cafe";
-    }
-    @GetMapping("/Med")
-    public String Med(Model model){
-        model.addAttribute("title", "Мед кабинеты");
-        return "ClientHTML/med";
-    }
-
- */
 
 
 

@@ -63,7 +63,7 @@ h1.name{
     }
 }
 
-.allDivctualInformation{
+.newEvent{
     margin: 0 auto; /* Выравниваем по центру */
     width: 1300px;
     height: auto;
@@ -75,7 +75,7 @@ h1.name{
     padding-bottom: 10px;
 }
 
-.DivActualInformation{
+.DivEvent{
     padding: 5px;
 }
 
@@ -94,11 +94,6 @@ h1.name{
 
 
 
-
-
-
-
-
 h3 {
     padding-top: 10px;
     height: 20px;
@@ -107,7 +102,6 @@ h3 {
     font-size: 30px;
     color: #d7f2acdc;
 }
-
 
 
 .dropbtn {
@@ -149,8 +143,6 @@ h3 {
 
 
 
-
-
 #footer {
     position: absolute; /* Фиксированное положение */
     opacity: 0.5;
@@ -163,15 +155,6 @@ h3 {
     font-size:0.75em;
     text-align: left;
 }
-
-
-
-
-
-
-
-
-
 
 
 

@@ -11,9 +11,7 @@ public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-  //  @Table(indexes = {@Index(columnList="personnelNumber", unique = true)})
 
- // @GeneratedValue(strategy = ??? ) Какое поле выше то и ядвляется уникальным ключем
     private Long id;
     private String fname, lname, pname, position;
 

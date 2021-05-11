@@ -1,4 +1,4 @@
-<div  th:fragment="headerClientAccount" xmlns:th="http://www.w3.org/1999/xhtml">
+<div  th:fragment="headerStaffAccount" xmlns:th="http://www.w3.org/1999/xhtml">
     <h1 class="name" align="center"><span style="font-family:Lobster, cursive; Font-size:30px;">Мой аккаунт</span></h1>
 
     <nav>
@@ -33,20 +33,23 @@
             <li><a href="/TimeTable">Расписание</a></li>
             <li><a href="/ActualInformation">Актуальная информация</a></li>
             <li><a href="/Event">Мероприятия</a></li>
-            <li><a href="/Request">Написать заявку</a></li>
 
 
-                      <form action="/logout" method="post">
-                          <li class="float" >
-                              <input type="submit" value="Выйти">
-                          </li>
-                      </form>
- <!--
+            <div class="dropdown">
+                <button class="dropbtn">Заявки</button>
+                <div class="dropdown-content">
+                    <a href="/MyRequest">Мои заявки</a>
+                    <a href="/AddRequest">Написать</a>
+                </div>
+            </div>
 
 
-                      <li class="float"><a href="#">Выйти</a></li>
-                      <li class="float"><a href="/AllClients">AllClients</a></li>
-                       <li class="float"><a href="/AllRegistrations">allRegistrations</a></li> -->
+
+
+
+            <li class="float"><a href="#">Выйти</a></li>
+            <!-- <li class="float"><a href="/AllClients">AllClients</a></li>
+             <li class="float"><a href="/AllRegistrations">allRegistrations</a></li> -->
 
         </ul>
     </nav>
