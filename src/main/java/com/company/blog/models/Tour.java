@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Tour {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
     private String tourKorpus, tourDateIn, tourDateOut,  tourDays,  tourName;

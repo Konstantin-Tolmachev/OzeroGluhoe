@@ -25,7 +25,7 @@ public class BookingController {
           return "allClients";
       }
   */
-    @PostMapping("/") //AllClients; home; / можо попробовать
+    @PostMapping("/Home") //AllClients; home; / можо попробовать
     public String Payment( @RequestParam String fname,
                            @RequestParam String lname,
                            @RequestParam String pname,

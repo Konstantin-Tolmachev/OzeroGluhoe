@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 public class Request {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long request_id;
     @CreationTimestamp
     private Timestamp createDate;

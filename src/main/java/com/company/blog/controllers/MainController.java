@@ -75,6 +75,10 @@ public class MainController {
         return "HomeHTML/comment";
     }
 
+
+
+
+
     @GetMapping("/payment")
     public String payment(Model model) {
         model.addAttribute("title", "Оплата");
