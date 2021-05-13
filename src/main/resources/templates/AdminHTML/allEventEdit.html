@@ -23,9 +23,9 @@
         <div class="DivEvent">
             <textarea  class="size" name="text" id="text" placeholder="Обновить актуальную информацию" th:text="${el.text}"></textarea>
         </div>
-        <div class="DivEvent">
+        <form th:action="@{/AllEvent}" method="post" class="DivEvent">
             <input type="submit"   class="glow-button" value="Обновить">
-        </div>
+        </form>
     </form>
     </div>
 

@@ -36,14 +36,29 @@
             <li><a href="/Request">Написать заявку</a></li>
 
             <!--  Страница не открывается, если код в написан в таком формате.
+          Код нужен для ЛОГАУТА!-->
+
+            <li class="float">
+
+                <form th:action="@{/logout}" method="post">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    <input type="submit"value="Выйти">
+                </form>
+
+            </li>
+
+
+
+            <!--  Страница не открывается, если код в написан в таком формате.
                                            Код нужен для ЛОГАУТА!
+
                                 <form action="/logout" method="post">
                                     <li class="float" >
                                         <input type="submit" value="Выйти">
                                     </li>
                                 </form>
 
-                                -->
+            -->
            <!--
 
 

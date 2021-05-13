@@ -26,14 +26,15 @@
 
 <section  class="booking">
     <h3 >Авторизация</h3>
-    <!-- action="/Authorization" -->
+    <!--th:action="@{/Authorization}"  action="/Authorization"-->
     <form th:action="@{/Authorization}" method="post">
         <div class="allDiv">
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="username" name="username" placeholder="Логин"></div>
             <div class="wrap"><input type="password" onkeyup="checkParams()" id="password" name="password" placeholder="Пароль"></div>
         </div>
         <div class="btn">
-            <input type="submit" id="asubmit" class="glow-button" value="Авторизоваться" >
+            <input type="submit" id="asubmit" class="glow
+            -button" value="Авторизоваться" >
 
         </div>
     </form>

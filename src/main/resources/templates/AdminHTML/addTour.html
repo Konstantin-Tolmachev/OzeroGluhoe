@@ -29,8 +29,8 @@
         <div class="wrap1"></div>
 
     </div>
-
-    <form action="/AddTour" method="post">
+<!-- action="/AddTour" th:action="@{/AddTour}" -->
+    <form th:action="@{/AddTour}" method="post">
         <div class="allDivNewPeoples">
                 <!-- <div><input type="text" onkeyup="checkParams()" id="id" name="id" placeholder="ID"></div> -->
                     <div><input type="text" onkeyup="checkParams()" id="tourKorpus" name="tourKorpus" placeholder="Корпус"></div>
@@ -39,9 +39,10 @@
                     <div><input type="text" onkeyup="checkParams()" id="tourDays" name="tourDays" placeholder="Кол-во дней"></div>
                     <div><input type="text" onkeyup="checkParams()" id="tourName" name="tourName" placeholder="Наименование тура"></div>
 
-                <form action="/AddTour" method="post">
+                <div allDivNewPeoples >
                     <button class="btn btn-warning" type="submit">Добавить</button>
-                </form>
+                </div>
+
             </div>
             </div>
     </form>

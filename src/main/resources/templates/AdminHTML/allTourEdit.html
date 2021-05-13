@@ -37,9 +37,10 @@
             <div class="wrap"><input type="text" th:value="${el.tourDateOut}" onkeyup="checkParams()" id="tourDateOut" name="tourDateOut" placeholder="Дата выезда"></div>
             <div class="wrap"><input type="text" th:value="${el.tourDays}" onkeyup="checkParams()" id="tourDays" name="tourDays" placeholder="Кол-во дней"></div>
             <div class="wrap"><input type="text" th:value="${el.tourName}" onkeyup="checkParams()" id="tourName" name="tourName" placeholder="Наименование тура"></div>
-            <div class="wrap"><input type="submit"   class="glow-button" value="Обновить"  ></div> <!-- disabled onclick="window.open('/payment' , '_self')"-->
-            <!--  <div class="wrap"><input type="submit"  id="submit1" class="glow-button" value="Remove"  ></div>  disabled onclick="window.open('/payment' , '_self')"-->
 
+            <form th:action="@{/AllTour}" method="post" class="wrap">
+                <input type="submit"   class="glow-button" value="Обновить"  >
+            </form>
         </div>
     </form>
 

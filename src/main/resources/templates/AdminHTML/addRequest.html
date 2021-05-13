@@ -18,7 +18,7 @@
 <section class="sectionRequest">
     <h3 >Написать заявку</h3>
 
-    <form action="/AddRequest" method="post">
+    <form  th:action="@{/AddRequest}" method="post">
         <div class="allDivRequest">
             <div>
                 <textarea class="size" name="text" id="text" placeholder="Текст"></textarea>

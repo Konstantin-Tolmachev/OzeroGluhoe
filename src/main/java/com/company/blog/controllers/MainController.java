@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 @Controller
 public class MainController {
 
@@ -22,11 +24,12 @@ public class MainController {
         return "home";
     }
 
-/*RequestMapping*/
-    @GetMapping("/Authorization")
-    public String Authorization(Model model) {
+/*RequestMapping GetMapping*/
+    @GetMapping ("/Authorization")
+    public String Authorization(/* Principal principal,*/ Model model) {
         model.addAttribute("title", "Авторизация");
-        return "HomeHTML/authorization";
+
+        return  "HomeHTML/authorization"/* + principal.getName()*/;
 
     }
 
@@ -76,6 +79,12 @@ public class MainController {
     public String payment(Model model) {
         model.addAttribute("title", "Оплата");
         return "payment";
+    }
+
+    @GetMapping("/Home")
+    public String Home(Model model) {
+        model.addAttribute("title", "home");
+        return "home";
     }
 
 

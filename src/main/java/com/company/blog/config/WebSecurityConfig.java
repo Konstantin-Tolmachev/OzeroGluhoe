@@ -1,4 +1,4 @@
-/*!!!!!!!!!!!!!!!!!
+
 package com.company.blog.config;
 
 import ch.qos.logback.core.net.server.Client;
@@ -29,34 +29,64 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                    .authorizeRequests()
-                    .antMatchers("/","/Accommodation", "/Infrastructure", "/Price", "/Сommunications",
-                                                "/AboutUs", "/Rules", "/Comment", "/payment")
-                    .permitAll()
-                .antMatchers("/StaffAccount").hasRole("STAFF")
-                .antMatchers("/MyAccount").hasRole("CLIENT")
-                    .anyRequest()
-                    .authenticated()
+
+                .authorizeRequests()
+                    .antMatchers("/", "/Home", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules", "/Comment", "/payment")
+                .permitAll()
+                .antMatchers("/StaffAccount/**").hasRole("STAFF")
+                .antMatchers("/MyAccount/**").hasRole("CLIENT")
+                .antMatchers("/AdminHome/**", "/StaffFilter", "/AllActualInformation/**").hasRole("ADMIN")
+                .anyRequest()
+                .authenticated()
                 .and()
-                    .formLogin()
-                    .loginPage("/Authorization")
+
+                .formLogin()
+                .loginPage("/Authorization")
+                .permitAll()
                 //Перенарпавление на страницу после успешного входа
-                    //.defaultSuccessUrl("/StaffAccount")
-               // .antMatchers("/StaffAccount").hasRole("STAFF")
-                    .permitAll()
+                //.defaultSuccessUrl("/StaffAccount")
+                // .antMatchers("/StaffAccount").hasRole("STAFF")
+
                 .and()
-                    .logout()
-                    .permitAll()
-                    .logoutSuccessUrl("/");
+                .logout()
+                .permitAll()
+                .logoutSuccessUrl("/");
+    }
+
+
+    @Bean
+    public UserDetailsService users() {
+        UserDetails staff =  User.withDefaultPasswordEncoder()
+                .username("1")
+                .password("1")
+                .roles("STAFF")
+                .build();
+
+        UserDetails client =  User.withDefaultPasswordEncoder()
+                .username("2")
+                .password("2")
+                .roles("CLIENT")
+                .build();
+
+        UserDetails admin =  User.withDefaultPasswordEncoder()
+                .username("3")
+                .password("3")
+                .roles("ADMIN")
+                .build();
+
+
+
+
+        return new InMemoryUserDetailsManager(staff, client, admin);
     }
 
 
 
 
-
-
+/*
     @Bean
     @Override
+    
     public UserDetailsService userDetailsService() {
         UserDetails user =
                 User.withDefaultPasswordEncoder()
@@ -65,11 +95,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .roles("STAFF")
                         .build();
 
+        UserDetails client =
+                User.withDefaultPasswordEncoder()
+                        .username("2")
+                        .password("2")
+                        .roles("CLIENT")
+                        .build();
 
-        return new InMemoryUserDetailsManager(user);
+        UserDetails admin =
+                User.withDefaultPasswordEncoder()
+                        .username("3")
+                        .password("3")
+                        .roles("ADMIN")
+                        .build();
+
+        return new InMemoryUserDetailsManager(admin);
     }
 
-        */
+ */
+
+
+
+
+
 
 /*
     @Override
@@ -80,11 +128,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("select position, password, active from usr where position=?")
                 .authoritiesByUsernameQuery("select p.position, pr.roles from usr p inner join user_role pr on p.id = pr.position_id where p.position=?");
     }
+*/
 
- */
 
 
-    /* Разрешаем Spring Security допускать следующие директории
+    /* Разрешаем Spring Security допускать следующие директории */
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/css/**","/img/**","/scripts/**");
@@ -92,7 +140,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          }
 }
 
-        */
+
 
 
 

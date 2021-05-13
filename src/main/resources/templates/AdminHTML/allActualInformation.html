@@ -16,6 +16,7 @@
 
 <section class="AllActualInformation">
     <h3 >Актуальная информация</h3>
+
     <div th:each="el : ${ActualInformations}" class="editInformation">
         <div>
             <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
@@ -25,6 +26,7 @@
             <a th:href="'/AllActualInformation/' + ${el.id} + '/edit'" class="test">Редактировать</a>
         </div>
         <br>
+
         <form class="edit"  th:action="'/AllActualInformation/' + ${el.id} +'/remove'" method="post">
             <button class="delete"  type="submit">Удалить</button>
         </form>

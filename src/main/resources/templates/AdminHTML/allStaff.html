@@ -18,7 +18,7 @@
     <h3 >Все сотруднии</h3>
 
 
-    <form method="post" action="StaffFilter">
+    <form method="post"  th:action="StaffFilter">
         <input type="text" name="filter" placeholder="Поиск по должности">
         <button type="submit">Найти</button>
     </form>
@@ -43,6 +43,7 @@
         <div th:text="${el.fname}" class="wrap"><input type="text" id="fname" name="fname" placeholder="Фамилия"></div>
         <div th:text="${el.pname}" class="wrap"><input type="text" id="pname" name="pname" placeholder="Отчество"></div>
         <div th:text="${el.position}" class="wrap"><input type="text" id="phone" name="phone" placeholder="Должность"></div>
+
         <div><a th:href="'/AllStaff/' + ${el.id} + '/edit'" class="test">Редактировать</a></div>
         <form th:action="'/AllStaff/' + ${el.id} +'/remove'" method="post">
             <button class="btn btn-warning" type="submit">Удалить</button>

@@ -13,17 +13,18 @@ public void addViewControllers(ViewControllerRegistry registry) {
 
   registry.addViewController("/Authorization").setViewName("HomeHTML/authorization");
 
- /*
 
-  regiViewController("/MyAccount").setViewName("ClientHTML/myAccount");
+
+
 
     }
 
 }
 
 
-            */
 
+
+ */
 
 
 /*

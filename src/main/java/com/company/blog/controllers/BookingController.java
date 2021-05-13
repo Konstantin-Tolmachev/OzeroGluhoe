@@ -25,7 +25,7 @@ public class BookingController {
           return "allClients";
       }
   */
-    @PostMapping("/payment") //AllClients; home; / можо попробовать
+    @PostMapping("/") //AllClients; home; / можо попробовать
     public String Payment( @RequestParam String fname,
                            @RequestParam String lname,
                            @RequestParam String pname,
@@ -37,7 +37,7 @@ public class BookingController {
                             Model model) {
         Booking post = new Booking (fname, lname, pname, phone, tourId, myRoomId, dateIn, days);
         bookingRepository.save(post);
-        return "payment";
+        return "home";
     }
 
 

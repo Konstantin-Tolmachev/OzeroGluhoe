@@ -19,14 +19,15 @@
     <h3 >Вся информация</h3>
 
 
-    <div  th:each="el : ${post}" >
+    <div   th:each="el : ${post}" >
     <form  method="post">
         <div class="DivActualInformation">
             <textarea  class="size" name="text" id="text" placeholder="Обновить актуальную информацию" th:text="${el.text}"></textarea>
         </div>
-        <div class="DivActualInformation">
+
+        <form th:action="@{/AllActualInformation}" method="post"   class="DivActualInformation">
             <input type="submit"   class="glow-button" value="Обновить">
-        </div>
+        </form>
     </form>
     </div>
 

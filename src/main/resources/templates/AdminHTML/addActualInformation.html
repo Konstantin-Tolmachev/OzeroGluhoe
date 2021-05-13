@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/css/addActualInformation.css"/>
     <title th:text="${'Актуальная информация'}"/>
@@ -19,8 +19,8 @@
     <h3 >Добавить информацию</h3>
     <br>
 
-
-    <form action="/AddActualInformation" method="post">
+    <!--th:action="@{/AddActualInformation}"  action="/AddActualInformation" -->
+    <form th:action="@{/AddActualInformation}" method="post">
         <div class="allDivctualInformation">
             <div class="DivActualInformation">
                 <textarea class="size" name="text" id="text" placeholder="Добавить актуальную информацию"></textarea>
