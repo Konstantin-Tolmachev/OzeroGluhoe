@@ -39,7 +39,7 @@ public class AccountClientControllers {
 
     @GetMapping("/ActualInformation")
     public String ViewActualInformation(Model model) {
-        Iterable<ActualInformation> ActualInformations = actualInformationRepository.findAll();
+        Iterable<ActualInformation> ActualInformations = actualInformationRepository.findAllByOrderByIdDesc();
         model.addAttribute("ActualInformations", ActualInformations);
         return "ClientHTML/actualInformation";
     }

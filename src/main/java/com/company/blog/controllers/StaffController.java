@@ -30,11 +30,11 @@ public class StaffController {
     }
 
 
-    /* Вывод всех добавленный сотрудников */
+    /* Вывод всех добавленных сотрудников */
 
     @GetMapping("/AllStaff")
     public String addNewStaff(Model model) {
-        Iterable<Staff> staffs = staffRepository.findAll();
+        Iterable<Staff> staffs = staffRepository.findAllByOrderByIdDesc();
         model.addAttribute("staffs", staffs);
         return "AdminHTML/allStaff";
     }

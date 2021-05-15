@@ -36,7 +36,7 @@ public class AdminControllers {
         return "AdminHTML/adminHome";
     }
 
-   /* Вывод таблицы зарегистрированных пользователей */
+   /* Вывод таблицы зарегистрированных пользователей
 
     @GetMapping("/AllRegistrations")
     public String allRegistrations(Model model) {
@@ -44,12 +44,12 @@ public class AdminControllers {
         model.addAttribute("registrations", registrations);
         return "AdminHTML/allRegistrations";
     }
-
+*/
     /* Вывод таблицы забронировавших пользователей */
 
     @GetMapping("/AllClients")
     public String AllClients(Model model) {
-        Iterable<Booking> bookings = bookingRepository.findAll();
+        Iterable<Booking> bookings = bookingRepository.findAllByOrderByIdDesc();
         model.addAttribute("bookings", bookings);
         return "AdminHTML/allClients";
     }
@@ -127,7 +127,7 @@ public class AdminControllers {
 
     @GetMapping("/AllActualInformation")
     public String addNewActualInformation(Model model) {
-        Iterable<ActualInformation> ActualInformations = actualInformationRepository.findAll();
+        Iterable<ActualInformation> ActualInformations = actualInformationRepository.findAllByOrderByIdDesc();
         model.addAttribute("ActualInformations", ActualInformations);
         return "AdminHTML/AllActualInformation";
     }
