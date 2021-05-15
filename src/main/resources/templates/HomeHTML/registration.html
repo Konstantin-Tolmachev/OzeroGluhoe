@@ -16,9 +16,10 @@
 
 <section  class="booking">
     <h3 >Регистрация</h3>
-    <form action="/Registration" method="post">
+    <!--action="/Registration" th:action="@{/Registration}" -->
+    <form th:action="@{/Registration}" method="post">
         <div class="allDiv">
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="login" name="login" placeholder="Логин"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="username" name="username" placeholder="Логин"></div>
             <div class="wrap"><input type="password" onkeyup="checkParams()" id="password" name="password" placeholder="Пароль"></div>
            <!-- <div class="wrap"><input type="password" onkeyup="checkParams()" id="passwordConfirm" name="passwordConfirm" placeholder="Подтвердите пароль"></div> -->
         </div>

@@ -1,4 +1,4 @@
-/*
+
 package com.company.blog.repo;
 
 import com.company.blog.models.Role;
@@ -9,5 +9,5 @@ public interface RoleRepository extends JpaRepository<Role, Long> {
 
 
 
- */
+
 

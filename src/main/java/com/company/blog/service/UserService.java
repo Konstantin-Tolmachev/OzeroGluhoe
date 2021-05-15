@@ -1,11 +1,13 @@
-/*
+
 package com.company.blog.service;
 
 
+import com.company.blog.models.Account;
 import com.company.blog.models.Role;
-import com.company.blog.models.User;
+
+import com.company.blog.repo.AccountRepository;
 import com.company.blog.repo.RoleRepository;
-import com.company.blog.repo.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,7 +26,7 @@ public class UserService implements UserDetailsService {
     @PersistenceContext
     private EntityManager em;
     @Autowired
-    UserRepository userRepository;
+    AccountRepository accountRepository;
     @Autowired
     RoleRepository roleRepository;
     @Autowired
@@ -32,51 +34,51 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+        Account account = accountRepository.findByUsername(username);
 
-        if (user == null) {
+        if (account == null) {
             throw new UsernameNotFoundException("User not found");
         }
 
-        return user;
+        return account;
     }
 
-    public User findUserById(Long userId) {
-        Optional<User> userFromDb = userRepository.findById(userId);
-        return userFromDb.orElse(new User());
+    public Account findUserById(Long userId) {
+        Optional<Account> userFromDb = accountRepository.findById(userId);
+        return userFromDb.orElse(new Account());
     }
 
-    public List<User> allUsers() {
-        return userRepository.findAll();
+    public List<Account> allUsers() {
+        return accountRepository.findAll();
     }
 
-    public boolean saveUser(User user) {
-        User userFromDB = userRepository.findByUsername(user.getUsername());
+    public boolean saveUser(Account account) {
+        Account userFromDB = accountRepository.findByUsername(account.getUsername());
 
         if (userFromDB != null) {
             return false;
         }
 
-        user.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
+        account.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
+        account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
+        accountRepository.save(account);
         return true;
     }
 
     public boolean deleteUser(Long userId) {
-        if (userRepository.findById(userId).isPresent()) {
-            userRepository.deleteById(userId);
+        if (accountRepository.findById(userId).isPresent()) {
+            accountRepository.deleteById(userId);
             return true;
         }
         return false;
     }
 
-    public List<User> usergtList(Long idMin) {
-        return em.createQuery("SELECT u FROM User u WHERE u.id > :paramId", User.class)
+    public List<Account> usergtList(Long idMin) {
+        return em.createQuery("SELECT a FROM Account a WHERE a.id > :paramId", Account.class)
                 .setParameter("paramId", idMin).getResultList();
     }
 }
 
- */
+
 
 

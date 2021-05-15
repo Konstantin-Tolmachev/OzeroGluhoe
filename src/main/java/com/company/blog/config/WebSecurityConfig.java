@@ -2,6 +2,7 @@
 package com.company.blog.config;
 
 import ch.qos.logback.core.net.server.Client;
+import com.company.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
@@ -23,15 +25,29 @@ import javax.sql.DataSource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
+    UserService userService;
+    /*
+    @Autowired
     private DataSource dataSource;
+
+     */
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                //.csrf()
+               // .disable()
+
 
                 .authorizeRequests()
-                    .antMatchers("/", "/Home", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules", "/Comment", "/payment")
+                .antMatchers("/css/**","/img/**","/scripts/**").permitAll()
+                .antMatchers( "/resources/**", "/", "/Registration", "/Home", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules", "/Comment", "/payment")
                 .permitAll()
                 .antMatchers("/StaffAccount/**").hasRole("STAFF")
                 .antMatchers("/MyAccount/**").hasRole("CLIENT")
@@ -43,8 +59,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/Authorization")
                 .permitAll()
-                //Перенарпавление на страницу после успешного входа
-                //.defaultSuccessUrl("/StaffAccount")
+               // Перенарпавление на страницу после успешного входа
+              //  .defaultSuccessUrl("/AdminHome")
                 // .antMatchers("/StaffAccount").hasRole("STAFF")
 
                 .and()
@@ -53,7 +69,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
     }
 
+    @Autowired
+    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
+    }
 
+/*
     @Bean
     public UserDetailsService users() {
         UserDetails staff =  User.withDefaultPasswordEncoder()
@@ -79,6 +100,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         return new InMemoryUserDetailsManager(staff, client, admin);
     }
+
+ */
 
 
 

@@ -1,10 +1,22 @@
+/*
+package com.company.blog.models;
+
+public enum Roles {
+    STAFF, CLIENT, ADMIN;
+
+}
+
+
+
+
+
+
 package com.company.blog.models;
 
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.Set;
-
 
 @Entity
 @Table(name = "t_role")
@@ -14,7 +26,7 @@ public class Role implements GrantedAuthority {
     private String name;
     @Transient
     @ManyToMany(mappedBy = "roles")
-    private Set<Account> accounts;
+    private Set<User> users;
     public Role() {
     }
 
@@ -43,12 +55,12 @@ public class Role implements GrantedAuthority {
         this.name = name;
     }
 
-    public Set<Account> getUsers() {
-        return accounts;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setUsers(Set<Account> accounts) {
-        this.accounts = accounts;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     @Override
@@ -56,3 +68,6 @@ public class Role implements GrantedAuthority {
         return getName();
     }
 }
+
+ */
+

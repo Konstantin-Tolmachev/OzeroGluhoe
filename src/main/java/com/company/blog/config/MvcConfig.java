@@ -1,4 +1,4 @@
-/*package com.company.blog.config;
+package com.company.blog.config;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public void addViewControllers(ViewControllerRegistry registry) {
 }
 
 
-
+/*
 
  */
 
