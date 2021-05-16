@@ -3,18 +3,15 @@ package com.company.blog.controllers;
 
 
 import com.company.blog.models.*;
-import com.company.blog.repo.ActualInformationRepository;
-import com.company.blog.repo.BookingRepository;
-import com.company.blog.repo.EventRepository;
-import com.company.blog.repo.RegistrationRepository;
+import com.company.blog.repo.*;
+import com.company.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -29,6 +26,12 @@ public class AdminControllers {
     private ActualInformationRepository actualInformationRepository;
     @Autowired
     private EventRepository eventRepository;
+    @Autowired
+    private RoleRepository roleRepository;
+    @Autowired
+    private AccountRepository accountRepository;
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/AdminHome")
     public String Test(Model model) {
@@ -244,7 +247,31 @@ public class AdminControllers {
         return "redirect:/AllEvent";
     }
 
+    /*Создаем страницу*/
 
+    @GetMapping("/Accounts")
+    public String Accounts(Model model) {
+        Iterable<Role> Roles = roleRepository.findAll();
+        Iterable<Account> Accounts = accountRepository.findAll();
+        model.addAttribute("Roles", Roles);
+        model.addAttribute("Accounts", Accounts);
+        model.addAttribute("title", "Аккаунты");
+        return "AdminHTML/accounts";
+    }
+
+    @PostMapping("/Accounts")
+    public String addAccounts(@ModelAttribute("userForm") @Valid Account userForm, BindingResult bindingResult, Model model) {
+
+        if (bindingResult.hasErrors()) {
+            return "AdminHTML/accounts";
+        }
+        if (!userService.saveUser(userForm)){
+            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
+            return "AdminHTML/accounts";
+        }
+        //   return "AdminHTML/accounts";
+       return "redirect:/Accounts";
+    }
 
 
 

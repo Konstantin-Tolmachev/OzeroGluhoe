@@ -18,6 +18,7 @@
     <h3 >Актуальная информация</h3>
 
     <div th:each="el : ${ActualInformations}" class="editInformation">
+
         <div>
             <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
         </div>

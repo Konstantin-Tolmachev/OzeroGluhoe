@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/accounts.css"/>
+    <title th:text="${'Клиенты'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+  <section class="sectionRoles">
+            <div class="block-wrapper">
+                <div class="block1">
+                    <h3 class="h3">Доступные роли</h3>
+
+                    <div class="nameColumn">
+                        <div class="wrap">ID</div>
+                        <div class="wrap">Наименование роли</div>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div th:each="el : ${Roles}" class="nameColumn">
+                        <div th:text="${el.id}" class="wrap"><input type="text" id="id" name="id" placeholder="Имя"></div>
+                        <div th:text="${el.name}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section class="allBlock">
+            <div class="block-wrapper">
+                <div class="block">
+                    <h3 class="h3">Добавить аккаунт</h3>
+
+                    <div class="nameColumn2">
+                        <div class="wrap">Пароль</div>
+                        <div class="wrap">Логин</div>
+                        <div class="wrap"></div>
+                    </div>
+
+                    <form  th:action="@{/Accounts}" method="post">
+                        <div class="nameColumn2">
+                                <div><input type="text" onkeyup="checkParams()" id="username" name="username" placeholder="Логин"></di>
+                                <div><input type="text" onkeyup="checkParams()" id="password" name="password" placeholder="Пароль"></div>
+                                <button class="btn btn-warning" type="submit" href="/Accounts ">Добавить</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+
+                    <div class="nameColumn3">
+                        <div class="wrap">ID</div>
+                        <div class="wrap">Логин</div>
+                        <div class="wrap">Пароль</div>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div th:each="el : ${Accounts}" class="nameColumn3">
+                        <div th:class="test" th:text="${el.id}" class="wrap3"><input type="text" id="id" name="id" placeholder="id"></div>
+                        <div th:class="test" th:text="${el.username}" class="wrap3"><input type="text" id="username" name="username" placeholder="Логин"></div>
+                        <div th:class="test" th:text="${el.password}" class="wrap3"><input type="text" id="password" name="password" placeholder="Пароль"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="block-wrapper">
+                <div class="block">
+                    <h3 class="h3">Присвоить роль</h3>
+                </div>
+       </section>
+
+
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>
