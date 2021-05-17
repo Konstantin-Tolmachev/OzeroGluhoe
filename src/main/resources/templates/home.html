@@ -51,12 +51,15 @@
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя*"></div>
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество*"></div>
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="tourId" name="tourId" placeholder="№ тура*"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="Комната*"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="days" name="days" placeholder="Количество дней*"></div>
-           <!-- <div class="">&nbsp;</div>
-            <div class="">&nbsp;</div> -->
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*" onfocus="(this.type='date')" onblur="(this.type='text')"  ></div>
+           <!-- <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')"  ></div> -->
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="tourId" name="tourId" placeholder="№ тура*" onkeypress='validate(event)' maxlength="1"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="Комната*" onkeypress='validateRoom(event)' maxlength="3"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="days" name="days" placeholder="Количество дней*" onkeypress='validate(event)' maxlength="2"></div>
+
+
+            <!-- <div class="">&nbsp;</div>
+             <div class="">&nbsp;</div> -->
         </div>
 
         <div class="btn">
@@ -69,6 +72,7 @@
 
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="/scripts/home.js"></script>
 <!--<script src="system/js/global.js"></script>  Для даты -->

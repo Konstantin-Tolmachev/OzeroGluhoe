@@ -173,16 +173,16 @@ h3 {
 
 .allDiv{
     column-count: 2;
-    padding: 15px;
+    padding: 5px;
 }
-
+/*
 input#fname,#lname,#pname,#phone,#tourId,#myRoomId,#days,#email{
     width: 185px;
     height: 30px;
 }
+*/
 
-
-input#fname,#lname,#pname,#phone,#tourId,#RoomId,#days,#dateIn{
+input#fname,#lname,#pname,#phone,#tourId,#myRoomId,#days,#dateIn{
     width: 185px;
     height: 30px;
 }
