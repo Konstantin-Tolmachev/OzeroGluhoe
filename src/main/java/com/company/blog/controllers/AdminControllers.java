@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -247,17 +248,21 @@ public class AdminControllers {
         return "redirect:/AllEvent";
     }
 
-    /*Создаем страницу*/
+    /*Создаем страницу аккаунтов*/
 
     @GetMapping("/Accounts")
     public String Accounts(Model model) {
         Iterable<Role> Roles = roleRepository.findAll();
         Iterable<Account> Accounts = accountRepository.findAll();
+      //  List<Account> usergtList = accountRepository.findAll(); // usergtList Iterable
         model.addAttribute("Roles", Roles);
         model.addAttribute("Accounts", Accounts);
+      //  model.addAttribute("usergtList", usergtList);
         model.addAttribute("title", "Аккаунты");
         return "AdminHTML/accounts";
     }
+
+    /*Проверка существует ли аккаунт*/
 
     @PostMapping("/Accounts")
     public String addAccounts(@ModelAttribute("userForm") @Valid Account userForm, BindingResult bindingResult, Model model) {
@@ -271,6 +276,15 @@ public class AdminControllers {
         }
         //   return "AdminHTML/accounts";
        return "redirect:/Accounts";
+    }
+
+    /*Удалить аккаунт*/
+
+    @PostMapping("/Accounts/{id}/remove")
+    public String AccountsDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
+        Account post = accountRepository.findById(id).orElseThrow(Exception::new);
+        accountRepository.delete(post);
+        return "redirect:/Accounts";
     }
 
 

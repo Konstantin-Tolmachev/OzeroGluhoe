@@ -29,8 +29,10 @@ public class UserService implements UserDetailsService {
     AccountRepository accountRepository;
     @Autowired
     RoleRepository roleRepository;
-    @Autowired
+   /* */ @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -59,7 +61,7 @@ public class UserService implements UserDetailsService {
             return false;
         }
 
-        account.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
+      //  account.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
         account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
         accountRepository.save(account);
         return true;

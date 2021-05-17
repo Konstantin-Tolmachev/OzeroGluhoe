@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import javax.sql.DataSource;
 
@@ -31,11 +32,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
 
      */
-
+/* */
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    private AuthenticationSuccessHandler authenticationSuccessHandler;
+
+    @Autowired
+    public WebSecurityConfig(AuthenticationSuccessHandler authenticationSuccessHandler) {
+        this.authenticationSuccessHandler = authenticationSuccessHandler;
+    }
+
+
 
 
     @Override
@@ -54,10 +64,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/AdminHome/**", "/StaffFilter", "/AllActualInformation/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
+
                 .and()
 
                 .formLogin()
                 .loginPage("/Authorization")
+                .successHandler(authenticationSuccessHandler)
                 .permitAll()
                // Перенарпавление на страницу после успешного входа
               //  .defaultSuccessUrl("/AdminHome")
@@ -69,10 +81,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
     }
 
+    /*   @Autowired
+       public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+           auth
+                   .inMemoryAuthentication()
+                   .withUser("user").password("pass").roles("USER")
+                   .and()
+                   .withUser("admin").password("pass").roles("ADMIN");
+       }
+    */
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
     }
+
+
 
 /*
     @Bean
