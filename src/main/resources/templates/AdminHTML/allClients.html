@@ -19,10 +19,10 @@
     <h3 >Бронирование</h3>
 
     <div class="allDiv">
-        <div class="wrap">№ тура</div>
+        <div class="wrap">№ корпуса</div>
         <div class="wrap">№ комнаты</div>
         <div class="wrap">Дата заезда</div>
-        <div class="wrap">Кол-во Дней</div>
+        <div class="wrap">Дата выезда</div>
         <div class="wrap">Фамилия</div>
         <div class="wrap">Имя</div>
         <div class="wrap">Отчество</div>
@@ -37,10 +37,10 @@
 
         <div th:each="el : ${bookings}" class="allDiv">
           <!--  <div th:text="${el.id}" class="wrap"><input type="text" id="id" name="id" placeholder="Фамилия"></div> -->
-            <div th:text="${el.tourId}" class="wrap"><input type="text" id="tourId" name="tourId" placeholder="Фамилия"></div>
+            <div th:text="${el.korpus}" class="wrap"><input type="text" id="tourId" name="tourId" placeholder="Фамилия"></div>
             <div th:text="${el.myRoomId}" class="wrap"><input type="text" id="myRoomId" name="myRoomId" placeholder="Имя"></div>
             <div th:text="${el.dateIn}" class="wrap"><input type="text" id="dateIn" name="dateIn" placeholder="Дата заезда"></div>
-            <div th:text="${el.days}" class="wrap"><input type="text" id="days" name="days" placeholder="Кол-во дней"></div>
+            <div th:text="${el.dateOut}" class="wrap"><input type="text" id="days" name="days" placeholder="Кол-во дней"></div>
             <div th:text="${el.lname}" class="wrap"><input type="text" id="lname" name="lname" placeholder="Отчество"></div>
             <div th:text="${el.fname}" class="wrap"><input type="text" id="fname" name="fname" placeholder="Номер телефона"></div>
             <div th:text="${el.pname}" class="wrap"><input type="text" id="pname" name="pname" placeholder="Тур"></div>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/room_1k_Edit.css"/>
+    <title th:text="${'Изменить тур'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+
+<section class="newPeoples">
+    <h3 >Все туры</h3>
+
+    <div class="nameColumn">
+        <div class="wrap1">№ комнаты </div>
+        <div class="wrap1">Тип комнаты</div>
+        <div class="wrap1">Свободно мест</div>
+        <div class="wrap1"></div>
+
+    </div>
+
+
+    <form  method="post">
+        <div  th:each="el : ${post}" class="editStaff">
+            <div class="wrap"><input type="text" th:value="${el.roomId_1k}" onkeyup="checkParams()" id="roomId_1k" name="roomId_1k" placeholder="№ комнаты"></div>
+            <div class="wrap"><input type="text" th:value="${el.type_1k}" onkeyup="checkParams()" id="type_1k" name="type_1k" placeholder="Тип комнаты"></div>
+            <div class="wrap"><input type="text" th:value="${el.free_1k}" onkeyup="checkParams()" id="free_1k" name="free_1k" placeholder="Заселение"></div>
+
+            <form th:action="@{/Room_1k}" method="post" class="wrap">
+                <input type="submit"   class="glow-button" value="Обновить"  >
+            </form>
+        </div>
+    </form>
+
+
+</section>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+
+
+
+</body>
+
+
+
+
+</html>

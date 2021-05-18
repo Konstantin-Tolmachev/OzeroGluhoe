@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -33,6 +32,8 @@ public class AdminControllers {
     private AccountRepository accountRepository;
     @Autowired
     private UserService userService;
+    @Autowired
+    private Room_1kRepository room_1kRepository;
 
     @GetMapping("/AdminHome")
     public String Test(Model model) {
@@ -80,20 +81,20 @@ public class AdminControllers {
                                        @RequestParam String lname,
                                        @RequestParam String pname,
                                        @RequestParam String phone,
-                                       @RequestParam String tourId,
-                                       @RequestParam String myRoomId,
                                        @RequestParam String dateIn,
-                                       @RequestParam String days,
+                                       @RequestParam String dateOut,
+                                       @RequestParam String korpus,
+                                       @RequestParam String myRoomId,
                                        Model model) throws Exception {
         Booking post = bookingRepository.findById(id).orElseThrow(Exception::new);
         post.setFname(fname);
         post.setLname(lname);
         post.setPname(pname);
         post.setPhone(phone);
-        post.setTourId(tourId);
+        post.setDateIn(dateIn);
+        post.setDateOut(dateOut);
+        post.setKorpus(korpus);
         post.setMyRoomId(myRoomId);
-        post.setMyRoomId(dateIn);
-        post.setDays(days);
         bookingRepository.save(post);
         return "redirect:/AllClients";
     }
@@ -286,6 +287,60 @@ public class AdminControllers {
         accountRepository.delete(post);
         return "redirect:/Accounts";
     }
+
+    /*Создаем страницу комнат для первого корпуса и выводим комнаты*/
+
+    @GetMapping("/Room_1k")
+    public String Room_1k(Model model) {
+        Iterable<Room_1k> Rooms_1k = room_1kRepository.findAll();
+        model.addAttribute("title", "Комнаты 1 корпус");
+        model.addAttribute("Rooms_1k", Rooms_1k);
+        return "AdminHTML/room_1k";
+    }
+
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+
+
+    @GetMapping("/Room_1k/{id}/edit")
+    public String allRoom_1kEdit (@PathVariable(value = "id") long roomId_1k, Model model) {
+        if(!room_1kRepository.existsById (roomId_1k)){
+            return "redirect:/Room_1k";
+        }
+        Optional<Room_1k> post = room_1kRepository.findById(roomId_1k);
+        ArrayList<Room_1k> res = new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post", res);
+        return "AdminHTML/room_1k_Edit";
+    }
+
+    /*Редактирование информации*/
+
+    @PostMapping("/Room_1k/{id}/edit")
+    public String AllRoom_1kUpdate(@PathVariable(value = "id") long roomId_1k,
+                               //  @RequestParam long room_id,
+                                 @RequestParam String type_1k,
+                                 @RequestParam String free_1k,
+                                 Model model) throws Exception {
+        Room_1k post = room_1kRepository.findById(roomId_1k).orElseThrow(Exception::new);
+       // post.setRoomId(room_id);
+        post.setType_1k(type_1k);
+        post.setFree_1k(free_1k);
+        room_1kRepository.save(post);
+        return "redirect:/Room_1k";
+    }
+
+    /* Удалить информацию */
+
+    @PostMapping("/Room_1k/{id}/remove")
+    public String AllRoom_1kDelete(@PathVariable(value = "id") long roomId_1k, Model model) throws Exception {
+        Room_1k post = room_1kRepository.findById(roomId_1k).orElseThrow(Exception::new);
+        room_1kRepository.delete(post);
+        return "redirect:/Room_1k";
+    }
+
+
+
+
 
 
 

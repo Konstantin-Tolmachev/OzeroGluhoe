@@ -29,12 +29,3 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         }
     }
 }
-//    String targetUrl = "/";
-//        if(role.contains("CLIENT")) {
-//                targetUrl = "/MyAccount";
-//                } else if(role.contains("STAFF")) {
-//                targetUrl = "/StaffAccount";
-//                } else if(role.contains("ADMIN")) {
-//                targetUrl = "/AdminHome";
-//                }
-//                return targetUrl;

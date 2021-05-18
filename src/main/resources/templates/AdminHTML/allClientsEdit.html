@@ -20,10 +20,10 @@
 
     <div class="allDiv">
 
-        <div class="wrap">№ тура</div>
+        <div class="wrap">№ корпуса</div>
         <div class="wrap">№ комнаты</div>
         <div class="wrap">Дата заезда</div>
-        <div class="wrap">Кол-во дней</div>
+        <div class="wrap">Дата выезда</div>
         <div class="wrap">Фамилия</div>
         <div class="wrap">Имя</div>
         <div class="wrap">Отчество</div>
@@ -34,10 +34,10 @@
     <form  method="post">
         <div  th:each="el : ${post}" class="allDiv">
            <!-- <div class="wrap"><input type="text" th:value="${el.id}" onkeyup="checkParams()" id="id" name="id" placeholder="ID"></div>
-            --><div class="wrap"><input type="text" th:value="${el.tourId}" onkeyup="checkParams()" id="tourId" name="tourId" placeholder="Тур"></div>
+            --><div class="wrap"><input type="text" th:value="${el.korpus}" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Корпус"></div>
             <div class="wrap"><input type="text" th:value="${el.myRoomId}" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="Комната"></div>
             <div class="wrap"><input type="text" th:value="${el.dateIn}" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда"></div>
-            <div class="wrap"><input type="text" th:value="${el.days}" onkeyup="checkParams()" id="days" name="days" placeholder="Кол-во дней"></div>
+            <div class="wrap"><input type="text" th:value="${el.dateOut}" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда"></div>
             <div class="wrap"><input type="text" th:value="${el.fname}" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия"></div>
             <div class="wrap"><input type="text" th:value="${el.lname}" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя"></div>
             <div class="wrap"><input type="text" th:value="${el.pname}" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество"></div>

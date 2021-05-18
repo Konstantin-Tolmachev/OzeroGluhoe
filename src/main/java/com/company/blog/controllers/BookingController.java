@@ -30,12 +30,12 @@ public class BookingController {
                            @RequestParam String lname,
                            @RequestParam String pname,
                            @RequestParam String phone,
-                           @RequestParam String tourId,
-                           @RequestParam String myRoomId,
                            @RequestParam String dateIn,
-                           @RequestParam String days,
+                           @RequestParam String dateOut,
+                           @RequestParam String korpus,
+                           @RequestParam String myRoomId,
                             Model model) {
-        Booking post = new Booking (fname, lname, pname, phone, tourId, myRoomId, dateIn, days);
+        Booking post = new Booking (fname, lname, pname, phone, dateIn, dateOut, korpus, myRoomId);
         bookingRepository.save(post);
         return "home";
     }

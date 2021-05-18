@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/room.css"/>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+<section class="newPeoples">
+    <h3 >Комнаты первого корпуса</h3>
+
+                <div class="nameColumn">
+                    <div class="wrap1">№ комнаты </div>
+                    <div class="wrap1">Тип комнаты</div>
+                    <div class="wrap1">Свободно мест</div>
+                    <div class="wrap1"></div>
+                    <div class="wrap1"></div>
+                </div>
+
+                <br>
+                <br>
+
+                <div th:each="el : ${Rooms_1k}" class="editStaff">
+                    <div th:text="${el.roomId_1k}" class="wrap"><input type="text" id="id" name="id" placeholder="Имя"></div>
+                    <div th:text="${el.type_1k}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
+                    <div th:text="${el.free_1k}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
+                    <div><a th:href="'/Room_1k/' + ${el.roomId_1k} + '/edit'" class="test">Редактировать</a></div>
+                    <form th:action="'/Room_1k/' + ${el.roomId_1k} +'/remove'" method="post">
+                        <button class="btn btn-warning" type="submit">Удалить</button>
+                    </form>
+                </div>
+
+
+
+
+</section>
+
+
+<br>
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>

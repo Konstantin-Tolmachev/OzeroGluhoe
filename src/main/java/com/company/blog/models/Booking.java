@@ -13,18 +13,18 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fname, lname, pname, phone, tourId, myRoomId, dateIn,  days;
+    private String fname, lname, pname, phone, dateIn, dateOut, korpus,  myRoomId;
 
     public Booking(String fname, String lname, String pname, String phone,
-                   String tourId, String myRoomId, String dateIn, String days) {
+                   String dateIn, String dateOut, String korpus, String myRoomId) {
         this.fname = fname;
         this.lname = lname;
         this.pname = pname;
         this.phone = phone;
-        this.tourId = tourId;
-        this.myRoomId = myRoomId;
         this.dateIn = dateIn;
-        this.days = days;
+        this.dateOut = dateOut;
+        this.korpus = korpus;
+        this.myRoomId = myRoomId;
 
     }
 
@@ -72,22 +72,6 @@ public class Booking {
         this.phone = phone;
     }
 
-    public String getTourId() {
-        return tourId;
-    }
-
-    public void setTourId(String tourId) {
-        this.tourId = tourId;
-    }
-
-    public String getMyRoomId() {
-        return myRoomId;
-    }
-
-    public void setMyRoomId(String myRoomId) {
-        this.myRoomId = myRoomId;
-    }
-
     public String getDateIn() {
         return dateIn;
     }
@@ -96,14 +80,28 @@ public class Booking {
         this.dateIn = dateIn;
     }
 
-
-
-    public String getDays() {
-        return days;
+    public String getDateOut() {
+        return dateOut;
     }
 
-    public void setDays(String days) {
-        this.days = days;
+    public void setDateOut(String dateOut) {
+        this.dateOut = dateOut;
+    }
+
+    public String getKorpus() {
+        return korpus;
+    }
+
+    public void setKorpus(String korpus) {
+        this.korpus = korpus;
+    }
+
+    public String getMyRoomId() {
+        return myRoomId;
+    }
+
+    public void setMyRoomId(String myRoomId) {
+        this.myRoomId = myRoomId;
     }
 }
 

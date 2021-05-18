@@ -182,7 +182,7 @@ input#fname,#lname,#pname,#phone,#tourId,#myRoomId,#days,#email{
 }
 */
 
-input#fname,#lname,#pname,#phone,#tourId,#myRoomId,#days,#dateIn{
+input#fname,#lname,#pname,#phone,#dateIn,#dateOut,#korpus,#myRoomId{
     width: 185px;
     height: 30px;
 }
