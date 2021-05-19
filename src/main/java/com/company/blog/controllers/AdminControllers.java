@@ -7,6 +7,7 @@ import com.company.blog.repo.*;
 import com.company.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,7 @@ import java.util.Optional;
 @Controller
 public class AdminControllers {
 
-    @Autowired
-    private RegistrationRepository registrationRepository;
+
     @Autowired
     private BookingRepository bookingRepository;
     @Autowired
@@ -33,7 +33,9 @@ public class AdminControllers {
     @Autowired
     private UserService userService;
     @Autowired
-    private Room_1kRepository room_1kRepository;
+    private KorpusOneRoomsRepository korpusOneRoomsRepository;
+    @Autowired
+    private KorpusTwoRoomsRepository korpusTwoRoomsRepository;
 
     @GetMapping("/AdminHome")
     public String Test(Model model) {
@@ -292,7 +294,7 @@ public class AdminControllers {
 
     @GetMapping("/Room_1k")
     public String Room_1k(Model model) {
-        Iterable<Room_1k> Rooms_1k = room_1kRepository.findAll();
+        Iterable<KorpusOneRooms> Rooms_1k = korpusOneRoomsRepository.findAll();
         model.addAttribute("title", "Комнаты 1 корпус");
         model.addAttribute("Rooms_1k", Rooms_1k);
         return "AdminHTML/room_1k";
@@ -302,12 +304,12 @@ public class AdminControllers {
 
 
     @GetMapping("/Room_1k/{id}/edit")
-    public String allRoom_1kEdit (@PathVariable(value = "id") long roomId_1k, Model model) {
-        if(!room_1kRepository.existsById (roomId_1k)){
+    public String allRoom_1kEdit (@PathVariable(value = "id") long roomsOneKorpusId, Model model) {
+        if(!korpusOneRoomsRepository.existsById (roomsOneKorpusId)){
             return "redirect:/Room_1k";
         }
-        Optional<Room_1k> post = room_1kRepository.findById(roomId_1k);
-        ArrayList<Room_1k> res = new ArrayList<>();
+        Optional<KorpusOneRooms> post = korpusOneRoomsRepository.findById(roomsOneKorpusId);
+        ArrayList<KorpusOneRooms> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
         return "AdminHTML/room_1k_Edit";
@@ -316,30 +318,108 @@ public class AdminControllers {
     /*Редактирование информации*/
 
     @PostMapping("/Room_1k/{id}/edit")
-    public String AllRoom_1kUpdate(@PathVariable(value = "id") long roomId_1k,
+    public String AllRoom_1kUpdate(@PathVariable(value = "id") long roomsOneKorpusId,
                                //  @RequestParam long room_id,
-                                 @RequestParam String type_1k,
-                                 @RequestParam String free_1k,
+                                 @RequestParam String typeOneKorpus,
+                                 @RequestParam String freeOneKorpus,
                                  Model model) throws Exception {
-        Room_1k post = room_1kRepository.findById(roomId_1k).orElseThrow(Exception::new);
+        KorpusOneRooms post = korpusOneRoomsRepository.findById(roomsOneKorpusId).orElseThrow(Exception::new);
        // post.setRoomId(room_id);
-        post.setType_1k(type_1k);
-        post.setFree_1k(free_1k);
-        room_1kRepository.save(post);
+        post.setTypeOneKorpus(typeOneKorpus);
+        post.setFreeOneKorpus(freeOneKorpus);
+        korpusOneRoomsRepository.save(post);
         return "redirect:/Room_1k";
     }
 
     /* Удалить информацию */
 
     @PostMapping("/Room_1k/{id}/remove")
-    public String AllRoom_1kDelete(@PathVariable(value = "id") long roomId_1k, Model model) throws Exception {
-        Room_1k post = room_1kRepository.findById(roomId_1k).orElseThrow(Exception::new);
-        room_1kRepository.delete(post);
+    public String AllRoom_1kDelete(@PathVariable(value = "id") long roomsOneKorpusId, Model model) throws Exception {
+        KorpusOneRooms post = korpusOneRoomsRepository.findById(roomsOneKorpusId).orElseThrow(Exception::new);
+        korpusOneRoomsRepository.delete(post);
         return "redirect:/Room_1k";
     }
 
 
 
+    @PostMapping("Rooms_1kFilter")
+    public String filterOne(@RequestParam String filter, Model model) {
+        Iterable<KorpusOneRooms> Rooms_1k;
+
+        if (filter !=null && !filter.isEmpty()){
+            Rooms_1k = korpusOneRoomsRepository.findByFreeOneKorpus(filter);
+        } else {
+            Rooms_1k = korpusOneRoomsRepository.findAll();
+        }
+
+        model.addAttribute("Rooms_1k", Rooms_1k);
+        return "AdminHTML/room_1k";
+    }
+
+
+    /*Создаем страницу комнат для первого корпуса и выводим комнаты*/
+
+    @GetMapping("/Room_2k")
+    public String Room_2k(Model model) {
+        Iterable<KorpusTwoRooms> Rooms_2k = korpusTwoRoomsRepository.findAll();
+        model.addAttribute("title", "Комнаты 2 корпус");
+        model.addAttribute("Rooms_2k", Rooms_2k);
+        return "AdminHTML/room_2k";
+    }
+
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+
+
+    @GetMapping("/Room_2k/{id}/edit")
+    public String allRoom_2kEdit (@PathVariable(value = "id") long roomsTwoKorpusId, Model model) {
+        if(!korpusTwoRoomsRepository.existsById (roomsTwoKorpusId)){
+            return "redirect:/Room_2k";
+        }
+        Optional<KorpusTwoRooms> post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId);
+        ArrayList<KorpusTwoRooms> res = new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post", res);
+        return "AdminHTML/room_2k_Edit";
+    }
+
+    /*Редактирование информации*/
+
+    @PostMapping("/Room_2k/{id}/edit")
+    public String AllRoom_2kUpdate(@PathVariable(value = "id") long roomsTwoKorpusId,
+                                   //  @RequestParam long room_id,
+                                   @RequestParam String typeTwoKorpus,
+                                   @RequestParam String freeTwoKorpus,
+                                   Model model) throws Exception {
+        KorpusTwoRooms post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId).orElseThrow(Exception::new);
+        // post.setRoomId(room_id);
+        post.setTypeTwoKorpus(typeTwoKorpus);
+        post.setFreeTwoKorpus(freeTwoKorpus);
+        korpusTwoRoomsRepository.save(post);
+        return "redirect:/Room_2k";
+    }
+
+    /* Удалить информацию */
+
+    @PostMapping("/Room_2k/{id}/remove")
+    public String AllRoom_2kDelete(@PathVariable(value = "id") long roomsTwoKorpusId, Model model) throws Exception {
+        KorpusTwoRooms post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId).orElseThrow(Exception::new);
+        korpusTwoRoomsRepository.delete(post);
+        return "redirect:/Room_2k";
+    }
+
+    @PostMapping("Rooms_2kFilter")
+    public String filterTwo (@RequestParam String filter, Model model) {
+        Iterable<KorpusTwoRooms> Rooms_2k;
+
+        if (filter !=null && !filter.isEmpty()){
+            Rooms_2k = korpusTwoRoomsRepository.findByFreeTwoKorpus(filter);
+        } else {
+            Rooms_2k = korpusTwoRoomsRepository.findAll();
+        }
+
+        model.addAttribute("Rooms_2k", Rooms_2k);
+        return "AdminHTML/room_2k";
+    }
 
 
 

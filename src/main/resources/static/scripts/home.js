@@ -30,10 +30,14 @@ function checkParams() {
         $('#submit').attr('disabled', 'disabled');
     }
 }
-//
-// var dateIn = document.getElementById("dateIn").value;
-// var today = new Date().toISOString().split('T')[0];
-// document.getElementById("dateIn").setAttribute('min', today);
+
+var dateIn = document.getElementById("dateIn").value;
+var today = new Date().toISOString().split('T')[0];
+document.getElementById("dateIn").setAttribute('min', today);
+
+var dateOut = document.getElementById("dateOut").value;
+var today = new Date().toISOString().split('T')[0];
+document.getElementById("dateOut").setAttribute('min', today);
 //
 //
 //

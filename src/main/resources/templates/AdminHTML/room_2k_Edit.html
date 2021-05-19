@@ -16,7 +16,7 @@
 
 
 <section class="newPeoples">
-    <h3 >Номерной фонд 1 корпуса</h3>
+    <h3 >Номерной фонд 2 корпуса</h3>
 
     <div class="nameColumn">
         <div class="wrap1">№ комнаты </div>
@@ -29,11 +29,11 @@
 
     <form  method="post">
         <div  th:each="el : ${post}" class="editStaff">
-            <div class="wrap"><input type="text" th:value="${el.roomsOneKorpusId}" onkeyup="checkParams()" id="roomsOneKorpusId" name="roomsOneKorpusId" placeholder="№ комнаты"></div>
-            <div class="wrap"><input type="text" th:value="${el.typeOneKorpus}" onkeyup="checkParams()" id="typeOneKorpus" name="typeOneKorpus" placeholder="Тип комнаты"></div>
-            <div class="wrap"><input type="text" th:value="${el.freeOneKorpus}" onkeyup="checkParams()" id="freeOneKorpus" name="freeOneKorpus" placeholder="Заселение"></div>
+            <div class="wrap"><input type="text" th:value="${el.roomsTwoKorpusId}" onkeyup="checkParams()" id="roomsTwoKorpusId" name="roomsTwoKorpusId" placeholder="№ комнаты"></div>
+            <div class="wrap"><input type="text" th:value="${el.typeTwoKorpus}" onkeyup="checkParams()" id="typeTwoKorpus" name="typeTwoKorpus" placeholder="Тип комнаты"></div>
+            <div class="wrap"><input type="text" th:value="${el.freeTwoKorpus}" onkeyup="checkParams()" id="freeTwoKorpus" name="freeTwoKorpus" placeholder="Заселение"></div>
 
-            <form th:action="@{/Room_1k}" method="post" class="wrap">
+            <form th:action="@{/Room_2k}" method="post" class="wrap">
                 <input type="submit"   class="glow-button" value="Обновить"  >
             </form>
         </div>

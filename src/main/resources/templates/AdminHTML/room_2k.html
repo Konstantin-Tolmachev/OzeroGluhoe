@@ -15,9 +15,9 @@
 
 
 <section class="newPeoples">
-    <h3 >Номерной фонд 1 корпуса</h3>
+    <h3 >Номерной фонд 2 корпуса</h3>
 
-    <form method="post"  th:action="Rooms_1kFilter">
+    <form method="post"  th:action="Rooms_2kFilter">
         <input type="text" name="filter" placeholder="Поиск">
         <button type="submit">Найти</button>
     </form>
@@ -33,12 +33,12 @@
                 <br>
                 <br>
 
-                <div th:each="el : ${Rooms_1k}" class="editStaff">
-                    <div th:text="${el.roomsOneKorpusId}" class="wrap"><input type="text" id="id" name="id" placeholder="Имя"></div>
-                    <div th:text="${el.typeOneKorpus}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
-                    <div th:text="${el.freeOneKorpus}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
-                    <div><a th:href="'/Room_1k/' + ${el.roomsOneKorpusId} + '/edit'" class="test">Редактировать</a></div>
-                    <form th:action="'/Room_1k/' + ${el.roomsOneKorpusId} +'/remove'" method="post">
+                <div th:each="el : ${Rooms_2k}" class="editStaff">
+                    <div th:text="${el.roomsTwoKorpusId}" class="wrap"><input type="text" id="id" name="id" placeholder="Имя"></div>
+                    <div th:text="${el.typeTwoKorpus}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
+                    <div th:text="${el.freeTwoKorpus}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
+                    <div><a th:href="'/Room_2k/' + ${el.roomsTwoKorpusId} + '/edit'" class="test">Редактировать</a></div>
+                    <form th:action="'/Room_2k/' + ${el.roomsTwoKorpusId} +'/remove'" method="post">
                         <button class="btn btn-warning" type="submit">Удалить</button>
                     </form>
                 </div>

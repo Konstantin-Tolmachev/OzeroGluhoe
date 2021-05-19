@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface BookingRepository extends CrudRepository<Booking, Long> {
     List<Booking> findAllByOrderByIdDesc();
+    List<Booking> findByFname(String fname);
 }

@@ -18,6 +18,11 @@
 <section class="booking">
     <h3 >Бронирование</h3>
 
+    <form method="post"  th:action="BookingFilter">
+        <input type="text" name="filter" placeholder="Поиск по фамилии">
+        <button type="submit">Найти</button>
+    </form>
+
     <div class="allDiv">
         <div class="wrap">№ корпуса</div>
         <div class="wrap">№ комнаты</div>

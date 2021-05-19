@@ -2,6 +2,7 @@ package com.company.blog.controllers;
 
 
 import com.company.blog.models.Staff;
+import com.company.blog.repo.KorpusOneRoomsRepository;
 import com.company.blog.repo.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -20,6 +20,8 @@ public class StaffController {
 
     @Autowired
     private StaffRepository staffRepository;
+    @Autowired
+    private KorpusOneRoomsRepository korpusOneRoomsRepository;
 
     /*Создаем страницу*/
 
@@ -107,6 +109,20 @@ public class StaffController {
         model.addAttribute("staffs", staffs);
         return "AdminHTML/allStaff";
     }
+
+//    @PostMapping("Rooms_1kFilter")
+//    public String Rfilter(@RequestParam String filter, Model model) {
+//        Iterable<Room_1k> room_1ks;
+//
+//        if (filter !=null && !filter.isEmpty()){
+//            room_1ks = room_1kRepository.findByFree_1k(filter);
+//        } else {
+//            room_1ks = room_1kRepository.findAll();
+//        }
+//
+//        model.addAttribute("room_1ks", room_1ks);
+//        return "AdminHTML/room_1k";
+//    }
 
 
 
