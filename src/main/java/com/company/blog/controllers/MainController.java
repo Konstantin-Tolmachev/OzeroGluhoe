@@ -1,6 +1,8 @@
 package com.company.blog.controllers;
 
+import com.company.blog.models.KorpusOneRooms;
 import com.company.blog.models.Tour;
+import com.company.blog.repo.KorpusOneRoomsRepository;
 import com.company.blog.repo.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +17,15 @@ public class MainController {
 
     @Autowired
     private TourRepository tourRepository;
+    @Autowired
+    private KorpusOneRoomsRepository korpusOneRoomsRepository;
 
     @GetMapping("/")
     public String home(Model model) {
-        Iterable<Tour> tours = tourRepository.findAll();
-        model.addAttribute("tours", tours);
+//        Iterable<Tour> tours = tourRepository.findAll();
+//        model.addAttribute("tours", tours);
+        Iterable<KorpusOneRooms> Rooms_1k = korpusOneRoomsRepository.findAll();
+        model.addAttribute("Rooms_1k", Rooms_1k);
         model.addAttribute("title", "С/П 'Озеро Глухое' ");
         return "home";
     }

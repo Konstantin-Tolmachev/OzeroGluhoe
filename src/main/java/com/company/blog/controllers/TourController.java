@@ -86,7 +86,7 @@ public class TourController {
         return "redirect:/AllTour";
     }
 
-    /* Удалить сотрудника */
+    /* Удалить тур */
 
     @PostMapping("/AllTour/{id}/remove")
     public String AllTourDelete(@PathVariable(value = "id") long id, Model model) throws Exception {

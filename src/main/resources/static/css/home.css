@@ -3,18 +3,15 @@
 }
 
 .sidebar{
-  /*  position: fixed;
 
-   */
+    width: auto;
 
-    width: 450px;
     background: #f7d2fa;
     opacity: 0.7;
     border-radius: 10px;
+    overflow: auto;
 
-    -moz-transition: all 600ms;
-    -webkit-transition: all 600ms;
-    transition-duration: all 600ms;
+
 }
 
 
@@ -77,6 +74,7 @@ body {
     color: #ba1c85; /* Цвет текста всего шрифта  */
     background-attachment: fixed;
     background-position: center top;
+    overflow: hidden;
    /* border-radius: .2rem; */
 }
 
@@ -159,10 +157,15 @@ h3 {
 }
 
 .booking{
+
+    /*position: absolute;*/
     width: 410px;
     height: auto;
     border-radius: 5px;
     background-color: #0303039d;
+    /*  float: left;*/
+    /*z-index: 0;*/
+
 }
 
 .wrap {
@@ -225,6 +228,63 @@ div.btn{
     text-decoration: none; /* Убираем подчёркивание */
     border-radius: 3px; /* Скругляем уголки */
 }
+
+
+.closed {
+    display:none;
+}
+
+.freeRooms_1{
+    text-decoration: none;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.freeRooms_2{
+    text-decoration: none;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.tours > a {
+    font-size: 1.2rem;
+}
+
+.allDv{
+    column-count: 3;
+    padding-right: 30px;
+    padding-left: 30px;
+    /* padding-bottom: 10px;*/
+    /*  padding-top: 10px;*/
+}
+
+.hh2{
+    color: #003559;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.sectionRoom {
+    display: table;
+    z-index: 999999;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    background-color: white;
+    opacity: 0.9;
+}
+
+@media screen and (min-width: 10px) {
+    .sectionRoom {
+        margin: 0  auto;
+        /* margin-right: 35%;
+         margin-left: 40%;*/
+        margin-right: 125px;
+        margin-left: 500px;
+        float: right;
+    }
+}
+
 
 
 
