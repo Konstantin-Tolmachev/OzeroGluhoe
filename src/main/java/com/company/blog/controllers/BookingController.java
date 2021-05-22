@@ -28,34 +28,35 @@ public class BookingController {
           return "allClients";
       }
   */
-    @PostMapping("/") //AllClients; home; / можо попробовать
-    public String Payment( @RequestParam String fname,
-                           @RequestParam String lname,
-                           @RequestParam String pname,
-                           @RequestParam String phone,
-                           @RequestParam String dateIn,
-                           @RequestParam String dateOut,
-                           @RequestParam String korpus,
-                           @RequestParam String myRoomId,
-                            Model model) {
-        Booking post = new Booking (fname, lname, pname, phone, dateIn, dateOut, korpus, myRoomId);
-        bookingRepository.save(post);
-        return "home";
-    }
+//    @PostMapping("/") //AllClients; home; / можо попробовать
+//    public String Payment( @RequestParam String fname,
+//                           @RequestParam String lname,
+//                           @RequestParam String pname,
+//                           @RequestParam String phone,
+//                           @RequestParam String dateIn,
+//                           @RequestParam String dateOut,
+//                           @RequestParam String korpus,
+//                           @RequestParam String myRoomId,
+//                            Model model) {
+//        Booking post = new Booking (fname, lname, pname, phone, dateIn, dateOut, korpus, myRoomId);
+//        bookingRepository.save(post);
+//        //return  "home";
+//        return "redirect:/";
+//    }
 
-    @PostMapping("BookingFilter")
-    public String filter(@RequestParam String filter, Model model) {
-        Iterable<Booking> bookings;
-
-        if (filter !=null && !filter.isEmpty()){
-            bookings = bookingRepository.findByFname(filter);
-        } else {
-            bookings = bookingRepository.findAll();
-        }
-
-        model.addAttribute("bookings", bookings);
-        return "AdminHTML/allClients";
-    }
+//    @PostMapping("BookingFilter")
+//    public String filter(@RequestParam String filter, Model model) {
+//        Iterable<Booking> bookings;
+//
+//        if (filter !=null && !filter.isEmpty()){
+//            bookings = bookingRepository.findByFname(filter);
+//        } else {
+//            bookings = bookingRepository.findAll();
+//        }
+//
+//        model.addAttribute("bookings", bookings);
+//        return "AdminHTML/allClients";
+//    }
 
 //    @PostMapping("Rooms_1kFilter")
 //    public String filter(@RequestParam String filter, Model model) {

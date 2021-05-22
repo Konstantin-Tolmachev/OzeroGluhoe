@@ -20,35 +20,35 @@
     <h2 class="nametour">Свободные номера</h2>
     <div class="tours">
         <hr class="hh1">
-        <a class="freeRooms_1" href="#" id="linkname01" onclick="toggle('.openbox_1')">1 корпус</a>
-        <a class="freeRooms_2" href="#" id="linkname02" onclick="toggle('.openbox_2')">2 корпус</a>
+        <button class="freeRooms_1"  id="linkname01" onclick="toggle('.openbox_1')">1 корпус</button>
+        <button class="freeRooms_2"  id="linkname02" onclick="toggle('.openbox_2')">2 корпус</button>
     </div>
 </div>
+
+
 
 
 <section class="sectionRoom">
     <div class="hh2">
         <h2 class="closed openbox_1"> Свободные комнаты 1 корпуса</h2>
     </div>
-
     <div class="allDv">
         <div class="closed openbox_1">№ </div>
         <div class="closed openbox_1">Тип </div>
         <div class="closed openbox_1">Свободно</div>
     </div>
-
     <hr class="closed openbox_1">
-
     <div th:each="el : ${Rooms_1k}" class="allDv">
 
-        <div th:text="${el.roomsOneKorpusId}" class="closed openbox_1"><input type="text" id="id" name="id" placeholder="Имя"></div>
-        <div th:text="${el.typeOneKorpus}" class="closed openbox_1"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
-        <div th:text="${el.freeOneKorpus}" class="closed openbox_1"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
+
+        <div th:text="${el.roomsOneKorpusId}" class="closed openbox_1"><input type="text" ></div>
+        <hr class="closed openbox_1">
+        <div th:text="${el.typeOneKorpus}" class="closed openbox_1"><input type="text" ></div>
+        <hr class="closed openbox_1">
+        <div th:text="${el.freeOneKorpus}" class="closed openbox_1"><input type="text" ></div>
+        <hr class="closed openbox_1">
     </div>
 
-
-
-    <hr class="closed openbox_1">
 </section>
 
 <section class="sectionRoom">
@@ -56,15 +56,22 @@
         <h2 class="closed openbox_2"> Свободные комнаты 2 корпуса</h2>
     </div>
     <div class="allDv">
-        <div class="closed openbox_2">text_2</div>
-        <div class="closed openbox_2">text_2.2</div>
-        <div class="closed openbox_2">text_2.2</div>
+        <div class="closed openbox_2">№ </div>
+        <div class="closed openbox_2">Тип </div>
+        <div class="closed openbox_2">Свободно</div>
     </div>
-
     <hr class="closed openbox_2">
+        <div th:each="el : ${Rooms_2k}" class="allDv">
+            <div th:text="${el.roomsTwoKorpusId}" class="closed openbox_2"><input type="text" ></div>
+            <hr class="closed openbox_2">
+            <div th:text="${el.typeTwoKorpus}" class="closed openbox_2"><input type="text" ></div>
+            <hr class="closed openbox_2">
+            <div th:text="${el.freeTwoKorpus}" class="closed openbox_2"><input type="text" ></div>
+            <hr class="closed openbox_2">
+        </div>
+
 </section>
 
-<br>
 
 <section class="booking">
     <h3 >Бронирование</h3>
@@ -82,18 +89,11 @@
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false" ></div>
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="№ корпус*" onkeypress='validate(event)' maxlength="1"></div>
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="№ комнаты*" onkeypress='validateRoom(event)' maxlength="3"></div>
-
-
-            <!-- <div class="">&nbsp;</div>
-             <div class="">&nbsp;</div> -->
         </div>
-
         <div class="btn">
             <input type="submit" id="submit" class="glow-button" value="Перейти к оплате" disabled   >
         </div> <!--  onclick="window.open('/payment' , '_self')"disabled-->
-
     </form>
-
 </section>
 
 
@@ -107,7 +107,7 @@
 
 </body>
 
-<footer th:insert="blocks/footer :: footer"></footer>
+<!--<footer th:insert="blocks/footer :: footer"></footer>-->
 
 
 </html>

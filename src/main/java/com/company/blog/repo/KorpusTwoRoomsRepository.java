@@ -1,6 +1,5 @@
 package com.company.blog.repo;
 
-import com.company.blog.models.KorpusOneRooms;
 import com.company.blog.models.KorpusTwoRooms;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,17 +1,15 @@
+
 * {
     box-sizing: border-box;
+
 }
 
 .sidebar{
-
     width: auto;
-
-    background: #f7d2fa;
+    /*height: auto;*/
+    background: #f7d2fa; /*Цвет выдвижного окошка*/
     opacity: 0.7;
     border-radius: 10px;
-    overflow: auto;
-
-
 }
 
 
@@ -21,6 +19,7 @@
         float: right;
     }
 }
+
 .sidebar .hh1 {
     border: none; /* Убираем границу */
     background-color: red; /* Цвет линии */
@@ -31,9 +30,11 @@
 }
 
 
+
 .tours{
     padding: 10px;
     list-style: none;
+
 }
 
 .sidebar hr {
@@ -44,6 +45,7 @@
     height:1px;
     width:50%;
 }
+
 
 h1.name{
     color: #ba1c85; /* Цвет текста всего шрифта  */
@@ -62,76 +64,6 @@ h3.a{
     font-size: 1.4em;
 }
 
-
-
-
-body {
-   /* height:100%; */
-   /* margin: 0; */
-  /*  padding: 10px 10px; */
-  /*  background:  #c7b39b  url(../../static.img/fon.jpg) no-repeat 0/cover;*/
-    background: #c7b39b url(/img/fon.jpg) no-repeat 0 / cover;
-    color: #ba1c85; /* Цвет текста всего шрифта  */
-    background-attachment: fixed;
-    background-position: center top;
-    overflow: hidden;
-   /* border-radius: .2rem; */
-}
-
-
-/*ШАПКА ПРОЗРАЧНОСТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-nav ul {
-    opacity: 0.8;
-}
-/*Слова в шапке без подчеркивания линией!!!!!!!!!!!!!!!!!!*/
-nav a {
-    text-decoration: none;
-}
-
-
-/*Шапка бара*/
-    .topmenu {
-        width: 100%;
-        /*Резиновая шапка*/
-        padding: 25px;
-        border-radius: 20px;
-        /*Радиус бара*/
-        background-color: #f2f2f2;
-
-}
-/*Расположение текста в баре*/
-.topmenu > li {
-    display: inline; /*текст в шапке в строчку*/
-}
-
-/*Текст в шапке бара*/
-.topmenu > li > a {
-    font-family: 'Exo 2', sans-serif;
-    padding: 1%;/*Отступы между текстом в шапке*/
-    font-weight: bold; /*Жирный шрифт в баре*/
-    color: #003559; /*Цвет шрифта*/
-
-}
-
-.ab {
-    display: inline;
-    font-family: 'Exo 2', sans-serif;
-    padding: 1%;/*Отступы между текстом в шапке*/
-    font-weight: bold; /*Жирный шрифт в баре*/
-    color: #003559; /*Цвет шрифта*/
-}
-h4 {
-
-
-    text-align: center;
-    font-style: italic;
-    font-size: 20px;
-
-
-
-}
-
-
 h3 {
 
     height: 20px;
@@ -140,8 +72,50 @@ h3 {
     font-size: 30px;
     color: #d7f2acdc;
 
+}
+
+
+body {
+    background:  #c7b39b  url(/img/fon.jpg) no-repeat 0/cover;
+    background-attachment: fixed; /*Фиксация картинки*/
+    background-position: center top;
+    /*  overflow: hidden;*/
+}
+
+
+/*Прозрачность шапки*/
+nav ul {
+    opacity: 0.8;
+}
+
+/*Слова в шапке без подчеркивания линией*/
+nav a {
+    text-decoration: none;
+}
+
+/*Шапка бара*/
+.topmenu {
+    width: 100%; /*Резиновая шапка*/
+    padding: 25px;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+
 
 }
+/*Расположение текста в баре*/
+.topmenu > li {
+    display: inline; /*текст в шапке в строчку*/
+}
+
+
+/*Текст в шапке бара*/
+.topmenu > li > a {
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
+}
+
 
 
 /*Изменения цвета при наведении курсора*/
@@ -155,17 +129,18 @@ h3 {
         float: right;
     }
 }
+/*  ddddddddddddddddddddddddddddddddd*/
+
+
 
 .booking{
-
-    /*position: absolute;*/
+    position: absolute;
     width: 410px;
     height: auto;
     border-radius: 5px;
     background-color: #0303039d;
     /*  float: left;*/
-    /*z-index: 0;*/
-
+    z-index: 0;
 }
 
 .wrap {
@@ -174,50 +149,58 @@ h3 {
     padding: 5px;
 }
 
+
+
 .allDiv{
     column-count: 2;
     padding: 5px;
 }
-/*
-input#fname,#lname,#pname,#phone,#tourId,#myRoomId,#days,#email{
-    width: 185px;
-    height: 30px;
-}
-*/
+
+
+
 
 input#fname,#lname,#pname,#phone,#dateIn,#dateOut,#korpus,#myRoomId{
     width: 185px;
     height: 30px;
 }
 
+
+
+
 div.btn{
     text-align: center;
     padding-bottom: 15px;
 }
+
+
+/* input #submit{
+   text-decoration: none;
+   display: inline-block;
+   color: black;
+   border-radius: 4px;
+   background-color: solid;
+   width: 185px;
+   height: 25px;
+   cursor: pointer;
+ }*/
+
+
+
 .glow-button {
     padding: 8px 20px;
     border-radius: 4px;
     box-shadow: 0 0 40px 40px white inset, 0 0 0 0 yellow;
     color: black;
     opacity: 0.5;
-}
 
+
+}
 .glow-button:hover {
     box-shadow: 0 0 1px 0 black inset, 0 0 10px 1px white;
     color: black;
     opacity: 1;
     cursor: pointer;
 }
-
-.inline{
-    display: inline; /* Отображать как строчный элемент */
-    text-align: center;
-    font-family: 'Exo 2', sans-serif;
-    padding: 1%;/*Отступы между текстом в шапке*/
-    font-weight: bold; /*Жирный шрифт в баре*/
-    color: #003559; /*Цвет шрифта*/
-}
-
 
 
 .bteen {
@@ -230,25 +213,107 @@ div.btn{
 }
 
 
+
+
+
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+
+
+
+.dropbtn {
+    width: auto;
+    background-color:  #f2f2f2; /*Цвет как в шапке*/
+    color: #ba1c85; /*Цвет шрифта*/
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+}
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f2f2f2;
+    z-index: 1;
+
+}
+.dropdown-content a {
+    color:  #003559;
+    padding: 12px 16px;
+    text-decoration: none; /*Убираем подчеркивание текста*/
+    display: inline;
+    font-weight: bold;
+
+}
+.dropdown-content a:hover { color: #E6855F;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .closed {
     display:none;
 }
 
-.freeRooms_1{
+.freeRooms_1 {
     text-decoration: none;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 0 40px 40px white inset, 0 0 0 0 yellow;
+    color: black;
+    cursor: pointer;
+    opacity: 1;
 }
 
 .freeRooms_2{
     text-decoration: none;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 0 40px 40px white inset, 0 0 0 0 yellow;
+    color: black;
+    cursor: pointer;
+    opacity: 1;
 }
 
-.tours > a {
+.tours > button {
     font-size: 1.2rem;
+    box-shadow: 0 0 3px 0 blue inset, 0 0 10px 1px white;
+    color: black;
+    opacity: 1;
 }
+
+div.tours{
+    text-align: center;
+
+}
+
+/*  .tours{
+    padding-left: 50px;
+  }*/
+
 
 .allDv{
     column-count: 3;
@@ -264,35 +329,68 @@ div.btn{
     padding-left: 30px;
 }
 
-.sectionRoom {
-    display: table;
-    z-index: 999999;
-    width: auto;
-    height: auto;
+.sectionRoom_2 {
+    margin: 0 auto;
+    float: right;
+    width: 25%;
+    height:auto;
+    /*height:66%;*/
     border-radius: 5px;
     background-color: white;
-    opacity: 0.9;
+    opacity: 0.8;
+    overflow: auto;
 }
 
-@media screen and (min-width: 10px) {
+.sectionRoom {
+    margin: 0 auto;
+    float: right;
+    width: 25%;
+    height:auto;
+    /*height:66%;*/
+    border-radius: 5px;
+    background-color: white;
+    opacity: 0.8;
+    overflow: auto;
+}
+
+/*.sectionRoom1 {*/
+/*    margin: 0 auto;*/
+/*    float: right;*/
+/*    width: 25%;*/
+/*    height:auto;*/
+/*    !*height:66%;*!*/
+/*    border-radius: 5px;*/
+/*    background-color: white;*/
+/*    opacity: 0.8;*/
+/*    overflow: auto;*/
+/*}*/
+
+@media screen  {
     .sectionRoom {
-        margin: 0  auto;
-        /* margin-right: 35%;
-         margin-left: 40%;*/
         margin-right: 125px;
         margin-left: 500px;
         float: right;
+
+        /* overflow: auto;
+       */
     }
 }
 
+/*@media screen  {*/
+/*    .sectionRoom_2 {*/
+/*        margin-right: 125px;*/
+/*        margin-left: 500px;*/
+/*        float: right;*/
 
+/*        !* overflow: auto;*/
+/*       *!*/
+/*    }*/
+/*}*/
 
-
-
-
-
-
-
-
-
-
+/*
+ margin: 0  auto;
+ margin-right: 35%;
+ margin-left: 40%;
+ margin-right: 125px;
+ margin-left: 500px;
+ float: right;*/

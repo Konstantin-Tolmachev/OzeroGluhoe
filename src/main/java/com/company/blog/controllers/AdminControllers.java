@@ -290,6 +290,12 @@ public class AdminControllers {
         return "redirect:/Accounts";
     }
 
+
+
+
+
+
+
     /*Создаем страницу комнат для первого корпуса и выводим комнаты*/
 
     @GetMapping("/Room_1k")
@@ -343,7 +349,7 @@ public class AdminControllers {
 
 
     @PostMapping("Rooms_1kFilter")
-    public String filterOne(@RequestParam String filter, Model model) {
+    public String filterOne (@RequestParam String filter, Model model) {
         Iterable<KorpusOneRooms> Rooms_1k;
 
         if (filter !=null && !filter.isEmpty()){
@@ -357,7 +363,7 @@ public class AdminControllers {
     }
 
 
-    /*Создаем страницу комнат для первого корпуса и выводим комнаты*/
+    /*Создаем страницу комнат для второго корпуса и выводим комнаты*/
 
     @GetMapping("/Room_2k")
     public String Room_2k(Model model) {
