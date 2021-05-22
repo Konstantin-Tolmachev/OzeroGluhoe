@@ -13,6 +13,30 @@
 <body>
 
 
+<section class="booking">
+    <h3 >Бронирование</h3>
+
+
+    <!--action="/" th:action="@{/AddActualInformation}" -->
+    <form  th:action="@{/}" method="post">
+        <div class="allDiv">
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество*"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false"   ></div>
+            <!-- <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')"  ></div> -->
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false" ></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="№ корпус*" onkeypress='validate(event)' maxlength="1"></div>
+            <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="№ комнаты*" onkeypress='validateRoom(event)' maxlength="3"></div>
+        </div>
+        <div class="btn">
+            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате" disabled   >
+        </div> <!--  onclick="window.open('/payment' , '_self')"disabled-->
+    </form>
+</section>
+
+
 
 <!---->
 
@@ -26,8 +50,6 @@
 </div>
 
 
-
-
 <section class="sectionRoom">
     <div class="hh2">
         <h2 class="closed openbox_1"> Свободные комнаты 1 корпуса</h2>
@@ -39,8 +61,6 @@
     </div>
     <hr class="closed openbox_1">
     <div th:each="el : ${Rooms_1k}" class="allDv">
-
-
         <div th:text="${el.roomsOneKorpusId}" class="closed openbox_1"><input type="text" ></div>
         <hr class="closed openbox_1">
         <div th:text="${el.typeOneKorpus}" class="closed openbox_1"><input type="text" ></div>
@@ -50,6 +70,10 @@
     </div>
 
 </section>
+
+
+
+
 
 <section class="sectionRoom">
     <div class="hh2">
@@ -73,28 +97,32 @@
 </section>
 
 
-<section class="booking">
-    <h3 >Бронирование</h3>
 
 
-<!--action="/" th:action="@{/AddActualInformation}" -->
-    <form  th:action="@{/}" method="post">
-        <div class="allDiv">
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия*"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя*"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество*"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false"   ></div>
-           <!-- <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')"  ></div> -->
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false" ></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="№ корпус*" onkeypress='validate(event)' maxlength="1"></div>
-            <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="№ комнаты*" onkeypress='validateRoom(event)' maxlength="3"></div>
-        </div>
-        <div class="btn">
-            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате" disabled   >
-        </div> <!--  onclick="window.open('/payment' , '_self')"disabled-->
-    </form>
-</section>
+
+
+<!--<section class="booking">-->
+<!--    <h3 >Бронирование</h3>-->
+
+
+<!--&lt;!&ndash;action="/" th:action="@{/AddActualInformation}" &ndash;&gt;-->
+<!--    <form  th:action="@{/}" method="post">-->
+<!--        <div class="allDiv">-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия*"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя*"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество*"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false"   ></div>-->
+<!--           &lt;!&ndash; <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')"  ></div> &ndash;&gt;-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false" ></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="№ корпус*" onkeypress='validate(event)' maxlength="1"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="№ комнаты*" onkeypress='validateRoom(event)' maxlength="3"></div>-->
+<!--        </div>-->
+<!--        <div class="btn">-->
+<!--            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате" disabled   >-->
+<!--        </div> &lt;!&ndash;  onclick="window.open('/payment' , '_self')"disabled&ndash;&gt;-->
+<!--    </form>-->
+<!--</section>-->
 
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

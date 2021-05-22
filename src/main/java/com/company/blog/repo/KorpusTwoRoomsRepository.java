@@ -8,4 +8,5 @@ import java.util.List;
 public interface KorpusTwoRoomsRepository extends CrudRepository<KorpusTwoRooms, Long> {
     List<KorpusTwoRooms> findByFreeTwoKorpus (String freeTwoKorpus);
 
+
 }

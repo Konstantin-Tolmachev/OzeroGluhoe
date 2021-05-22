@@ -134,7 +134,8 @@ nav a {
 
 
 .booking{
-    position: absolute;
+    /*position: absolute;*/
+    position: fixed;
     width: 410px;
     height: auto;
     border-radius: 5px;
@@ -310,11 +311,6 @@ div.tours{
 
 }
 
-/*  .tours{
-    padding-left: 50px;
-  }*/
-
-
 .allDv{
     column-count: 3;
     padding-right: 30px;
@@ -329,18 +325,6 @@ div.tours{
     padding-left: 30px;
 }
 
-.sectionRoom_2 {
-    margin: 0 auto;
-    float: right;
-    width: 25%;
-    height:auto;
-    /*height:66%;*/
-    border-radius: 5px;
-    background-color: white;
-    opacity: 0.8;
-    overflow: auto;
-}
-
 .sectionRoom {
     margin: 0 auto;
     float: right;
@@ -353,44 +337,18 @@ div.tours{
     overflow: auto;
 }
 
-/*.sectionRoom1 {*/
-/*    margin: 0 auto;*/
-/*    float: right;*/
-/*    width: 25%;*/
-/*    height:auto;*/
-/*    !*height:66%;*!*/
-/*    border-radius: 5px;*/
-/*    background-color: white;*/
-/*    opacity: 0.8;*/
-/*    overflow: auto;*/
-/*}*/
+div.openbox_1 {
+    text-align: center;
+}
+div.openbox_2 {
+    text-align: center;
+}
+
 
 @media screen  {
     .sectionRoom {
         margin-right: 125px;
         margin-left: 500px;
         float: right;
-
-        /* overflow: auto;
-       */
     }
 }
-
-/*@media screen  {*/
-/*    .sectionRoom_2 {*/
-/*        margin-right: 125px;*/
-/*        margin-left: 500px;*/
-/*        float: right;*/
-
-/*        !* overflow: auto;*/
-/*       *!*/
-/*    }*/
-/*}*/
-
-/*
- margin: 0  auto;
- margin-right: 35%;
- margin-left: 40%;
- margin-right: 125px;
- margin-left: 500px;
- float: right;*/

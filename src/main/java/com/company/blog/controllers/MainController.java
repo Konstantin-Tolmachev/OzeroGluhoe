@@ -3,7 +3,7 @@ package com.company.blog.controllers;
 import com.company.blog.models.Booking;
 import com.company.blog.models.KorpusOneRooms;
 import com.company.blog.models.KorpusTwoRooms;
-import com.company.blog.models.Tour;
+
 import com.company.blog.repo.BookingRepository;
 import com.company.blog.repo.KorpusOneRoomsRepository;
 import com.company.blog.repo.KorpusTwoRoomsRepository;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
@@ -38,8 +38,10 @@ public class MainController {
 //        model.addAttribute("tours", tours);
         Iterable<KorpusOneRooms> Rooms_1k = korpusOneRoomsRepository.findAll();
         model.addAttribute("Rooms_1k", Rooms_1k);
+
         Iterable<KorpusTwoRooms> Rooms_2k = korpusTwoRoomsRepository.findAll();
         model.addAttribute("Rooms_2k", Rooms_2k);
+
         model.addAttribute("title", "С/П 'Озеро Глухое' ");
         return "home";
     }

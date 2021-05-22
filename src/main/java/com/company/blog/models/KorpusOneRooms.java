@@ -21,6 +21,27 @@ public class KorpusOneRooms {
         this.freeOneKorpus = freeOneKorpus;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        KorpusOneRooms that = (KorpusOneRooms) o;
+
+        if (roomsOneKorpusId != that.roomsOneKorpusId) return false;
+        if (typeOneKorpus != null ? !typeOneKorpus.equals(that.typeOneKorpus) : that.typeOneKorpus != null)
+            return false;
+        return freeOneKorpus != null ? freeOneKorpus.equals(that.freeOneKorpus) : that.freeOneKorpus == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (roomsOneKorpusId ^ (roomsOneKorpusId >>> 32));
+        result = 31 * result + (typeOneKorpus != null ? typeOneKorpus.hashCode() : 0);
+        result = 31 * result + (freeOneKorpus != null ? freeOneKorpus.hashCode() : 0);
+        return result;
+    }
+
     public KorpusOneRooms() {
     }
 
