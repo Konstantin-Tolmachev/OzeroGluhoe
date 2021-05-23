@@ -6,6 +6,7 @@ import com.company.blog.models.*;
 import com.company.blog.repo.*;
 import com.company.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
@@ -13,6 +14,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -36,6 +41,8 @@ public class AdminControllers {
     private KorpusOneRoomsRepository korpusOneRoomsRepository;
     @Autowired
     private KorpusTwoRoomsRepository korpusTwoRoomsRepository;
+    @Autowired
+    private RequestRepository requestRepository;
 
     @GetMapping("/AdminHome")
     public String Test(Model model) {
@@ -326,8 +333,8 @@ public class AdminControllers {
     @PostMapping("/Room_1k/{id}/edit")
     public String AllRoom_1kUpdate(@PathVariable(value = "id") long roomsOneKorpusId,
                                //  @RequestParam long room_id,
-                                 @RequestParam String typeOneKorpus,
-                                 @RequestParam String freeOneKorpus,
+                                 @RequestParam int typeOneKorpus,
+                                 @RequestParam int freeOneKorpus,
                                  Model model) throws Exception {
         KorpusOneRooms post = korpusOneRoomsRepository.findById(roomsOneKorpusId).orElseThrow(Exception::new);
        // post.setRoomId(room_id);
@@ -393,8 +400,8 @@ public class AdminControllers {
     @PostMapping("/Room_2k/{id}/edit")
     public String AllRoom_2kUpdate(@PathVariable(value = "id") long roomsTwoKorpusId,
                                    //  @RequestParam long room_id,
-                                   @RequestParam String typeTwoKorpus,
-                                   @RequestParam String freeTwoKorpus,
+                                   @RequestParam int typeTwoKorpus,
+                                   @RequestParam int freeTwoKorpus,
                                    Model model) throws Exception {
         KorpusTwoRooms post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId).orElseThrow(Exception::new);
         // post.setRoomId(room_id);
@@ -428,6 +435,23 @@ public class AdminControllers {
     }
 
 
+    @PostMapping("/Request")
+    public String AddRequestStaff(
+                                 // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
+                                  @RequestParam String korpus,
+                                  @RequestParam String room,
+//                                  @RequestParam String fromWhom,
+                                  @RequestParam String text,
+                                  @RequestParam String toWhom,
+//                                  @RequestParam String endDay,
+//                                  @RequestParam String status,
+//                                  @RequestParam String fulfilled,
+                                  Model model) {
+
+        Request  post = new Request (korpus, room,"-",text, toWhom,"-","-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "-");
+        requestRepository.save(post);
+        return "ClientHTML/request";
+    }
 
 
 }

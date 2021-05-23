@@ -12,35 +12,36 @@ public class KorpusOneRooms {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private long roomsOneKorpusId;
-    private String typeOneKorpus, freeOneKorpus;
 
-    public KorpusOneRooms(long roomsOneKorpusId, String typeOneKorpus, String freeOneKorpus) {
+    private long roomsOneKorpusId;
+    private int typeOneKorpus, freeOneKorpus;
+
+    public KorpusOneRooms(long roomsOneKorpusId, int typeOneKorpus, int freeOneKorpus) {
         this.roomsOneKorpusId = roomsOneKorpusId;
         this.typeOneKorpus = typeOneKorpus;
         this.freeOneKorpus = freeOneKorpus;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        KorpusOneRooms that = (KorpusOneRooms) o;
-
-        if (roomsOneKorpusId != that.roomsOneKorpusId) return false;
-        if (typeOneKorpus != null ? !typeOneKorpus.equals(that.typeOneKorpus) : that.typeOneKorpus != null)
-            return false;
-        return freeOneKorpus != null ? freeOneKorpus.equals(that.freeOneKorpus) : that.freeOneKorpus == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (roomsOneKorpusId ^ (roomsOneKorpusId >>> 32));
-        result = 31 * result + (typeOneKorpus != null ? typeOneKorpus.hashCode() : 0);
-        result = 31 * result + (freeOneKorpus != null ? freeOneKorpus.hashCode() : 0);
-        return result;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        KorpusOneRooms that = (KorpusOneRooms) o;
+//
+//        if (roomsOneKorpusId != that.roomsOneKorpusId) return false;
+//        if (typeOneKorpus != null ? !typeOneKorpus.equals(that.typeOneKorpus) : that.typeOneKorpus != null)
+//            return false;
+//        return freeOneKorpus != null ? freeOneKorpus.equals(that.freeOneKorpus) : that.freeOneKorpus == null;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = (int) (roomsOneKorpusId ^ (roomsOneKorpusId >>> 32));
+//        result = 31 * result + (typeOneKorpus != null ? typeOneKorpus.hashCode() : 0);
+//        result = 31 * result + (freeOneKorpus != null ? freeOneKorpus.hashCode() : 0);
+//        return result;
+//    }
 
     public KorpusOneRooms() {
     }
@@ -53,19 +54,19 @@ public class KorpusOneRooms {
         this.roomsOneKorpusId = roomsOneKorpusId;
     }
 
-    public String getTypeOneKorpus() {
+    public int getTypeOneKorpus() {
         return typeOneKorpus;
     }
 
-    public void setTypeOneKorpus(String typeOneKorpus) {
+    public void setTypeOneKorpus(int typeOneKorpus) {
         this.typeOneKorpus = typeOneKorpus;
     }
 
-    public String getFreeOneKorpus() {
+    public int getFreeOneKorpus() {
         return freeOneKorpus;
     }
 
-    public void setFreeOneKorpus(String freeOneKorpus) {
+    public void setFreeOneKorpus(int freeOneKorpus) {
         this.freeOneKorpus = freeOneKorpus;
     }
 }

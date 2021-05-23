@@ -36,10 +36,10 @@ public class MainController {
     public String home(Model model) {
 //        Iterable<Tour> tours = tourRepository.findAll();
 //        model.addAttribute("tours", tours);
-        Iterable<KorpusOneRooms> Rooms_1k = korpusOneRoomsRepository.findAll();
+        Iterable<KorpusOneRooms> Rooms_1k = korpusOneRoomsRepository.findByFreeOneKorpus1();
         model.addAttribute("Rooms_1k", Rooms_1k);
 
-        Iterable<KorpusTwoRooms> Rooms_2k = korpusTwoRoomsRepository.findAll();
+        Iterable<KorpusTwoRooms> Rooms_2k = korpusTwoRoomsRepository.findByFreeTwoKorpus2();
         model.addAttribute("Rooms_2k", Rooms_2k);
 
         model.addAttribute("title", "С/П 'Озеро Глухое' ");
@@ -58,8 +58,8 @@ public class MainController {
                            Model model) {
         Booking post = new Booking (fname, lname, pname, phone, dateIn, dateOut, korpus, myRoomId);
         bookingRepository.save(post);
-        return "home";
-//        return "redirect:/";
+        //      return "home";
+        return "redirect:/";
     }
 
 

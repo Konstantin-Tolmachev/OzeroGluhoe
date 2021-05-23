@@ -8,54 +8,43 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Timestamp;
-
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Request {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long request_id;
-    @CreationTimestamp
-    private Timestamp createDate;
+
+    private Long id;
     private String korpus;
-    private String myRoomId;
-    private String textRequest;
-    private String toWhom;
-    @CreationTimestamp
-    private Timestamp createEndDate;
-    private String fulfilled;
+    private String room;
+    private String fromWhom, text, toWhom, status, fulfiled;
+    private String createDate;
+    private String endDate;
 
-    public Request(Timestamp createDate, String korpus, String myRoomId, String textRequest,
-                    String toWhom, Timestamp createEndDate, String fulfilled) {
-        this.createDate=createDate;
+    public Request(String korpus, String room, String fromWhom, String text, String toWhom, String status, String fulfiled, String createDate, String endDate) {
         this.korpus = korpus;
-        this.myRoomId = myRoomId;
-        this.textRequest = textRequest;
+        this.room = room;
+        this.fromWhom = fromWhom;
+        this.text = text;
         this.toWhom = toWhom;
-        this.createEndDate = createEndDate;
-        this.fulfilled = fulfilled;
-    }
-
-    public Request(){
-
-    }
-
-
-    public Long getRequest_id() {
-        return request_id;
-    }
-
-    public void setRequest_id(Long request_id) {
-        this.request_id = request_id;
-    }
-
-    public Timestamp getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Timestamp createDate) {
+        this.status = status;
+        this.fulfiled = fulfiled;
         this.createDate = createDate;
+        this.endDate = endDate;
+    }
+
+    public Request() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getKorpus() {
@@ -66,20 +55,28 @@ public class Request {
         this.korpus = korpus;
     }
 
-    public String getMyRoomId() {
-        return myRoomId;
+    public String getRoom() {
+        return room;
     }
 
-    public void setMyRoomId(String myRoomId) {
-        this.myRoomId = myRoomId;
+    public void setRoom(String room) {
+        this.room = room;
     }
 
-    public String getTextRequest() {
-        return textRequest;
+    public String getFromWhom() {
+        return fromWhom;
     }
 
-    public void setTextRequest(String textRequest) {
-        this.textRequest = textRequest;
+    public void setFromWhom(String fromWhom) {
+        this.fromWhom = fromWhom;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public String getToWhom() {
@@ -90,19 +87,35 @@ public class Request {
         this.toWhom = toWhom;
     }
 
-    public Timestamp getCreateEndDate() {
-        return createEndDate;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCreateEndDate(Timestamp createEndDate) {
-        this.createEndDate = createEndDate;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getFulfilled() {
-        return fulfilled;
+    public String getFulfiled() {
+        return fulfiled;
     }
 
-    public void setFulfilled(String fulfilled) {
-        this.fulfilled = fulfilled;
+    public void setFulfiled(String fulfiled) {
+        this.fulfiled = fulfiled;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }

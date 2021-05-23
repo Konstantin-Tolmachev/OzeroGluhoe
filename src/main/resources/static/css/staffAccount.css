@@ -1,4 +1,6 @@
+
 *{
+
     box-sizing: border-box;
 }
 
@@ -63,22 +65,6 @@ h1.name{
     }
 }
 
-
-
-
-h3 {
-    padding-top: 10px;
-    height: 20px;
-    text-align: center;
-    font-style: italic;
-    font-size: 30px;
-    color: #d7f2acdc;
-}
-
-
-
-
-
 .dropbtn {
     width: auto;
     background-color:  #f2f2f2; /*Цвет как в шапке*/
@@ -116,51 +102,23 @@ h3 {
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
 
-.timeTables{
+
+
+/*Section*/
+
+
+.sectionRequest {
+
     margin: 0 auto;
-    width: max-content;
-    height: 100%; /*1000px; auto;*/
+    float: right;
+    width: 75%;
+    height:auto;
+    /*height:66%;*/
     border-radius: 5px;
     background-color: white;
-    opacity: 0.9;
-    padding: 10px;
-    display: flex;
-    gap: 10px;
+    opacity: 0.8;
+    overflow: auto;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#footer {
-    position: absolute; /* Фиксированное положение */
-    opacity: 0.5;
-    right: 0;
-    bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-    background: black; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
-    font-size:0.75em;
-    text-align: left;
-}
-
-
-
-
-
 
 
 

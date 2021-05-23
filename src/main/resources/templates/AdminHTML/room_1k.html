@@ -34,9 +34,13 @@
                 <br>
 
     <div th:each="el : ${Rooms_1k}" class="editStaff">
+
         <div th:text="${el.roomsOneKorpusId}" class="wrap"><input type="text" id="id" name="id" placeholder="Имя"></div>
+        <hr class="hh1">
         <div th:text="${el.typeOneKorpus}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
+        <hr class="hh1">
         <div th:text="${el.freeOneKorpus}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
+        <hr class="hh1">
         <div><a th:href="'/Room_1k/' + ${el.roomsOneKorpusId} + '/edit'" class="test">Редактировать</a></div>
         <form th:action="'/Room_1k/' + ${el.roomsOneKorpusId} +'/remove'" method="post">
             <button class="btn btn-warning" type="submit">Удалить</button>

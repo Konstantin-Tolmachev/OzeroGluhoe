@@ -57,11 +57,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers("/css/**","/img/**","/scripts/**").permitAll()
-                .antMatchers( "/resources/**", "/", "/Registration", "/Home", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules", "/Comment", "/payment")
+                .antMatchers( "/resources/**", "/", "/Registration", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules", "/Comment", "/payment")
                 .permitAll()
-                .antMatchers("/StaffAccount/**").hasRole("STAFF")
-                .antMatchers("/MyAccount/**").hasRole("CLIENT")
-                .antMatchers("/AdminHome/**", "/StaffFilter", "/AllActualInformation/**").hasRole("ADMIN")
+                .antMatchers("/StaffAccount", "/StaffEvent").hasRole("STAFF")
+                .antMatchers("/MyAccount","/Event", "/Request").hasRole("CLIENT")
+                .antMatchers("/AdminHome", "/StaffFilter", "/AllActualInformation/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
 

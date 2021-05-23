@@ -13,20 +13,48 @@
 <section class="newRequest">
     <h3 >Написать заявку</h3>
     <br>
-    <form action="/Request" method="post">
+<!--  <form action="/Request" method="post"> <form th:action="@{/Request}" method="post"> -->
+    <form th:action="@{/Request}" method="post">
         <div class="allDivRequest">
 
+<!--            <div class="DivRequest">-->
+<!--                <input type="text" onkeyup="checkParams()" id="createDate" name="createDate" placeholder="createDate">-->
+<!--            </div>-->
+
             <div class="DivRequest">
-                <input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Ваш № корпуса">
+                <input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="korpus">
             </div>
 
             <div class="DivRequest">
-                <input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="Ваш № комнаты">
+                <input type="text" onkeyup="checkParams()" id="room" name="room" placeholder="room">
+            </div>
+
+<!--            <div class="DivRequest">-->
+<!--                <input type="text" onkeyup="checkParams()" id="fromWhom" name="fromWhom" placeholder="fromWhom">-->
+<!--            </div>-->
+
+            <div class="DivRequest">
+                <textarea class="size" name="text" id="text" placeholder="text"></textarea>
             </div>
 
             <div class="DivRequest">
-                <textarea class="size" name="text" id="text" placeholder="Опишите проблему"></textarea>
+                <input type="text" onkeyup="checkParams()" id="toWhom" name="toWhom" placeholder="toWhom">
             </div>
+
+
+<!--            <div class="DivRequest">-->
+<!--                <input type="text" onkeyup="checkParams()" id="endDay" name="endDay" placeholder="endDay">-->
+<!--            </div>-->
+
+<!--            <div class="DivRequest">-->
+<!--                <input type="text" onkeyup="checkParams()" id="status" name="status" placeholder="status">-->
+<!--            </div>-->
+
+
+<!--            <div class="DivRequest">-->
+<!--                <input type="text" onkeyup="checkParams()" id="fulfilled" name="fulfilled" placeholder="fulfilled">-->
+<!--            </div>-->
+
 
             <div class="DivRequest">
                 <button  type="submit">Добавить</button>
@@ -45,7 +73,7 @@
 
 </body>
 
-<footer th:insert="blocks/footer :: footer"></footer>
+<!--<footer th:insert="blocks/footer :: footer"></footer>-->
 
 
 </html>
