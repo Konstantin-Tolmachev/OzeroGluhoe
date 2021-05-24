@@ -435,22 +435,102 @@ public class AdminControllers {
     }
 
 
-    @PostMapping("/Request")
-    public String AddRequestStaff(
+    @GetMapping("/AddRequest")
+    public String AddRequestAdmin(Model model){
+        model.addAttribute("title", "Заявки");
+        return "AdminHTML/addRequest";
+    }
+
+
+    @PostMapping("/AddRequest")
+    public String AddRequestAdmin(
                                  // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
                                   @RequestParam String korpus,
                                   @RequestParam String room,
-//                                  @RequestParam String fromWhom,
+                                  @RequestParam String fromWhom,
                                   @RequestParam String text,
                                   @RequestParam String toWhom,
 //                                  @RequestParam String endDay,
 //                                  @RequestParam String status,
 //                                  @RequestParam String fulfilled,
                                   Model model) {
+        Request post;
+        if (korpus == "" && room == "") {
+            post = new Request ("0", "0",fromWhom,text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
 
-        Request  post = new Request (korpus, room,"-",text, toWhom,"-","-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "-");
+        }
+        else {
+
+            post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        }
         requestRepository.save(post);
-        return "ClientHTML/request";
+        return "AdminHTML/addRequest";
+    }
+
+    @GetMapping("/AllRequest")
+    public String AllRequest(Model model) {
+        Iterable<Request> requests = requestRepository.findAllByOrderByIdDesc();
+        model.addAttribute("requests", requests);
+        return "AdminHTML/allRequest";
+    }
+
+
+
+
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+
+    @GetMapping("/AllRequest/{id}/edit")
+    public String AllRequest (@PathVariable(value = "id") long id, Model model) {
+        if(!requestRepository.existsById (id)){
+            return "redirect:/AllRequest";
+        }
+        Optional<Request> post = requestRepository.findById(id);
+        ArrayList<Request> res = new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post", res);
+        return "AdminHTML/AllRequestEdit";
+    }
+
+
+
+    @PostMapping("/AllRequest/{id}/edit")
+    public String AllRequestUpdate(@PathVariable(value = "id") long id,
+                                   // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
+                                   @RequestParam String korpus,
+                                   @RequestParam String room,
+                                   @RequestParam String fromWhom,
+                                   @RequestParam String text,
+                                   @RequestParam String toWhom,
+//                                   @RequestParam String endDay,
+                                   @RequestParam String status,
+                                   @RequestParam String fulfiled,
+                                   Model model) throws Exception {
+        Request post = requestRepository.findById(id).orElseThrow(Exception::new);
+        post.setKorpus(korpus);
+        post.setRoom(room);
+        post.setFromWhom(fromWhom);
+        post.setText(text);
+        post.setToWhom(toWhom);
+        post.setStatus(status);
+        post.setFulfiled(fulfiled);
+        post.setEndDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+
+     //   post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+
+
+        requestRepository.save(post);
+
+        return "redirect:/AllRequest";
+    }
+
+
+    /* Удалить заявку */
+
+    @PostMapping("/AllRequest/{id}/remove")
+    public String AllRequestDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
+        Request post = requestRepository.findById(id).orElseThrow(Exception::new);
+        requestRepository.delete(post);
+        return "redirect:/AllRequest";
     }
 
 

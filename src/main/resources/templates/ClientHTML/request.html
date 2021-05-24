@@ -17,52 +17,48 @@
     <form th:action="@{/Request}" method="post">
         <div class="allDivRequest">
 
-<!--            <div class="DivRequest">-->
-<!--                <input type="text" onkeyup="checkParams()" id="createDate" name="createDate" placeholder="createDate">-->
-<!--            </div>-->
-
             <div class="DivRequest">
-                <input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="korpus">
+                <input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Ваш № корпуса">
             </div>
 
             <div class="DivRequest">
-                <input type="text" onkeyup="checkParams()" id="room" name="room" placeholder="room">
+                <input type="text" onkeyup="checkParams()" id="room" name="room" placeholder="Ваш № комнаты">
             </div>
-
-<!--            <div class="DivRequest">-->
-<!--                <input type="text" onkeyup="checkParams()" id="fromWhom" name="fromWhom" placeholder="fromWhom">-->
-<!--            </div>-->
-
-            <div class="DivRequest">
-                <textarea class="size" name="text" id="text" placeholder="text"></textarea>
-            </div>
-
-            <div class="DivRequest">
-                <input type="text" onkeyup="checkParams()" id="toWhom" name="toWhom" placeholder="toWhom">
-            </div>
-
-
-<!--            <div class="DivRequest">-->
-<!--                <input type="text" onkeyup="checkParams()" id="endDay" name="endDay" placeholder="endDay">-->
-<!--            </div>-->
-
-<!--            <div class="DivRequest">-->
-<!--                <input type="text" onkeyup="checkParams()" id="status" name="status" placeholder="status">-->
-<!--            </div>-->
-
-
-<!--            <div class="DivRequest">-->
-<!--                <input type="text" onkeyup="checkParams()" id="fulfilled" name="fulfilled" placeholder="fulfilled">-->
-<!--            </div>-->
 
 
             <div class="DivRequest">
-                <button  type="submit">Добавить</button>
+                <input  class="in" name="toWhom" placeholder="Кому заявка" id="position" />
+                <select onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
+                    <option class="" >Выберете работника</option>
+                    <option class="" value="Электромонтер">Электромонтер</option>
+                    <option class="" value="Сантехник">Сантехник</option>
+                    <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                    <option class="" value="Горничная">Горничная</option>
+                    <option class="" value="Администратор">Администратор</option>
+                    <option class="" value="Дежурная мед сестра">Дежурная мед сестра</option>
+                </select>
             </div>
 
+            <div class="DivRequest">
+                <select class="in" onchange=document.getElementById('textRequest').value=this.options[this.selectedIndex].value>
+                    <option class="inn" value="Заявка">Описание проблемы</option>
+                    <option class="inn" value="Перегорела лампочка">Перегорела лампочка</option>
+                    <option class="inn" value="Плохо показывает телевизор">Плохо показывает телевизор</option>
+                    <option class="inn" value="Холодно в комнате">Холодно в комнате</option>
+                    <option class="inn" value="Засор">Засор</option>
+                    <option class="inn" value="Села батарейка в часах">Села батарейка в часах</option>
+                    <option class="inn" value="Убрать в комнате">Убрать в комнате</option>
+                </select>
+            </div>
+
+            <div class="DivRequest2">
+                <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" id="textRequest" />  </textarea>
+            </div>
+            <div class="DivRequest">
+                <button  type="submit">Отправить заявку</button>
+            </div>
         </div>
     </form>
-
 </section>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

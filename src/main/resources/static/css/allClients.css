@@ -83,13 +83,11 @@ h1.name{
     text-align: center;
 }
 
-
 .allDiv{
     min-width: auto;
     column-count: 10;
     padding:auto; /*Растояние между строками*/
     font-size: calc(1px + 1vw);
-
 }
 
 

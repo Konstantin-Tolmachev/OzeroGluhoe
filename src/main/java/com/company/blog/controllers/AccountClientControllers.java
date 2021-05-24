@@ -17,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 @Controller
@@ -76,6 +78,25 @@ public class AccountClientControllers {
     }
 
     /*Создать первую часть БД*/
+
+    @PostMapping("/Request")
+    public String AddRequestClient(
+            // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
+            @RequestParam String korpus,
+            @RequestParam String room,
+//                                  @RequestParam String fromWhom,
+            @RequestParam String text,
+            @RequestParam String toWhom,
+//                                  @RequestParam String endDay,
+//                                  @RequestParam String status,
+//                                  @RequestParam String fulfilled,
+            Model model) {
+
+        Request  post = new Request (korpus, room,"",text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        requestRepository.save(post);
+        return "ClientHTML/request";
+    }
+
 
 
 

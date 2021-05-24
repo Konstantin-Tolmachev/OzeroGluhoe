@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/staffAccount.css">
+    <link rel="stylesheet" href="/css/requestForStaff.css">
 
     <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,12 +10,94 @@
     <header th:insert="blocks/headerStaffAccount :: headerStaffAccount"></header>
 </head>
 <body>
-<h1>Аккаунт сотрудника</h1>
 
 
 <section class="sectionRequest">
 
-    <h1>NHJhjks</h1>
+    <section class="newRequest">
+        <h3 >Написать заявку</h3>
+        <br>
+        <!--  <form action="/Request" method="post"> <form th:action="@{/Request}" method="post"> -->
+        <form th:action="@{/StaffAccount}" method="post">
+            <div class="allDivRequest">
+
+                <!--            <div class="DivRequest">-->
+                <!--                <input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Ваш № корпуса">-->
+                <!--            </div>-->
+
+                <!--            <div class="DivRequest">-->
+                <!--                <input type="text" onkeyup="checkParams()" id="room" name="room" placeholder="Ваш № комнаты">-->
+                <!--            </div>-->
+
+                <div class="DivRequest">
+                    <input  class="in" name="fromWhom" placeholder="От кого заявка" id="fromWhom" />
+                    <select onchange=document.getElementById('fromWhom').value=this.options[this.selectedIndex].value>
+                        <option class="" >От кого</option>
+                        <option class="" value="Электромонтер">Электромонтер</option>
+                        <option class="" value="Сантехник">Сантехник</option>
+                        <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                        <option class="" value="Горничная">Горничная</option>
+                        <option class="" value="Администратор">Администратор</option>
+                        <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>
+                        <option class="" value="Глав. врачи">Глав. врач</option>
+                        <option class="" value="Директор">Директор</option>
+                        <option class="" value="Зав. хоз"> Зав. хоз</option>
+                        <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>
+                        <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>
+                        <option class="" value="Рабочий КОиРЗ">Рабочий КОиРЗ</option>
+                        <option class="" value="Официант">Официант</option>
+                        <option class="" value="Начальник столовой">Начальник столовой</option>
+                        <option class="" value="Работник по развлек. части">Работник по развлек. части</option>
+                        <option class="" value="Начальник ПТС">Начальник ПТС</option>
+
+                    </select>
+                </div>
+
+
+                <div class="DivRequest">
+                    <input  class="in" name="toWhom" placeholder="Кому заявка" id="position" />
+                    <select onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
+                        <option class="" >Выберете работника</option>
+                        <option class="" value="Электромонтер">Электромонтер</option>
+                        <option class="" value="Сантехник">Сантехник</option>
+                        <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                        <option class="" value="Горничная">Горничная</option>
+                        <option class="" value="Администратор">Администратор</option>
+                        <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>
+                        <option class="" value="Глав. врачи">Глав. врач</option>
+                        <option class="" value="Директор">Директор</option>
+                        <option class="" value="Зав. хоз"> Зав. хоз</option>
+                        <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>
+                        <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>
+                        <option class="" value="Рабочий КОиРЗ">Рабочий КОиРЗ</option>
+                        <option class="" value="Официант">Официант</option>
+                        <option class="" value="Начальник столовой">Начальник столовой</option>
+                        <option class="" value="Работник по развлек. части">Работник по развлек. части</option>
+                        <option class="" value="Начальник ПТС">Начальник ПТС</option>
+                    </select>
+                </div>
+
+                <div class="DivRequest">
+                    <select class="in" onchange=document.getElementById('textRequest').value=this.options[this.selectedIndex].value>
+                        <option class="inn" value="Заявка">Описание проблемы</option>
+                        <option class="inn" value="Перегорела лампочка">Перегорела лампочка</option>
+                        <option class="inn" value="Плохо показывает телевизор">Плохо показывает телевизор</option>
+                        <option class="inn" value="Холодно в комнате">Холодно в комнате</option>
+                        <option class="inn" value="Засор">Засор</option>
+                        <option class="inn" value="Села батарейка в часах">Села батарейка в часах</option>
+                        <option class="inn" value="Убрать в комнате">Убрать в комнате</option>
+                    </select>
+                </div>
+
+                <div class="DivRequest2">
+                    <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" id="textRequest" />  </textarea>
+                </div>
+                <div class="DivRequest">
+                    <button  type="submit">Отправить заявку</button>
+                </div>
+            </div>
+        </form>
+    </section>
 
 </section>
 

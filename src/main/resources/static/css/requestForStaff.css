@@ -1,6 +1,10 @@
+
+
+
 *{
     box-sizing: border-box;
 }
+
 
 body {
     /* height:100%; */
@@ -106,9 +110,9 @@ h3 {
     width: 300px;
 }
 .size{
-    width: 470px;
+    width: 500px;
     height: 100px;
-    min-width: 470px;
+    min-width: 500px;
     min-height: 100px;
     max-width: 900px;
     max-height: 200px;

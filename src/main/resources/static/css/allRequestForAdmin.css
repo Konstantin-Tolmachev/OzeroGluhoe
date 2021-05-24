@@ -1,6 +1,8 @@
+
 *{
     box-sizing: border-box;
 }
+
 
 body {
     /* height:100%; */
@@ -72,7 +74,7 @@ h1.name{
 h3 {
     padding-top: 2%;
     height: 20px;
-    text-align: left;
+    text-align: center;
     padding-left: 2%;
     font-style: italic;
     font-size: 30px;
@@ -89,30 +91,76 @@ h3 {
     opacity: 0.9;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 2%;
 }
 
-.DivRequest{
-    padding-left: 2%;
-    padding-top: 0.6%;
+
+
+.delete{
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
-.DivRequest2{
-    padding-left: 2%;
-    padding-top: 0.6%;
-    /*padding-bottom: 2%;*/
+.test{
+    text-decoration: none;
+    color: black;
 }
-.in{
-    width: 300px;
+
+div.request{
+    margin-top: 30px;
 }
+
 .size{
-    width: 470px;
+    width: 500px;
     height: 100px;
-    min-width: 470px;
+    min-width: 500px;
     min-height: 100px;
     max-width: 900px;
     max-height: 200px;
 }
+
+
+
+
+.request{
+    margin: 0 auto;
+    width: 97%;
+    height:auto;
+    border-radius: 5px;
+    background-color: #3df2f2;
+    opacity: 0.9;
+    overflow: auto;
+}
+
+.c1{
+    margin-left: 10px;
+    column-count: 4;
+}
+
+.wrap1 {
+    display: table;
+    margin:  auto;
+    padding: 10px;
+}
+
+.c2{
+    margin-left: 100px;
+}
+
+.name{
+    display: table;
+    margin:  auto;
+    padding-left: 10px;
+}
+
+h4{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+
+
 
 
 
