@@ -11,19 +11,107 @@
             <li><a href="/AboutUs">О нас</a></li>
             <li><a href="/Rules">Правила</a></li>
             <li><a href="/Comment">Отзывы</a></li>
-           <!-- <li><a href="/AdminHome">Админ</a></li>
-            <li><a href="/MyAccount">ЛичКабКл</a></li>
-            <li><a href="/StaffAccount">ЛичКабСот</a></li> -->
 
 
 
 
-            <!--  Страница не открывается, если код в написан в таком формате.
-                                 Код нужен для ЛОГАУТА!  sec:authorize="hasRole('STAFF')">-->
 
-                      <li class="float">
-                              <a href="/Authorization">Авторизоваться</a>
-                      </li>
+<!--            <div sec:authorize access="#{isAnonymous()}">-->
+<!--                <a th:href="@{/Authorization}">Авторизоваться</a>-->
+<!--            </div>-->
+
+<!--            <div sec:authorize access="#{isAuthenticated()}">-->
+<!--                <a th:href="@{/logout}">Выйти</a>-->
+<!--            </div>-->
+
+<!--            <li  class="float">-->
+<!--                 <a href="/Authorization">Авторизоваться</a>-->
+<!--             </li >-->
+
+
+
+
+<!--                   <li sec:authorize access="isAnonymous()" class="float" >-->
+<!--                       <a   href="/Authorization">Авторизоваться</a>-->
+<!--                   </li >-->
+
+<!--                    <li sec:authorize access="isAuthenticated()" class="float">-->
+<!--                        <form th:action="@{/logout}">-->
+<!--                            <input type="submit" method="post" value="Выйти">-->
+<!--                        </form>-->
+<!--                    </li>-->
+
+
+
+
+
+<!--            <div>-->
+<!--&lt;!&ndash;                <sec:authorize access="isAnonymous()">&ndash;&gt;-->
+<!--                <sec:authorize access="isAnonymous()">-->
+<!--                    <form  th:action="@{/Authorization}" method="post">-->
+<!--                        <input type="submit" value="Авторизоваться">-->
+<!--                    </form>-->
+<!--                </sec:authorize>-->
+<!--            </div>-->
+
+<!--            <div>-->
+<!--                <sec:authorize access="isAuthenticated()">-->
+<!--                    <form  th:action="@{/logout}" method="post">-->
+<!--                        <input type="submit" value="Выйти">-->
+<!--                    </form>-->
+<!--                </sec:authorize>-->
+<!--            </div>-->
+
+            <div class="float" sec:authorize="!isAuthenticated()">
+                <form  th:action="@{/Authorization}" method="post">
+                    <input type="submit" value="Авторизоваться">
+                </form>
+            </div>
+
+            <div class="float" sec:authorize="isAuthenticated()">
+                <form  th:action="@{/logout}" method="post">
+                    <input type="submit" value="Выйти">
+                </form>
+            </div>
+
+            <div class="float" sec:authorize="hasRole('ROLE_ADMIN')">
+                <form  th:action="@{/AdminHome}" >
+                    <input type="submit" value="Домой">
+                </form>
+            </div>
+
+            <div class="float" sec:authorize="hasRole('ROLE_CLIENT')">
+                <form  th:action="@{/MyAccount}">
+                    <input type="submit" value="Домой">
+                </form>
+            </div>
+
+            <div class="float" sec:authorize="hasRole('ROLE_STAFF')">
+                <form  th:action="@{/StaffAccount}">
+                    <input type="submit" value="Домой">
+                </form>
+            </div>
+
+<!--            <div sec:authorize="isAuthenticated()">-->
+<!--                <form  th:action="@{/logout}" method="post">-->
+<!--                    <input type="submit" value="Выйти">-->
+<!--                </form>-->
+<!--            </div>-->
+
+
+
+<!--            <sec:authorize access="!isAuthenticated()">-->
+<!--                <h4><a href="/login">Войти</a></h4>-->
+<!--                <h4><a href="/registration">Зарегистрироваться</a></h4>-->
+<!--            </sec:authorize>-->
+
+<!--            <sec:authorize access="isAuthenticated()">-->
+<!--                <h4><a href="/logout">Выйти</a></h4>-->
+<!--            </sec:authorize>-->
+
+
+
+
 
                   <!--    <li class="float">
                               <a href="/Registration">Registration</a>

@@ -13,9 +13,9 @@ public class KorpusTwoRooms {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long roomsTwoKorpusId;
-    private int typeTwoKorpus, freeTwoKorpus;
+    private String typeTwoKorpus, freeTwoKorpus;
 
-    public KorpusTwoRooms(long roomsTwoKorpusId, int typeTwoKorpus, int freeTwoKorpus) {
+    public KorpusTwoRooms(long roomsTwoKorpusId, String typeTwoKorpus, String freeTwoKorpus) {
         this.roomsTwoKorpusId = roomsTwoKorpusId;
         this.typeTwoKorpus = typeTwoKorpus;
         this.freeTwoKorpus = freeTwoKorpus;
@@ -32,19 +32,19 @@ public class KorpusTwoRooms {
         this.roomsTwoKorpusId = roomsTwoKorpusId;
     }
 
-    public int getTypeTwoKorpus() {
+    public String getTypeTwoKorpus() {
         return typeTwoKorpus;
     }
 
-    public void setTypeTwoKorpus(int typeTwoKorpus) {
+    public void setTypeTwoKorpus(String typeTwoKorpus) {
         this.typeTwoKorpus = typeTwoKorpus;
     }
 
-    public int getFreeTwoKorpus() {
+    public String getFreeTwoKorpus() {
         return freeTwoKorpus;
     }
 
-    public void setFreeTwoKorpus(int freeTwoKorpus) {
+    public void setFreeTwoKorpus(String freeTwoKorpus) {
         this.freeTwoKorpus = freeTwoKorpus;
     }
 }

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/tableTime.css">
+
+    <title th:text="${'Расписание сотрудника'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://unpkg.com/imask"></script>
+
+    <header th:insert="blocks/headerStaffAccount :: headerStaffAccount"></header>
+</head>
+<body>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+
+</body>
+
+
+<section class="timeTables">
+    <div class="block-wrapper">
+        <div class="block">
+            <h3 class="h3">ЛОК</h3>
+            <table class="tableBlock">
+                <tr><th>Понедельник: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Вторник: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Среда: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Четверг: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Пятница: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Суббота: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Воскресенье: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Перерыв: </th><th>13:00</th><th>-</th><th>14:00</th></tr>
+            </table>
+        </div>
+        <div class="block">
+            <h3 class="h3">Прокат</h3>
+            <table class="tableBlock">
+                <tr><th>Понедельник: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Вторник: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Среда: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Четверг: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Пятница: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Суббота: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Воскресенье: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Перерыв: </th><th>13:00</th><th>-</th><th>14:00</th></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="block-wrapper">
+        <div class="block">
+            <h3 class="h3">Карта питания</h3>
+            <table class="tableBlock">
+                <tr><th>Завтрак: </th><th>9:00</th><th>-</th><th>10:00</th></tr>
+                <tr><th>Кислородный коктейль: </th><th>11:00</th><th>-</th><th>11:30</th></tr>
+                <tr><th>Фиточай: </th><th>11:00</th><th>-</th><th>15:00</th></tr>
+                <tr><th>Обед: </th><th>13:00</th><th>-</th><th>14:00</th></tr>
+                <tr><th>Полдник: </th><th>16:30</th><th>-</th><th>16:45</th></tr>
+                <tr><th>Ужин: </th><th>19:00</th><th>-</th><th>19:30</th></tr>
+                <tr><th>Кефир: </th><th>21:00</th><th>-</th><th>21:15</th></tr>
+            </table>
+        </div>
+        <div class="block">
+            <h3 class="h3">Клуб</h3>
+            <table class="tableBlock">
+                <tr><th>Понедельник: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Вторник: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Среда: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Четверг: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Пятница: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Суббота: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Воскресенье: </th><th>9:00</th><th>-</th><th>19:00</th></tr>
+                <tr><th>Перерыв: </th><th>13:00</th><th>-</th><th>14:00</th></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="block-wrapper">
+        <div class="block">
+            <h3 class="h3">Мед кабинеты</h3>
+            <table class="tableBlock">
+                <tr><th>Понедельник: </th><th>9:00</th><th>-</th><th>16:00</th></tr>
+                <tr><th>Вторник: </th><th>9:00</th><th>-</th><th>16:00</th></tr>
+                <tr><th>Среда: </th><th>9:00</th><th>-</th><th>16:00</th></tr>
+                <tr><th>Четверг: </th><th>9:00</th><th>-</th><th>16:00</th></tr>
+                <tr><th>Пятница: </th><th>9:00</th><th>-</th><th>16:00</th></tr>
+                <tr><th>Суббота: </th><th></th><th>-</th><th></th></tr>
+                <tr><th>Воскресенье: </th><th></th><th>-</th><th></th></tr>
+                <tr><th>Перерыв: </th><th>13:00</th><th>-</th><th>14:00</th></tr>
+            </table>
+        </div>
+    </div>
+
+
+
+</section>
+<!--
+<footer th:insert="blocks/footer :: footer"></footer>
+-->
+
+</html>

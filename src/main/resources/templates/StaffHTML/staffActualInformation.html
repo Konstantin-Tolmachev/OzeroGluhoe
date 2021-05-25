@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="/css/actualInformation.css">
 
-    <title th:text="${'Мероприятия сотрудника'}"/>
+    <title th:text="${'Актуальная информация сотрудника'}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://unpkg.com/imask"></script>
 
@@ -12,8 +12,8 @@
 <body>
 
 <section class="AllActualInformation">
-    <h3 >Мероприятия</h3>
-    <div th:each="el : ${Events}" class="editInformation">
+    <h3 >Актуальная информация сотрудника</h3>
+    <div th:each="el : ${ActualInformations}" class="editInformation">
         <div>
             <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
         </div>
@@ -22,8 +22,6 @@
         <hr class="hh1">
     </div>
 </section>
-
-
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="/scripts/home.js"></script>
@@ -32,8 +30,6 @@
 
 
 </body>
-
-
 
 <footer th:insert="blocks/footer :: footer"></footer>
 

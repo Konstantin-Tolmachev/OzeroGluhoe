@@ -333,8 +333,8 @@ public class AdminControllers {
     @PostMapping("/Room_1k/{id}/edit")
     public String AllRoom_1kUpdate(@PathVariable(value = "id") long roomsOneKorpusId,
                                //  @RequestParam long room_id,
-                                 @RequestParam int typeOneKorpus,
-                                 @RequestParam int freeOneKorpus,
+                                 @RequestParam String typeOneKorpus,
+                                 @RequestParam String freeOneKorpus,
                                  Model model) throws Exception {
         KorpusOneRooms post = korpusOneRoomsRepository.findById(roomsOneKorpusId).orElseThrow(Exception::new);
        // post.setRoomId(room_id);
@@ -356,7 +356,7 @@ public class AdminControllers {
 
 
     @PostMapping("Rooms_1kFilter")
-    public String filterOne (@RequestParam String filter, Model model) {
+    public String Rooms_1kFilter (@RequestParam String filter, Model model) {
         Iterable<KorpusOneRooms> Rooms_1k;
 
         if (filter !=null && !filter.isEmpty()){
@@ -366,7 +366,7 @@ public class AdminControllers {
         }
 
         model.addAttribute("Rooms_1k", Rooms_1k);
-        return "AdminHTML/room_1k";
+      return "AdminHTML/room_1k";
     }
 
 
@@ -400,8 +400,8 @@ public class AdminControllers {
     @PostMapping("/Room_2k/{id}/edit")
     public String AllRoom_2kUpdate(@PathVariable(value = "id") long roomsTwoKorpusId,
                                    //  @RequestParam long room_id,
-                                   @RequestParam int typeTwoKorpus,
-                                   @RequestParam int freeTwoKorpus,
+                                   @RequestParam String typeTwoKorpus,
+                                   @RequestParam String freeTwoKorpus,
                                    Model model) throws Exception {
         KorpusTwoRooms post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId).orElseThrow(Exception::new);
         // post.setRoomId(room_id);
@@ -413,15 +413,15 @@ public class AdminControllers {
 
     /* Удалить информацию */
 
-    @PostMapping("/Room_2k/{id}/remove")
-    public String AllRoom_2kDelete(@PathVariable(value = "id") long roomsTwoKorpusId, Model model) throws Exception {
-        KorpusTwoRooms post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId).orElseThrow(Exception::new);
-        korpusTwoRoomsRepository.delete(post);
-        return "redirect:/Room_2k";
-    }
+//    @PostMapping("/Room_2k/{id}/remove")
+//    public String AllRoom_2kDelete(@PathVariable(value = "id") long roomsTwoKorpusId, Model model) throws Exception {
+//        KorpusTwoRooms post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId).orElseThrow(Exception::new);
+//        korpusTwoRoomsRepository.delete(post);
+//        return "redirect:/Room_2k";
+//    }
 
     @PostMapping("Rooms_2kFilter")
-    public String filterTwo (@RequestParam String filter, Model model) {
+    public String Rooms_2kFilter (@RequestParam String filter, Model model) {
         Iterable<KorpusTwoRooms> Rooms_2k;
 
         if (filter !=null && !filter.isEmpty()){
@@ -452,16 +452,16 @@ public class AdminControllers {
                                   @RequestParam String toWhom,
 //                                  @RequestParam String endDay,
 //                                  @RequestParam String status,
-//                                  @RequestParam String fulfilled,
+//                                  @RequestParam String fulfiled,
                                   Model model) {
         Request post;
         if (korpus == "" && room == "") {
-            post = new Request ("0", "0",fromWhom,text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request ("0", "0",fromWhom, text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
 
         }
         else {
 
-            post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request(korpus, room, "Клиент", text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         requestRepository.save(post);
         return "AdminHTML/addRequest";
@@ -516,22 +516,34 @@ public class AdminControllers {
         post.setEndDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
 
      //   post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
-
-
         requestRepository.save(post);
-
         return "redirect:/AllRequest";
     }
 
 
     /* Удалить заявку */
+//
+//    @PostMapping("/AllRequest/{id}/remove")
+//    public String AllRequestDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
+//        Request post = requestRepository.findById(id).orElseThrow(Exception::new);
+//        requestRepository.delete(post);
+//        return "redirect:/AllRequest";
+//    }
 
-    @PostMapping("/AllRequest/{id}/remove")
-    public String AllRequestDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
-        Request post = requestRepository.findById(id).orElseThrow(Exception::new);
-        requestRepository.delete(post);
-        return "redirect:/AllRequest";
+    @PostMapping("AllRequestAdminFilter")
+    public String AllRequestAdminFilter (@RequestParam String filter, Model model) {
+        Iterable<Request> requests;
+
+        if (filter !=null && !filter.isEmpty()){
+            requests = requestRepository.findByToWhom(filter);
+        } else {
+            requests = requestRepository.findAll();
+        }
+
+        model.addAttribute("requests", requests);
+        return "AdminHTML/allRequest";
     }
+
 
 
 }

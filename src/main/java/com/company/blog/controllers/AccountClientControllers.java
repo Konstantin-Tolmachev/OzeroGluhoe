@@ -89,10 +89,10 @@ public class AccountClientControllers {
             @RequestParam String toWhom,
 //                                  @RequestParam String endDay,
 //                                  @RequestParam String status,
-//                                  @RequestParam String fulfilled,
+//                                  @RequestParam String fulfiled,
             Model model) {
 
-        Request  post = new Request (korpus, room,"",text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        Request  post = new Request (korpus, room,"Клиент",text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         requestRepository.save(post);
         return "ClientHTML/request";
     }

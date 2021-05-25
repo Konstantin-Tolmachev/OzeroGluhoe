@@ -29,30 +29,37 @@
             <div class="DivRequest">
                 <input  class="in" name="toWhom" placeholder="Кому заявка" id="position" />
                 <select onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
-                    <option class="" >Выберете работника</option>
+                    <option disabled selected >Исполнитель заявки</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
                     <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
                     <option class="" value="Горничная">Горничная</option>
                     <option class="" value="Администратор">Администратор</option>
-                    <option class="" value="Дежурная мед сестра">Дежурная мед сестра</option>
+                    <option class="" value="Дежурная мед сестра">Дежурная мед. сестра</option>
                 </select>
             </div>
 
             <div class="DivRequest">
-                <select class="in" onchange=document.getElementById('textRequest').value=this.options[this.selectedIndex].value>
-                    <option class="inn" value="Заявка">Описание проблемы</option>
+                <select class="in" onchange=document.getElementById('text').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >Описание проблемы</option>
                     <option class="inn" value="Перегорела лампочка">Перегорела лампочка</option>
+                    <option class="inn" value=">Не работает розетка">Не работает розетка</option>
                     <option class="inn" value="Плохо показывает телевизор">Плохо показывает телевизор</option>
                     <option class="inn" value="Холодно в комнате">Холодно в комнате</option>
+                    <option class="inn" value="Капает кран">Капает кран</option>
                     <option class="inn" value="Засор">Засор</option>
                     <option class="inn" value="Села батарейка в часах">Села батарейка в часах</option>
+                    <option class="inn" value="Сломалась мебель">Сломалась мебель</option>
+                    <option class="inn" value="Не закрывается дверь">Не закрывается дверь</option>
                     <option class="inn" value="Убрать в комнате">Убрать в комнате</option>
+                    <option class="inn" value="Требуется манеж">Требуется манеж</option>
+                    <option class="inn" value="Требуется раскладушка">Требуется раскладушка</option>
+                    <option class="inn" value="Требуется полотенце">Требуется полотенце</option>
                 </select>
             </div>
 
             <div class="DivRequest2">
-                <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" id="textRequest" />  </textarea>
+                <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" id="text"/></textarea>
             </div>
             <div class="DivRequest">
                 <button  type="submit">Отправить заявку</button>

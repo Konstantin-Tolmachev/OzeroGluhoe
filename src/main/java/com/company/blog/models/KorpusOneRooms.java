@@ -14,9 +14,9 @@ public class KorpusOneRooms {
 
 
     private long roomsOneKorpusId;
-    private int typeOneKorpus, freeOneKorpus;
+    private String typeOneKorpus, freeOneKorpus;
 
-    public KorpusOneRooms(long roomsOneKorpusId, int typeOneKorpus, int freeOneKorpus) {
+    public KorpusOneRooms(long roomsOneKorpusId, String typeOneKorpus, String freeOneKorpus) {
         this.roomsOneKorpusId = roomsOneKorpusId;
         this.typeOneKorpus = typeOneKorpus;
         this.freeOneKorpus = freeOneKorpus;
@@ -54,19 +54,19 @@ public class KorpusOneRooms {
         this.roomsOneKorpusId = roomsOneKorpusId;
     }
 
-    public int getTypeOneKorpus() {
+    public String getTypeOneKorpus() {
         return typeOneKorpus;
     }
 
-    public void setTypeOneKorpus(int typeOneKorpus) {
+    public void setTypeOneKorpus(String typeOneKorpus) {
         this.typeOneKorpus = typeOneKorpus;
     }
 
-    public int getFreeOneKorpus() {
+    public String getFreeOneKorpus() {
         return freeOneKorpus;
     }
 
-    public void setFreeOneKorpus(int freeOneKorpus) {
+    public void setFreeOneKorpus(String freeOneKorpus) {
         this.freeOneKorpus = freeOneKorpus;
     }
 }

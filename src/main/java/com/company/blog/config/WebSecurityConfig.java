@@ -47,6 +47,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
+//        @Bean
+//        public SpringSecurityDialect springSecurityDialect(){
+//            return new SpringSecurityDialect();
+//        }
+
+
+
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

@@ -84,6 +84,7 @@ h3 {
 }
 
 
+
 .newRequest{
     margin: 0 auto; /* Выравниваем по центру */
     width: 1300px;
@@ -93,7 +94,7 @@ h3 {
     opacity: 0.9;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 2%;
 }
 
 .DivRequest{
@@ -119,6 +120,65 @@ h3 {
 }
 
 
+
+
+
+div.request{
+    margin-top: 30px;
+}
+
+.c1{
+    margin-left: 10px;
+    column-count: 4;
+}
+
+.name{
+    display: table;
+    margin:  auto;
+    padding-left: 10px;
+}
+
+.wrap1 {
+    display: table;
+    margin:  auto;
+    padding: 10px;
+}
+
+.c2{
+    margin-left: 100px;
+}
+
+
+.delete{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.test{
+    text-decoration: none;
+    color: black;
+}
+.find{
+    padding-left: 2%;
+}
+h3{
+    text-align: center;
+}
+h4{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.request{
+    margin: 0 auto;
+    width: 97%;
+    height:auto;
+    border-radius: 5px;
+    background-color: #3df2f2;
+    opacity: 0.9;
+    overflow: auto;
+}
 
 .dropbtn {
     width: auto;

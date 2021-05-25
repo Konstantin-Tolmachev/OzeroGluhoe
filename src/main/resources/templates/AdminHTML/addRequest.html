@@ -32,7 +32,7 @@
             <div class="DivRequest">
                 <input  class="in" name="fromWhom" placeholder="От кого заявка" id="fromWhom" />
                 <select onchange=document.getElementById('fromWhom').value=this.options[this.selectedIndex].value>
-                    <option class="" >От кого</option>
+                    <option disabled selected >Заявитель</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
                     <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
@@ -57,7 +57,7 @@
             <div class="DivRequest">
                 <input  class="in" name="toWhom" placeholder="Кому заявка" id="position" />
                 <select onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
-                    <option class="" >Выберете работника</option>
+                    <option disabled selected >Исполнитель заявки</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
                     <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
@@ -78,14 +78,24 @@
             </div>
 
             <div class="DivRequest">
+
                 <select class="in" onchange=document.getElementById('text').value=this.options[this.selectedIndex].value>
-                    <option class="inn" >Описание проблемы</option>
+                    <option disabled selected >Описание проблемы</option>
                     <option class="inn" value="Перегорела лампочка">Перегорела лампочка</option>
+                    <option class="inn" value=">Не работает розетка">Не работает розетка</option>
                     <option class="inn" value="Плохо показывает телевизор">Плохо показывает телевизор</option>
                     <option class="inn" value="Холодно в комнате">Холодно в комнате</option>
+                    <option class="inn" value="Капает кран">Капает кран</option>
                     <option class="inn" value="Засор">Засор</option>
                     <option class="inn" value="Села батарейка в часах">Села батарейка в часах</option>
+                    <option class="inn" value="Сломалась мебель">Сломалась мебель</option>
+                    <option class="inn" value="Не закрывается дверь">Не закрывается дверь</option>
                     <option class="inn" value="Убрать в комнате">Убрать в комнате</option>
+                    <option class="inn" value="Требуется манеж">Требуется манеж</option>
+                    <option class="inn" value="Требуется раскладушка">Требуется раскладушка</option>
+                    <option class="inn" value="Требуется полотенце">Требуется полотенце</option>
+                    <option class="inn" value="Принести дистиллированную воду ">Принести дистиллированную воду </option>
+                    <option class="inn" value="Принести питьевую воду ">Принести питьевую воду </option>
                 </select>
             </div>
 

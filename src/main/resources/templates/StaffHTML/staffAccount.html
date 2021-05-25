@@ -21,18 +21,12 @@
         <form th:action="@{/StaffAccount}" method="post">
             <div class="allDivRequest">
 
-                <!--            <div class="DivRequest">-->
-                <!--                <input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Ваш № корпуса">-->
-                <!--            </div>-->
 
-                <!--            <div class="DivRequest">-->
-                <!--                <input type="text" onkeyup="checkParams()" id="room" name="room" placeholder="Ваш № комнаты">-->
-                <!--            </div>-->
 
                 <div class="DivRequest">
                     <input  class="in" name="fromWhom" placeholder="От кого заявка" id="fromWhom" />
                     <select onchange=document.getElementById('fromWhom').value=this.options[this.selectedIndex].value>
-                        <option class="" >От кого</option>
+                        <option disabled selected >Заявитель</option>
                         <option class="" value="Электромонтер">Электромонтер</option>
                         <option class="" value="Сантехник">Сантехник</option>
                         <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
@@ -57,7 +51,7 @@
                 <div class="DivRequest">
                     <input  class="in" name="toWhom" placeholder="Кому заявка" id="position" />
                     <select onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
-                        <option class="" >Выберете работника</option>
+                        <option disabled selected >Исполнитель заявки</option>
                         <option class="" value="Электромонтер">Электромонтер</option>
                         <option class="" value="Сантехник">Сантехник</option>
                         <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
@@ -77,20 +71,39 @@
                     </select>
                 </div>
 
+
                 <div class="DivRequest">
-                    <select class="in" onchange=document.getElementById('textRequest').value=this.options[this.selectedIndex].value>
-                        <option class="inn" value="Заявка">Описание проблемы</option>
+                    <input class="in" type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Укажите № корпуса или оставьте поле пустым">
+                </div>
+
+                <div class="DivRequest">
+                    <input class="in" type="text" onkeyup="checkParams()" id="room" name="room" placeholder="Укажите № комнаты или оставьте поле пустым">
+                </div>
+
+
+                <div class="DivRequest">
+                    <select class="in" onchange=document.getElementById('text').value=this.options[this.selectedIndex].value>
+                        <<option disabled selected >Описание проблемы</option>
                         <option class="inn" value="Перегорела лампочка">Перегорела лампочка</option>
+                        <option class="inn" value=">Не работает розетка">Не работает розетка</option>
                         <option class="inn" value="Плохо показывает телевизор">Плохо показывает телевизор</option>
                         <option class="inn" value="Холодно в комнате">Холодно в комнате</option>
+                        <option class="inn" value="Капает кран">Капает кран</option>
                         <option class="inn" value="Засор">Засор</option>
                         <option class="inn" value="Села батарейка в часах">Села батарейка в часах</option>
+                        <option class="inn" value="Сломалась мебель">Сломалась мебель</option>
+                        <option class="inn" value="Не закрывается дверь">Не закрывается дверь</option>
                         <option class="inn" value="Убрать в комнате">Убрать в комнате</option>
+                        <option class="inn" value="Требуется манеж">Требуется манеж</option>
+                        <option class="inn" value="Требуется раскладушка">Требуется раскладушка</option>
+                        <option class="inn" value="Требуется полотенце">Требуется полотенце</option>
+                        <option class="inn" value="Принести дистиллированнау воду">Принести дистиллированнау воду</option>
+                        <option class="inn" value="Принести питьевую воду">Принести питьевую воду</option>
                     </select>
                 </div>
 
                 <div class="DivRequest2">
-                    <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" id="textRequest" />  </textarea>
+                    <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" id="text"/></textarea>
                 </div>
                 <div class="DivRequest">
                     <button  type="submit">Отправить заявку</button>
@@ -100,6 +113,94 @@
     </section>
 
 </section>
+
+<br>
+
+<section class="sectionRequest">
+
+    <div class="newRequest">
+
+        <h3 >Список заявок</h3>
+        <br>
+<!--        <div class="find" >-->
+<!--            <form method="post"  th:action="StaffAccountFilter">-->
+<!--                <input type="text" name="filter" placeholder="Поиск по должности">-->
+<!--                <button type="submit">Найти</button>-->
+<!--            </form>-->
+<!--        </div>-->
+
+        <div class="find" >
+            <form method="post"  th:action="StaffAccountFilter">
+                <input class="" type="text" name="filter" placeholder="Поиск по должности" id="position1" />
+                <select onchange=document.getElementById('position1').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >Исполнитель заявки</option>
+                    <option class="" value="Электромонтер">Электромонтер</option>
+                    <option class="" value="Сантехник">Сантехник</option>
+                    <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                    <option class="" value="Горничная">Горничная</option>
+                    <option class="" value="Администратор">Администратор</option>
+                    <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>
+                    <option class="" value="Глав. врачи">Глав. врач</option>
+                    <option class="" value="Директор">Директор</option>
+                    <option class="" value="Зав. хоз"> Зав. хоз</option>
+                    <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>
+                    <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>
+                    <option class="" value="Официант">Официант</option>
+                    <option class="" value="Начальник столовой">Начальник столовой</option>
+                    <option class="" value="Работник по развлек. части">Работник по развлек. части</option>
+                    <option class="" value="Начальник ПТС">Начальник ПТС</option>
+                </select>
+                <button type="submit">Найти</button>
+            </form>
+        </div>
+
+        <div th:each="el : ${requests}" class="request">
+            <h4>Заказчик</h4>
+            <div class="allDiv">
+                <div class="c1">
+                    <div class="name">Дата подачи заявки</div>
+                    <div class="name">№ корпуса</div>
+                    <div class="name">№ комнаты</div>
+                    <div class="name">Заказчик</div>
+                </div>
+                <div class="c1">
+                    <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate" name="createDate"></div>
+                    <div th:text="${el.korpus}" class="wrap1"><input type="text" id="korpus" name="korpus"></div>
+                    <div th:text="${el.room}" class="wrap1"><input type="text" id="room" name="romm"></div>
+                    <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom" name="fromWhom"></div>
+                </div>
+                <h4>Именование заявки</h4>
+                <div class="c2">
+                    <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text" name="text"></textarea></div>
+                </div>
+                <h4>Исполнитель</h4>
+                <div class="c1">
+                    <div  class="name">Исполнитель</div>
+                    <div  class="name">Статус</div>
+                    <div  class="name">ФИО исполнителя</div>
+                    <div  class="name">Дата выполнения</div>
+                </div>
+
+                <div class="c1">
+                    <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom" name="toWhom"></div>
+                    <div th:text="${el.status}" class="wrap1"><input type="text" id="status" name="status"></div>
+                    <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled" name="fulfiled"></div>
+                    <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate" name="endDate"></div>
+                </div>
+
+                <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
+
+
+            </div>
+
+
+
+        </div>
+
+        <!--        <div class="pad"></div>-->
+    </div>
+    </section>
+
 
 
 

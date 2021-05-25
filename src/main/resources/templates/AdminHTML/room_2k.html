@@ -18,7 +18,7 @@
     <h3 >Номерной фонд 2 корпуса</h3>
 
     <form method="post"  th:action="Rooms_2kFilter">
-        <input type="text" name="filter" placeholder="Поиск">
+        <input type="text" name="filter" placeholder="Поиск по свободным номерам">
         <button type="submit">Найти</button>
     </form>
 
@@ -41,9 +41,9 @@
                     <div th:text="${el.freeTwoKorpus}" class="wrap"><input type="text" id="name" name="fname" placeholder="Фамилия"></div>
                     <hr class="hh1">
                     <div><a th:href="'/Room_2k/' + ${el.roomsTwoKorpusId} + '/edit'" class="test">Редактировать</a></div>
-                    <form th:action="'/Room_2k/' + ${el.roomsTwoKorpusId} +'/remove'" method="post">
-                        <button class="btn btn-warning" type="submit">Удалить</button>
-                    </form>
+<!--                    <form th:action="'/Room_2k/' + ${el.roomsTwoKorpusId} +'/remove'" method="post">-->
+<!--                        <button class="btn btn-warning" type="submit">Удалить</button>-->
+<!--                    </form>-->
                 </div>
 
 
