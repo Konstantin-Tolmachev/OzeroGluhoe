@@ -456,7 +456,7 @@ public class AdminControllers {
                                   Model model) {
         Request post;
         if (korpus == "" && room == "") {
-            post = new Request ("0", "0",fromWhom, text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request ("-", "-",fromWhom, text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
 
         }
         else {

@@ -1,13 +1,8 @@
 package com.company.blog.controllers;
 
-import com.company.blog.models.Booking;
-import com.company.blog.models.KorpusOneRooms;
-import com.company.blog.models.KorpusTwoRooms;
+import com.company.blog.models.*;
 
-import com.company.blog.repo.BookingRepository;
-import com.company.blog.repo.KorpusOneRoomsRepository;
-import com.company.blog.repo.KorpusTwoRoomsRepository;
-import com.company.blog.repo.TourRepository;
+import com.company.blog.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +24,8 @@ public class MainController {
     private KorpusTwoRoomsRepository korpusTwoRoomsRepository;
     @Autowired
     private BookingRepository bookingRepository;
+    @Autowired
+    private PriceRepository priceRepository;
 
 
 
@@ -46,7 +43,7 @@ public class MainController {
         return "home";
     }
 
-    @PostMapping("/") //AllClients; home; / можо попробовать
+    @PostMapping("/Payment") //AllClients; home; / можо попробовать
     public String Payment( @RequestParam String fname,
                            @RequestParam String lname,
                            @RequestParam String pname,
@@ -59,7 +56,7 @@ public class MainController {
         Booking post = new Booking (fname, lname, pname, phone, dateIn, dateOut, korpus, myRoomId);
         bookingRepository.save(post);
         //      return "home";
-        return "redirect:/";
+        return "redirect:/Payment";
     }
 
 
@@ -89,9 +86,22 @@ public class MainController {
 
     @GetMapping("/Accommodation")
     public String Accommodation(Model model) {
-        model.addAttribute("title", "Проживание");
+        Iterable<Price> prices = priceRepository.findByPriceOne();
+        model.addAttribute("prices", prices);
+
+        Iterable<Price> pricess = priceRepository.findByPriceTwo();
+        model.addAttribute("pricess", pricess);
+
+        model.addAttribute("title", "Номерной фонд");
         return "HomeHTML/accommodation";
     }
+
+//    @GetMapping("/AllRequest")
+//    public String AllRequest(Model model) {
+//        Iterable<Request> requests = requestRepository.findAllByOrderByIdDesc();
+//        model.addAttribute("requests", requests);
+//        return "AdminHTML/allRequest";
+//    }
 
     @GetMapping("/Infrastructure")
     public String Infrastructure(Model model) {
@@ -99,11 +109,11 @@ public class MainController {
         return "HomeHTML/infrastructure";
     }
 
-    @GetMapping("/Price")
-    public String Price(Model model) {
-        model.addAttribute("title", "Прайс");
-        return "HomeHTML/price";
-    }
+//    @GetMapping("/Price")
+//    public String Price(Model model) {
+//        model.addAttribute("title", "Прайс");
+//        return "HomeHTML/price";
+//    }
 
     @GetMapping("/Сommunications")
     public String Сommunications(Model model) {
@@ -133,12 +143,12 @@ public class MainController {
 
 
 
-//    @GetMapping("/payment")
-//    public String payment(Model model) {
-//        model.addAttribute("title", "Оплата");
-//        return "payment";
-//    }
-//
+    @GetMapping("/Payment")
+    public String payment(Model model) {
+        model.addAttribute("title", "Оплата");
+        return "payment";
+    }
+
 //    @GetMapping("/")
 //    public String Home(Model model) {
 //        model.addAttribute("title", "home");

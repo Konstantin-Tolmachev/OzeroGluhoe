@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/home.css"/>
+    <link rel="stylesheet" href="/css/aboutUs.css"/>
     <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://unpkg.com/imask"></script>
@@ -10,17 +10,51 @@
 </head>
 <body>
 
-<h1>!!!!!</h1>
+
+
+<div class="sim-slider">
+    <ul class="sim-slider-list">
+        <li><img src="./img/001.jpg" alt="screen"></li> <!-- это экран -->
+        <li class="sim-slider-element"><img src="./img/001.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/002.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/003.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/004.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/005.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/006.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/007.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/008.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/009.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/010.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/011.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/012.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/013.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/014.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/015.jpg" alt="Фото"></li>
+
+    </ul>
+    <div class="sim-slider-arrow-left"></div>
+    <div class="sim-slider-arrow-right"></div>
+    <div class="sim-slider-dots"></div>
+</div>
+
+<!--<div   class="sidebar">-->
+<!--    <h2 class="nametour">Свободные номера</h2>-->
+<!--    <div class="tours">-->
+<!--        <hr class="hh1">-->
+<!--        <button class="freeRooms_1" href="#" id="linkname01" onclick="toggle('.openbox_1')">1 корпус</button>-->
+<!--        <button class="freeRooms_2" href="#" id="linkname02" onclick="toggle('.openbox_2')">2 корпус</button>-->
+<!--    </div>-->
+<!--</div>-->
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="/scripts/home.js"></script>
 <!--<script src="system/js/global.js"></script>  Для даты -->
-
+<script src="/scripts/aboutUs.js"></script>
 
 
 </body>
 
-<footer th:insert="blocks/footer :: footer"></footer>
+<!--<footer th:insert="blocks/footer :: footer"></footer>-->
 
 
 </html>

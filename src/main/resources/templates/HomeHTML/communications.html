@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/home.css"/>
+    <link rel="stylesheet" href="/css/communications.css"/>
     <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://unpkg.com/imask"></script>
@@ -9,6 +9,20 @@
     <header th:insert="blocks/header :: header"></header>
 </head>
 <body>
+
+<section class="sectionMap">
+
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A95023bfde5e491e001474d8509cf82309b6564fd61e77af44fa83f46681b8ab9&amp;width=650&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+
+
+</section>
+<section class="sectionMap1">
+    <h1>Наши контакты</h1>
+    <p>Адрес:  620000, Свердловская область, Первоуральск, 18 км Московского тракта</p>
+    <p>Телефон :<a class="a" href="tel:+7(343)287-20-18"> +7(343)287-20-18</a></p>
+    <p>E-mail :<a class="a" href="mailto:OzeroGluhoe@mail.ru"> OzeroGluhoe@mail.ru</a></p>
+    <p> Как добраться из Екатеринбурга: едете по Московскому тракту около 12 км, сворачиваете с тракта направо по указателю «Озеро Глухое», далее едете мимо коллективного сада «Кварц», пересекаете ЕКАД (кольцевую автодорогу), пересекаете железнодорожный переезд и доезжаете до С/П «Озеро Глухое».</p>
+</section>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
@@ -19,7 +33,7 @@
 
 </body>
 
-<footer th:insert="blocks/footer :: footer"></footer>
+<!--<footer th:insert="blocks/footer :: footer"></footer>-->
 
 
 </html>

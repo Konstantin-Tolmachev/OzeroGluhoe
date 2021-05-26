@@ -18,7 +18,7 @@
 
 
     <!--action="/" th:action="@{/AddActualInformation}" -->
-    <form  th:action="@{/}" method="post">
+    <form  th:action="@{/Payment}" method="post">
         <div class="allDiv">
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия*"></div>
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя*"></div>
@@ -31,8 +31,8 @@
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="№ комнаты*" onkeypress='validateRoom(event)' maxlength="3"></div>
         </div>
         <div class="btn">
-            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате" disabled   >
-        </div> <!--  onclick="window.open('/payment' , '_self')"disabled-->
+            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате"  disabled   >
+        </div> <!-- onclick="window.open('/Payment' , '_self')" disabled-->
     </form>
 </section>
 

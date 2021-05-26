@@ -65,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers("/css/**","/img/**","/scripts/**").permitAll()
-                .antMatchers( "/resources/**", "/", "/Registration", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules", "/Comment", "/payment")
+                .antMatchers( "/resources/**", "/", "/Payment", "/Registration", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules", "/Comment", "/payment")
                 .permitAll()
                 .antMatchers("/StaffAccount", "/StaffEvent").hasRole("STAFF")
                 .antMatchers("/MyAccount","/Event", "/Request").hasRole("CLIENT")

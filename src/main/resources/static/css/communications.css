@@ -62,16 +62,95 @@ h1.name{
     }
 }
 
-#footer {
-    position: absolute; /* Фиксированное положение */
-    opacity: 0.5;
-    right: 0;
-    bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-    background: black; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
-    font-size:0.75em;
-    text-align: left;
+
+input.btnSubmit{
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
 }
+
+
+.btnSubmit {
+    margin-right: 5px;
+    margin-left: 5px;
+    width: auto;
+    background-color: #f2f2f2;
+    color: #ba1c85;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btnSubmit:hover  {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
+
+
+
+
+.sectionMap{
+    float: left;
+    width: 50.5%;
+    height:430;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: white;
+    opacity: 0.99;
+    overflow: auto;
+    padding: 1%;
+}
+
+
+.sectionMap1{
+    float: right;
+    width: 49.5%;
+    height:430;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+    opacity: 0.9;
+    overflow: auto;
+    padding: 1%;
+}
+
+.sectionMap1 > h1{
+    /*text-align: center;*/
+    height: 15px;
+    font-style: italic;
+    font-size: 30px;
+    color: black;
+    padding-bottom: 3%;
+    text-align: center;
+    margin-bottom: 7%;
+}
+
+
+.sectionMap1 > p {
+    padding-left: 3%;
+    /*    font-style: italic;*/
+    font-size: 20px;
+    color: black;
+    padding-bottom: 1%;
+
+}
+.a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid transparent;
+    transition: all .2s ease-in-out;
+}
+
+/*#footer {*/
+/*    position: absolute; !* Фиксированное положение *!*/
+/*    opacity: 0.5;*/
+/*    right: 0;*/
+/*    bottom: 0; !* Левый нижний угол *!*/
+/*    padding: 10px; !* Поля вокруг текста *!*/
+/*    background: black; !* Цвет фона *!*/
+/*    color: #fff; !* Цвет текста *!*/
+/*    width: 100%; !* Ширина слоя *!*/
+/*    font-size:0.75em;*/
+/*    text-align: left;*/
+/*}*/
 

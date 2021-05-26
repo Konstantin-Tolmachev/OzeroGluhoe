@@ -3,19 +3,24 @@
 
     <nav>
         <ul class="topmenu">
+
             <div class="dropdown">
-                <button class="dropbtn">Главное меню</button>
-                <div class="dropdown-content">
-                    <a href="/">Главная</a>
-                    <a href="/Accommodation">Проживание</a>
-                    <a href="/Infrastructure">Инфаструктура</a>
-                    <a href="/Price">Прайс</a>
-                    <a href="/Сommunications">Контакты</a>
-                    <a href="/AboutUs">О нас</a>
-                    <a href="/Rules">Правила</a>
-                    <a href="/Comment">Отзывы</a>
-                </div>
+                <button onclick="window.open('/' , '_self')" class="dropbtn">Главное меню</button>
             </div>
+
+<!--            <div class="dropdown">-->
+<!--                <button class="dropbtn">Главное меню</button>-->
+<!--                <div class="dropdown-content">-->
+<!--                    <a href="/">Главная</a>-->
+<!--                    <a href="/Accommodation">Проживание</a>-->
+<!--                    <a href="/Infrastructure">Инфаструктура</a>-->
+<!--                    <a href="/Price">Прайс</a>-->
+<!--                    <a href="/Сommunications">Контакты</a>-->
+<!--                    <a href="/AboutUs">Лечебная база</a>-->
+<!--                    <a href="/Rules">Правила</a>-->
+<!--                    <a href="/Comment">Отзывы</a>-->
+<!--                </div>-->
+<!--            </div>-->
 <!--
             <div class="dropdown">
                 <button class="dropbtn">Расписание санатория</button>
@@ -52,12 +57,9 @@
    Код нужен для ЛОГАУТА!-->
 
             <li class="float">
-
                 <form th:action="@{/logout}" method="post">
-                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                    <input type="submit"value="Выйти">
+                    <input class="btnSubmit" type="submit"value="Выйти">
                 </form>
-
             </li>
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/home.css"/>
+    <link rel="stylesheet" href="/css/rules.css"/>
     <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://unpkg.com/imask"></script>
@@ -10,9 +10,29 @@
 </head>
 <body>
 
+
+
+
+<div class="sim-slider">
+    <ul class="sim-slider-list">
+        <li><img src="./img/016.jpg" alt="screen"></li> <!-- это экран -->
+
+        <li class="sim-slider-element"><img src="./img/016.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/017.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/018.jpg" alt="Фото"></li>
+        <li class="sim-slider-element"><img src="./img/019.jpg" alt="Фото"></li>
+
+    </ul>
+    <div class="sim-slider-arrow-left"></div>
+    <div class="sim-slider-arrow-right"></div>
+    <div class="sim-slider-dots"></div>
+</div>
+
+
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
-<script src="/scripts/home.js"></script>
+<!--<script src="/scripts/home.js"></script>-->
+<script src="/scripts/aboutUs.js"></script>
 <!--<script src="system/js/global.js"></script>  Для даты -->
 
 

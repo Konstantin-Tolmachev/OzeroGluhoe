@@ -62,6 +62,85 @@ h1.name{
     }
 }
 
+input.btnSubmit{
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
+}
+
+
+.btnSubmit {
+    margin-right: 5px;
+    margin-left: 5px;
+    width: auto;
+    background-color: #f2f2f2;
+    color: #ba1c85;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btnSubmit:hover  {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
+
+
+.roomFund{
+    width: 100%;
+    height: 360px;
+    border-radius :5px;
+    background-color: white;
+    opacity: 0.9;
+    padding: 1%;
+}
+.roomFund > h1{
+    text-align: center;
+    height: 15px;
+    font-style: italic;
+    font-size: 30px;
+    color: black;
+}
+.roomFund > h2{
+    text-align: left;
+    height: 15px;
+    font-style: italic;
+    font-size: 30px;
+    color: black;
+    padding-bottom: 3%;
+    padding-left: 3%;
+}
+.korpusOne{
+    float: left;
+    width: 49%;
+    padding: 1%;
+    text-align: center;
+}
+.korpusTwo{
+    float: right;
+    width: 49%;
+    padding: 1%;
+    text-align: center;
+}
+.korpusOne > h2{
+    color: black;
+}
+.korpusTwo > h2{
+    color: black;
+}
+.nColumn{
+    column-count: 2;
+    padding-right: 1px;
+    padding-top: 5px; /*Растояние между строками*/
+    color: black;
+}
+.wr {
+
+    padding-bottom: 5px;
+    text-align: center;
+    color: black;
+}
+
 #footer {
     position: absolute; /* Фиксированное положение */
     opacity: 0.5;
