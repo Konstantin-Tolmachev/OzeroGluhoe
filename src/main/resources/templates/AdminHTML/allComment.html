@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/allComment.css"/>
+    <title th:text="${'Актуальная информация'}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="">
+    <script src="https://unpkg.com/imask"></script>
+    <header th:insert="blocks/headerAdmin :: headerAdmin"></header>
+
+
+
+</head>
+<body>
+
+
+<section class="sectionComment">
+    <h3>Отзывы</h3>
+
+    <div th:each="el : ${comments}" class="allComments">
+
+        <div>
+            <p th:text="${el.name}" class="user" name="text" id="name" placeholder="Текст"></p>
+        </div>
+
+        <div>
+            <p th:text="${el.email}" class="email" name="email" id="email" placeholder="Текст"></p>
+        </div>
+
+        <div>
+            <p th:text="${el.commentDate}" class="date" name="text" id="commentDate" placeholder="Текст"></p>
+        </div>
+
+        <div>
+            <p th:text="${el.text}" class="pSize" name="text" id="text" placeholder="Текст"></p>
+        </div>
+
+        <br>
+
+        <form class="edit"  th:action="'/AllComment/' + ${el.id} +'/remove'" method="post">
+            <button class="delete"  type="submit">Удалить</button>
+        </form>
+        <hr class="hh1">
+    </div>
+</section>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/home.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<!-- <footer th:insert="blocks/footer :: footer"></footer> -->
+
+
+</html>

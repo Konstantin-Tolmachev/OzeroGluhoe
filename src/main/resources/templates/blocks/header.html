@@ -27,13 +27,13 @@
        </li>
 
             <li class="float" sec:authorize="hasRole('ROLE_ADMIN')">
-                <form  th:action="@{/AdminHome}" >
+                <form  th:action="@{/AllClients}" >
                     <input class="btnSubmit" type="submit" value="Домой">
                 </form>
             </li>
 
             <li class="float" sec:authorize="hasRole('ROLE_CLIENT')">
-                <form  th:action="@{/MyAccount}">
+                <form  th:action="@{/Request}">
                     <input class="btnSubmit" type="submit" value="Домой">
                 </form>
             </li>

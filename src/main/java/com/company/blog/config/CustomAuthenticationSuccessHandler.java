@@ -21,11 +21,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
 
         if (roles.contains("ROLE_ADMIN")) {
-            httpServletResponse.sendRedirect("/AdminHome");
+            httpServletResponse.sendRedirect("/AllClients");
         } else if (roles.contains("ROLE_STAFF")) {
             httpServletResponse.sendRedirect("/StaffAccount");
         } else if (roles.contains("ROLE_CLIENT")) {
-            httpServletResponse.sendRedirect("/MyAccount");
+            httpServletResponse.sendRedirect("/Request");
         }
     }
 }

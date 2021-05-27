@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/home.css"/>
+    <link rel="stylesheet" href="/css/comment.css"/>
     <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://unpkg.com/imask"></script>
@@ -9,6 +9,51 @@
     <header th:insert="blocks/header :: header"></header>
 </head>
 <body>
+
+<section class="sectionAddComment" >
+    <h1>Оставить отзыв</h1>
+    <p class="pFloat">Оставьте поля пустыми,<br>
+        чтобы отзыв стал анонимным</p>
+
+    <form th:action="@{/Comment}" method="post">
+        <div class="allDivComment">
+
+            <div class="DivComment">
+                <input type="text" id="name" name="name" placeholder="Ваше имя">
+            </div>
+
+            <div class="DivComment">
+                <input  class="in" name="email" placeholder="E-mail" id="email" />
+            </div>
+
+            <div class="DivComment">
+                <textarea class="size" name="text" id="text" placeholder="Напишите отзыв"/></textarea>
+            </div>
+
+            <div class="DivComment">
+                <button class="btnComment"  type="submit">Оставить отзыв</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+
+
+<section class="sectionComment">
+    <h1>Отзывы</h1>
+    <div th:each="el : ${comments}" class="allComments"  >
+        <div th:text="${el.name}" class="user" name="name"></div>
+        <div th:text="${el.commentDate}" class="date" name="commentDate"></div>
+        <div><p th:text="${el.text}" class="pSize" name="text" id="textUser" placeholder="Текст"></p>
+        </div>
+        <hr class="hh1">
+    </div>
+
+</section>
+
+
+
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
@@ -19,7 +64,7 @@
 
 </body>
 
-<footer th:insert="blocks/footer :: footer"></footer>
+<!--<footer th:insert="blocks/footer :: footer"></footer>-->
 
 
 </html>>

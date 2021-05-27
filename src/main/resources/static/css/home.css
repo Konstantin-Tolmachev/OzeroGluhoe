@@ -377,3 +377,13 @@ div.openbox_2 {
         float: right;
     }
 }
+
+#footer {
+
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    opacity: 1;
+    background: black;
+}

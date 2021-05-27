@@ -1,4 +1,4 @@
-* {
+*{
     box-sizing: border-box;
 }
 
@@ -63,56 +63,95 @@ h1.name{
     }
 }
 
-.booking{
-    margin: 0 auto; /* Выравниваем по центру */
+.sectionComment{
+    /* margin: 0 auto;*/
+    border-radius: 5px;
     width: 100%;
     height: auto;
-    border-radius: 5px;
-    background-color: white; /*Цвет рамки где записи из БД*/
     opacity: 0.9;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    overflow: auto;
+    background: white;
+    padding-bottom: 1%;
 }
 
-
-.allDiv{
-    column-count: 9;
-    padding-top: 5px; /*Растояние между строками*/
-
-}
-
-.wrap {
-    display: table;
-    margin:  auto;
-    padding: 1%;
-    width: auto;
+.sectionComment> h1 {
+    padding-top: 2%;
     text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    color: black;
+}
+
+.allComments{
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.1%
 }
 
 
-
-h3 {
-    padding-top: 10px;
-    height: 20px;
-    text-align: center;
-    font-style: italic;
-    font-size: 30px;
-    color: #d7f2acdc;
+.pSize{
+    margin: 9px;
+    width: 87%;
+    height: auto;
+    /*min-width: 300px;*/
+    /*min-height: auto;*/
+    /*max-width: 87%;*/
+    /*max-height: auto;*/
+    text-indent: 1%; /* Отступ первой строки в пикселах */
+    padding: 0.5%; /* Поля */
+    font-size: 1.3em; /* Размер шрифта */
+    word-wrap: break-word; /* Перенос слов */
 }
+
+.edit{
+    padding-left: 1%;
+}
+
+
+@media screen and (min-width: 10px) {
+    .email {
+        margin: 0  auto;
+        margin-left: 1%;
+        margin-top: -1%;
+        float: left;
+        color: black;
+        padding: 0.4%;
+
+    }
+}
+
+@media screen and (min-width: 10px) {
+    .user {
+        margin: 0  auto;
+        margin-left: 1%;
+        margin-top: -1%;
+        float: left;
+        color: black;
+        padding: 0.4%;
+
+    }
+}
+
+@media screen and (min-width: 10px) {
+    .date {
+        margin: 0  auto;
+        margin-left: 1%;
+        margin-top: -1%;
+        float: left;
+        color: black;
+        padding: 0.4%;
+
+    }
+}
+
 
 .test{
-
-    padding: 8px 20px;
-    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
     background-color: white;
     box-shadow: 0 0 40px 40px white inset, 0 0 0 0 yellow;
     text-decoration: none;
     color: black;
-    opacity: 0.5;
+    opacity: 1;
 }
-
 
 
 .dropbtn {
@@ -152,6 +191,16 @@ h3 {
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
 
+
+h3 {
+
+    text-align: center;
+    font-style: italic;
+    font-size: 30px;
+    color: #d7f2acdc;
+}
+
+
 input.btnSubmit{
     font-family: 'Exo 2', sans-serif;
     padding: 1%;/*Отступы между текстом в шапке*/
@@ -188,3 +237,12 @@ input.btnSubmit{
     font-size:0.75em;
     text-align: left;
 }
+
+
+
+
+
+
+
+
+

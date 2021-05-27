@@ -1,4 +1,5 @@
-* {
+ *{
+
     box-sizing: border-box;
 }
 
@@ -63,7 +64,7 @@ h1.name{
     }
 }
 
-.booking{
+.newPeoples{
     margin: 0 auto; /* Выравниваем по центру */
     width: 100%;
     height: auto;
@@ -73,25 +74,44 @@ h1.name{
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-    overflow: auto;
 }
 
-
-.allDiv{
-    column-count: 9;
+.nameColumn{
+    column-count: 3;
+    padding-right: 10px;
     padding-top: 5px; /*Растояние между строками*/
-
 }
 
+
+.editStaff{
+    column-count: 3;
+    padding-right: 10px;
+    padding-top: 5px; /*Растояние между строками*/
+}
+
+
+
+
+.noButtonView{
+    background-color: white;
+    opacity: 0;
+}
+
+
+.wrap1 {
+
+    margin:  auto;
+    padding: 1%;
+    width: 200px;
+    text-align: center;
+}
 .wrap {
     display: table;
     margin:  auto;
     padding: 1%;
-    width: auto;
+    width: 200px;
     text-align: center;
 }
-
-
 
 h3 {
     padding-top: 10px;
@@ -101,7 +121,7 @@ h3 {
     font-size: 30px;
     color: #d7f2acdc;
 }
-
+/*Редактирова, удалить, доабавить?*/
 .test{
 
     padding: 8px 20px;
@@ -110,8 +130,23 @@ h3 {
     box-shadow: 0 0 40px 40px white inset, 0 0 0 0 yellow;
     text-decoration: none;
     color: black;
-    opacity: 0.5;
+    opacity: 1;
 }
+
+
+
+
+.allPeoples{
+    margin: 0 auto; /* Выравниваем по центру */
+    width: 1300px;
+    height: auto;
+    border-radius: 5px;
+    background-color: white; /*Цвет рамки где записи из БД*/
+    opacity: 0.9;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 
 
 
@@ -152,6 +187,7 @@ h3 {
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
 
+
 input.btnSubmit{
     font-family: 'Exo 2', sans-serif;
     padding: 1%;/*Отступы между текстом в шапке*/
@@ -188,3 +224,21 @@ input.btnSubmit{
     font-size:0.75em;
     text-align: left;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

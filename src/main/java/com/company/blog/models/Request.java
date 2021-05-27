@@ -3,10 +3,7 @@ package com.company.blog.models;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Date;
@@ -20,7 +17,10 @@ public class Request {
     private Long id;
     private String korpus;
     private String room;
-    private String fromWhom, text, toWhom, status, fulfiled;
+
+    @Column(name="text", length=1000)
+    private String text;
+    private String fromWhom, toWhom, status, fulfiled;
     private String createDate;
     private String endDate;
 

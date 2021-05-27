@@ -43,6 +43,10 @@ public class AdminControllers {
     private KorpusTwoRoomsRepository korpusTwoRoomsRepository;
     @Autowired
     private RequestRepository requestRepository;
+    @Autowired
+    private PriceRepository priceRepository;
+    @Autowired
+    private CommentRepository commentRepository;
 
     @GetMapping("/AdminHome")
     public String Test(Model model) {
@@ -459,9 +463,11 @@ public class AdminControllers {
             post = new Request ("-", "-",fromWhom, text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
 
         }
-        else {
-
+        else if(fromWhom == "") {
             post = new Request(korpus, room, "Клиент", text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        }
+        else {
+            post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         requestRepository.save(post);
         return "AdminHTML/addRequest";
@@ -522,13 +528,13 @@ public class AdminControllers {
 
 
     /* Удалить заявку */
-//
-//    @PostMapping("/AllRequest/{id}/remove")
-//    public String AllRequestDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
-//        Request post = requestRepository.findById(id).orElseThrow(Exception::new);
-//        requestRepository.delete(post);
-//        return "redirect:/AllRequest";
-//    }
+
+    @PostMapping("/AllRequest/{id}/remove")
+    public String AllRequestDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
+        Request post = requestRepository.findById(id).orElseThrow(Exception::new);
+        requestRepository.delete(post);
+        return "redirect:/AllRequest";
+    }
 
     @PostMapping("AllRequestAdminFilter")
     public String AllRequestAdminFilter (@RequestParam String filter, Model model) {
@@ -543,6 +549,73 @@ public class AdminControllers {
         model.addAttribute("requests", requests);
         return "AdminHTML/allRequest";
     }
+
+
+
+
+
+
+    @GetMapping("/AllAccommodation")
+    public String Accommodation(Model model) {
+        Iterable<Price> prices = priceRepository.findByPriceOne();
+        model.addAttribute("prices", prices);
+
+        Iterable<Price> pricess = priceRepository.findByPriceTwo();
+        model.addAttribute("pricess", pricess);
+
+        model.addAttribute("title", "Номерной фонд");
+        return "AdminHTML/allAccommodation";
+    }
+
+
+    /*!!!  Значения из БД занесены в форму редактирования !!!*/
+
+
+    @GetMapping("/AllAccommodation/{id}/edit")
+    public String AddAccommodationEdit (@PathVariable(value = "id") long id, Model model) {
+        if(!priceRepository.existsById (id)){
+            return "redirect:/AllAccommodation";
+        }
+        Optional<Price> post = priceRepository.findById(id);
+        ArrayList<Price> res = new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post", res);
+        return "AdminHTML/accommodation_Edit";
+    }
+
+    /*Редактирование информации*/
+
+    @PostMapping("/AllAccommodation/{id}/edit")
+    public String AllAccommodationUpdate(@PathVariable(value = "id") long id,
+                                   //  @RequestParam long room_id,
+                                   @RequestParam String type,
+                                   @RequestParam String price,
+                                   Model model) throws Exception {
+        Price post = priceRepository.findById(id).orElseThrow(Exception::new);
+        // post.setRoomId(room_id);
+        post.setType(type);
+        post.setPrice(price);
+        priceRepository.save(post);
+        return "redirect:/AllAccommodation";
+    }
+
+
+    @GetMapping("/AllComment")
+    public String AllComment(Model model) {
+        Iterable<Comment> comments = commentRepository.findAllByOrderByIdDesc();
+        model.addAttribute("comments", comments);
+        return "AdminHTML/allComment";
+    }
+
+    /* Удалить заявку */
+
+    @PostMapping("/AllComment/{id}/remove")
+    public String AllCommentDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
+        Comment post = commentRepository.findById(id).orElseThrow(Exception::new);
+        commentRepository.delete(post);
+        return "redirect:/AllComment";
+    }
+
 
 
 

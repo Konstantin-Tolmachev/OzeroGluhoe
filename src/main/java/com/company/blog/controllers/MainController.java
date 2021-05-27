@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Controller
 public class MainController {
@@ -26,6 +28,8 @@ public class MainController {
     private BookingRepository bookingRepository;
     @Autowired
     private PriceRepository priceRepository;
+    @Autowired
+    private CommentRepository commentRepository;
 
 
 
@@ -135,8 +139,40 @@ public class MainController {
 
     @GetMapping("/Comment")
     public String Comment(Model model) {
+        Iterable<Comment> comments = commentRepository.findAllByOrderByIdDesc();
+        model.addAttribute("comments", comments);
         model.addAttribute("title", "Контакты");
         return "HomeHTML/comment";
+    }
+
+    @PostMapping("/Comment")
+    public String AddComment(
+//                                @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
+//            @RequestParam String commentDate,
+            @RequestParam String name,
+            @RequestParam String email,
+            @RequestParam String text,
+
+//                                  @RequestParam String endDay,
+//                                  @RequestParam String status,
+//                                  @RequestParam String fulfiled,
+            Model model) {
+        Comment post;
+        if (name == "" && email == "") {
+            post = new Comment ("Аноним", "E-mail не указан",text, LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+        else if (email == "") {
+            post = new Comment (name, "E-mail не указан",text, LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+        else if (name == "") {
+            post = new Comment ("Аноним", email,text, LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+        else {
+            post = new Comment(name, email, text, LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+        commentRepository.save(post);
+        return "redirect:/Comment";
+//        return "HomeHTML/comment";
     }
 
 

@@ -93,7 +93,13 @@
 <!--            </div>-->
 
             <div class="DivRequest">
-                <input th:value="${el.status}" type="text" onkeyup="checkParams()" id="status" name="status" placeholder="Статус">
+                <input  class="in" th:value="${el.status}" name="status" placeholder="Статус" id="status" />
+                <select onchange=document.getElementById('status').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >Статус</option>
+                    <option class="" value="Выполнено">Выполнено</option>
+                    <option class="" value="На выполнении">На выполнении</option>
+                    <option class="" value="Не выполнено">Не выполнено</option>
+                </select>
             </div>
 
             <div class="DivRequest">
