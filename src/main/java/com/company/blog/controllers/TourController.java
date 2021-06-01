@@ -1,8 +1,10 @@
 package com.company.blog.controllers;
 
 
+import com.company.blog.models.Payment;
 import com.company.blog.models.Staff;
 import com.company.blog.models.Tour;
+import com.company.blog.repo.PaymentRepository;
 import com.company.blog.repo.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +21,15 @@ import java.util.Optional;
 public class TourController {
     @Autowired
     private TourRepository tourRepository;
+    @Autowired
+    private PaymentRepository paymentRepository;
 
     /*Создаем страницу*/
 
     @GetMapping("/AddTour")
     public String addTour(Model model) {
+        Iterable<Payment> payments = paymentRepository.findAll();
+        model.addAttribute("payments", "payments");
         model.addAttribute("title", "Добавление тура");
         return "AdminHTML/addTour";
     }
@@ -31,12 +37,19 @@ public class TourController {
 
     /* Вывод всех добавленных туров */
 
-    @GetMapping("/AllTour")
-    public String addNewTour(Model model) {
-        Iterable<Tour> tours = tourRepository.findAll();
-        model.addAttribute("tours", tours);
-        return "AdminHTML/allTour";
-    }
+//    @GetMapping("/AllTour")
+//    public String addNewTour(Model model) {
+//        Iterable<Tour> tours = tourRepository.findAll();
+//        model.addAttribute("tours", "tours");
+//        return "AdminHTML/allTour";
+//    }
+@GetMapping("/AllTour")
+public String addNewTour(Model model) {
+    Iterable<Payment> payments = paymentRepository.findByPayment();
+    model.addAttribute("payments", "payments");
+    return "AdminHTML/allTour";
+}
+
 
     /* Добавить нового сотрудника сотрудников */
 

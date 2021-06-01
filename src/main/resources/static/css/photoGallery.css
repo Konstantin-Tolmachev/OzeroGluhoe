@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height:100%;
+    margin: 0;
+    padding: 10px 10px;
+    /*  background:  #c7b39b  url(../../static.img/fon.jpg) no-repeat 0/cover;*/
+    background: #c7b39b url(/img/fon.jpg) no-repeat 0 / cover;
+    color: #ba1c85; /* Цвет текста всего шрифта  */
+    background-attachment: fixed;
+    background-position: center top;
+    border-radius: .2rem;
+}
+
+/*ШАПКА ПРОЗРАЧНОСТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+nav ul {
+    opacity: 0.8;
+}
+
+/*Слова в шапке без подчеркивания линией!!!!!!!!!!!!!!!!!!*/
+nav a {
+    text-decoration: none;
+}
+
+h1.name{
+    color: #ba1c85; /* Цвет текста всего шрифта !!!!!!!!!!!!!!!!!!!! */
+}
+
+/*Шапка бара*/
+.topmenu {
+    width: 100%;
+    /*Резиновая шапка*/
+    padding: 25px;
+    border-radius: 20px;
+    /*Радиус бара*/
+    background-color: #f2f2f2;
+}
+/*Расположение текста в баре*/
+.topmenu > li {
+    display: inline; /*текст в шапке в строчку*/
+}
+
+/*Текст в шапке бара*/
+.topmenu > li > a {
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
+}
+
+/*Изменения цвета при наведении курсора*/
+.topmenu li a:hover {
+    color: #E6855F;
+}
+
+/*Добавляем свойство*/
+@media screen and (min-width: 900px) {
+    .float {
+        float: right;
+    }
+}
+
+
+
+input.btnSubmit{
+    font-family: 'Exo 2', sans-serif;
+    padding: 1%;/*Отступы между текстом в шапке*/
+    font-weight: bold; /*Жирный шрифт в баре*/
+    color: #003559; /*Цвет шрифта*/
+}
+
+
+.btnSubmit {
+    margin-right: 5px;
+    margin-left: 5px;
+    width: auto;
+    background-color: #f2f2f2;
+    color: #ba1c85;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btnSubmit:hover  {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
+
+
+.photoGallery{
+    margin: 0 auto; /* Выравниваем по центру */
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    background-color: white; /*Цвет рамки где записи из БД*/
+    opacity: 0.95;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    text-align: center;
+
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 20%;
+    color: black;
+    border-radius: 3px 0 0 3px;
+    /* width: 25%;
+     float: right;*/
+}
+
+.prev {
+    left: 20%;
+    color: black;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgb(255, 240, 245)  ;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    top: 0;
+}
+
+/*div.caption-container{
+  width: 50%;
+
+}*/
+/* Container for image text */
+.caption-container {
+    width: 50%;
+    background-color: #222;
+    margin-left: 25%;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+    margin-top: 3%;
+    padding: 0.3%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
+
+
+
+
+
+/*#footer {*/
+/*    position: absolute; !* Фиксированное положение *!*/
+/*    opacity: 0.5;*/
+/*    right: 0;*/
+/*    bottom: 0; !* Левый нижний угол *!*/
+/*    padding: 10px; !* Поля вокруг текста *!*/
+/*    background: black; !* Цвет фона *!*/
+/*    color: #fff; !* Цвет текста *!*/
+/*    width: 100%; !* Ширина слоя *!*/
+/*    font-size:0.75em;*/
+/*    text-align: left;*/
+/*}*/
+

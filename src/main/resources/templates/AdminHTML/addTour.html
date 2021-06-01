@@ -14,6 +14,14 @@
 <body>
 
 
+<div th:each="el : ${payments}" class="editStaff">
+    <div  th:text="${el.id}" class="wrap"><input type="text" id="id" name="id" placeholder="Корпус"></div>
+    <div th:text="${el.id_booking}" class="wrap"><input type="text" id="id_booking" name="id_booking" placeholder="Дата заезда"></div>
+    <div th:text="${el.payment}" class="wrap"><input type="text" id="payment" name="payment" placeholder="Дата выезда"></div>
+    <div th:text="${el.sum}" class="wrap"><input type="text" id="sum" name="sum" placeholder="Кол-во дней"></div>
+</div>
+
+
 
 <section class="newPeoples">
     <h3 >Добавить нового сотрудника</h3>

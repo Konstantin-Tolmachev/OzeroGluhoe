@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/photoGallery.css"/>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://unpkg.com/imask"></script>
+
+    <header th:insert="blocks/header :: header"></header>
+</head>
+<body>
+
+<section class="photoGallery">
+<h2 style="text-align:center">Фотогалерея</h2>
+
+
+  <div class="container">
+    <div class="mySlides">
+        <div class="numbertext">1 / 26</div>
+        <img class="img" src="img/1.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">2 / 26</div>
+        <img class="img" src="img/2.jpg" style="width:50% ">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">3 / 26</div>
+        <img  class="img"src="img/3.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">4 / 26</div>
+        <img class="img" src="img/4.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">5 / 26</div>
+        <img class="img" src="img/5.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">6 / 26</div>
+        <img class="img" src="img/6.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">7 / 26</div>
+        <img class="img" src="img/7.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">8 / 26</div>
+        <img class="img" src="img/8.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">9 / 26</div>
+        <img class="img" src="img/9.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">10 / 26</div>
+        <img class="img" src="img/10.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">11 / 26</div>
+        <img class="img" src="img/11.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">12 / 26</div>
+        <img class="img" src="img/12.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">13 / 26</div>
+        <img class="img" src="img/13.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">14 / 26</div>
+        <img class="img" src="img/14.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">15 / 26</div>
+        <img class="img" src="img/15.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">16 / 26</div>
+        <img class="img" src="img/16.jpg" style="width:50%">
+    </div>
+
+    <!--   <div class="mySlides">
+       <div class="numbertext">17 / 26</div>
+       <img class="img" src="img/17.jpg" style="width:50%">
+     </div>
+    -->
+    <div class="mySlides">
+        <div class="numbertext">18 / 26</div>
+        <img class="img" src="img/18.jpg" style="width:50%">
+    </div>
+
+    <!--    <div class="mySlides">
+        <div class="numbertext">19 / 26</div>
+        <img class="img" src="img/19.jpg" style="width:50%">
+      </div> -->
+
+    <div class="mySlides">
+        <div class="numbertext">20 / 26</div>
+        <img class="img" src="img/20.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">21 / 26</div>
+        <img class="img" src="img/21.jpg" style="width:50%">
+    </div>
+
+    <!--    <div class="mySlides">
+        <div class="numbertext">22 / 26</div>
+        <img class="img" src="img/22.jpg" style="width:50%">
+      </div>
+     -->
+    <div class="mySlides">
+        <div class="numbertext">23 / 26</div>
+        <img class="img" src="img/23.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">24 / 26</div>
+        <img class="img" src="img/24.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">25 / 26</div>
+        <img class="img" src="img/25.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">26 / 26</div>
+        <img class="img" src="img/26.jpg" style="width:50%">
+    </div>
+
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+    <div class="caption-container">
+        <p id="caption"></p>
+    </div>
+
+    <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="img/1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Бассейн в лечебно-оздоровительном комплексе">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Зал клуба, где проводят дискотеки и мастер-классы">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Физ. кабинет">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Физ. кабинет">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Физ. кабинет">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Кабинет озокерит">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/7.jpg" style="width:100%" onclick="currentSlide(7)" alt="Процедурный кабинет">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/8.jpg" style="width:100%" onclick="currentSlide(8)" alt="Кабинет ручного массажа">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/9.jpg" style="width:100%" onclick="currentSlide(9)" alt="Кабинет механического массажа">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/10.jpg" style="width:100%" onclick="currentSlide(10)" alt="Лечебные одеяла">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/11.jpg" style="width:100%" onclick="currentSlide(11)" alt="Зал ЛФК, 2 корпус">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/12.jpg" style="width:100%" onclick="currentSlide(12)" alt="Зал ЛФК, 1 корпус">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/13.jpg" style="width:100%" onclick="currentSlide(13)" alt="Душ шарко в ЛОКе">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/14.jpg" style="width:100%" onclick="currentSlide(14)" alt="Кабинет механического массажа">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/15.jpg" style="width:100%" onclick="currentSlide(15)" alt="Зал приема пищи в столовой">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/16.jpg" style="width:100%" onclick="currentSlide(16)" alt="Здание 1 корпуса">
+            </div>
+            <!--  <div class="column">
+               <img class="demo cursor" src="img/17.jpg" style="width:100%" onclick="currentSlide(3)" alt="Комната">
+             </div> -->
+            <div class="column">
+                <img class="demo cursor" src="img/18.jpg" style="width:100%" onclick="currentSlide(17)" alt="1 корпус, двухместный номер">
+            </div>
+            <!-- <div class="column">
+              <img class="demo cursor" src="img/19.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+            </div>     -->
+            <div class="column">
+                <img class="demo cursor" src="img/20.jpg" style="width:100%" onclick="currentSlide(18)" alt="1 корпус, двухместный номер">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/21.jpg" style="width:100%" onclick="currentSlide(19)" alt="Ванная комната в 1 корпусе">
+            </div>
+            <!--     <div class="column">
+                 <img class="demo cursor" src="img/22.jpg" style="width:100%" onclick="currentSlide(2)" alt="Ко">
+               </div> -->
+            <div class="column">
+                <img class="demo cursor" src="img/23.jpg" style="width:100%" onclick="currentSlide(20)" alt="Здание 1 корпуса">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/24.jpg" style="width:100%" onclick="currentSlide(21)" alt="Пляж">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/25.jpg" style="width:100%" onclick="currentSlide(22)" alt="Зимний пейзаж">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/26.jpg" style="width:100%" onclick="currentSlide(23)" alt="Здание 1 корпуса">
+            </div>
+        </div>
+    </div>
+<!--</div>-->
+</section>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/imask"></script>
+<script src="/scripts/photoGallery.js"></script>
+<!--<script src="system/js/global.js"></script>  Для даты -->
+
+
+
+</body>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+
+</html>

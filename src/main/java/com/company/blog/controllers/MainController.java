@@ -185,11 +185,11 @@ public class MainController {
         return "payment";
     }
 
-//    @GetMapping("/")
-//    public String Home(Model model) {
-//        model.addAttribute("title", "home");
-//        return "home";
-//    }
+    @GetMapping("/PhotoGallery")
+    public String PhotoGallery(Model model) {
+        model.addAttribute("title", "Фото галерея");
+        return "HomeHTML/photoGallery";
+    }
 
 
 }

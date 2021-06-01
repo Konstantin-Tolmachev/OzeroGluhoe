@@ -94,12 +94,12 @@ function validateRoom(evt) {
     var regex1 = /[2-4]|\./;
     var regex2 = /[0-1]|\./;
     var regex31 = /[0-9]|\./;
-    var regex32 = /[1-4]|\./;
+    var regex32 = /[0-4]|\./;
     var regex4 = /[1-3]|\./;
     var regex5 = /[0-2]|\./;
     var regex61 = /[0-9]|\./;
-    var regex62 = /[1-2]|\./;
-    console.log(document.getElementById("myRoomId").value.length);
+    var regex62 = /[0-2]|\./;
+    //console.log(document.getElementById("myRoomId").value.length);
     if( !regex1.test(key) && document.getElementById("myRoomId").value.length === 0 && document.getElementById("korpus").value === "1") {
         theEvent.returnValue = false;
         if(theEvent.preventDefault) theEvent.preventDefault();

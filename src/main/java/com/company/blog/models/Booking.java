@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Booking {
@@ -13,7 +14,14 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fname, lname, pname, phone, dateIn, dateOut, korpus,  myRoomId;
+    private String fname;
+    private String lname;
+    private String pname;
+    private String phone;
+    private String dateIn;
+    private String dateOut;
+    private String korpus;
+    private String myRoomId;
 
     public Booking(String fname, String lname, String pname, String phone,
                    String dateIn, String dateOut, String korpus, String myRoomId) {

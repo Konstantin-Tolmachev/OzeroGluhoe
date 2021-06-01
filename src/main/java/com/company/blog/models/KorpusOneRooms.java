@@ -89,6 +89,34 @@ public class KorpusOneRooms {
 //        DELIMITER ;
 
 
+//        DELIMITER |
+//        CREATE EVENT UpdateOneKorpus
+//        ON SCHEDULE
+//        EVERY 1 DAY
+//        STARTS '2021-05-30 00:00:00'
+//        ON COMPLETION PRESERVE
+//        DO
+//        BEGIN
+//        UPDATE korpus_one_rooms a INNER JOIN booking b ON a.rooms_one_korpus_id = b.my_room_id SET a.free_one_korpus = IF (b.date_out = CURRENT_DATE() AND b.korpus = 1, a.free_one_korpus + 1, a.free_one_korpus);
+//        END |
+//        DELIMITER ;
+
+
+//        DELIMITER |
+//        CREATE EVENT UpdateTwoKorpus
+//        ON SCHEDULE
+//        EVERY 1 DAY
+//        STARTS '2021-05-30 00:00:00'
+//        ON COMPLETION PRESERVE
+//        DO
+//        BEGIN
+//        UPDATE korpus_two_rooms a INNER JOIN booking b ON a.rooms_two_korpus_id = b.my_room_id SET a.free_two_korpus = IF (b.date_out = CURRENT_DATE() AND b.korpus = 2, a.free_two_korpus + 1, a.free_two_korpus);
+//        END |
+//        DELIMITER ;
+
+
+
+
 //    SELECT rooms_one_korpus_id, type_one_korpus, free_one_korpus, rooms_two_korpus_id, type_two_korpus, free_two_korpus FROM korpus_one_rooms, korpus_two_rooms WHERE rooms_one_korpus_id = rooms_two_korpus_id;
 
 //    SELECT rooms_one_korpus_id, type_one_korpus, free_one_korpus, rooms_two_korpus_id, type_two_korpus, free_two_korpus FROM korpus_one_rooms, korpus_two_rooms WHERE rooms_one_korpus_id = rooms_two_korpus_id AND free_one_korpus !=0;
