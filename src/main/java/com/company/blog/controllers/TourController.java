@@ -45,6 +45,7 @@ public class TourController {
 //    }
 @GetMapping("/AllTour")
 public String addNewTour(Model model) {
+  //  Iterable<Payment> payments = paymentRepository.findByPayment();
     Iterable<Payment> payments = paymentRepository.findByPayment();
     model.addAttribute("payments", "payments");
     return "AdminHTML/allTour";

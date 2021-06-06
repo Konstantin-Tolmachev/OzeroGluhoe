@@ -15,7 +15,7 @@ public class Request {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private String korpus;
+    private String level;
     private String room;
 
     @Column(name="text", length=1000)
@@ -24,8 +24,8 @@ public class Request {
     private String createDate;
     private String endDate;
 
-    public Request(String korpus, String room, String fromWhom, String text, String toWhom, String status, String fulfiled, String createDate, String endDate) {
-        this.korpus = korpus;
+    public Request(String level, String room, String fromWhom, String text, String toWhom, String status, String fulfiled, String createDate, String endDate) {
+        this.level = level;
         this.room = room;
         this.fromWhom = fromWhom;
         this.text = text;
@@ -47,12 +47,12 @@ public class Request {
         this.id = id;
     }
 
-    public String getKorpus() {
-        return korpus;
+    public String getLevel() {
+        return level;
     }
 
-    public void setKorpus(String korpus) {
-        this.korpus = korpus;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getRoom() {

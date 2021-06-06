@@ -94,6 +94,7 @@ public class AdminControllers {
                                        @RequestParam String lname,
                                        @RequestParam String pname,
                                        @RequestParam String phone,
+                                       @RequestParam String email,
                                        @RequestParam String dateIn,
                                        @RequestParam String dateOut,
                                        @RequestParam String korpus,
@@ -104,6 +105,7 @@ public class AdminControllers {
         post.setLname(lname);
         post.setPname(pname);
         post.setPhone(phone);
+        post.setEmail(email);
         post.setDateIn(dateIn);
         post.setDateOut(dateOut);
         post.setKorpus(korpus);
@@ -449,7 +451,7 @@ public class AdminControllers {
     @PostMapping("/AddRequest")
     public String AddRequestAdmin(
                                  // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
-                                  @RequestParam String korpus,
+                                  @RequestParam String level,
                                   @RequestParam String room,
                                   @RequestParam String fromWhom,
                                   @RequestParam String text,
@@ -459,15 +461,29 @@ public class AdminControllers {
 //                                  @RequestParam String fulfiled,
                                   Model model) {
         Request post;
-        if (korpus == "" && room == "") {
-            post = new Request ("-", "-",fromWhom, text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
-
+        if (level == "" && room == "" && fromWhom == "") {
+            post = new Request ("В течении дня", "-","Опаньки, заказчика не указали :(", text, toWhom,"Не выполнено","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
-        else if(fromWhom == "") {
-            post = new Request(korpus, room, "Клиент", text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        else if(level == "" ) {
+            post = new Request("В течении дня", room, fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        }
+        else if(room == "" ) {
+            post = new Request(level, "-", fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        }
+        else if(fromWhom == "" ) {
+            post = new Request(level, room, "Клиент", text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        }
+        else if(level == "" && room == "" ) {
+            post = new Request("В течении дня", "-", fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        }
+        else if(level == "" && fromWhom == "") {
+            post = new Request("В течении дня", room, "Клиент", text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        }
+        else if(room == "" && fromWhom == "" ) {
+            post = new Request(level, "-", "Опаньки, заказчика не указали :(", text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         else {
-            post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request(level, room, fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         requestRepository.save(post);
         return "AdminHTML/addRequest";
@@ -502,7 +518,7 @@ public class AdminControllers {
     @PostMapping("/AllRequest/{id}/edit")
     public String AllRequestUpdate(@PathVariable(value = "id") long id,
                                    // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
-                                   @RequestParam String korpus,
+                                   @RequestParam String level,
                                    @RequestParam String room,
                                    @RequestParam String fromWhom,
                                    @RequestParam String text,
@@ -512,7 +528,7 @@ public class AdminControllers {
                                    @RequestParam String fulfiled,
                                    Model model) throws Exception {
         Request post = requestRepository.findById(id).orElseThrow(Exception::new);
-        post.setKorpus(korpus);
+        post.setLevel(level);
         post.setRoom(room);
         post.setFromWhom(fromWhom);
         post.setText(text);
@@ -541,7 +557,7 @@ public class AdminControllers {
         Iterable<Request> requests;
 
         if (filter !=null && !filter.isEmpty()){
-            requests = requestRepository.findByToWhom(filter);
+            requests = requestRepository.findAllByStatus(filter);
         } else {
             requests = requestRepository.findAll();
         }

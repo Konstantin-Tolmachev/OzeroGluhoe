@@ -18,17 +18,19 @@ public class Booking {
     private String lname;
     private String pname;
     private String phone;
+    private String email;
     private String dateIn;
     private String dateOut;
     private String korpus;
     private String myRoomId;
 
-    public Booking(String fname, String lname, String pname, String phone,
+    public Booking(String fname, String lname, String pname, String phone, String email,
                    String dateIn, String dateOut, String korpus, String myRoomId) {
         this.fname = fname;
         this.lname = lname;
         this.pname = pname;
         this.phone = phone;
+        this.email = email;
         this.dateIn = dateIn;
         this.dateOut = dateOut;
         this.korpus = korpus;
@@ -78,6 +80,14 @@ public class Booking {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDateIn() {

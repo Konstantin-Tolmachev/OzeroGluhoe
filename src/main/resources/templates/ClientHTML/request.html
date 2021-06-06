@@ -4,6 +4,13 @@
     <link rel="stylesheet" href="/css/request.css">
 
     <title th:text="${title}"/>
+
+
+
+
+
+
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://unpkg.com/imask"></script>
 
@@ -17,12 +24,24 @@
     <form th:action="@{/Request}" method="post">
         <div class="allDivRequest">
 
+<!--            <div class="DivRequest">-->
+<!--                <input  type="text" onkeyup="checkParams()" id="level" name="level" placeholder="Уровень заявки">-->
+<!--            </div>-->
+
+
+
+
             <div class="DivRequest">
-                <input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Ваш № корпуса">
+                <input th:value="${#authentication.name}" readonly type="text" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты">
             </div>
 
             <div class="DivRequest">
-                <input type="text" onkeyup="checkParams()" id="room" name="room" placeholder="Ваш № комнаты">
+                <input  class="in" name="level" placeholder="Уровень заявки" id="level" />
+                <select onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >Уровень заявки</option>
+                    <option class="" value="Срочный">Срочный</option>
+                    <option class="" value="В течении дня">В течении дня</option>
+                </select>
             </div>
 
 
@@ -32,10 +51,10 @@
                     <option disabled selected >Исполнитель заявки</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
-                    <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                    <option class="" value="Комплексный_рабочий">Комплексный рабочий</option>
                     <option class="" value="Горничная">Горничная</option>
                     <option class="" value="Администратор">Администратор</option>
-                    <option class="" value="Дежурная мед сестра">Дежурная мед. сестра</option>
+                    <option class="" value="Дежурная_мед_сестра">Дежурная_мед_сестра</option>
                 </select>
             </div>
 
@@ -43,7 +62,7 @@
                 <select class="in" onchange=document.getElementById('text').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Описание проблемы</option>
                     <option class="inn" value="Перегорела лампочка">Перегорела лампочка</option>
-                    <option class="inn" value=">Не работает розетка">Не работает розетка</option>
+                    <option class="inn" value="Не работает розетка">Не работает розетка</option>
                     <option class="inn" value="Плохо показывает телевизор">Плохо показывает телевизор</option>
                     <option class="inn" value="Холодно в комнате">Холодно в комнате</option>
                     <option class="inn" value="Капает кран">Капает кран</option>
@@ -59,7 +78,7 @@
             </div>
 
             <div class="DivRequest2">
-                <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" id="text"/></textarea>
+                <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему самостоятельно" id="text"/></textarea>
             </div>
             <div class="DivRequest">
                 <button  type="submit">Отправить заявку</button>

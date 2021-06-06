@@ -40,7 +40,7 @@ public class AccountStaffControllers {
     @PostMapping("/StaffAccount")
     public String AddRequestAdmin(
             // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
-                                  @RequestParam String korpus,
+                                  @RequestParam String level,
                                   @RequestParam String room,
             @RequestParam String fromWhom,
             @RequestParam String text,
@@ -51,13 +51,13 @@ public class AccountStaffControllers {
             Model model) {
 
         Request post;
-        if (korpus == "" && room == "") {
-            post = new Request ("-", "-",fromWhom, text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        if (level == "" && room == "" ) {
+            post = new Request ("В течении дня", "-",fromWhom, text, toWhom,"Не выполнено","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
 
         }
         else {
 
-            post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request(level, room, fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }        requestRepository.save(post);
 //        return "StaffHTML/staffAccount";
         return "redirect:/StaffAccount";
@@ -70,6 +70,23 @@ public class AccountStaffControllers {
     public String AllStaffRequest(Model model) {
         Iterable<Request> requests = requestRepository.findAllByOrderByIdDesc();
         model.addAttribute("requests", requests);
+
+
+        Iterable<Request> requests1 = requestRepository.findElectro();
+        model.addAttribute("requests1", requests1);
+
+        Iterable<Request> requests2 = requestRepository.findSantechnik();
+        model.addAttribute("requests2", requests2);
+
+        Iterable<Request> requests3 = requestRepository.findKompl();
+        model.addAttribute("requests3", requests3);
+
+        Iterable<Request> requests4 = requestRepository.findGornichnaya();
+        model.addAttribute("requests4", requests4);
+
+//        Iterable<Request> requests5 = requestRepository.findByElectro1();
+//        model.addAttribute("requests5", requests5);
+//        return "redirect:/StaffAccount";
         return "StaffHTML/staffAccount";
     }
 
@@ -93,7 +110,7 @@ public class AccountStaffControllers {
     @PostMapping("/AllRequestStaff/{id}/edit")
     public String AllRequestStaffUpdate(@PathVariable(value = "id") long id,
                                    // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
-//                                   @RequestParam String korpus,
+                                   @RequestParam String level,
 //                                   @RequestParam String room,
 //                                   @RequestParam String fromWhom,
 //                                   @RequestParam String text,
@@ -103,7 +120,7 @@ public class AccountStaffControllers {
                                    @RequestParam String fulfiled,
                                    Model model) throws Exception {
         Request post = requestRepository.findById(id).orElseThrow(Exception::new);
-//        post.setKorpus(korpus);
+        post.setLevel(level);
 //        post.setRoom(room);
 //        post.setFromWhom(fromWhom);
 //        post.setText(text);
@@ -119,17 +136,41 @@ public class AccountStaffControllers {
 
 
 
-    @PostMapping("StaffAccountFilter")
-    public String StaffAccountFilter (@RequestParam String filter, Model model) {
-        Iterable<Request> requests;
-
+    @PostMapping("AllRequestStaffFilter")
+    public String AllRequestStaffFilter (@RequestParam String filter, Model model) {
+        Iterable<Request> requests1;
         if (filter !=null && !filter.isEmpty()){
-            requests = requestRepository.findByToWhom(filter);
+            requests1 = requestRepository.findByStatusAndToWhom(filter, "Электромонтер");
         } else {
-            requests = requestRepository.findAll();
+            requests1 = requestRepository.findElectro();
         }
 
-        model.addAttribute("requests", requests);
+        Iterable<Request> requests2;
+        if (filter !=null && !filter.isEmpty()){
+            requests2 = requestRepository.findByStatusAndToWhom(filter, "Сантехник");
+        } else {
+            requests2 = requestRepository.findSantechnik();
+        }
+
+        Iterable<Request> requests3;
+        if (filter !=null && !filter.isEmpty()){
+            requests3 = requestRepository.findByStatusAndToWhom(filter, "Комплексный_рабочий");
+        }
+        else {
+            requests3 = requestRepository.findKompl();
+        }
+
+        Iterable<Request> requests4;
+        if (filter !=null && !filter.isEmpty()){
+            requests4 = requestRepository.findByStatusAndToWhom(filter, "Горничная");
+        } else {
+            requests4 = requestRepository.findGornichnaya();
+        }
+
+        model.addAttribute("requests1", requests1);
+        model.addAttribute("requests2", requests2);
+        model.addAttribute("requests3", requests3);
+        model.addAttribute("requests4", requests4);
         return "StaffHTML/staffAccount";
     }
 

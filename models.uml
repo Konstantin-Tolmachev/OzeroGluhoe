@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.company.blog.models</OriginalElement>
+  <nodes>
+    <node x="302.0" y="484.0">com.company.blog.models.KorpusOneRooms</node>
+    <node x="154.0" y="484.0">com.company.blog.models.Price</node>
+    <node x="174.0" y="0.0">com.company.blog.models.Account</node>
+    <node x="0.0" y="484.0">com.company.blog.models.Payment</node>
+    <node x="0.0" y="297.0">com.company.blog.models.Comment</node>
+    <node x="528.0" y="297.0">com.company.blog.models.AllPrice</node>
+    <node x="188.0" y="297.0">com.company.blog.models.Staff</node>
+    <node x="0.0" y="0.0">com.company.blog.models.Request</node>
+    <node x="229.0" y="649.0">com.company.blog.models.Event</node>
+    <node x="525.0" y="0.0">com.company.blog.models.Booking</node>
+    <node x="343.0" y="297.0">com.company.blog.models.Role</node>
+    <node x="510.0" y="484.0">com.company.blog.models.KorpusTwoRooms</node>
+    <node x="0.0" y="649.0">com.company.blog.models.ActualInformation</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.7248322147651006" x="336.5" y="362.5" />
+  <SelectedNodes>
+    <node>com.company.blog.models.KorpusOneRooms</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -182,18 +182,18 @@ span.sim-dot {
 
 
 
-#footer {
-    position: absolute; /* Фиксированное положение */
-    opacity: 0.5;
-    right: 0;
-    bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-    background: black; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
-    font-size:0.75em;
-    text-align: left;
-}
+/*#footer {*/
+/*    position: absolute; !* Фиксированное положение *!*/
+/*    opacity: 0.5;*/
+/*    right: 0;*/
+/*    bottom: 0; !* Левый нижний угол *!*/
+/*    padding: 10px; !* Поля вокруг текста *!*/
+/*    background: black; !* Цвет фона *!*/
+/*    color: #fff; !* Цвет текста *!*/
+/*    width: 100%; !* Ширина слоя *!*/
+/*    font-size:0.75em;*/
+/*    text-align: left;*/
+/*}*/
 
 
 

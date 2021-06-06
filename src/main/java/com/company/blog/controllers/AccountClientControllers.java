@@ -82,17 +82,28 @@ public class AccountClientControllers {
     @PostMapping("/Request")
     public String AddRequestClient(
             // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
-            @RequestParam String korpus,
+            @RequestParam String level,
             @RequestParam String room,
-//                                  @RequestParam String fromWhom,
+                                //  @RequestParam String fromWhom,
             @RequestParam String text,
             @RequestParam String toWhom,
 //                                  @RequestParam String endDay,
-//                                  @RequestParam String status,
+            //@RequestParam String status,
 //                                  @RequestParam String fulfiled,
             Model model) {
 
-        Request  post = new Request (korpus, room,"Клиент",text, toWhom,"","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+
+        Request post;
+        if (level == "" ) {
+            post = new Request ("В течении дня", room,"Клиент",text, toWhom,"Не выполнено","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+
+        }
+        else {
+
+        post = new Request (level, room,"Клиент",text, toWhom,"Не выполнено","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        }        requestRepository.save(post);
+
+
         requestRepository.save(post);
         return "ClientHTML/request";
     }

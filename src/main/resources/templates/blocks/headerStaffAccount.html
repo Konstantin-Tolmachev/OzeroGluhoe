@@ -1,5 +1,9 @@
 <div  th:fragment="headerStaffAccount" xmlns:th="http://www.w3.org/1999/xhtml">
-    <h1 class="name" align="center"><span style="font-family:Lobster, cursive; Font-size:30px;">Аккаунт для сотрудника</span></h1>
+<!--    <h1 class="name" align="center"><span style="font-family:Lobster, cursive; Font-size:30px;">Аккаунт для сотрудника</span></h1>-->
+
+
+
+    <h1 class="name" align="center"><div style="font-family:Lobster, cursive; Font-size:30px;" th:text="${#authentication.name}"></div></h1>
 
     <nav>
         <ul class="topmenu">

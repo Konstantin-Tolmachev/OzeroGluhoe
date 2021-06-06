@@ -85,7 +85,7 @@ h1.name{
 
 .allDiv{
     min-width: auto;
-    column-count: 10;
+    column-count: 11;
     padding:auto; /*Растояние между строками*/
     font-size: calc(1px + 1vw);
 }

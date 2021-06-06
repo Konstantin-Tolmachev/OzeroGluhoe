@@ -1,16 +1,44 @@
 package com.company.blog.repo;
 
-import com.company.blog.models.ActualInformation;
-import com.company.blog.models.KorpusOneRooms;
-import com.company.blog.models.Request;
-import org.springframework.data.repository.CrudRepository;
 
+import com.company.blog.models.Request;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Collection;
 import java.util.List;
 
 public interface RequestRepository extends CrudRepository<Request, Long> {
     List<Request> findAllByOrderByIdDesc();
 
+    List<Request> findAllByStatus(String status);
+
+//    default Collection<Request> findElectro() {
+//        return findByToWhomOrderByIdDesc("Электромонтер");
+//    }
+    //Collection<Request> findByToWhomOrderByIdDesc(String электромонтер);
+
+
+
+    @Query("SELECT u FROM Request u WHERE u.toWhom = 'Электромонтер' AND u.status = 'Не выполнено' OR u.toWhom = 'Электромонтер' AND u.status = 'На выполнении'  ORDER BY u.id DESC")
+    Collection<Request> findElectro();
+
+    @Query("SELECT u FROM Request u WHERE u.toWhom = 'Сантехник' AND u.status = 'Не выполнено' OR u.toWhom = 'Сантехник' AND u.status = 'На выполнении'  ORDER BY u.id DESC")
+    Collection<Request> findSantechnik();
+
+    @Query("SELECT u FROM Request u WHERE u.toWhom = 'Комплексный_рабочий' AND u.status = 'Не выполнено' OR u.toWhom = 'Комплексный_рабочий' AND u.status = 'На выполнении'  ORDER BY u.id DESC")
+    Collection<Request> findKompl();
+
+    @Query("SELECT u FROM Request u WHERE u.toWhom = 'Горничная' AND u.status = 'Не выполнено' OR u.toWhom = 'Горничная' AND u.status = 'На выполнении'  ORDER BY u.id DESC")
+    Collection<Request> findGornichnaya();
+
+    Iterable<Request> findByStatusAndToWhom(String filter, String электромонтер);
+
+//    Iterable<Request> findByToWhomOrderByIdDesc();
+
     /*Фильтр*/
 
-    List<Request> findByToWhom (String toWhom);
+
+
 }

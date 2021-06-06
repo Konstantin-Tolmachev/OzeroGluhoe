@@ -52,12 +52,13 @@ public class MainController {
                            @RequestParam String lname,
                            @RequestParam String pname,
                            @RequestParam String phone,
+                           @RequestParam String email,
                            @RequestParam String dateIn,
                            @RequestParam String dateOut,
                            @RequestParam String korpus,
                            @RequestParam String myRoomId,
                            Model model) {
-        Booking post = new Booking (fname, lname, pname, phone, dateIn, dateOut, korpus, myRoomId);
+        Booking post = new Booking (fname, lname, pname, phone, email, dateIn, dateOut, korpus, myRoomId);
         bookingRepository.save(post);
         //      return "home";
         return "redirect:/Payment";

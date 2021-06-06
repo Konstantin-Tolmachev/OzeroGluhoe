@@ -1,10 +1,13 @@
 package com.company.blog.models;
 
 
+import com.company.blog.controllers.AccountStaffControllers;
+import com.company.blog.controllers.AdminControllers;
+
 import javax.persistence.*;
 
 @Entity
-public class ActualInformation {
+public class ActualInformation extends AdminControllers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

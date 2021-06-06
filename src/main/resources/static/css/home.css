@@ -142,7 +142,7 @@ nav a {
 .booking{
     /*position: absolute;*/
     position: fixed;
-    width: 410px;
+    width: auto;
     height: auto;
     border-radius: 5px;
     background-color: #0303039d;
@@ -161,12 +161,12 @@ nav a {
 .allDiv{
     column-count: 2;
     padding: 5px;
-}
+    }
 
 
 
 
-input#fname,#lname,#pname,#phone,#dateIn,#dateOut,#korpus,#myRoomId{
+input#fname,#lname,#pname,#phone,#email, #dateIn,#dateOut,#korpus,#myRoomId{
     width: 185px;
     height: 30px;
 }
@@ -337,9 +337,9 @@ div.tours{
 }
 
 .allDv{
-    column-count: 3;
-    padding-right: 30px;
-    padding-left: 30px;
+    column-count: 4;
+    padding-right: 10px;
+    padding-left: 10px;
     /* padding-bottom: 10px;*/
     /*  padding-top: 10px;*/
 }
@@ -351,10 +351,12 @@ div.tours{
 }
 
 .sectionRoom {
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     float: right;
-    width: 25%;
+    width: 35%;
     height:auto;
+    margin-right: 1%;
+    margin-left: 1%;
     /*height:66%;*/
     border-radius: 5px;
     background-color: white;
@@ -372,8 +374,8 @@ div.openbox_2 {
 
 @media screen  {
     .sectionRoom {
-        margin-right: 125px;
-        margin-left: 500px;
+        /*margin-right: 125px;*/
+        /*margin-left: 400px;*/
         float: right;
     }
 }

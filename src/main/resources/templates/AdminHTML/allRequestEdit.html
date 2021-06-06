@@ -21,15 +21,23 @@
 
 
   <!-- div class="wrap">
+      th:text="${#authentication.name}"
         <input type="text" th:value="${el.korpus}" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="ID">
   </div>-->
 
+
+
             <div class="DivRequest">
-                <input type="text" th:value="${el.korpus}" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Ваш № корпуса">
+                <input type="text" th:value="${el.room}" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты (*-***">
             </div>
 
             <div class="DivRequest">
-                <input type="text" th:value="${el.room}" onkeyup="checkParams()" id="room" name="room" placeholder="Ваш № комнаты">
+                <input  class="in" name="level" placeholder="Уровень заявки" id="level" />
+                <select onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >Уровень заявки</option>
+                    <option class="" value="Срочный">Срочный</option>
+                    <option class="" value="В течении дня">В течении дня</option>
+                </select>
             </div>
 
             <div class="DivRequest">
@@ -38,20 +46,19 @@
                     <option disabled selected >Заявитель</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
-                    <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                    <option class="" value="Комплексный_рабочий">Комплексный рабочий</option>
                     <option class="" value="Горничная">Горничная</option>
                     <option class="" value="Администратор">Администратор</option>
-                    <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>
-                    <option class="" value="Глав. врачи">Глав. врач</option>
+                    <option class="" value="Дежурная_мед_сестра">Дежурная мед. сестра</option>
+                    <option class="" value="Глав_врач">Глав. врач</option>
                     <option class="" value="Директор">Директор</option>
-                    <option class="" value="Зав. хоз"> Зав. хоз</option>
-                    <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>
-                    <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>
-                    <option class="" value="Рабочий КОиРЗ">Рабочий КОиРЗ</option>
+                    <option class="" value="Зав_хоз"> Зав. хоз</option>
+                    <option class="" value="Старшая_мед_сестра">Старшая мед. сестра</option>
+                    <option class="" value="Начальник_хоз_службы">Начальник хозю. службы</option>
                     <option class="" value="Официант">Официант</option>
-                    <option class="" value="Начальник столовой">Начальник столовой</option>
-                    <option class="" value="Работник по развлек. части">Работник по развлек. части</option>
-                    <option class="" value="Начальник ПТС">Начальник ПТС</option>
+                    <option class="" value="Начальник_столовой">Начальник столовой</option>
+                    <option class="" value="Работник_по_развлек_части">Работник по развлек. части</option>
+                    <option class="" value="Начальник_ПТС">Начальник ПТС</option>
 
                 </select>
             </div>
@@ -63,20 +70,19 @@
                     <option disabled selected >Исполнитель заявки</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
-                    <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                    <option class="" value="Комплексный_рабочий">Комплексный рабочий</option>
                     <option class="" value="Горничная">Горничная</option>
                     <option class="" value="Администратор">Администратор</option>
-                    <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>
-                    <option class="" value="Глав. врачи">Глав. врач</option>
+                    <option class="" value="Дежурная_мед_сестра">Дежурная мед. сестра</option>
+                    <option class="" value="Глав_врачи">Глав. врач</option>
                     <option class="" value="Директор">Директор</option>
-                    <option class="" value="Зав. хоз"> Зав. хоз</option>
-                    <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>
-                    <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>
-                    <option class="" value="Рабочий КОиРЗ">Рабочий КОиРЗ</option>
+                    <option class="" value="Зав_хоз"> Зав. хоз</option>
+                    <option class="" value="Старшая_мед_сестра">Старшая мед. сестра</option>
+                    <option class="" value="Начальник_хозю_службы">Начальник хозю. службы</option>
                     <option class="" value="Официант">Официант</option>
-                    <option class="" value="Начальник столовой">Начальник столовой</option>
-                    <option class="" value="Работник по развлек. части">Работник по развлек. части</option>
-                    <option class="" value="Начальник ПТС">Начальник ПТС</option>
+                    <option class="" value="Начальник_столовой">Начальник столовой</option>
+                    <option class="" value="Работник_по_развлек_части">Работник по развлек. части</option>
+                    <option class="" value="Начальник_ПТС">Начальник ПТС</option>
                 </select>
             </div>
 

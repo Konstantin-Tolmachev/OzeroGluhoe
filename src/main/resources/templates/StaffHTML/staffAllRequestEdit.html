@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" href="/css/requestForAdmin.css">
 
@@ -24,12 +24,21 @@
         <input type="text" th:value="${el.korpus}" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="ID">
   </div>-->
 
+<!--            <div class="DivRequest">-->
+<!--                <input type="text" th:value="${el.korpus}" onkeyup="checkParams()" id="korpus" name="korpus" readonly placeholder="Ваш № корпуса">-->
+<!--            </div>-->
+
             <div class="DivRequest">
-                <input type="text" th:value="${el.korpus}" onkeyup="checkParams()" id="korpus" name="korpus" readonly placeholder="Ваш № корпуса">
+                <input type="text" th:value="${el.room}" onkeyup="checkParams()" id="room" name="room" readonly placeholder="№ корпуса - № комнаты">
             </div>
 
             <div class="DivRequest">
-                <input type="text" th:value="${el.room}" onkeyup="checkParams()" id="room" name="room" readonly placeholder="Ваш № комнаты">
+                <input  class="in" th:value="${el.level}" name="level" placeholder="Уровень заявки" id="level" />
+                <select onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >Уровень заявки</option>
+                    <option class="" value="Срочный">Срочный</option>
+                    <option class="" value="В течении дня">В течении дня</option>
+                </select>
             </div>
 
             <div class="DivRequest">
@@ -38,23 +47,11 @@
 <!--                    <option class="" >От кого</option>-->
 <!--                    <option class="" value="Электромонтер">Электромонтер</option>-->
 <!--                    <option class="" value="Сантехник">Сантехник</option>-->
-<!--                    <option class="" value="Комплексный рабочий">Комплексный рабочий</option>-->
-<!--                    <option class="" value="Горничная">Горничная</option>-->
-<!--                    <option class="" value="Администратор">Администратор</option>-->
-<!--                    <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>-->
-<!--                    <option class="" value="Глав. врачи">Глав. врач</option>-->
-<!--                    <option class="" value="Директор">Директор</option>-->
-<!--                    <option class="" value="Зав. хоз"> Зав. хоз</option>-->
-<!--                    <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>-->
-<!--                    <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>-->
-<!--                    <option class="" value="Рабочий КОиРЗ">Рабочий КОиРЗ</option>-->
-<!--                    <option class="" value="Официант">Официант</option>-->
-<!--                    <option class="" value="Начальник столовой">Начальник столовой</option>-->
-<!--                    <option class="" value="Работник по развлек. части">Работник по развлек. части</option>-->
-<!--                    <option class="" value="Начальник ПТС">Начальник ПТС</option>-->
-
-<!--                </select>-->
+<!--<!-                </select>&ndash;&gt;-->
             </div>
+
+
+
 
 
             <div class="DivRequest">
@@ -102,9 +99,54 @@
                 </select>
             </div>
 
-            <div class="DivRequest">
+            <div class="DivRequest" th:if="${#authentication.name == ('Электромонтер')}">
                 <input type="text" th:value="${el.fulfiled}" onkeyup="checkParams()" id="fulfiled" name="fulfiled" placeholder="ФИО исполнителя">
+                <select onchange=document.getElementById('fulfiled').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >ФИО исполнителя</option>
+                    <option class="" value="Изилаев Г. А.">Изилаев Г. А.</option>
+                    <option class="" value="Гаврилин В. М.">Гаврилин В. М.</option>
+                    <option class="" value="Лобанов Д. А.">Лобанов Д. А.</option>
+                    <option class="" value="Квашнин А. Н.">Квашнин А. Н.</option>
+                </select>
             </div>
+
+            <div class="DivRequest" th:if="${#authentication.name == ('Комплексный_рабочий')}">
+                <input type="text" th:value="${el.fulfiled}" onkeyup="checkParams()" id="fulfiled1" name="fulfiled" placeholder="ФИО исполнителя">
+                <select onchange=document.getElementById('fulfiled1').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >ФИО исполнителя</option>
+                    <option class="" value="Толмачев К. С.">Толмачев К. С.</option>
+                    <option class="" value="Белявкин А. Г.">Белявкин А. Г.</option>
+                    <option class="" value="Кузбасов Х. К.">Кузбасов Х. К.</option>
+                </select>
+            </div>
+
+            <div class="DivRequest" th:if="${#authentication.name == ('Сантехник')}">
+                <input type="text" th:value="${el.fulfiled}" onkeyup="checkParams()" id="fulfiled2" name="fulfiled" placeholder="ФИО исполнителя">
+                <select onchange=document.getElementById('fulfiled2').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >ФИО исполнителя</option>
+                    <option class="" value="Голованов В. Н.">Голованов В. Н.</option>
+                    <option class="" value="Иванов П. С.">Иванов П. С.</option>
+                </select>
+            </div>
+
+            <div class="DivRequest" th:if="${#authentication.name == ('Горничная')}">
+                <input type="text" th:value="${el.fulfiled}" onkeyup="checkParams()" id="fulfiled3" name="fulfiled" placeholder="ФИО исполнителя">
+                <select onchange=document.getElementById('fulfiled3').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >ФИО исполнителя</option>
+                    <option class="" value="Мужева О. В.">Мужева О. В.</option>
+                    <option class="" value="Алексеева К. А.">Алексеева К. А.</option>
+                    <option class="" value="Иванова В. И.">Иванова В. И.</option>
+                    <option class="" value="Нипяева А. И.">Нипяева А. И.</option>
+                    <option class="" value="Петрова М. Н.">Петрова М. Н.</option>
+                    <option class="" value="Круглова Н. С.">Круглова Н. С.</option>
+                    <option class="" value="Черных С. А.">Черных С. А.</option>
+                    <option class="" value="Табольская А. П.">Табольская А. П.</option>
+                </select>
+            </div>
+
+
+
+
 
             <div class="DivRequest2">
                 <textarea  class="size" name="text" readonly id="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" th:text="${el.text}"></textarea>

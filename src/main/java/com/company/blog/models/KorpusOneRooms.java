@@ -14,10 +14,11 @@ public class KorpusOneRooms {
 
 
     private long roomsOneKorpusId;
-    private String typeOneKorpus, freeOneKorpus;
+    private String storeyOneKorpus, typeOneKorpus, freeOneKorpus;
 
-    public KorpusOneRooms(long roomsOneKorpusId, String typeOneKorpus, String freeOneKorpus) {
+    public KorpusOneRooms(long roomsOneKorpusId, String storeyOneKorpus, String typeOneKorpus, String freeOneKorpus) {
         this.roomsOneKorpusId = roomsOneKorpusId;
+        this.storeyOneKorpus = storeyOneKorpus;
         this.typeOneKorpus = typeOneKorpus;
         this.freeOneKorpus = freeOneKorpus;
     }
@@ -52,6 +53,14 @@ public class KorpusOneRooms {
 
     public void setRoomsOneKorpusId(long roomsOneKorpusId) {
         this.roomsOneKorpusId = roomsOneKorpusId;
+    }
+
+    public String getStoreyOneKorpus() {
+        return storeyOneKorpus;
+    }
+
+    public void setStoreyOneKorpus(String storeyOneKorpus) {
+        this.storeyOneKorpus = storeyOneKorpus;
     }
 
     public String getTypeOneKorpus() {

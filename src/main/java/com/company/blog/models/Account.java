@@ -1,5 +1,7 @@
 package com.company.blog.models;
 
+import com.company.blog.controllers.AccountClientControllers;
+import com.company.blog.controllers.AdminControllers;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -16,7 +18,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "t_user")
-public class Account implements UserDetails {
+public class Account extends AdminControllers implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

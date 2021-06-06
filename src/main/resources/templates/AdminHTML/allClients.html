@@ -32,6 +32,7 @@
         <div class="wrap">Имя</div>
         <div class="wrap">Отчество</div>
         <div class="wrap">№ телефона</div>
+        <div class="wrap">Email</div>
         <div class="wrap">&nbsp;</div>
         <div class="wrap">&nbsp;</div>
 
@@ -50,6 +51,7 @@
                 <div th:text="${el.lname}" class="wrap"><input type="text" id="lname" name="lname" placeholder="Отчество"></div>
                 <div th:text="${el.pname}" class="wrap"><input type="text" id="pname" name="pname" placeholder="Тур"></div>
                 <div th:text="${el.phone}" class="wrap"><input type="text" id="phone" name="phone" placeholder="Комната"></div>
+                <div th:text="${el.email}" class="wrap"><input type="text" id="email" name="email" placeholder="Email"></div>
              <!--   <div th:text="${el.email}" class="wrap"><input type="text" id="email" name="email" placeholder="E-mail"></div>
               -->  <div><a th:href="'/AllClients/' + ${el.id} + '/edit'" class="test">Редактировать</a></div>
 

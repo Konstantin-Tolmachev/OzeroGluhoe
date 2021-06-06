@@ -28,6 +28,7 @@
         <div class="wrap">Имя</div>
         <div class="wrap">Отчество</div>
         <div class="wrap">№ телефона</div>
+        <div class="wrap">Email</div>
     </div>
 
 
@@ -42,6 +43,7 @@
             <div class="wrap"><input type="text" th:value="${el.lname}" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя"></div>
             <div class="wrap"><input type="text" th:value="${el.pname}" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество"></div>
             <div class="wrap"><input type="text" th:value="${el.phone}" onkeeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>
+            <div class="wrap"><input type="text" th:value="${el.email}" onkeeyup="checkParams()" id="email" name="email" placeholder="Email"></div>
 
             <form class="wrap" th:action="@{/AllClients}" method="post" >
                 <input type="submit"  id="submit" class="glow-button" value="Обновить"  >

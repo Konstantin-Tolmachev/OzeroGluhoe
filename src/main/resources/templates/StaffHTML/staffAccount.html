@@ -24,25 +24,24 @@
 
 
                 <div class="DivRequest">
-                    <input  class="in" name="fromWhom" placeholder="От кого заявка" id="fromWhom" />
+                    <input th:value="${#authentication.name}"  class="in" name="fromWhom" placeholder="От кого заявка" id="fromWhom" />
                     <select onchange=document.getElementById('fromWhom').value=this.options[this.selectedIndex].value>
                         <option disabled selected >Заявитель</option>
                         <option class="" value="Электромонтер">Электромонтер</option>
                         <option class="" value="Сантехник">Сантехник</option>
-                        <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                        <option class="" value="Комплексный_рабочий">Комплексный рабочий</option>
                         <option class="" value="Горничная">Горничная</option>
                         <option class="" value="Администратор">Администратор</option>
-                        <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>
-                        <option class="" value="Глав. врачи">Глав. врач</option>
+                        <option class="" value="Дежурная_мед_сестра">Дежурная мед. сестра</option>
+                        <option class="" value="Глав_врач">Глав. врач</option>
                         <option class="" value="Директор">Директор</option>
-                        <option class="" value="Зав. хоз"> Зав. хоз</option>
-                        <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>
+                        <option class="" value="Зав_хоз"> Зав. хоз</option>
+                        <option class="" value="Старшая_мед_сестра">Старшая мед. сестра</option>
                         <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>
-                        <option class="" value="Рабочий КОиРЗ">Рабочий КОиРЗ</option>
                         <option class="" value="Официант">Официант</option>
-                        <option class="" value="Начальник столовой">Начальник столовой</option>
-                        <option class="" value="Работник по развлек. части">Работник по развлек. части</option>
-                        <option class="" value="Начальник ПТС">Начальник ПТС</option>
+                        <option class="" value="Начальник_столовой">Начальник столовой</option>
+                        <option class="" value="Работник_по развлек_части">Работник по развлек. части</option>
+                        <option class="" value="Начальник_ПТС">Начальник ПТС</option>
 
                     </select>
                 </div>
@@ -54,30 +53,34 @@
                         <option disabled selected >Исполнитель заявки</option>
                         <option class="" value="Электромонтер">Электромонтер</option>
                         <option class="" value="Сантехник">Сантехник</option>
-                        <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
+                        <option class="" value="Комплексный_рабочий">Комплексный рабочий</option>
                         <option class="" value="Горничная">Горничная</option>
                         <option class="" value="Администратор">Администратор</option>
-                        <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>
-                        <option class="" value="Глав. врачи">Глав. врач</option>
+                        <option class="" value="Дежурная_мед_сестра">Дежурная мед. сестра</option>
+                        <option class="" value="Глав_врач">Глав .врач</option>
                         <option class="" value="Директор">Директор</option>
-                        <option class="" value="Зав. хоз"> Зав. хоз</option>
-                        <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>
-                        <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>
-                        <option class="" value="Рабочий КОиРЗ">Рабочий КОиРЗ</option>
+                        <option class="" value="Зав_хоз"> Зав. хоз</option>
+                        <option class="" value="Старшая_мед_сестра">Старшая мед. сестра</option>
+                        <option class="" value="Начальник_хоз_службы">Начальник хоз. службы</option>
                         <option class="" value="Официант">Официант</option>
-                        <option class="" value="Начальник столовой">Начальник столовой</option>
-                        <option class="" value="Работник по развлек. части">Работник по развлек. части</option>
-                        <option class="" value="Начальник ПТС">Начальник ПТС</option>
+                        <option class="" value="Начальник_столовой">Начальник столовой</option>
+                        <option class="" value="Работник_по_развлек_части">Работник по развлек части</option>
+                        <option class="" value="Начальник_ПТС">Начальник ПТС</option>
                     </select>
                 </div>
 
 
                 <div class="DivRequest">
-                    <input class="in" type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="Укажите № корпуса или оставьте поле пустым">
+                    <input  class="in" name="level" placeholder="Уровень заявки" id="level" />
+                    <select onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
+                        <option disabled selected >Уровень заявки</option>
+                        <option class="" value="Срочный">Срочный</option>
+                        <option class="" value="В течении дня">В течении дня</option>
+                    </select>
                 </div>
 
                 <div class="DivRequest">
-                    <input class="in" type="text" onkeyup="checkParams()" id="room" name="room" placeholder="Укажите № комнаты или оставьте поле пустым">
+                    <input class="in" type="text" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты (*-***)">
                 </div>
 
 
@@ -85,7 +88,7 @@
                     <select class="in" onchange=document.getElementById('text').value=this.options[this.selectedIndex].value>
                         <<option disabled selected >Описание проблемы</option>
                         <option class="inn" value="Перегорела лампочка">Перегорела лампочка</option>
-                        <option class="inn" value=">Не работает розетка">Не работает розетка</option>
+                        <option class="inn" value="Не работает розетка">Не работает розетка</option>
                         <option class="inn" value="Плохо показывает телевизор">Плохо показывает телевизор</option>
                         <option class="inn" value="Холодно в комнате">Холодно в комнате</option>
                         <option class="inn" value="Капает кран">Капает кран</option>
@@ -121,83 +124,285 @@
     <div class="newRequest">
 
         <h3 >Список заявок</h3>
+
         <br>
 <!--        <div class="find" >-->
-<!--            <form method="post"  th:action="StaffAccountFilter">-->
-<!--                <input type="text" name="filter" placeholder="Поиск по должности">-->
+<!--            <form method="post"  th:action="AllRequestStaffFilter">-->
+<!--                <input type="text" name="filter" placeholder="Поиск по статусу">-->
 <!--                <button type="submit">Найти</button>-->
 <!--            </form>-->
 <!--        </div>-->
 
         <div class="find" >
-            <form method="post"  th:action="StaffAccountFilter">
-                <input class="" type="text" name="filter" placeholder="Поиск по должности" id="position1" />
-                <select onchange=document.getElementById('position1').value=this.options[this.selectedIndex].value>
-                    <option disabled selected >Исполнитель заявки</option>
-                    <option class="" value="Электромонтер">Электромонтер</option>
-                    <option class="" value="Сантехник">Сантехник</option>
-                    <option class="" value="Комплексный рабочий">Комплексный рабочий</option>
-                    <option class="" value="Горничная">Горничная</option>
-                    <option class="" value="Администратор">Администратор</option>
-                    <option class="" value="Дежурная мед. сестра">Дежурная мед. сестра</option>
-                    <option class="" value="Глав. врачи">Глав. врач</option>
-                    <option class="" value="Директор">Директор</option>
-                    <option class="" value="Зав. хоз"> Зав. хоз</option>
-                    <option class="" value="Старшая мед. сестра">Старшая мед. сестра</option>
-                    <option class="" value="Начальник хозю. службы">Начальник хозю. службы</option>
-                    <option class="" value="Официант">Официант</option>
-                    <option class="" value="Начальник столовой">Начальник столовой</option>
-                    <option class="" value="Работник по развлек. части">Работник по развлек. части</option>
-                    <option class="" value="Начальник ПТС">Начальник ПТС</option>
+            <form method="post"  th:action="AllRequestStaffFilter">
+                <input class="" type="text" name="filter" placeholder="Поиск по статусу заявки" id="status" />
+                <select onchange=document.getElementById('status').value=this.options[this.selectedIndex].value>
+                    <option disabled selected >Статус заявки</option>
+                    <option class="" value="Выполнено">Выполнено</option>
+                    <option class="" value="На выполнении">На выполнении</option>
+                    <option class="" value="Не выполнено">Не выполнено</option>
                 </select>
                 <button type="submit">Найти</button>
             </form>
         </div>
 
-        <div th:each="el : ${requests}" class="request">
-            <h4>Заказчик</h4>
-            <div class="allDiv">
-                <div class="c1">
-                    <div class="name">Дата подачи заявки</div>
-                    <div class="name">№ корпуса</div>
-                    <div class="name">№ комнаты</div>
-                    <div class="name">Заказчик</div>
-                </div>
-                <div class="c1">
-                    <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate" name="createDate"></div>
-                    <div th:text="${el.korpus}" class="wrap1"><input type="text" id="korpus" name="korpus"></div>
-                    <div th:text="${el.room}" class="wrap1"><input type="text" id="room" name="romm"></div>
-                    <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom" name="fromWhom"></div>
-                </div>
-                <h4>Именование заявки</h4>
-                <div class="c2">
-                    <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text" name="text"></textarea></div>
-                </div>
-                <h4>Исполнитель</h4>
-                <div class="c1">
-                    <div  class="name">Исполнитель</div>
-                    <div  class="name">Статус</div>
-                    <div  class="name">ФИО исполнителя</div>
-                    <div  class="name">Дата выполнения</div>
-                </div>
+        <div th:if="${#authentication.name == ('staff') }">
+            <div th:each="el : ${requests}" class="request">
+                <h4>Заказчик</h4>
+                <div class="allDiv">
+                    <div class="c1">
+                        <div class="name">Дата подачи заявки</div>
+                        <div class="name">Уровень</div>
+                        <div class="name">№ корпуса - № комнаты</div>
+                        <div class="name">Заказчик</div>
+                    </div>
+                    <div class="c1">
+                        <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate" name="createDate"></div>
+                        <div th:text="${el.level}" class="wrap1"><input type="text" id="level5" name="level"></div>
+                        <div th:text="${el.room}" class="wrap1"><input type="text" id="room5" name="room"></div>
+                        <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom5" name="fromWhom"></div>
+                    </div>
+                    <h4>Именование заявки</h4>
+                    <div class="c2">
+                        <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text5" name="text"></textarea></div>
+                    </div>
+                    <h4>Исполнитель</h4>
+                    <div class="c1">
+                        <div  class="name">Исполнитель</div>
+                        <div  class="name">Статус</div>
+                        <div  class="name">ФИО исполнителя</div>
+                        <div  class="name">Дата выполнения</div>
+                    </div>
 
-                <div class="c1">
-                    <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom" name="toWhom"></div>
-                    <div th:text="${el.status}" class="wrap1"><input type="text" id="status" name="status"></div>
-                    <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled" name="fulfiled"></div>
-                    <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate" name="endDate"></div>
+                    <div class="c1">
+                        <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom5" name="toWhom"></div>
+                        <div th:text="${el.status}" class="wrap1"><input type="text" id="status5" name="status"></div>
+                        <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled5" name="fulfiled"></div>
+                        <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate5" name="endDate"></div>
+                    </div>
+
+                    <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
+
+
                 </div>
+            </div>
+        </div>
+        <div th:if="${#authentication.name == ('Электромонтер') }">
+            <div th:each="el : ${requests1}" class="request">
+                <h4>Заказчик</h4>
+                <div class="allDiv">
+                    <div class="c1">
+                        <div class="name">Дата подачи заявки</div>
+                        <div class="name">Уровень</div>
+                        <div class="name">№ корпуса - № комнаты</div>
+                        <div class="name">Заказчик</div>
+                    </div>
+                    <div class="c1">
+                        <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate1" name="createDate"></div>
+                        <div th:text="${el.level}" class="wrap1"><input type="text" id="level1" name="level"></div>
+                        <div th:text="${el.room}" class="wrap1"><input type="text" id="room1" name="room"></div>
+                        <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom1" name="fromWhom"></div>
+                    </div>
+                    <h4>Именование заявки</h4>
+                    <div class="c2">
+                        <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text1" name="text"></textarea></div>
+                    </div>
+                    <h4>Исполнитель</h4>
+                    <div class="c1">
+                        <div  class="name">Исполнитель</div>
+                        <div  class="name">Статус</div>
+                        <div  class="name">ФИО исполнителя</div>
+                        <div  class="name">Дата выполнения</div>
+                    </div>
 
-                <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
+                    <div class="c1">
+                        <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom1" name="toWhom"></div>
+                        <div th:text="${el.status}" class="wrap1"><input type="text" id="status1" name="status"></div>
+                        <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled1" name="fulfiled"></div>
+                        <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate1" name="endDate"></div>
+                    </div>
+
+                    <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
 
 
+                </div>
+            </div>
+        </div>
+        <div th:if="${#authentication.name == ('Сантехник') }">
+
+            <div th:each="el : ${requests2}" class="request">
+                <h4>Заказчик</h4>
+                <div class="allDiv">
+                    <div class="c1">
+                        <div class="name">Дата подачи заявки</div>
+                        <div class="name">Уровень</div>
+                        <div class="name">№ корпуса - № комнаты</div>
+                        <div class="name">Заказчик</div>
+                    </div>
+                    <div class="c1">
+                        <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate2" name="createDate"></div>
+                        <div th:text="${el.level}" class="wrap1"><input type="text" id="level2" name="level"></div>
+                        <div th:text="${el.room}" class="wrap1"><input type="text" id="room2" name="room"></div>
+                        <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom2" name="fromWhom"></div>
+                    </div>
+                    <h4>Именование заявки</h4>
+                    <div class="c2">
+                        <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text2" name="text"></textarea></div>
+                    </div>
+                    <h4>Исполнитель</h4>
+                    <div class="c1">
+                        <div  class="name">Исполнитель</div>
+                        <div  class="name">Статус</div>
+                        <div  class="name">ФИО исполнителя</div>
+                        <div  class="name">Дата выполнения</div>
+                    </div>
+
+                    <div class="c1">
+                        <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom2" name="toWhom"></div>
+                        <div th:text="${el.status}" class="wrap1"><input type="text" id="status2" name="status"></div>
+                        <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled2" name="fulfiled"></div>
+                        <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate2" name="endDate"></div>
+                    </div>
+
+                    <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
+
+
+                </div>
             </div>
 
+
+        </div>
+        <div th:if="${#authentication.name == ('Комплексный_рабочий') }">
+
+            <div th:each="el : ${requests3}" class="request">
+                <h4>Заказчик</h4>
+                <div class="allDiv">
+                    <div class="c1">
+                        <div class="name">Дата подачи заявки</div>
+                        <div class="name">Уровень</div>
+                        <div class="name">№ корпуса - № комнаты</div>
+                        <div class="name">Заказчик</div>
+                    </div>
+                    <div class="c1">
+                        <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate3" name="createDate"></div>
+                        <div th:text="${el.level}" class="wrap1"><input type="text" id="level3" name="level"></div>
+                        <div th:text="${el.room}" class="wrap1"><input type="text" id="room3" name="room"></div>
+                        <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom3" name="fromWhom"></div>
+                    </div>
+                    <h4>Именование заявки</h4>
+                    <div class="c2">
+                        <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text3" name="text"></textarea></div>
+                    </div>
+                    <h4>Исполнитель</h4>
+                    <div class="c1">
+                        <div  class="name">Исполнитель</div>
+                        <div  class="name">Статус</div>
+                        <div  class="name">ФИО исполнителя</div>
+                        <div  class="name">Дата выполнения</div>
+                    </div>
+
+                    <div class="c1">
+                        <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom3" name="toWhom"></div>
+                        <div th:text="${el.status}" class="wrap1"><input type="text" id="status3" name="status"></div>
+                        <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled3" name="fulfiled"></div>
+                        <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate3" name="endDate"></div>
+                    </div>
+
+                    <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+        <div th:if="${#authentication.name == ('Горничная') }">
+
+            <div th:each="el : ${requests4}" class="request">
+                <h4>Заказчик</h4>
+                <div class="allDiv">
+                    <div class="c1">
+                        <div class="name">Дата подачи заявки</div>
+                        <div class="name">Уровень</div>
+                        <div class="name">№ корпуса - № комнаты</div>
+                        <div class="name">Заказчик</div>
+                    </div>
+                    <div class="c1">
+                        <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate4" name="createDate"></div>
+                        <div th:text="${el.level}" class="wrap1"><input type="text" id="level14" name="level"></div>
+                        <div th:text="${el.room}" class="wrap1"><input type="text" id="room4" name="room"></div>
+                        <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom4" name="fromWhom"></div>
+                    </div>
+                    <h4>Именование заявки</h4>
+                    <div class="c2">
+                        <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text4" name="text"></textarea></div>
+                    </div>
+                    <h4>Исполнитель</h4>
+                    <div class="c1">
+                        <div  class="name">Исполнитель</div>
+                        <div  class="name">Статус</div>
+                        <div  class="name">ФИО исполнителя</div>
+                        <div  class="name">Дата выполнения</div>
+                    </div>
+
+                    <div class="c1">
+                        <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom4" name="toWhom"></div>
+                        <div th:text="${el.status}" class="wrap1"><input type="text" id="status4" name="status"></div>
+                        <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled4" name="fulfiled"></div>
+                        <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate4" name="endDate"></div>
+                    </div>
+
+                    <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
+
+
+                </div>
+            </div>
 
 
         </div>
 
-        <!--        <div class="pad"></div>-->
+
+
+
+<!--        <div th:each="el : ${requests}" class="request">-->
+<!--            <h4>Заказчик</h4>-->
+<!--            <div class="allDiv">-->
+<!--                <div class="c1">-->
+<!--                    <div class="name">Дата подачи заявки</div>-->
+<!--                    <div class="name">Уровень</div>-->
+<!--                    <div class="name">№ корпуса - № комнаты</div>-->
+<!--                    <div class="name">Заказчик</div>-->
+<!--                </div>-->
+<!--                <div class="c1">-->
+<!--                    <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate" name="createDate"></div>-->
+<!--                    <div th:text="${el.level}" class="wrap1"><input type="text" id="level1" name="level"></div>-->
+<!--                    <div th:text="${el.room}" class="wrap1"><input type="text" id="room" name="room"></div>-->
+<!--                    <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom" name="fromWhom"></div>-->
+<!--                </div>-->
+<!--                <h4>Именование заявки</h4>-->
+<!--                <div class="c2">-->
+<!--                    <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text" name="text"></textarea></div>-->
+<!--                </div>-->
+<!--                <h4>Исполнитель</h4>-->
+<!--                <div class="c1">-->
+<!--                    <div  class="name">Исполнитель</div>-->
+<!--                    <div  class="name">Статус</div>-->
+<!--                    <div  class="name">ФИО исполнителя</div>-->
+<!--                    <div  class="name">Дата выполнения</div>-->
+<!--                </div>-->
+
+<!--                <div class="c1">-->
+<!--                    <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom" name="toWhom"></div>-->
+<!--                    <div th:text="${el.status}" class="wrap1"><input type="text" id="status" name="status"></div>-->
+<!--                    <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled" name="fulfiled"></div>-->
+<!--                    <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate" name="endDate"></div>-->
+<!--                </div>-->
+
+<!--                <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>-->
+
+
+<!--            </div>-->
+<!--        </div>-->
     </div>
     </section>
 
