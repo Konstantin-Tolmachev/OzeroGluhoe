@@ -108,6 +108,21 @@ public class AccountClientControllers {
         return "ClientHTML/request";
     }
 
+    @PostMapping("AllRequestClientFilter")
+    public String AllRequestClientFilter (@RequestParam String filter, Model model) {
+        Iterable<Request> requests5;
+        if (filter !=null && !filter.isEmpty()){
+            requests5 = requestRepository.findAllByRoom(filter);
+        }
+        else {
+            requests5 = requestRepository.findAllByRoom(filter);
+        }
+        model.addAttribute("requests5", requests5);
+
+        model.addAttribute("title", "Фильтр");
+        return "ClientHTML/request";
+    }
+
 
 
 

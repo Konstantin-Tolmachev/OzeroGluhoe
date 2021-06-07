@@ -12,7 +12,8 @@ import java.util.List;
 public interface RequestRepository extends CrudRepository<Request, Long> {
     List<Request> findAllByOrderByIdDesc();
 
-    List<Request> findAllByStatus(String status);
+    List<Request> findAllByStatusOrderByIdDesc(String status);
+    List<Request> findAllByRoom(String room);
 
 //    default Collection<Request> findElectro() {
 //        return findByToWhomOrderByIdDesc("Электромонтер");
@@ -22,22 +23,22 @@ public interface RequestRepository extends CrudRepository<Request, Long> {
 
 
     @Query("SELECT u FROM Request u WHERE u.toWhom = 'Электромонтер' AND u.status = 'Не выполнено' OR u.toWhom = 'Электромонтер' AND u.status = 'На выполнении'  ORDER BY u.id DESC")
-    Collection<Request> findElectro();
+    Collection<Request> findElectroByOrderByIdDesc();
 
     @Query("SELECT u FROM Request u WHERE u.toWhom = 'Сантехник' AND u.status = 'Не выполнено' OR u.toWhom = 'Сантехник' AND u.status = 'На выполнении'  ORDER BY u.id DESC")
-    Collection<Request> findSantechnik();
+    Collection<Request> findSantechnikByOrderByIdDesc();
 
     @Query("SELECT u FROM Request u WHERE u.toWhom = 'Комплексный_рабочий' AND u.status = 'Не выполнено' OR u.toWhom = 'Комплексный_рабочий' AND u.status = 'На выполнении'  ORDER BY u.id DESC")
-    Collection<Request> findKompl();
+    Collection<Request> findKomplByOrderByIdDesc();
 
     @Query("SELECT u FROM Request u WHERE u.toWhom = 'Горничная' AND u.status = 'Не выполнено' OR u.toWhom = 'Горничная' AND u.status = 'На выполнении'  ORDER BY u.id DESC")
-    Collection<Request> findGornichnaya();
+    Collection<Request> findGornichnayaByOrderByIdDesc();
 
-    Iterable<Request> findByStatusAndToWhom(String filter, String электромонтер);
+   // Iterable<Request> findByStatusAndToWhom(String filter, String электромонтер);
+//    Iterable<Request> findByStatusAndToWhom(String filter, String toWhom);
+    List<Request> findByStatusAndToWhom(String filter, String toWhom);
 
-//    Iterable<Request> findByToWhomOrderByIdDesc();
 
-    /*Фильтр*/
 
 
 

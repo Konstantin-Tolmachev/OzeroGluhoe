@@ -557,9 +557,9 @@ public class AdminControllers {
         Iterable<Request> requests;
 
         if (filter !=null && !filter.isEmpty()){
-            requests = requestRepository.findAllByStatus(filter);
+            requests = requestRepository.findAllByStatusOrderByIdDesc(filter);
         } else {
-            requests = requestRepository.findAll();
+            requests = requestRepository.findAllByOrderByIdDesc();
         }
 
         model.addAttribute("requests", requests);

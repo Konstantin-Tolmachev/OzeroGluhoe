@@ -72,21 +72,22 @@ public class AccountStaffControllers {
         model.addAttribute("requests", requests);
 
 
-        Iterable<Request> requests1 = requestRepository.findElectro();
+        Iterable<Request> requests1 = requestRepository.findElectroByOrderByIdDesc();
         model.addAttribute("requests1", requests1);
 
-        Iterable<Request> requests2 = requestRepository.findSantechnik();
+        Iterable<Request> requests2 = requestRepository.findSantechnikByOrderByIdDesc();
         model.addAttribute("requests2", requests2);
 
-        Iterable<Request> requests3 = requestRepository.findKompl();
+        Iterable<Request> requests3 = requestRepository.findKomplByOrderByIdDesc();
         model.addAttribute("requests3", requests3);
 
-        Iterable<Request> requests4 = requestRepository.findGornichnaya();
+        Iterable<Request> requests4 = requestRepository.findGornichnayaByOrderByIdDesc();
         model.addAttribute("requests4", requests4);
 
 //        Iterable<Request> requests5 = requestRepository.findByElectro1();
 //        model.addAttribute("requests5", requests5);
 //        return "redirect:/StaffAccount";
+        model.addAttribute("title", "Мой аккаунт");
         return "StaffHTML/staffAccount";
     }
 
@@ -142,14 +143,14 @@ public class AccountStaffControllers {
         if (filter !=null && !filter.isEmpty()){
             requests1 = requestRepository.findByStatusAndToWhom(filter, "Электромонтер");
         } else {
-            requests1 = requestRepository.findElectro();
+            requests1 = requestRepository.findElectroByOrderByIdDesc();
         }
 
         Iterable<Request> requests2;
         if (filter !=null && !filter.isEmpty()){
             requests2 = requestRepository.findByStatusAndToWhom(filter, "Сантехник");
         } else {
-            requests2 = requestRepository.findSantechnik();
+            requests2 = requestRepository.findSantechnikByOrderByIdDesc();
         }
 
         Iterable<Request> requests3;
@@ -157,20 +158,21 @@ public class AccountStaffControllers {
             requests3 = requestRepository.findByStatusAndToWhom(filter, "Комплексный_рабочий");
         }
         else {
-            requests3 = requestRepository.findKompl();
+            requests3 = requestRepository.findKomplByOrderByIdDesc();
         }
 
         Iterable<Request> requests4;
         if (filter !=null && !filter.isEmpty()){
             requests4 = requestRepository.findByStatusAndToWhom(filter, "Горничная");
         } else {
-            requests4 = requestRepository.findGornichnaya();
+            requests4 = requestRepository.findGornichnayaByOrderByIdDesc();
         }
 
         model.addAttribute("requests1", requests1);
         model.addAttribute("requests2", requests2);
         model.addAttribute("requests3", requests3);
         model.addAttribute("requests4", requests4);
+        model.addAttribute("title", "Фильтр");
         return "StaffHTML/staffAccount";
     }
 

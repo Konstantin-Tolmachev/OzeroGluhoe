@@ -24,13 +24,6 @@
     <form th:action="@{/Request}" method="post">
         <div class="allDivRequest">
 
-<!--            <div class="DivRequest">-->
-<!--                <input  type="text" onkeyup="checkParams()" id="level" name="level" placeholder="Уровень заявки">-->
-<!--            </div>-->
-
-
-
-
             <div class="DivRequest">
                 <input th:value="${#authentication.name}" readonly type="text" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты">
             </div>
@@ -83,9 +76,63 @@
             <div class="DivRequest">
                 <button  type="submit">Отправить заявку</button>
             </div>
+
+
         </div>
     </form>
+
+
+    <div class="DivRequest">
+        <form method="post"  th:action="AllRequestClientFilter">
+            <input th:value="${#authentication.name}"  type="hidden" readonly  class="in" name="filter"  placeholder="Моя комната" id="room1" />
+            <button type="submit">Узнать о выполнении заявки</button>
+        </form>
+    </div>
+
+
+    <div th:each="el : ${requests5}" class="request">
+        <hr>
+        <div class="name">№ заявки</div>
+        <div th:text="${el.id}" class="wrap1"><input type="text" id="id" name="id"></div>
+        <div class="name">Статус</div>
+        <div th:text="${el.status}" class="wrap1"><input type="text" id="status" name="status"></div>
+        <div class="name">Исполнитель</div>
+        <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom" name="toWhom"></div>
+        <div class="name">Именование заявки</div>
+        <div th:text="${el.text}" class="wrap1"><input type="text" id="text1" name="text"></div>
+
+    </div>
+    <hr>
+
 </section>
+
+<!--type="hidden"-->
+
+
+
+<!--    <div class="DivRequest">-->
+<!--        <form method="post"  th:action="AllRequestClientFilter">-->
+<!--        <input th:value="${#authentication.name}" type="hidden" readonly  class="in" name="filter"  placeholder="Моя комната" id="room1" />-->
+<!--            <button type="submit">Узнать о выполнении заявки</button>-->
+<!--        </form>-->
+<!--    </div>-->
+
+<!--
+
+
+       <form method="post"  th:action="AllRequestStaffFilter">-->
+<!--            <input class="" type="text" name="filter" placeholder="Поиск по статусу заявки" id="status" />-->
+<!--            <select onchange=document.getElementById('status').value=this.options[this.selectedIndex].value>-->
+<!--                <option disabled selected >Статус заявки</option>-->
+<!--                <option class="" value="Выполнено">Выполнено</option>-->
+<!--                <option class="" value="На выполнении">На выполнении</option>-->
+<!--                <option class="" value="Не выполнено">Не выполнено</option>-->
+<!--            </select>-->
+<!--            <button type="submit">Найти</button>-->
+<!--        </form>-->
+
+</section>
+
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="/scripts/home.js"></script>
