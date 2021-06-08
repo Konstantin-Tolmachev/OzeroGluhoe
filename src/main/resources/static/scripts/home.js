@@ -17,12 +17,13 @@ function checkParams() {
     var lname = $('#lname').val();
     var pname = $('#pname').val();
     var phone = $('#phone').val();
+    var email = $('#email').val();
     var dateIn = $('#dateIn').val();
     var dateOut = $('#dateOut').val();
     var korpus = $('#korpus').val();
     var myRoomId = $('#myRoomId').val();
 
-    if( fname.length != 0 && lname.length != 0 && pname.length != 0 && phone.length == 16  &&
+    if( fname.length != 0 && lname.length != 0 && pname.length != 0 && phone.length == 16  && email.length != 0 &&
         dateIn.length != 0 && dateOut.length != 0 &&  korpus.length != 0 &&  myRoomId.length != 0) {
 
         $('#submit').removeAttr('disabled');
