@@ -17,39 +17,45 @@
     <header th:insert="blocks/headerClientAccount :: headerClientAccount"></header>
 </head>
 <body>
+
 <section class="newRequest">
-    <h3 >Написать заявку</h3>
+    <h1 >Написать заявку</h1>
     <br>
-<!--  <form action="/Request" method="post"> <form th:action="@{/Request}" method="post"> -->
+    <!--  <form action="/Request" method="post"> <form th:action="@{/Request}" method="post"> -->
     <form th:action="@{/Request}" method="post">
         <div class="allDivRequest">
 
             <div class="DivRequest">
-                <input th:value="${#authentication.name}" readonly type="text" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты">
+                <input value="1-210" readonly type="text" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты">
             </div>
 
+
+
             <div class="DivRequest">
-                <input  class="in" name="level" placeholder="Уровень заявки" id="level" />
-                <select onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
+                <input   name="level" placeholder="Уровень заявки" id="level" />
+                <select class="inn" onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Уровень заявки</option>
-                    <option class="" value="Срочный">Срочный</option>
-                    <option class="" value="В течении дня">В течении дня</option>
+                    <option class="inn" value="Срочный">Срочный</option>
+                    <option class="inn" value="В течении дня">В течении дня</option>
                 </select>
             </div>
-
 
             <div class="DivRequest">
-                <input  class="in" name="toWhom" placeholder="Кому заявка" id="position" />
-                <select onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
+                <input   name="toWhom" placeholder="Кому заявка" id="toWhom" />
+                <select class="inn" onchange=document.getElementById('toWhom').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Исполнитель заявки</option>
-                    <option class="" value="Электромонтер">Электромонтер</option>
-                    <option class="" value="Сантехник">Сантехник</option>
-                    <option class="" value="Комплексный_рабочий">Комплексный рабочий</option>
-                    <option class="" value="Горничная">Горничная</option>
-                    <option class="" value="Администратор">Администратор</option>
-                    <option class="" value="Дежурная_мед_сестра">Дежурная_мед_сестра</option>
+                    <option class="inn" value="Электромонтер">Электромонтер</option>
+                    <option class="inn" value="Сантехник">Сантехник</option>
+                    <option class="inn" value="Комплексный_рабочий">Комплексный рабочий</option>
+                    <option class="inn" value="Горничная">Горничная</option>
+                    <option class="inn" value="Администратор">Администратор</option>
+                    <option class="inn" value="Дежурная_мед_сестра">Дежурная_мед_сестра</option>
                 </select>
             </div>
+
+
+
+
 
             <div class="DivRequest">
                 <select class="in" onchange=document.getElementById('text').value=this.options[this.selectedIndex].value>
@@ -70,13 +76,15 @@
                 </select>
             </div>
 
-            <div class="DivRequest2">
+            <div class="DivRequest">
                 <textarea class="size" name="text" placeholder="Выберете из списка что требуется или опишите пробелему самостоятельно" id="text"/></textarea>
             </div>
-            <div class="DivRequest">
-                <button  type="submit">Отправить заявку</button>
-            </div>
 
+
+            <div class="DivRequest">
+<!--                <input class="btnComment"  type="submit" value="Отправить">-->
+                <button class="btnComment"  type="submit">Отправить</button>
+            </div>
 
         </div>
     </form>
@@ -85,9 +93,10 @@
     <div class="DivRequest">
         <form method="post"  th:action="AllRequestClientFilter">
             <input th:value="${#authentication.name}"  type="hidden" readonly  class="in" name="filter"  placeholder="Моя комната" id="room1" />
-            <button type="submit">Узнать о выполнении заявки</button>
+            <button class="btnComment"   type="submit">Узнать о выполнении заявки</button>
         </form>
     </div>
+
 
 
     <div th:each="el : ${requests5}" class="request">
@@ -104,34 +113,11 @@
     </div>
     <hr>
 
-</section>
 
-<!--type="hidden"-->
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
-
-
-<!--    <div class="DivRequest">-->
-<!--        <form method="post"  th:action="AllRequestClientFilter">-->
-<!--        <input th:value="${#authentication.name}" type="hidden" readonly  class="in" name="filter"  placeholder="Моя комната" id="room1" />-->
-<!--            <button type="submit">Узнать о выполнении заявки</button>-->
-<!--        </form>-->
-<!--    </div>-->
-
-<!--
-
-
-       <form method="post"  th:action="AllRequestStaffFilter">-->
-<!--            <input class="" type="text" name="filter" placeholder="Поиск по статусу заявки" id="status" />-->
-<!--            <select onchange=document.getElementById('status').value=this.options[this.selectedIndex].value>-->
-<!--                <option disabled selected >Статус заявки</option>-->
-<!--                <option class="" value="Выполнено">Выполнено</option>-->
-<!--                <option class="" value="На выполнении">На выполнении</option>-->
-<!--                <option class="" value="Не выполнено">Не выполнено</option>-->
-<!--            </select>-->
-<!--            <button type="submit">Найти</button>-->
-<!--        </form>-->
-
-</section>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

@@ -24,22 +24,31 @@
 
 
 
-<section  class="booking">
-    <h3 >Авторизация</h3>
-    <!--th:action="@{/Authorization}"  action="/Authorization"-->
+<section  class="authorization">
+    <h1>Авторизация</h1>
     <form th:action="@{/Authorization}" th:authentication-success-handler-ref="authSuccessHandler" method="post">
         <div class="allDiv">
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="username" name="username" placeholder="Логин"></div>
             <div class="wrap"><input type="password" onkeyup="checkParams()" id="password" name="password" placeholder="Пароль"></div>
         </div>
         <div class="btn">
-            <input type="submit" id="asubmit" class="glow
-            -button" value="Авторизоваться" >
-
+            <input type="submit" id="asubmit" class="btnComment" value="Авторизоваться" >
         </div>
     </form>
 
 </section>
+
+
+
+
+
+
+
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
+
+
 
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

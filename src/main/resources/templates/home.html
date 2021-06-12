@@ -9,29 +9,16 @@
     <script src="https://unpkg.com/imask"></script>
 
 <header th:insert="blocks/header :: header"></header>
+
+
+
 </head>
 <body>
 
-<div th:if="${#authorization.expression ('hasRole(''ROLE_ADMIN'')')}">
-
-<h1>Работает</h1>
-</div >
-
-
-<!--<div th:text="${#authentication.name}">-->
-<!--&lt;!&ndash;    The value of the "name" property of the authentication object should appear here.&ndash;&gt;-->
-<!--</div>-->
-<!--<hr>-->
-<!--<div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">-->
-<!--&lt;!&ndash;    This will only be displayed if authenticated user has role ROLE_ADMIN.&ndash;&gt;-->
-<!--</div>-->
 
 
 <section class="booking">
-    <h3 >Бронирование</h3>
-
-
-    <!--action="/" th:action="@{/AddActualInformation}" -->
+    <h3 class="h3-booking" >Забронируй свой отдых</h3>
     <form  th:action="@{/Payment}" method="post">
         <div class="allDiv">
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия*"></div>
@@ -40,109 +27,212 @@
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="email" name="email" placeholder="E-mail"></div>
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false"   ></div>
-            <!-- <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')"  ></div> -->
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false" ></div>
             <div class="wrap"><input type="text" onkeyup="checkParams(); val(event)" id="korpus" name="korpus" placeholder="№ корпус*" onkeypress='validate(event)' maxlength="1"></div>
             <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="№ комнаты*" onkeypress='validateRoom(event)' maxlength="3"></div>
         </div>
         <div class="btn">
-            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате"     >
+            <input class="btnComment" type="submit" id="submit"  value="Перейти к оплате"     >
         </div> <!-- onclick="window.open('/Payment' , '_self')" disabled-->
     </form>
 </section>
 
 
+<section class="t">
 
-<!---->
 
-<div   class="sidebar">
-    <h2 class="nametour">Свободные номера</h2>
-    <div class="tours">
-        <hr class="hh1">
-        <button class="freeRooms_1"  id="linkname01" onclick="toggle('.openbox_1', '.openbox_2')">1 корпус</button>
-        <button class="freeRooms_2"  id="linkname02" onclick="toggle('.openbox_2', '.openbox_1')">2 корпус</button>
+
+    <div class="allRoomsOne">
+        <div class="korpus"><a href="#korpusOne" class="center">Посмотреть свободные номера корпуса № 1</a></div>
+        <a href="#x" class="overlay" id="korpusOne"></a>
+        <div class="popup">
+            <div class="pic-left">
+                <p>Корпус № 1</p>
+                <div class="allDv">
+                    <div class="name">Этаж</div>
+                    <hr>
+                    <div class="name">№ комнаты</div>
+                    <hr>
+                    <div class="name">Тип комнаты</div>
+                    <hr>
+                    <div class="name">Свободно мест</div>
+                    <hr>
+                </div>
+
+                <div th:each="el : ${Rooms_1k}" class="allDv">
+                    <div th:text="${el.storeyOneKorpus}" class="name"><input type="text" ></div>
+                    <hr>
+                    <div th:text="${el.roomsOneKorpusId}" class="name"><input type="text" ></div>
+                    <hr>
+                    <div th:text="${el.typeOneKorpus}" class="name"><input type="text" ></div>
+                    <hr>
+                    <div th:text="${el.freeOneKorpus}" class="name"><input type="text" ></div>
+                    <hr>
+                </div>
+            </div><a class="close" title="Закрыть" href="#close"></a></div>
     </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="allRoomsTwo">
+        <div class="korpus"><a href="#korpusTwo" class="center">Посмотреть свободные номера корпуса № 2</a></div>
+        <a href="#x" class="overlay" id="korpusTwo"></a>
+        <div class="popup">
+            <div class="pic-left">
+                <p>Корпус № 2</p>
+                <div class="allDv">
+                    <div class="name">Этаж</div>
+                    <hr>
+                    <div class="name">№ комнаты</div>
+                    <hr>
+                    <div class="name">Тип комнаты</div>
+                    <hr>
+                    <div class="name">Свободно мест</div>
+                    <hr>
+                </div>
+                <div th:each="el : ${Rooms_2k}" class="allDv">
+                    <div th:text="${el.storeyTwoKorpus}" class="name"><input type="text" ></div>
+                    <hr>
+                    <div th:text="${el.roomsTwoKorpusId}" class="name"><input type="text" ></div>
+                    <hr>
+                    <div th:text="${el.typeTwoKorpus}" class="name"><input type="text" ></div>
+                    <hr>
+                    <div th:text="${el.freeTwoKorpus}" class="name"><input type="text" ></div>
+                    <hr>
+                </div>
+
+
+
+            </div><a class="close" title="Закрыть" href="#close"></a></div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+</section>
+
+<!--<h3 class="h3-booking" >Забронируйте свой отдых</h3>-->
+
+<!--<section class="booking">-->
+<!--    <form  th:action="@{/Payment}" method="post">-->
+<!--        <div class="allDiv">-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия*"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя*"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество*"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="email" name="email" placeholder="E-mail"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false"   ></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false" ></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams(); val(event)" id="korpus" name="korpus" placeholder="№ корпус*" onkeypress='validate(event)' maxlength="1"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="№ комнаты*" onkeypress='validateRoom(event)' maxlength="3"></div>-->
+<!--        </div>-->
+<!--        <div class="btn">-->
+<!--            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате"     >-->
+<!--        </div> &lt;!&ndash; onclick="window.open('/Payment' , '_self')" disabled&ndash;&gt;-->
+<!--    </form>-->
+<!--</section>-->
+
+
+
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
 </div>
 
+<!--<div th:if="${#authorization.expression ('hasRole(''ROLE_ADMIN'')')}">-->
 
-<section class="sectionRoom">
-    <div class="hh2">
-        <h2 class="closed openbox_1"> Свободные комнаты 1 корпуса</h2>
-    </div>
-    <div class="allDv">
-        <div class="closed openbox_1">Этаж</div>
-        <div class="closed openbox_1">№</div>
-        <div class="closed openbox_1">Тип</div>
-        <div class="closed openbox_1">Свободно</div>
-    </div>
-    <hr class="closed openbox_1">
-    <div th:each="el : ${Rooms_1k}" class="allDv">
-        <div th:text="${el.storeyOneKorpus}" class="closed openbox_1"><input type="text" ></div>
-        <hr class="closed openbox_1">
-        <div th:text="${el.roomsOneKorpusId}" class="closed openbox_1"><input type="text" ></div>
-        <hr class="closed openbox_1">
-        <div th:text="${el.typeOneKorpus}" class="closed openbox_1"><input type="text" ></div>
-        <hr class="closed openbox_1">
-        <div th:text="${el.freeOneKorpus}" class="closed openbox_1"><input type="text" ></div>
-        <hr class="closed openbox_1">
-    </div>
-
-</section>
-
-
-
-
-
-<section class="sectionRoom">
-    <div class="hh2">
-        <h2 class="closed openbox_2"> Свободные комнаты 2 корпуса</h2>
-    </div>
-    <div class="allDv">
-        <div class="closed openbox_2">Этаж</div>
-        <div class="closed openbox_2">№ </div>
-        <div class="closed openbox_2">Тип </div>
-        <div class="closed openbox_2">Свободно</div>
-    </div>
-    <hr class="closed openbox_2">
-        <div th:each="el : ${Rooms_2k}" class="allDv">
-            <div th:text="${el.storeyTwoKorpus}" class="closed openbox_2"><input type="text" ></div>
-            <hr class="closed openbox_2">
-            <div th:text="${el.roomsTwoKorpusId}" class="closed openbox_2"><input type="text" ></div>
-            <hr class="closed openbox_2">
-            <div th:text="${el.typeTwoKorpus}" class="closed openbox_2"><input type="text" ></div>
-            <hr class="closed openbox_2">
-            <div th:text="${el.freeTwoKorpus}" class="closed openbox_2"><input type="text" ></div>
-            <hr class="closed openbox_2">
-        </div>
-
-</section>
-
-
-
-
+<!--<h1>Работает</h1>-->
+<!--</div >-->
 
 
 <!--<section class="booking">-->
 <!--    <h3 >Бронирование</h3>-->
 
 
-<!--&lt;!&ndash;action="/" th:action="@{/AddActualInformation}" &ndash;&gt;-->
-<!--    <form  th:action="@{/}" method="post">-->
+<!--    &lt;!&ndash;action="/" th:action="@{/AddActualInformation}" &ndash;&gt;-->
+<!--    <form  th:action="@{/Payment}" method="post">-->
 <!--        <div class="allDiv">-->
 <!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="fname" name="fname" placeholder="Фамилия*"></div>-->
 <!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="lname" name="lname" placeholder="Имя*"></div>-->
 <!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="pname" name="pname" placeholder="Отчество*"></div>-->
 <!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="phone" name="phone" placeholder="Номер телефона"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="email" name="email" placeholder="E-mail"></div>-->
 <!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateIn" name="dateIn" placeholder="Дата заезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false"   ></div>-->
-<!--           &lt;!&ndash; <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')"  ></div> &ndash;&gt;-->
+<!--            &lt;!&ndash; <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')"  ></div> &ndash;&gt;-->
 <!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="dateOut" name="dateOut" placeholder="Дата выезда*" onfocus="(this.type='date')" onblur="(this.type='text')" onkeydown="return false" ></div>-->
-<!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="№ корпус*" onkeypress='validate(event)' maxlength="1"></div>-->
+<!--            <div class="wrap"><input type="text" onkeyup="checkParams(); val(event)" id="korpus" name="korpus" placeholder="№ корпус*" onkeypress='validate(event)' maxlength="1"></div>-->
 <!--            <div class="wrap"><input type="text" onkeyup="checkParams()" id="myRoomId" name="myRoomId" placeholder="№ комнаты*" onkeypress='validateRoom(event)' maxlength="3"></div>-->
 <!--        </div>-->
 <!--        <div class="btn">-->
-<!--            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате" disabled   >-->
-<!--        </div> &lt;!&ndash;  onclick="window.open('/payment' , '_self')"disabled&ndash;&gt;-->
+<!--            <input type="submit" id="submit" class="glow-button" value="Перейти к оплате"     >-->
+<!--        </div> &lt;!&ndash; onclick="window.open('/Payment' , '_self')" disabled&ndash;&gt;-->
 <!--    </form>-->
+<!--</section>-->
+
+
+
+<!---->
+
+<!--<div   class="sidebar">-->
+<!--    <h2 class="nametour">Свободные номера</h2>-->
+<!--    <div class="tours">-->
+<!--        <hr class="hh1">-->
+<!--        <button class="freeRooms_1"  id="linkname01" onclick="toggle('.openbox_1', '.openbox_2')">1 корпус</button>-->
+<!--        <button class="freeRooms_2"  id="linkname02" onclick="toggle('.openbox_2', '.openbox_1')">2 корпус</button>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--<section class="sectionRoom">-->
+<!--    <div class="hh2">-->
+<!--        <h2 class="closed openbox_1"> Свободные комнаты 1 корпуса</h2>-->
+<!--    </div>-->
+<!--    <div class="allDv">-->
+<!--        <div class="closed openbox_1">Этаж</div>-->
+<!--        <div class="closed openbox_1">№</div>-->
+<!--        <div class="closed openbox_1">Тип</div>-->
+<!--        <div class="closed openbox_1">Свободно</div>-->
+<!--    </div>-->
+<!--    <hr class="closed openbox_1">-->
+<!--    <div th:each="el : ${Rooms_1k}" class="allDv">-->
+<!--        <div th:text="${el.storeyOneKorpus}" class="closed openbox_1"><input type="text" ></div>-->
+<!--        <hr class="closed openbox_1">-->
+<!--        <div th:text="${el.roomsOneKorpusId}" class="closed openbox_1"><input type="text" ></div>-->
+<!--        <hr class="closed openbox_1">-->
+<!--        <div th:text="${el.typeOneKorpus}" class="closed openbox_1"><input type="text" ></div>-->
+<!--        <hr class="closed openbox_1">-->
+<!--        <div th:text="${el.freeOneKorpus}" class="closed openbox_1"><input type="text" ></div>-->
+<!--        <hr class="closed openbox_1">-->
+<!--    </div>-->
+
+<!--</section>-->
+
+
+
+
+
+<!--<section class="sectionRoom">-->
+<!--    <div class="hh2">-->
+<!--        <h2 class="closed openbox_2"> Свободные комнаты 2 корпуса</h2>-->
+<!--    </div>-->
+<!--    <div class="allDv">-->
+<!--        <div class="closed openbox_2">Этаж</div>-->
+<!--        <div class="closed openbox_2">№ </div>-->
+<!--        <div class="closed openbox_2">Тип </div>-->
+<!--        <div class="closed openbox_2">Свободно</div>-->
+<!--    </div>-->
+<!--    <hr class="closed openbox_2">-->
+<!--        <div th:each="el : ${Rooms_2k}" class="allDv">-->
+<!--            <div th:text="${el.storeyTwoKorpus}" class="closed openbox_2"><input type="text" ></div>-->
+<!--            <hr class="closed openbox_2">-->
+<!--            <div th:text="${el.roomsTwoKorpusId}" class="closed openbox_2"><input type="text" ></div>-->
+<!--            <hr class="closed openbox_2">-->
+<!--            <div th:text="${el.typeTwoKorpus}" class="closed openbox_2"><input type="text" ></div>-->
+<!--            <hr class="closed openbox_2">-->
+<!--            <div th:text="${el.freeTwoKorpus}" class="closed openbox_2"><input type="text" ></div>-->
+<!--            <hr class="closed openbox_2">-->
+<!--        </div>-->
+
 <!--</section>-->
 
 

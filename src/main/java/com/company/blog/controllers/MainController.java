@@ -122,13 +122,13 @@ public class MainController {
 
     @GetMapping("/Сommunications")
     public String Сommunications(Model model) {
-        model.addAttribute("title", "Отзывы");
+        model.addAttribute("title", "Контакты");
         return "HomeHTML/communications";
     }
 
     @GetMapping("/AboutUs")
     public String AboutUs(Model model) {
-        model.addAttribute("title", "О нас");
+        model.addAttribute("title", "Лечебная база");
         return "HomeHTML/aboutUs";
     }
 

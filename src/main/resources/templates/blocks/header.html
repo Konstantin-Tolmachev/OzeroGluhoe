@@ -1,49 +1,61 @@
 <div  th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
-    <h1 class="name" align="center"><span style="font-family:Lobster, cursive; Font-size:30px;">Санаторий Профилакторий "Озеро Глухое"</span></h1>
+
+
+
+    <section class="section">
+        <div class="one">
+            <div class="to">
+                <div class="there"><p class="a1">Озеро Глухое<p><p class="a2">Санаторий-профилакторий<p></div>
+                <div class="there"><p class="p">Телефон: <wbr> <a href="tel:+7(343)287-20-18"> +7(343)287-20-18</a> </p></div>
+                <div class="there"><p class="p">Почта: <wbr> <a href="mailto:OzeroGluhoe@mail.ru"> OzeroGluhoe@mail.ru</a> </p></div>
+                <div class="there"><p class="p">Адрес:<wbr> <a href="https://2gis.ru/ekaterinburg/geo/1267273050416158?m=60.288146%2C56.800754%2F16" target="_blank">Московский тракт 18 км</a></p></div>
+                <div class="there"><a href="https://vk.com/diplomozerogluhoe" target="_blank"><img  src="/img/vk-64x64.png" alt="Значок вк"></a> <a href="https://www.instagram.com/" target="_blank"><img src="/img/1.png" alt="Значок инстаграмм"></a></div>
+            </div>
+        </div>
+    </section>
 
     <nav>
         <ul class="topmenu">
             <li><a href="/">Главная</a></li>
             <li><a href="/Accommodation">Номерной фонд</a></li>
             <li><a href="/Infrastructure">Инфаструктура</a></li>
-<!--            <li><a href="/Price">Прайс</a></li>-->
             <li><a href="/Сommunications">Контакты</a></li>
             <li><a href="/AboutUs">Лечебная база</a></li>
             <li><a href="/Rules">Правила</a></li>
             <li><a href="/Comment">Отзывы</a></li>
             <li><a href="/PhotoGallery">Фотогалерея</a></li>
-<!--            <li><a href="/Payment">Payment</a></li>-->
+<!--            <li class="h"><a href="/PhotoGallery">Авторизоваться</a></li>-->
 
-            <li class="float" sec:authorize="!isAuthenticated()">
-                <form  th:action="@{/Authorization}" method="post">
-                    <input class="btnSubmit" type="submit" value="Авторизоваться">
-                </form>
-           </li>
+                        <li class="h" sec:authorize="!isAuthenticated()">
+                            <form  th:action="@{/Authorization}" method="post">
+                                <input class="btnSubmit" type="submit" value="Авторизоваться">
+                            </form>
+                       </li>
 
 
-        <li class="float" sec:authorize="isAuthenticated()">
-            <form  th:action="@{/logout}" method="post">
-                <input class="btnSubmit" type="submit" value="Выйти">
-            </form>
-       </li>
+                    <li class="h" sec:authorize="isAuthenticated()">
+                        <form  th:action="@{/logout}" method="post">
+                            <input class="btnSubmit" type="submit" value="Выйти">
+                        </form>
+                   </li>
 
-            <li class="float" sec:authorize="hasRole('ROLE_ADMIN')">
-                <form  th:action="@{/AllClients}" >
-                    <input class="btnSubmit" type="submit" value="Домой">
-                </form>
-            </li>
+                        <li class="h" sec:authorize="hasRole('ROLE_ADMIN')">
+                            <form  th:action="@{/AllClients}" >
+                                <input class="btnSubmit" type="submit" value="Домой">
+                            </form>
+                        </li>
 
-            <li class="float" sec:authorize="hasRole('ROLE_CLIENT')">
-                <form  th:action="@{/Request}">
-                    <input class="btnSubmit" type="submit" value="Домой">
-                </form>
-            </li>
+                        <li class="h" sec:authorize="hasRole('ROLE_CLIENT')">
+                            <form  th:action="@{/Request}">
+                                <input class="btnSubmit" type="submit" value="Домой">
+                            </form>
+                        </li>
 
-            <li class="float" sec:authorize="hasRole('ROLE_STAFF')">
-                <form  th:action="@{/StaffAccount}">
-                    <input class="btnSubmit" type="submit" value="Домой">
-                </form>
-            </li>
+                        <li class="h" sec:authorize="hasRole('ROLE_STAFF')">
+                            <form  th:action="@{/StaffAccount}">
+                                <input class="btnSubmit" type="submit" value="Домой">
+                            </form>
+                        </li>
         </ul>
     </nav>
 </div>
