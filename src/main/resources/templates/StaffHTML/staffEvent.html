@@ -12,16 +12,20 @@
 <body>
 
 <section class="AllActualInformation">
-    <h3 >Мероприятия</h3>
-    <div th:each="el : ${Events}" class="editInformation">
+    <h1 >Мероприятия</h1>
+    <div th:each="el : ${Events}" class="Information">
         <div>
             <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
         </div>
 
 
-        <hr class="hh1">
+        <hr>
     </div>
 </section>
+
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -35,7 +39,7 @@
 
 
 
-<footer th:insert="blocks/footer :: footer"></footer>
+
 
 
 </html>

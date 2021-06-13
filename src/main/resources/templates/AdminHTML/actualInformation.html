@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/addActualInformation.css"/>
-    <title th:text="${'Добавить актуальнаю информацию'}"/>
+    <link rel="stylesheet" href="/css/allActualInformation.css"/>
+    <title th:text="${'Актуальная информация'}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="">
     <script src="https://unpkg.com/imask"></script>
@@ -13,14 +13,12 @@
 </head>
 <body>
 
-
-
 <section class="newActualInformation">
     <h3 >Добавить информацию</h3>
     <br>
 
     <!--th:action="@{/AddActualInformation}"  action="/AddActualInformation" -->
-    <form th:action="@{/AddActualInformation}" method="post">
+    <form th:action="@{/AdminActualInformation}" method="post">
         <div class="allDivctualInformation">
             <div class="DivActualInformation">
                 <textarea class="size" name="text" id="text" placeholder="Добавить актуальную информацию"></textarea>
@@ -30,12 +28,32 @@
                 <button  type="submit">Добавить</button>
             </div>
 
-            </div>
+        </div>
 
     </form>
 </section>
 
 
+<section class="AllActualInformation">
+    <h3 >Актуальная информация</h3>
+
+    <div th:each="el : ${ActualInformations}" class="editInformation">
+
+        <div>
+            <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
+        </div>
+
+        <div class="edit">
+            <a th:href="'/AdminActualInformation/' + ${el.id} + '/edit'" class="test">Редактировать</a>
+        </div>
+        <br>
+
+        <form class="edit"  th:action="'/AdminActualInformation/' + ${el.id} +'/remove'" method="post">
+            <button class="delete"  type="submit">Удалить</button>
+        </form>
+        <hr class="hh1">
+    </div>
+</section>
 
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

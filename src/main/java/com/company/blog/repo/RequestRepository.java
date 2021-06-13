@@ -1,6 +1,7 @@
 package com.company.blog.repo;
 
 
+
 import com.company.blog.models.Request;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -10,10 +11,13 @@ import java.util.Collection;
 import java.util.List;
 
 public interface RequestRepository extends CrudRepository<Request, Long> {
+
+//    List<Request> findAllByOrderByIdDesc();
+
     List<Request> findAllByOrderByIdDesc();
 
     List<Request> findAllByStatusOrderByIdDesc(String status);
-    List<Request> findAllByRoom(String room);
+    List<Request> findAllByRoomOrderByIdDesc(String room);
 
 //    default Collection<Request> findElectro() {
 //        return findByToWhomOrderByIdDesc("Электромонтер");
@@ -36,6 +40,7 @@ public interface RequestRepository extends CrudRepository<Request, Long> {
 
    // Iterable<Request> findByStatusAndToWhom(String filter, String электромонтер);
 //    Iterable<Request> findByStatusAndToWhom(String filter, String toWhom);
+
     List<Request> findByStatusAndToWhom(String filter, String toWhom);
 
 

@@ -1,68 +1,174 @@
-
-*{
+*, html {
+    margin:0;
+    padding:0;
     box-sizing: border-box;
 }
 
 body {
-    /* height:100%; */
-    /* margin: 0; */
-    /*  padding: 10px 10px; */
-    /*  background:  #c7b39b  url(../../static.img/fon.jpg) no-repeat 0/cover;*/
-    background: #c7b39b url(/img/fon.jpg) no-repeat 0 / cover;
-    color: #ba1c85; /* Цвет текста всего шрифта  */
-    background-attachment: fixed;
-    background-position: center top;
-    /* border-radius: .2rem; */
+    background:  white;
+    overflow: scroll;
+    overflow-x: hidden;
+    /* background-position: center top;*/
+    /*margin-left: 30%;
+    margin-right: 30%;*/
 }
 
-/*ШАПКА ПРОЗРАЧНОСТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-nav ul {
-    opacity: 0.8;
+
+.section{
+    background-attachment: fixed; /*Фиксация картинки*/
+    background-position: center top;
 }
-/*Слова в шапке без подчеркивания линией!!!!!!!!!!!!!!!!!!*/
-nav a {
+
+
+
+
+
+
+
+.one{
+    overflow: hidden;
+}
+.to{
+    width: 1000%;
+    padding-bottom: 30px;
+}
+.there{
+    padding-top: 20px;
+    float: left;
+    width: 2.24%;
+    height: auto;
+}
+
+
+.there > p> a{
+    padding: .3rem;
+    border-radius: .2rem;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all .2s ease-in-out;
+}
+.there > p> a:hover{
+
+    border: 1px solid;
+}
+
+.there > a> img:hover{
+    box-shadow: 0 0 10pt 0pt ;
+    border-radius: 30px;
     text-decoration: none;
 }
-
-h1.name{
-    color: #ba1c85; /* Цвет текста над шапкой !!!!!!!!!!!!!!!!!!!! */
+.p{
+    margin: 0 ;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1.04rem;
+    font-weight: bold;
 }
+.a1{
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+}
+.a2{
+    font-size: 1.1rem;
+    color: green;
+    text-align: center;
+}
+
 
 /*Шапка бара*/
+
 .topmenu {
-    width: 100%;
-    /*Резиновая шапка*/
-    padding: 25px;
-    border-radius: 20px;
-    /*Радиус бара*/
-    background-color: #f2f2f2;
+    width: 100%; /*Резиновая шапка*/
+    padding: 3%;
+    background-color: #008000;
 
 }
-/*Расположение текста в баре*/
+
+/*Расположение текста в баре в линию*/
 .topmenu > li {
-    display: inline; /*текст в шапке в строчку*/
+    display: inline;
 }
 
 /*Текст в шапке бара*/
 .topmenu > li > a {
-    font-family: 'Exo 2', sans-serif;
-    padding: 1%;/*Отступы между текстом в шапке*/
-    font-weight: bold; /*Жирный шрифт в баре*/
-    color: #003559; /*Цвет шрифта*/
-}
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    padding-left: 1%;/*Отступы между текстом в шапке*/
+    padding-right: 1%;/*Отступы между текстом в шапке*/
 
+    color: white; /*Цвет шрифта*/
+    text-align: center;
+    text-decoration: none;
+
+}
 
 /*Изменения цвета при наведении курсора*/
 .topmenu li a:hover {
-    color: #E6855F;
+    padding: .2rem;
+    border-radius: .3rem;
+    color: #fff;
+    background: #228B22;
+    text-decoration: none;
+    border: 2px solid ;
+    transition: all .2s ease-in-out;
+    padding-left: 1%;/*Отступы между текстом в шапке*/
+    padding-right: 1%;/*Отступы между текстом в шапке*/
+
 }
 
-/*Добавляем свойство*/
+.btnSubmit {
+
+    margin-right: 5px;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    background-color: green;
+    text-align: center;
+    text-decoration: none;
+
+
+}
+.btnSubmit:hover  {
+    padding: .2rem;
+    border-radius: .3rem;
+    color: #fff;
+    background: #228B22;
+    text-decoration: none;
+    border: 2px solid ;
+    transition: all .2s ease-in-out;
+    padding-left: 1%;/*Отступы между текстом в шапке*/
+    padding-right: 1%;/*Отступы между текстом в шапке*/
+}
+
+
+
 @media screen and (min-width: 900px) {
-    .float {
+    .topmenu> .h  {
         float: right;
     }
 }
+
+.n{
+    margin-top: 3%;
+    font-size: 2.2rem;
+}
+.name{
+    margin-left: 3%;
+    display: inline;
+}
+.name1{
+    margin-left: 1%;
+    display: inline;
+}
+
 
 
 
@@ -117,87 +223,6 @@ h3 {
     max-width: 900px;
     max-height: 200px;
 }
-
-
-
-.dropbtn {
-    width: auto;
-    background-color:  #f2f2f2; /*Цвет как в шапке*/
-    color: #ba1c85; /*Цвет шрифта*/
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-
-}
-.dropdown {
-    position: relative;
-    display: inline-block;
-
-}
-.dropdown-content {
-    display: none;
-    position: fixed;
-    background-color: #f2f2f2;
-
-    z-index: 1;
-
-}
-.dropdown-content a {
-    color:  #003559;
-    padding: 12px 16px;
-    text-decoration: none; /*Убираем подчеркивание текста*/
-    display: inline;
-    font-weight: bold;
-
-}
-.dropdown-content a:hover { color: #E6855F;}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
-
-
-
-input.btnSubmit{
-    font-family: 'Exo 2', sans-serif;
-    padding: 1%;/*Отступы между текстом в шапке*/
-    font-weight: bold; /*Жирный шрифт в баре*/
-    color: #003559; /*Цвет шрифта*/
-}
-
-
-.btnSubmit {
-    margin-right: 5px;
-    margin-left: 5px;
-    width: auto;
-    background-color: #f2f2f2;
-    color: #ba1c85;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.btnSubmit:hover  {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
-
-
-
-#footer {
-    position: absolute; /* Фиксированное положение */
-    opacity: 0.5;
-    right: 0;
-    bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-    background: black; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
-    font-size:0.75em;
-    text-align: left;
-}
-
-
 
 
 

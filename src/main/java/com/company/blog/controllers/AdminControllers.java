@@ -6,7 +6,6 @@ import com.company.blog.models.*;
 import com.company.blog.repo.*;
 import com.company.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
@@ -14,8 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -54,22 +51,13 @@ public class AdminControllers {
         return "AdminHTML/adminHome";
     }
 
-   /* Вывод таблицы зарегистрированных пользователей
-
-    @GetMapping("/AllRegistrations")
-    public String allRegistrations(Model model) {
-        Iterable<Registration> registrations = registrationRepository.findAll();
-        model.addAttribute("registrations", registrations);
-        return "AdminHTML/allRegistrations";
-    }
-*/
     /* Вывод таблицы забронировавших пользователей */
 
     @GetMapping("/AllClients")
     public String AllClients(Model model) {
         Iterable<Booking> bookings = bookingRepository.findAllByOrderByIdDesc();
         model.addAttribute("bookings", bookings);
-        return "AdminHTML/allClients";
+        return "AdminHTML/clients";
     }
     
     /* Значения из БД занесены в форму редактирования */
@@ -83,7 +71,7 @@ public class AdminControllers {
         ArrayList<Booking> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "AdminHTML/allClientsEdit";
+        return "AdminHTML/clientsEdit";
     }
 
     /*Редактирование клиента*/
@@ -123,145 +111,121 @@ public class AdminControllers {
         return "redirect:/AllClients";
     }
 
-    /*Создаем страницу*/
 
-    @GetMapping("/AddActualInformation")
-    public String addActualInformation(Model model) {
-        model.addAttribute("title", "Добавление информации");
-        return "AdminHTML/addActualInformation";
+
+
+    /* Вывод всей добавленной информации */
+
+    @GetMapping("/AdminActualInformation")
+    public String addNewActualInformation(Model model) {
+        Iterable<ActualInformation> ActualInformations = actualInformationRepository.findAllByOrderByIdDesc();
+        model.addAttribute("ActualInformations", ActualInformations);
+        return "AdminHTML/actualInformation";
     }
-
-
 
     /* Добавить новую информацию */
 
-    @PostMapping("/AddActualInformation") //AllClients; home; / можо попробовать
+    @PostMapping("/AdminActualInformation") //AllClients; home; / можо попробовать
     public String AllActualInformation(@RequestParam String text,
                            Model model) {
         ActualInformation post = new ActualInformation (text);
         actualInformationRepository.save(post);
-        return "AdminHTML/addActualInformation";
+
+        return "redirect:/AdminActualInformation";
+
     }
 
-    /* Вывод всей добавленной информации */
 
-    @GetMapping("/AllActualInformation")
-    public String addNewActualInformation(Model model) {
-        Iterable<ActualInformation> ActualInformations = actualInformationRepository.findAllByOrderByIdDesc();
-        model.addAttribute("ActualInformations", ActualInformations);
-        return "AdminHTML/AllActualInformation";
-    }
-
-    /*!!!  Значения из БД занесены в форму редактирования !!!*/
-    /*!!!  Значения из БД занесены в форму редактирования !!!*/
-    /*!!!  Значения из БД занесены в форму редактирования !!!*/
-    /*!!!  Значения из БД занесены в форму редактирования !!!*/
-    /*!!!  Значения из БД занесены в форму редактирования !!!*/
-
-    @GetMapping("/AllActualInformation/{id}/edit")
+    @GetMapping("/AdminActualInformation/{id}/edit")
     public String AllActualInformation (@PathVariable(value = "id") long id, Model model) {
         if(!actualInformationRepository.existsById (id)){
-            return "redirect:/AllActualInformation";
+            return "redirect:/AdminActualInformation";
         }
         Optional<ActualInformation> post = actualInformationRepository.findById(id);
         ArrayList<ActualInformation> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "AdminHTML/AllActualInformationEdit";
+        return "AdminHTML/actualInformationEdit";
     }
 
     /*Редактирование информации*/
 
-    @PostMapping("/AllActualInformation/{id}/edit")
+    @PostMapping("/AdminActualInformation/{id}/edit")
     public String AllStaffUpdate(@PathVariable(value = "id") long id,
                                  @RequestParam String text,
                                  Model model) throws Exception {
         ActualInformation post = actualInformationRepository.findById(id).orElseThrow(Exception::new);
         post.setText(text);
        actualInformationRepository.save(post);
-        return "redirect:/AllActualInformation";
+        return "redirect:/AdminActualInformation";
     }
 
     /* Удалить информацию */
 
-    @PostMapping("/AllActualInformation/{id}/remove")
+    @PostMapping("/AdminActualInformation/{id}/remove")
     public String AllActualInformationDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
         ActualInformation post = actualInformationRepository.findById(id).orElseThrow(Exception::new);
         actualInformationRepository.delete(post);
-        return "redirect:/AllActualInformation";
+        return "redirect:/AdminActualInformation";
     }
 
 
+    /* Вывод всей добавленной информации */
 
+    @GetMapping("/AdminEvent")
+    public String addViewEvent(Model model) {
+        Iterable<Event> Events = eventRepository.findAll();
+        model.addAttribute("Events", Events);
+        return "AdminHTML/events";
 
-
-
-
-
-
-    /*Создаем страницу*/
-
-    @GetMapping("/AddEvent")
-    public String addEvent(Model model) {
-        model.addAttribute("title", "Добавление мероприятия");
-        return "AdminHTML/addEvent";
     }
-
-
 
     /* Добавить новую информацию */
 
-    @PostMapping("/AddEvent") //AllClients; home; / можо попробовать
+    @PostMapping("/AdminEvent") //AllClients; home; / можо попробовать
     public String AddNewEvent(@RequestParam String text,
                                        Model model) {
         Event post = new Event(text);
         eventRepository.save(post);
-        return "AdminHTML/addEvent";
+        return "redirect:/AdminEvent";
     }
 
-    /* Вывод всей добавленной информации */
 
-    @GetMapping("/AllEvent")
-    public String addViewEvent(Model model) {
-        Iterable<Event> Events = eventRepository.findAll();
-        model.addAttribute("Events", Events);
-        return "AdminHTML/AllEvent";
-    }
 
     /*!!!  Значения из БД занесены в форму редактирования !!!*/
 
 
-    @GetMapping("/AllEvent/{id}/edit")
+    @GetMapping("/AdminEvent/{id}/edit")
     public String AllEvent (@PathVariable(value = "id") long event_id, Model model) {
         if(!eventRepository.existsById (event_id)){
-            return "redirect:/AllEvent";
+            return "redirect:/AdminEvent";
         }
         Optional<Event> post = eventRepository.findById(event_id);
         ArrayList<Event> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "AdminHTML/AllEventEdit";
+        return "AdminHTML/eventsEdit";
     }
 
     /*Редактирование информации*/
 
-    @PostMapping("/AllEvent/{id}/edit")
+    @PostMapping("/AdminEvent/{id}/edit")
     public String AllEventUpdate(@PathVariable(value = "id") long event_id,
                                  @RequestParam String text,
                                  Model model) throws Exception {
         Event post = eventRepository.findById(event_id).orElseThrow(Exception::new);
         post.setText(text);
         eventRepository.save(post);
-        return "redirect:/AllEvent";
+        return "redirect:/AdminEvent";
     }
 
     /* Удалить информацию */
 
-    @PostMapping("/AllEvent/{id}/remove")
+    @PostMapping("/AdminEvent/{id}/remove")
     public String AllEventDelete(@PathVariable(value = "id") long event_id, Model model) throws Exception {
         Event post = eventRepository.findById(event_id).orElseThrow(Exception::new);
         eventRepository.delete(post);
-        return "redirect:/AllEvent";
+        return "redirect:/AdminEvent";
     }
 
     /*Создаем страницу аккаунтов*/
@@ -311,32 +275,35 @@ public class AdminControllers {
 
     /*Создаем страницу комнат для первого корпуса и выводим комнаты*/
 
-    @GetMapping("/Room_1k")
+    @GetMapping("/RoomsAdmin")
     public String Room_1k(Model model) {
         Iterable<KorpusOneRooms> Rooms_1k = korpusOneRoomsRepository.findAll();
-        model.addAttribute("title", "Комнаты 1 корпус");
+        model.addAttribute("title", "Комнаты");
         model.addAttribute("Rooms_1k", Rooms_1k);
-        return "AdminHTML/room_1k";
+        Iterable<KorpusTwoRooms> Rooms_2k = korpusTwoRoomsRepository.findAll();
+        model.addAttribute("Rooms_2k", Rooms_2k);
+        return "AdminHTML/rooms";
     }
+
 
     /*!!!  Значения из БД занесены в форму редактирования !!!*/
 
 
-    @GetMapping("/Room_1k/{id}/edit")
+    @GetMapping("/KorpusOneRoomsAdmin/{id}/edit")
     public String allRoom_1kEdit (@PathVariable(value = "id") long roomsOneKorpusId, Model model) {
         if(!korpusOneRoomsRepository.existsById (roomsOneKorpusId)){
-            return "redirect:/Room_1k";
+            return "redirect:/RoomsAdmin";
         }
         Optional<KorpusOneRooms> post = korpusOneRoomsRepository.findById(roomsOneKorpusId);
         ArrayList<KorpusOneRooms> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "AdminHTML/room_1k_Edit";
+        return "AdminHTML/roomsOneKorpusEdit";
     }
 
     /*Редактирование информации*/
 
-    @PostMapping("/Room_1k/{id}/edit")
+    @PostMapping("/KorpusOneRoomsAdmin/{id}/edit")
     public String AllRoom_1kUpdate(@PathVariable(value = "id") long roomsOneKorpusId,
                                //  @RequestParam long room_id,
                                  @RequestParam String typeOneKorpus,
@@ -347,16 +314,16 @@ public class AdminControllers {
         post.setTypeOneKorpus(typeOneKorpus);
         post.setFreeOneKorpus(freeOneKorpus);
         korpusOneRoomsRepository.save(post);
-        return "redirect:/Room_1k";
+        return "redirect:/RoomsAdmin";
     }
 
     /* Удалить информацию */
 
-    @PostMapping("/Room_1k/{id}/remove")
+    @PostMapping("/KorpusOneRoomsAdmin/{id}/remove")
     public String AllRoom_1kDelete(@PathVariable(value = "id") long roomsOneKorpusId, Model model) throws Exception {
         KorpusOneRooms post = korpusOneRoomsRepository.findById(roomsOneKorpusId).orElseThrow(Exception::new);
         korpusOneRoomsRepository.delete(post);
-        return "redirect:/Room_1k";
+        return "redirect:/RoomsAdmin";
     }
 
 
@@ -372,38 +339,29 @@ public class AdminControllers {
         }
 
         model.addAttribute("Rooms_1k", Rooms_1k);
-      return "AdminHTML/room_1k";
+      return "AdminHTML/rooms";
     }
 
 
-    /*Создаем страницу комнат для второго корпуса и выводим комнаты*/
-
-    @GetMapping("/Room_2k")
-    public String Room_2k(Model model) {
-        Iterable<KorpusTwoRooms> Rooms_2k = korpusTwoRoomsRepository.findAll();
-        model.addAttribute("title", "Комнаты 2 корпус");
-        model.addAttribute("Rooms_2k", Rooms_2k);
-        return "AdminHTML/room_2k";
-    }
 
     /*!!!  Значения из БД занесены в форму редактирования !!!*/
 
 
-    @GetMapping("/Room_2k/{id}/edit")
+    @GetMapping("/KorpusTwoRoomsAdmin/{id}/edit")
     public String allRoom_2kEdit (@PathVariable(value = "id") long roomsTwoKorpusId, Model model) {
         if(!korpusTwoRoomsRepository.existsById (roomsTwoKorpusId)){
-            return "redirect:/Room_2k";
+            return "redirect:/RoomsAdmin";
         }
         Optional<KorpusTwoRooms> post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId);
         ArrayList<KorpusTwoRooms> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "AdminHTML/room_2k_Edit";
+        return "AdminHTML/roomsTwoKorpusEdit";
     }
 
     /*Редактирование информации*/
 
-    @PostMapping("/Room_2k/{id}/edit")
+    @PostMapping("/KorpusTwoRoomsAdmin/{id}/edit")
     public String AllRoom_2kUpdate(@PathVariable(value = "id") long roomsTwoKorpusId,
                                    //  @RequestParam long room_id,
                                    @RequestParam String typeTwoKorpus,
@@ -414,17 +372,10 @@ public class AdminControllers {
         post.setTypeTwoKorpus(typeTwoKorpus);
         post.setFreeTwoKorpus(freeTwoKorpus);
         korpusTwoRoomsRepository.save(post);
-        return "redirect:/Room_2k";
+        return "redirect:/RoomsAdmin";
     }
 
-    /* Удалить информацию */
 
-//    @PostMapping("/Room_2k/{id}/remove")
-//    public String AllRoom_2kDelete(@PathVariable(value = "id") long roomsTwoKorpusId, Model model) throws Exception {
-//        KorpusTwoRooms post = korpusTwoRoomsRepository.findById(roomsTwoKorpusId).orElseThrow(Exception::new);
-//        korpusTwoRoomsRepository.delete(post);
-//        return "redirect:/Room_2k";
-//    }
 
     @PostMapping("Rooms_2kFilter")
     public String Rooms_2kFilter (@RequestParam String filter, Model model) {
@@ -437,18 +388,22 @@ public class AdminControllers {
         }
 
         model.addAttribute("Rooms_2k", Rooms_2k);
-        return "AdminHTML/room_2k";
+        return "AdminHTML/rooms";
     }
 
 
-    @GetMapping("/AddRequest")
-    public String AddRequestAdmin(Model model){
-        model.addAttribute("title", "Заявки");
-        return "AdminHTML/addRequest";
+
+    @GetMapping("/AdminRequest")
+    public String AllRequest(Model model) {
+        Iterable<Request> requests = requestRepository.findAllByOrderByIdDesc();
+        model.addAttribute("requests", requests);
+        return "AdminHTML/request";
     }
 
 
-    @PostMapping("/AddRequest")
+
+
+    @PostMapping("/AdminRequest")
     public String AddRequestAdmin(
                                  // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
                                   @RequestParam String level,
@@ -486,14 +441,8 @@ public class AdminControllers {
             post = new Request(level, room, fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         requestRepository.save(post);
-        return "AdminHTML/addRequest";
-    }
 
-    @GetMapping("/AllRequest")
-    public String AllRequest(Model model) {
-        Iterable<Request> requests = requestRepository.findAllByOrderByIdDesc();
-        model.addAttribute("requests", requests);
-        return "AdminHTML/allRequest";
+        return "redirect:/AdminRequest";
     }
 
 
@@ -501,21 +450,21 @@ public class AdminControllers {
 
     /*!!!  Значения из БД занесены в форму редактирования !!!*/
 
-    @GetMapping("/AllRequest/{id}/edit")
+    @GetMapping("/AdminRequest/{id}/edit")
     public String AllRequest (@PathVariable(value = "id") long id, Model model) {
         if(!requestRepository.existsById (id)){
-            return "redirect:/AllRequest";
+            return "redirect:/AdminRequest";
         }
         Optional<Request> post = requestRepository.findById(id);
         ArrayList<Request> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "AdminHTML/AllRequestEdit";
+        return "AdminHTML/requestEdit";
     }
 
 
 
-    @PostMapping("/AllRequest/{id}/edit")
+    @PostMapping("/AdminRequest/{id}/edit")
     public String AllRequestUpdate(@PathVariable(value = "id") long id,
                                    // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
                                    @RequestParam String level,
@@ -539,17 +488,17 @@ public class AdminControllers {
 
      //   post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         requestRepository.save(post);
-        return "redirect:/AllRequest";
+        return "redirect:/AdminRequest";
     }
 
 
     /* Удалить заявку */
 
-    @PostMapping("/AllRequest/{id}/remove")
+    @PostMapping("/AdminRequest/{id}/remove")
     public String AllRequestDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
         Request post = requestRepository.findById(id).orElseThrow(Exception::new);
         requestRepository.delete(post);
-        return "redirect:/AllRequest";
+        return "redirect:/AdminRequest";
     }
 
     @PostMapping("AllRequestAdminFilter")
@@ -563,7 +512,7 @@ public class AdminControllers {
         }
 
         model.addAttribute("requests", requests);
-        return "AdminHTML/allRequest";
+        return "AdminHTML/request";
     }
 
 
@@ -580,7 +529,7 @@ public class AdminControllers {
         model.addAttribute("pricess", pricess);
 
         model.addAttribute("title", "Номерной фонд");
-        return "AdminHTML/allAccommodation";
+        return "AdminHTML/accommodation";
     }
 
 
@@ -596,7 +545,7 @@ public class AdminControllers {
         ArrayList<Price> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "AdminHTML/accommodation_Edit";
+        return "AdminHTML/accommodationEdit";
     }
 
     /*Редактирование информации*/
@@ -620,7 +569,7 @@ public class AdminControllers {
     public String AllComment(Model model) {
         Iterable<Comment> comments = commentRepository.findAllByOrderByIdDesc();
         model.addAttribute("comments", comments);
-        return "AdminHTML/allComment";
+        return "AdminHTML/comment";
     }
 
     /* Удалить заявку */

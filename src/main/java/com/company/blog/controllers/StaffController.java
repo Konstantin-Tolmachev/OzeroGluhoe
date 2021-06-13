@@ -2,7 +2,6 @@ package com.company.blog.controllers;
 
 
 import com.company.blog.models.Staff;
-import com.company.blog.repo.KorpusOneRoomsRepository;
 import com.company.blog.repo.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,31 +19,20 @@ public class StaffController {
 
     @Autowired
     private StaffRepository staffRepository;
-    @Autowired
-    private KorpusOneRoomsRepository korpusOneRoomsRepository;
-
-    /*Создаем страницу*/
-
-    @GetMapping("/AddStaff")
-    public String addStaff(Model model) {
-        model.addAttribute("title", "Добавление сотрудника");
-        return "AdminHTML/addStaff";
-    }
-
 
     /* Вывод всех добавленных сотрудников */
 
-    @GetMapping("/AllStaff")
+    @GetMapping("/Staffs")
     public String addNewStaff(Model model) {
         Iterable<Staff> staffs = staffRepository.findAllByOrderByIdDesc();
         model.addAttribute("staffs", staffs);
-        return "AdminHTML/allStaff";
+        return "AdminHTML/staffs";
     }
 
 
     /* Добавить нового сотрудника сотрудников */
 
-    @PostMapping("/AddStaff") //AllClients; home; / можо попробовать
+    @PostMapping("/Staffs") //AllClients; home; / можо попробовать
     public String AllStaff(@RequestParam String fname,
                            @RequestParam String lname,
                            @RequestParam String pname,
@@ -52,26 +40,26 @@ public class StaffController {
                            Model model) {
         Staff post = new Staff (fname, lname, pname, position);
         staffRepository.save(post);
-        return "AdminHTML/addStaff";
+        return "redirect:/Staffs";
     }
 
     /* Значения из БД занесены в форму редактирования */
 
-    @GetMapping("/AllStaff/{id}/edit")
+    @GetMapping("/Staffs/{id}/edit")
     public String AllStaffEdit (@PathVariable(value = "id") long id, Model model) {
         if(!staffRepository.existsById (id)){
-            return "redirect:/AllStaff";
+            return "redirect:/Staffs";
         }
         Optional<Staff> post = staffRepository.findById(id);
         ArrayList<Staff> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "AdminHTML/allStaffEdit";
+        return "AdminHTML/staffsEdit";
     }
 
     /*Редактирование клиента*/
 
-    @PostMapping("/AllStaff/{id}/edit")
+    @PostMapping("/Staffs/{id}/edit")
     public String AllStaffUpdate(@PathVariable(value = "id") long id,
                                        @RequestParam String fname,
                                        @RequestParam String lname,
@@ -84,16 +72,16 @@ public class StaffController {
         post.setPname(pname);
         post.setPosition(position);
         staffRepository.save(post);
-        return "redirect:/AllStaff";
+        return "redirect:/Staffs";
     }
 
     /* Удалить сотрудника */
 
-    @PostMapping("/AllStaff/{id}/remove")
+    @PostMapping("/Staffs/{id}/remove")
     public String AllStaffDelete(@PathVariable(value = "id") long id, Model model) throws Exception {
         Staff post = staffRepository.findById(id).orElseThrow(Exception::new);
         staffRepository.delete(post);
-        return "redirect:/AllStaff";
+        return "redirect:/Staffs";
     }
 
     @PostMapping("StaffFilter")
@@ -107,24 +95,7 @@ public class StaffController {
         }
 
         model.addAttribute("staffs", staffs);
-        return "AdminHTML/allStaff";
+        return "staffs";
     }
-
-//    @PostMapping("Rooms_1kFilter")
-//    public String Rfilter(@RequestParam String filter, Model model) {
-//        Iterable<Room_1k> room_1ks;
-//
-//        if (filter !=null && !filter.isEmpty()){
-//            room_1ks = room_1kRepository.findByFree_1k(filter);
-//        } else {
-//            room_1ks = room_1kRepository.findAll();
-//        }
-//
-//        model.addAttribute("room_1ks", room_1ks);
-//        return "AdminHTML/room_1k";
-//    }
-
-
-
 
 }

@@ -13,6 +13,21 @@
 </head>
 <body>
 
+<section class="newEvent">
+    <h3 >Мероприятия</h3>
+    <br>
+
+    <form th:action="@{/AdminEvent}" method="post">
+        <div class="allDivEvent">
+            <div class="DivEvent">
+                <textarea class="size" name="text" id="text" placeholder="Добавить мероприятие"></textarea>
+            </div>
+            <div class="DivEvent">
+                <button  type="submit">Добавить</button>
+            </div>
+        </div>
+    </form>
+</section>
 
 <section class="AllActualInformation">
     <h3 >Мероприятия</h3>
@@ -22,10 +37,10 @@
         </div>
 
         <div class="edit">
-            <a th:href="'/AllEvent/' + ${el.event_id} + '/edit'" class="test">Редактировать</a>
+            <a th:href="'/AdminEvent/' + ${el.event_id} + '/edit'" class="test">Редактировать</a>
         </div>
         <br>
-        <form class="edit"  th:action="'/AllEvent/' + ${el.event_id} +'/remove'" method="post">
+        <form class="edit"  th:action="'/AdminEvent/' + ${el.event_id} +'/remove'" method="post">
             <button class="delete"  type="submit">Удалить</button>
         </form>
         <hr class="hh1">

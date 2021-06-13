@@ -12,16 +12,20 @@
 <body>
 
 <section class="AllActualInformation">
-    <h3 >Актуальная информация сотрудника</h3>
-    <div th:each="el : ${ActualInformations}" class="editInformation">
+    <h1 >Актуальная информация</h1>
+    <div th:each="el : ${ActualInformations}" class="Information">
         <div>
             <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
         </div>
 
-
-        <hr class="hh1">
+        <hr>
     </div>
 </section>
+
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
+
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="/scripts/home.js"></script>
@@ -31,7 +35,6 @@
 
 </body>
 
-<footer th:insert="blocks/footer :: footer"></footer>
 
 
 </html>

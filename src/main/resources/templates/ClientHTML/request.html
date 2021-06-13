@@ -26,7 +26,7 @@
         <div class="allDivRequest">
 
             <div class="DivRequest">
-                <input value="1-210" readonly type="text" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты">
+                <input th:value="${#authentication.name}" readonly type="text" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты">
             </div>
 
 
@@ -91,27 +91,49 @@
 
 
     <div class="DivRequest">
-        <form method="post"  th:action="AllRequestClientFilter">
+        <form method="post"  th:action="RequestFilter">
             <input th:value="${#authentication.name}"  type="hidden" readonly  class="in" name="filter"  placeholder="Моя комната" id="room1" />
-            <button class="btnComment"   type="submit">Узнать о выполнении заявки</button>
+        <button class="btnComment"  id="linkname01" onclick="toggle('.openbox_1')">Узнать о статусе заявки</button>
         </form>
     </div>
 
+</section>
 
+<section class="statusRequest">
+    <h1 class="closed openbox_1">Статус заявки</h1>
 
     <div th:each="el : ${requests5}" class="request">
-        <hr>
-        <div class="name">№ заявки</div>
-        <div th:text="${el.id}" class="wrap1"><input type="text" id="id" name="id"></div>
-        <div class="name">Статус</div>
-        <div th:text="${el.status}" class="wrap1"><input type="text" id="status" name="status"></div>
-        <div class="name">Исполнитель</div>
-        <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom" name="toWhom"></div>
-        <div class="name">Именование заявки</div>
-        <div th:text="${el.text}" class="wrap1"><input type="text" id="text1" name="text"></div>
 
+    <div class="nameRequest">
+        <div class="closed openbox_1">№ </div><div th:text="${el.id}" class="closed openbox_1"></div>
     </div>
-    <hr>
+
+    <div class="nameRequest">
+        <div class="closed openbox_1">Статус: </div><div th:text="${el.status}" class="closed openbox_1"></div>
+    </div>
+
+    <div class="nameRequest">
+        <div class="closed openbox_1">Исполнитель: </div><div th:text="${el.toWhom}" class="closed openbox_1"></div>
+    </div>
+
+    <div class="nameRequest">
+        <div class="closed openbox_1">Именование заявки: </div><div th:text="${el.text}" class="closed openbox_1"></div>
+    </div>
+
+    <hr class="closed openbox_1">
+    </div>
+
+
+<!--    <div th:each="el : ${requests5}" class="request">-->
+<!--        <div class="wrapRequest"> <div class="nameRequest">№ заявки:</div> <div th:text="${el.id}"></div> </div>-->
+<!--        <div class="wrapRequest"> <div class="nameRequest">Статус:</div> <div th:text="${el.status}"></div> </div>-->
+<!--        <div class="wrapRequest"> <div class="nameRequest">Исполнитель:</div> <div th:text="${el.toWhom}"></div> </div>-->
+<!--        <div class="wrapRequest"> <div class="nameRequest">Именование заявки:</div> <div th:text="${el.text}"></div> </div><hr>-->
+<!--    </div>-->
+
+
+
+</section>
 
 
 <div class="footer">
@@ -125,8 +147,7 @@
 <!--<script src="system/js/global.js"></script>  Для даты -->
 
 
-
-</body>
+ </body>
 
 <!--<footer th:insert="blocks/footer :: footer"></footer>-->
 

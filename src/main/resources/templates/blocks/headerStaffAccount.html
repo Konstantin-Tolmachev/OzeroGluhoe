@@ -1,77 +1,40 @@
 <div  th:fragment="headerStaffAccount" xmlns:th="http://www.w3.org/1999/xhtml">
-<!--    <h1 class="name" align="center"><span style="font-family:Lobster, cursive; Font-size:30px;">Аккаунт для сотрудника</span></h1>-->
 
 
 
-    <h1 class="name" align="center"><div style="font-family:Lobster, cursive; Font-size:30px;" th:text="${#authentication.name}"></div></h1>
+    <section class="section">
+        <div class="one">
+            <div class="to">
+                <div class="there"><p class="a1">Озеро Глухое<p><p class="a2">Санаторий-профилакторий<p></div>
+                <div class="there"><p class="p">Телефон: <wbr> <a href="tel:+7(343)287-20-18"> +7(343)287-20-18</a> </p></div>
+                <div class="there"><p class="p">Почта: <wbr> <a href="mailto:OzeroGluhoe@mail.ru"> OzeroGluhoe@mail.ru</a> </p></div>
+                <div class="there"><p class="p">Адрес:<wbr> <a href="https://2gis.ru/ekaterinburg/geo/1267273050416158?m=60.288146%2C56.800754%2F16" target="_blank">Московский тракт 18 км</a></p></div>
+                <div class="there"><a href="https://vk.com/diplomozerogluhoe" target="_blank"><img  src="/img/vk-64x64.png" alt="Значок вк"></a> <a href="https://www.instagram.com/" target="_blank"><img src="/img/1.png" alt="Значок инстаграмм"></a></div>
+            </div>
+        </div>
+    </section>
 
     <nav>
         <ul class="topmenu">
-
-            <div class="dropdown">
-                <button onclick="window.open('/' , '_self')" class="dropbtn">Главное меню</button>
-            </div>
-
-<!--            <div class="dropdown">-->
-<!--                <button class="dropbtn">Главное меню</button>-->
-<!--                <div class="dropdown-content">-->
-<!--                    <a href="/">Главная</a>-->
-<!--                    <a href="/Accommodation">Проживание</a>-->
-<!--                    <a href="/Infrastructure">Инфаструктура</a>-->
-<!--                    <a href="/Price">Прайс</a>-->
-<!--                    <a href="/Сommunications">Контакты</a>-->
-<!--                    <a href="/AboutUs">Лечебная база</a>-->
-<!--                    <a href="/Rules">Правила</a>-->
-<!--                    <a href="/Comment">Отзывы</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--
-            <div class="dropdown">
-                <button class="dropbtn">Расписание санатория</button>
-                <div class="dropdown-content">
-                    <a href="/HealthImprovingComplex">ЛОК</a>
-                    <a href="/DiningRoom">Столовая</a>
-                    <a href="/Club">Клуб</a>
-                    <a href="/Rental">Прокат</a>
-                    <a href="/Cafe">Кафе</a>
-                    <a href="/Med">Мед кабинеты</a>
-                </div>
-            </div>
-
--->          <li><a href="/StaffAccount">Мой аккаунт</a></li>
+            <li><a href="/">Главное меню</a></li>
+            <li><a href="/StaffAccount">Мои заявки</a></li>
             <li><a href="/StaffTimeTable">Расписание</a></li>
             <li><a href="/StaffActualInformation">Актуальная информация</a></li>
             <li><a href="/StaffEvent">Мероприятия</a></li>
 
-
-<!--            <div class="dropdown">-->
-<!--                <button class="dropbtn">Заявки</button>-->
-<!--                <div class="dropdown-content">-->
-<!--                    <a href="/MyRequest">Мои заявки</a>-->
-<!--                    <a href="/AddRequest">Написать</a>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-
-            <!--  Страница не открывается, если код в написан в таком формате.
-                                           Код нужен для ЛОГАУТА!   -->
-
-            <!--  Страница не открывается, если код в написан в таком формате.
-   Код нужен для ЛОГАУТА!-->
-
-            <li class="float">
+            <li class="h">
                 <form th:action="@{/logout}" method="post">
                     <input class="btnSubmit" type="submit"value="Выйти">
                 </form>
             </li>
 
-
-
-
-                      <!-- <li class="float"><a href="/AllClients">AllClients</a></li>
-                       <li class="float"><a href="/AllRegistrations">allRegistrations</a></li> -->
-
         </ul>
     </nav>
+
+    <div class="n">
+        <div class="name">Должность:</div>
+        <div class="name1" th:text="${#authentication.name}"></div>
+    </div>
+</div>
+
 </div>

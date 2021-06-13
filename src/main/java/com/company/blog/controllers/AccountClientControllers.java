@@ -73,6 +73,8 @@ public class AccountClientControllers {
 
     @GetMapping("/Request")
     public String Request(Model model){
+//        Iterable<Request> requests5 = requestRepository.findAllByOrderByIdDesc();
+//        model.addAttribute("requests5", requests5);
         model.addAttribute("title", "Заявки");
         return "ClientHTML/request";
     }
@@ -108,14 +110,15 @@ public class AccountClientControllers {
         return "ClientHTML/request";
     }
 
-    @PostMapping("AllRequestClientFilter")
+    @PostMapping("RequestFilter")
     public String AllRequestClientFilter (@RequestParam String filter, Model model) {
         Iterable<Request> requests5;
         if (filter !=null && !filter.isEmpty()){
-            requests5 = requestRepository.findAllByRoom(filter);
+            requests5 = requestRepository.findAllByRoomOrderByIdDesc(filter);
         }
         else {
-            requests5 = requestRepository.findAllByRoom(filter);
+//            return "redirect:/Request";
+            requests5 = requestRepository.findAllByRoomOrderByIdDesc(filter);
         }
         model.addAttribute("requests5", requests5);
 
@@ -123,7 +126,7 @@ public class AccountClientControllers {
         return "ClientHTML/request";
     }
 
-
+//    findAllByOrderByIdDesc
 
 
 //    @PostMapping("Request")

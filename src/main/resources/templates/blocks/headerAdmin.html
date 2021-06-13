@@ -1,116 +1,83 @@
 <div  th:fragment="headerAdmin" xmlns:th="http://www.w3.org/1999/xhtml">
-<!--    <h1 class="name" align="center"><span style="font-family:Lobster, cursive; Font-size:30px;">Панель Администратора</span></h1>-->
 
 
 
-    <h1 class="name" align="center"><div style="font-family:Lobster, cursive; Font-size:30px;" th:text="${#authentication.name}"></div></h1>
+
+
+    <section class="section">
+        <div class="one">
+            <div class="to">
+                <div class="there"><p class="a1">Озеро Глухое<p><p class="a2">Санаторий-профилакторий<p></div>
+                <div class="there"><p class="p">Телефон: <wbr> <a href="tel:+7(343)287-20-18"> +7(343)287-20-18</a> </p></div>
+                <div class="there"><p class="p">Почта: <wbr> <a href="mailto:OzeroGluhoe@mail.ru"> OzeroGluhoe@mail.ru</a> </p></div>
+                <div class="there"><p class="p">Адрес:<wbr> <a href="https://2gis.ru/ekaterinburg/geo/1267273050416158?m=60.288146%2C56.800754%2F16" target="_blank">Московский тракт 18 км</a></p></div>
+                <div class="there"><a href="https://vk.com/diplomozerogluhoe" target="_blank"><img  src="/img/vk-64x64.png" alt="Значок вк"></a> <a href="https://www.instagram.com/" target="_blank"><img src="/img/1.png" alt="Значок инстаграмм"></a></div>
+            </div>
+        </div>
+    </section>
+<!--                    <button onclick="window.open('/' , '_self')" class="dropbtn">Главное меню</button>&ndash;&gt;-->
+    <!--                <button onclick="window.open('/Staffs' , '_self')" class="dropbtn">Сотрудники</button>-->
+    <!--                <button onclick="window.open('/AllClients' , '_self')" class="dropbtn">Клиенты</button>-->
+    <!--                <button onclick="window.open('/Accounts' , '_self')" class="dropbtn">Аккаунты</button>-->
+    <!--                <button onclick="window.open('/AllAccommodation' , '_self')" class="dropbtn">Номерной фонд</button>-->
+    <!--                <button onclick="window.open('/AllComment' , '_self')" class="dropbtn">Отзывы</button>-->
+    <!--                <button onclick="window.open('/RoomsAdmin' , '_self')" class="dropbtn">Комнаты</button>-->
+    <!--                <button onclick="window.open('/AdminActualInformation' , '_self')" class="dropbtn">Актуальная информация</button>-->
+    <!--                <button onclick="window.open('/AdminEvent' , '_self')" class="dropbtn">Мероприятия</button>-->
+    <!--                <button onclick="window.open('/AdminRequest' , '_self')" class="dropbtn">Заявки</button>-->
+
+
 
     <nav>
         <ul class="topmenu">
+            <li><a href="/">Главное меню</a></li>
+            <li><a href="/Staffs">Сотрудники</a></li>
+            <li><a href="/AllClients">Клиенты</a></li>
+            <li><a href="/Accounts">Аккаунты</a></li>
+            <li><a href="/AllAccommodation">Номерной фонд</a></li>
+            <li><a href="AllComment">Отзывы</a></li>
+            <li><a href="/RoomsAdmin">Комнаты</a></li>
+            <li><a href="/AdminActualInformation">Актуальная информация</a></li>
+            <li><a href="/AdminEvent">Мероприятия</a></li>
+            <li><a href="/AdminRequest">Заявки</a></li>
 
-            <div class="dropdown">
-                <button onclick="window.open('/' , '_self')" class="dropbtn">Главное меню</button>
-            </div>
-<!--            <div class="dropdown">-->
-<!--                <button class="dropbtn">Главное меню</button>-->
-<!--                <div class="dropdown-content">-->
-<!--                    <a href="/">Главная</a>-->
-<!--                    <a href="/Accommodation">Проживание</a>-->
-<!--                    <a href="/Infrastructure">Инфаструктура</a>-->
-<!--                    <a href="/Price">Прайс</a>-->
-<!--                    <a href="/Сommunications">Контакты</a>-->
-<!--                    <a href="/AboutUs">Лечебная база</a>-->
-<!--                    <a href="/Rules">Правила</a>-->
-<!--                    <a href="/Comment">Отзывы</a>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-            <div class="dropdown">
-                <button class="dropbtn">Сотрудники</button>
-                <div class="dropdown-content">
-                    <a href="/AddStaff">Добавить</a>
-                    <a href="/AllStaff">Редактор</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button onclick="window.open('/AllClients' , '_self')" class="dropbtn">Клиенты</button>
-            </div>
-
-            <div class="dropdown">
-                <button onclick="window.open('/Accounts' , '_self')" class="dropbtn">Аккаунты</button>
-            </div>
-
-            <div class="dropdown">
-                <button onclick="window.open('/AllAccommodation' , '_self')" class="dropbtn">Номерной фонд</button>
-            </div>
-
-            <div class="dropdown">
-                <button onclick="window.open('/AllComment' , '_self')" class="dropbtn">Отзывы</button>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Комнаты</button>
-                <div class="dropdown-content">
-                    <a href="/Room_1k">1 корпус</a>
-                    <a href="/Room_2k">2 корпус</a>
-                </div>
-            </div>
-<!--
-            <div class="dropdown">
-                <button class="dropbtn">Учетная запись комнат</button>
-                <div class="dropdown-content">
-                    <a href="#">Редактор</a>
-                </div>
-            </div>
--->
-<!--            <div class="dropdown">-->
-<!--                <button class="dropbtn">Туры</button>-->
-<!--                <div class="dropdown-content">-->
-<!--                    <a href="/AddTour">Добавить</a>-->
-<!--                    <a href="/AllTour">Редактор</a>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-
-            <div class="dropdown">
-                <button class="dropbtn">Актуальная информация</button>
-                <div class="dropdown-content">
-                    <a href="/AddActualInformation">Добавить</a>
-                    <a href="/AllActualInformation">Редактор</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Мероприятия</button>
-                <div class="dropdown-content">
-                    <a href="/AddEvent">Добавить</a>
-                    <a href="/AllEvent">Редактор</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Заявки</button>
-                <div class="dropdown-content">
-                    <a href="/AddRequest">Написать</a>
-                    <a href="/AllRequest">Редактор</a>
-                </div>
-            </div>
-
-
-<!--            <li class="float" sec:authorize="isAuthenticated()">-->
-<!--                <form  th:action="@{/logout}" method="post">-->
-<!--                    <input class="btnSubmit" type="submit" value="Выйти">-->
-<!--                </form>-->
-<!--            </li>-->
-
-            <li class="float">
+            <li class="h">
                 <form th:action="@{/logout}" method="post">
                     <input class="btnSubmit" type="submit"value="Выйти">
                 </form>
             </li>
+
         </ul>
     </nav>
+
+    <div class="n">
+        <div class="name">Должность:</div>
+        <div class="name1" th:text="${#authentication.name}"></div>
+    </div>
 </div>
+
+</div>
+
+
+
+
+
+<!--                <button onclick="window.open('/' , '_self')" class="dropbtn">Главное меню</button>-->
+<!--                <button onclick="window.open('/Staffs' , '_self')" class="dropbtn">Сотрудники</button>-->
+<!--                <button onclick="window.open('/AllClients' , '_self')" class="dropbtn">Клиенты</button>-->
+<!--                <button onclick="window.open('/Accounts' , '_self')" class="dropbtn">Аккаунты</button>-->
+<!--                <button onclick="window.open('/AllAccommodation' , '_self')" class="dropbtn">Номерной фонд</button>-->
+<!--                <button onclick="window.open('/AllComment' , '_self')" class="dropbtn">Отзывы</button>-->
+<!--                <button onclick="window.open('/RoomsAdmin' , '_self')" class="dropbtn">Комнаты</button>-->
+<!--                <button onclick="window.open('/AdminActualInformation' , '_self')" class="dropbtn">Актуальная информация</button>-->
+<!--                <button onclick="window.open('/AdminEvent' , '_self')" class="dropbtn">Мероприятия</button>-->
+<!--                <button onclick="window.open('/AdminRequest' , '_self')" class="dropbtn">Заявки</button>-->
+
+<!--            <li class="float">-->
+<!--                <form th:action="@{/logout}" method="post">-->
+<!--                    <input class="btnSubmit" type="submit"value="Выйти">-->
+<!--                </form>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</div>-->
