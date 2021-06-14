@@ -11,62 +11,55 @@
 </head>
 <body>
 
-<!--<div th:each="el : ${Rooms_1k}" class="editStaff">-->
 
-<!--    <div th:text="${el.roomsOneKorpusId}" class="wr"><input type="text" id="id" name="id" placeholder="Имя"></div>-->
 
-<!--</div>-->
-
-<section class="roomFund">
-    <h1>Номерной фонд</h1>
-    <div class="korpusOne">
-        <h2>Корпус № 1</h2>
-
-        <div class="nColumn">
-            <div class="wr">Тип комнаты:</div>
-             <hr>
-            <div class="wr">Цена за сутки (руб)</div>
-             <hr>
-            <div class="wr">&nbsp;</div>
-<!--            <hr>-->
-        </div>
-
-        <div th:each="el : ${prices}"  class="nColumn">
-            <div th:text="${el.type}" class="wr"><input type="text" id="type" name="type" placeholder="type"></div>
-            <hr>
-            <div th:text="${el.price}" class="wr"><input type="text" id="price" name="price" placeholder="price"></div>
-            <hr>
-            <div class="wr">
-                <a th:href="'/AllAccommodation/' + ${el.id} + '/edit'" class="edit">Редактировать</a>
+<section class="sectionRequest">
+    <div class="StaffsFilter">
+        <h1>Номерной фонд 1 корпус</h1>
+        <div th:each="el : ${prices}" class="request">
+            <div class="allDiv">
+                <div class="c1">
+                    <div class="staffReq1">Тип комнаты</div>
+                    <div class="staffReq1">Цена</div>
+                </div>
+                <div class="c1" >
+                    <div th:text="${el.type}"  class="staffReq"><input type="text" id="lname" name="lname" ></div>
+                    <div th:text="${el.price}" class="staffReq"><input type="text" id="fname" name="fname" ></div>
+                </div>
+                <form >
+                    <button class="btnDelete" type="submit"><a th:href="'/AllAccommodation/' + ${el.id} + '/edit'">Редактировать</a></button>
+                </form>
             </div>
-            <hr>
         </div>
-
     </div>
-
-    </div>
-    <div class="korpusTwo">
-        <h2>Корпус № 2</h2>
-        <div class="nColumn">
-            <div class="wr">Тип комнаты:</div>
-            <hr>
-            <div class="wr">Цена за сутки (руб)</div>
-            <hr>
-            <div class="wr">&nbsp;</div>
-<!--            <hr>-->
-        </div>
-        <div th:each="el : ${pricess}"  class="nColumn">
-            <div th:text="${el.type}" class="wr"><input type="text" id="typeTwo" name="type" placeholder="type"></div>
-            <hr>
-            <div th:text="${el.price}" class="wr"><input type="text" id="priceTwo" name="price" placeholder="price"></div>
-            <hr>
-            <div class="wr">
-                <a class="edit" th:href="'/AllAccommodation/' + ${el.id} + '/edit'" >Редактировать</a>
-            </div>
-            <hr>
-        </div>
-
 </section>
+
+
+
+<section class="sectionRequest">
+    <div class="StaffsFilter">
+        <h1>Номерной фонд 2 корпус</h1>
+        <div th:each="el : ${pricess}" class="request">
+            <div class="allDiv">
+                <div class="c1">
+                    <div class="staffReq1">Тип комнаты</div>
+                    <div class="staffReq1">Цена</div>
+                </div>
+                <div class="c1" >
+                    <div th:text="${el.type}"  class="staffReq"><input type="text" id="lname" name="lname" ></div>
+                    <div th:text="${el.price}" class="staffReq"><input type="text" id="fname" name="fname" ></div>
+                </div>
+                <form >
+                    <button class="btnDelete" type="submit"><a th:href="'/AllAccommodation/' + ${el.id} + '/edit'">Редактировать</a></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

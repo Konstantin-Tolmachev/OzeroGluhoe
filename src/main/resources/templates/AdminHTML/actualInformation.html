@@ -13,11 +13,9 @@
 </head>
 <body>
 
-<section class="newActualInformation">
-    <h3 >Добавить информацию</h3>
-    <br>
+<section class="Rooms1">
+    <h1 >Добавить актуальную информацию</h1>
 
-    <!--th:action="@{/AddActualInformation}"  action="/AddActualInformation" -->
     <form th:action="@{/AdminActualInformation}" method="post">
         <div class="allDivctualInformation">
             <div class="DivActualInformation">
@@ -25,7 +23,7 @@
             </div>
 
             <div class="DivActualInformation">
-                <button  type="submit">Добавить</button>
+                <button class="btnAdd"  type="submit">Добавить</button>
             </div>
 
         </div>
@@ -33,9 +31,9 @@
     </form>
 </section>
 
+<section class="Rooms">
 
-<section class="AllActualInformation">
-    <h3 >Актуальная информация</h3>
+    <h1 >Актуальная информация</h1>
 
     <div th:each="el : ${ActualInformations}" class="editInformation">
 
@@ -43,25 +41,33 @@
             <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
         </div>
 
-        <div class="edit">
-            <a th:href="'/AdminActualInformation/' + ${el.id} + '/edit'" class="test">Редактировать</a>
+<!--        <div class="edit">-->
+<!--            <a th:href="'/AdminActualInformation/' + ${el.id} + '/edit'" class="test">Редактировать</a>-->
+<!--        </div>-->
+
+        <div class="inline">
+            <div class="btnEdit"><a th:href="'/AdminActualInformation/' + ${el.id} + '/edit'">Редактировать</a></div>
+            <form  th:action="'/AdminActualInformation/' + ${el.id} +'/remove'" method="post">
+                <button class="btnDelete" type="submit">Удалить</button>
+            </form>
         </div>
-        <br>
 
-        <form class="edit"  th:action="'/AdminActualInformation/' + ${el.id} +'/remove'" method="post">
-            <button class="delete"  type="submit">Удалить</button>
-        </form>
-        <hr class="hh1">
+<!--        <form class="edit"  th:action="'/AdminActualInformation/' + ${el.id} +'/remove'" method="post">-->
+<!--            <button class="btnDelete"  type="submit">Удалить</button>-->
+<!--        </form>-->
+<!--        <hr class="hh1">-->
     </div>
-</section>
 
+</section>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="/scripts/home.js"></script>
 <!--<script src="system/js/global.js"></script>  Для даты -->
 
-
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 </body>
 

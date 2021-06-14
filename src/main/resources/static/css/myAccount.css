@@ -275,62 +275,15 @@ h3 {
 }
 
 
-
-
-.dropbtn {
-    width: auto;
-    background-color:  #f2f2f2; /*Цвет как в шапке*/
-    color: #ba1c85; /*Цвет шрифта*/
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-
+.footer{
+    left: 0;
+    bottom:0;
+    margin-top: 50%;
+    padding: 3%;
+    width: 100%;
+    height: 100px;
+    background-color: green;
 }
-.dropdown {
-    position: relative;
-    display: inline-block;
-
-}
-.dropdown-content {
-    display: none;
-    position: fixed;
-    background-color: #f2f2f2;
-
-    z-index: 1;
-
-}
-.dropdown-content a {
-    color:  #003559;
-    padding: 12px 16px;
-    text-decoration: none; /*Убираем подчеркивание текста*/
-    display: inline;
-    font-weight: bold;
-
-}
-.dropdown-content a:hover { color: #E6855F;}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
-
-
-
-
-
-#footer {
-    position: absolute; /* Фиксированное положение */
-    opacity: 0.5;
-    right: 0;
-    bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-    background: black; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
-    font-size:0.75em;
-    text-align: left;
-}
-
 
 
 

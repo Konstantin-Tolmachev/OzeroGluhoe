@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://unpkg.com/imask"></script>
 
-    <header th:insert="blocks/header :: header"></header>
+    <header th:insert="blocks/headerClientAccount :: headerClientAccount"></header>
 </head>
 <body>
 
@@ -39,7 +39,6 @@
 
 
 
-
 <section class="sectionComment">
     <h1>Отзывы</h1>
     <div th:each="el : ${comments}" class="allComments"  >
@@ -47,6 +46,9 @@
         <div th:text="${el.commentDate}" class="date" name="commentDate"></div>
         <div><p th:text="${el.text}" class="pSize" name="text" id="textUser" placeholder="Текст"></p>
         </div>
+<!--        <form class="edit"  th:action="'/AllComment/' + ${el.id} +'/remove'" method="post">-->
+<!--            <button class="delete"  type="submit">Удалить</button>-->
+<!--        </form>-->
         <hr class="hh1">
     </div>
 

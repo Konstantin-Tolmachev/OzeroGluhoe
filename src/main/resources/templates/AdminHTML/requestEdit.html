@@ -13,27 +13,18 @@
 
 
 <section class="newRequest">
-    <h3 >Ответить на заявку</h3>
-    <br>
+    <h1 >Ответить на заявку</h1>
 
     <form  method="post">
         <div th:each="el : ${post}" class="allDivRequest">
 
-
-  <!-- div class="wrap">
-      th:text="${#authentication.name}"
-        <input type="text" th:value="${el.korpus}" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="ID">
-  </div>-->
-
-
-
             <div class="DivRequest">
-                <input type="text" th:value="${el.room}" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты (*-***">
+                <input class="inn" type="text" th:value="${el.room}" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты (*-***">
             </div>
 
             <div class="DivRequest">
-                <input  class="in" name="level" placeholder="Уровень заявки" id="level" />
-                <select onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
+                <input   class="inn" name="level" placeholder="Уровень заявки" id="level" />
+                <select  class="inn" onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Уровень заявки</option>
                     <option class="" value="Срочный">Срочный</option>
                     <option class="" value="В течении дня">В течении дня</option>
@@ -41,8 +32,8 @@
             </div>
 
             <div class="DivRequest">
-                <input  class="in" th:value="${el.fromWhom}" name="fromWhom" placeholder="От кого заявка" id="fromWhom" />
-                <select onchange=document.getElementById('fromWhom').value=this.options[this.selectedIndex].value>
+                <input   class="inn" th:value="${el.fromWhom}" name="fromWhom" placeholder="От кого заявка" id="fromWhom" />
+                <select  class="inn" onchange=document.getElementById('fromWhom').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Заявитель</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
@@ -65,8 +56,8 @@
 
 
             <div class="DivRequest">
-                <input  class="in" th:value="${el.toWhom}" name="toWhom" placeholder="Кому заявка" id="position" />
-                <select onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
+                <input   class="inn" th:value="${el.toWhom}" name="toWhom" placeholder="Кому заявка" id="position" />
+                <select  class="inn" onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Исполнитель заявки</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
@@ -99,8 +90,8 @@
 <!--            </div>-->
 
             <div class="DivRequest">
-                <input  class="in" th:value="${el.status}" name="status" placeholder="Статус" id="status" />
-                <select onchange=document.getElementById('status').value=this.options[this.selectedIndex].value>
+                <input   class="inn" th:value="${el.status}" name="status" placeholder="Статус" id="status" />
+                <select  class="inn" onchange=document.getElementById('status').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Статус</option>
                     <option class="" value="Выполнено">Выполнено</option>
                     <option class="" value="На выполнении">На выполнении</option>
@@ -113,48 +104,23 @@
 <!--            </div>-->
 
             <div class="DivRequest">
-                <input type="text" th:value="${el.fulfiled}" onkeyup="checkParams()" id="fulfiled" name="fulfiled" placeholder="ФИО исполнителя">
+                <input class="inn" type="text" th:value="${el.fulfiled}" onkeyup="checkParams()" id="fulfiled" name="fulfiled" placeholder="ФИО исполнителя">
             </div>
 
-            <div class="DivRequest2">
-<!--                <textarea  class="size" name="text" id="text" placeholder="Обновить актуальную информацию" th:text="${el.text}"></textarea>-->
+            <div class="DivRequest">
 
                 <textarea  class="size" name="text" id="text" placeholder="Выберете из списка что требуется или опишите пробелему сами" th:text="${el.text}"></textarea>
             </div>
-            <form th:action="@{/AllRequest}" method="post" class="wrap">
-                <input type="submit"  id="submit" class="glow-button" value="Обновить"  >
+            <form th:action="@{/AllRequest}" method="post" >
+                <input type="submit"  id="submit" class="btnComment1" value="Обновить"  >
             </form>
         </div>
     </form>
 </section>
 
-<!--@RequestParam String korpus,-->
-<!--@RequestParam String room,-->
-<!--@RequestParam String fromWhom,-->
-<!--@RequestParam String text,-->
-<!--@RequestParam String toWhom,-->
-
-<!--@RequestParam String status,-->
-<!--@RequestParam String fulfilled,-->
-
-
-
-<!--<form  method="post">-->
-<!--    <div  th:each="el : ${post}" class="allDiv">-->
-<!--         <div class="wrap"><input type="text" th:value="${el.korpus}" onkeyup="checkParams()" id="korpus" name="korpus" placeholder="ID"></div>-->
-<!--         <div class="wrap"><input type="text" th:value="${el.room}" onkeyup="checkParams()" id="room" name="room" placeholder="Корпус"></div>-->
-<!--        <div class="wrap"><input type="text" th:value="${el.fromWhom}" onkeyup="checkParams()" id="fromWhom" name="fromWhom" placeholder="Комната"></div>-->
-<!--        <div class="wrap"><input type="text" th:value="${el.text}" onkeyup="checkParams()" id="text" name="text" placeholder="Дата заезда"></div>-->
-<!--        <div class="wrap"><input type="text" th:value="${el.toWhom}" onkeyup="checkParams()" id="toWhom" name="toWhom" placeholder="Дата выезда"></div>-->
-<!--        <div class="wrap"><input type="text" th:value="${el.status}" onkeyup="checkParams()" id="status" name="status" placeholder="Фамилия"></div>-->
-<!--        <div class="wrap"><input type="text" th:value="${el.fulfiled}" onkeyup="checkParams()" id="fulfiled" name="fulfiled" placeholder="Имя"></div>-->
-
-<!--        <form th:action="@{/AllRequest}" method="post" class="wrap">-->
-<!--            <input type="submit"  id="submit" class="glow-button" value="Обновить"  >-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</form>-->
-
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 
 

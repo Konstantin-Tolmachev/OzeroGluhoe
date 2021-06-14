@@ -15,8 +15,8 @@
 
 
 
-<section class="newPeoples">
-    <h3 >Номерной фонд 2 корпуса</h3>
+<section class="Rooms">
+    <h1 >Номерной фонд 2 корпуса</h1>
 
     <div class="nameColumn">
         <div class="wrap1">№ комнаты </div>
@@ -34,7 +34,7 @@
             <div class="wrap"><input type="text" th:value="${el.freeTwoKorpus}" onkeyup="checkParams()" id="freeTwoKorpus" name="freeTwoKorpus" placeholder="Заселение"></div>
 
             <form th:action="@{/KorpusTwoRoomsAdmin}" method="post" class="wrap">
-                <input type="submit"   class="glow-button" value="Обновить"  >
+                <input type="submit"   class="btnDelete" value="Обновить"  >
             </form>
         </div>
     </form>
@@ -42,6 +42,9 @@
 
 </section>
 
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

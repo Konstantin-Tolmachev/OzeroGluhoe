@@ -114,6 +114,34 @@ body {
 }
 
 
+
+.btnSubmit {
+
+    margin-right: 5px;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    background-color: green;
+    text-align: center;
+    text-decoration: none;
+
+
+}
+.btnSubmit:hover  {
+    padding: .2rem;
+    border-radius: .3rem;
+    color: #fff;
+    background: #228B22;
+    text-decoration: none;
+    border: 2px solid ;
+    transition: all .2s ease-in-out;
+    padding-left: 1%;/*Отступы между текстом в шапке*/
+    padding-right: 1%;/*Отступы между текстом в шапке*/
+}
+
 @media screen and (min-width: 900px) {
     .topmenu> .h  {
         float: right;
@@ -136,21 +164,55 @@ body {
 
 
 
-.sectionComment{
-    /* margin: 0 auto;*/
+
+
+
+.StaffsFilter{
+    outline: 1px solid #228B22;
+    padding: 1%;
+    box-shadow: 0 0 3pt 2pt #9ACD32;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 17%;
     border-radius: 5px;
-    width: 100%;
-    height: auto;
-    opacity: 0.9;
-    background: white;
-    padding-bottom: 1%;
+    background-color: white;
+
+
+
+
+}
+
+.StaffsFilter> h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: black;
+    margin-bottom: 3%;
+}
+
+
+.sectionComment{
+    outline: 1px solid #228B22;
+    padding: 1%;
+    box-shadow: 0 0 3pt 2pt #9ACD32;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    height: 600px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-radius: 5px;
+    background-color: white;
 }
 
 .sectionComment> h1 {
-    padding-top: 2%;
     text-align: center;
-    font-family: 'Exo 2', sans-serif;
+    font-size: 2.5rem;
+    font-style: italic;
     color: black;
+    margin-bottom: 3%;
 }
 
 .allComments{
@@ -161,158 +223,83 @@ body {
 
 
 .pSize{
-    margin: 9px;
-    width: 87%;
+    width: 100%;
     height: auto;
-    /*min-width: 300px;*/
-    /*min-height: auto;*/
-    /*max-width: 87%;*/
-    /*max-height: auto;*/
-    text-indent: 1%; /* Отступ первой строки в пикселах */
-    padding: 0.5%; /* Поля */
-    font-size: 1.3em; /* Размер шрифта */
-    word-wrap: break-word; /* Перенос слов */
-}
-
-.edit{
-    padding-left: 1%;
-}
-
-
-@media screen and (min-width: 10px) {
-    .email {
-        margin: 0  auto;
-        margin-left: 1%;
-        margin-top: -1%;
-        float: left;
-        color: black;
-        padding: 0.4%;
-
-    }
-}
-
-@media screen and (min-width: 10px) {
-    .user {
-        margin: 0  auto;
-        margin-left: 1%;
-        margin-top: -1%;
-        float: left;
-        color: black;
-        padding: 0.4%;
-
-    }
+    text-indent: 0.5%; /* РћС‚СЃС‚СѓРї РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРё РІ РїРёРєСЃРµР»Р°С… */
+    padding: 3%; /* РџРѕР»СЏ */
+    font-size: 1.3em; /* Р Р°Р·РјРµСЂ С€СЂРёС„С‚Р° */
+    word-wrap: break-word; /* РџРµСЂРµРЅРѕСЃ СЃР»РѕРІ */
 }
 
 @media screen and (min-width: 10px) {
     .date {
-        margin: 0  auto;
+        /*     margin: 0  auto;*/
         margin-left: 1%;
         margin-top: -1%;
         float: left;
         color: black;
-        padding: 0.4%;
+        padding: 0.9%;
+        /*font-weight: 100;*/
+
+    }
+}
+@media screen and (min-width: 10px) {
+    .user {
+        margin-left: 1%;
+        margin-top: -1%;
+        float: left;
+        color: black;
+        padding: 0.9%;
+        font-weight: bold;
+
+    }
+}
+
+@media screen and (min-width: 10px) {
+    .email {
+        margin-left: 1%;
+        margin-top: -1%;
+        float: left;
+        color: black;
+        padding: 0.9%;
+        /*font-weight: bold;*/
 
     }
 }
 
 
-.test{
-    margin-left: 10px;
-    margin-bottom: 10px;
-    background-color: white;
-    box-shadow: 0 0 40px 40px white inset, 0 0 0 0 yellow;
-    text-decoration: none;
+.btnDelete{
+    border: none;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: .9rem;
+    cursor: pointer;
+    background: white;
     color: black;
-    opacity: 1;
-}
-
-
-.dropbtn {
-    width: auto;
-    background-color:  #f2f2f2; /*Цвет как в шапке*/
-    color: #ba1c85; /*Цвет шрифта*/
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
 
 }
-.dropdown {
-    position: relative;
-    display: inline-block;
 
-}
-.dropdown-content {
-    display: none;
-    position: fixed;
-    background-color: #f2f2f2;
-
-    z-index: 1;
-
-}
-.dropdown-content a {
-    color:  #003559;
-    padding: 12px 16px;
-    text-decoration: none; /*Убираем подчеркивание текста*/
-    display: inline;
-    font-weight: bold;
-
-}
-.dropdown-content a:hover { color: #E6855F;}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
-
-
-h3 {
-
-    text-align: center;
-    font-style: italic;
-    font-size: 30px;
-    color: #d7f2acdc;
-}
-
-
-input.btnSubmit{
-    font-family: 'Exo 2', sans-serif;
-    padding: 1%;/*Отступы между текстом в шапке*/
-    font-weight: bold; /*Жирный шрифт в баре*/
-    color: #003559; /*Цвет шрифта*/
-}
-
-
-.btnSubmit {
-    margin-right: 5px;
-    margin-left: 5px;
-    width: auto;
-    background-color: #f2f2f2;
-    color: #ba1c85;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.btnSubmit:hover  {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
-
-
-#footer {
-    position: absolute; /* Фиксированное положение */
-    opacity: 0.5;
-    right: 0;
-    bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-    background: black; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
-    font-size:0.75em;
-    text-align: left;
+.btnDelete:hover{
+    box-shadow: 0 0 1px 0, 0 0 0.5px 1px green;
+    border: 1px solid transparent;
+    transition: all .2s ease-in-out;
 }
 
 
 
+.footer{
+    left: 0;
+    bottom:0;
+    margin-top: 0%;
+    padding: 3%;
+    width: 100%;
+    height: 100px;
+    background-color: green;
+}
 
 
 

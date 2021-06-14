@@ -113,6 +113,34 @@ body {
     padding-right: 1%;/*Отступы между текстом в шапке*/
 }
 
+.btnSubmit {
+
+    margin-right: 5px;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    background-color: green;
+    text-align: center;
+    text-decoration: none;
+
+
+}
+.btnSubmit:hover  {
+    padding: .2rem;
+    border-radius: .3rem;
+    color: #fff;
+    background: #228B22;
+    text-decoration: none;
+    border: 2px solid ;
+    transition: all .2s ease-in-out;
+    padding-left: 1%;/*Отступы между текстом в шапке*/
+    padding-right: 1%;/*Отступы между текстом в шапке*/
+}
+
+
 
 @media screen and (min-width: 900px) {
     .topmenu> .h  {
@@ -153,27 +181,14 @@ body {
 }
 
 
-input.btnSubmit{
-    font-family: 'Exo 2', sans-serif;
-    padding: 1%;/*Отступы между текстом в шапке*/
-    font-weight: bold; /*Жирный шрифт в баре*/
-    color: #003559; /*Цвет шрифта*/
+
+
+.footer{
+    left: 0;
+    bottom:0;
+    margin-top: 50%;
+    padding: 3%;
+    width: 100%;
+    height: 100px;
+    background-color: green;
 }
-
-
-.btnSubmit {
-    margin-right: 5px;
-    margin-left: 5px;
-    width: auto;
-    background-color: #f2f2f2;
-    color: #ba1c85;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.btnSubmit:hover  {background-color: #f2f2f2 ; color: #E6855F;} /*Цвет всего поля при наведени и цвет шрифта*/
-
-

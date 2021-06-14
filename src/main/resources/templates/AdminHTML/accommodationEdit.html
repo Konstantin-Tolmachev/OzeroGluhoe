@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/Accommodation_Edit.css"/>
+    <link rel="stylesheet" href="/css/accommodationEdit.css"/>
     <title th:text="${'Редактор комнаты'}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="">
@@ -15,30 +15,40 @@
 
 
 
-<section class="newPeoples">
-    <h3 >Номерной фонд</h3>
 
-    <div class="nameColumn">
-        <div class="wrap1">Тип</div>
-        <div class="wrap1">Цена</div>
-        <div class="wrap1"></div>
+<section class="sectionRequest">
+    <div class="StaffsFilter">
+        <h1>Номерной фонд</h1>
+        <div class="DivRequest" >
+            <div class="request">
+                <div class="c1">
+                    <div class="staffReq1">Тип комнаты</div>
+                    <div class="staffReq1">Цена</div>
+                </div>
+                <div class="allDiv">
 
-    </div>
+                    <form  method="post">
+                        <div  th:each="el : ${post}" class="c1">
 
+                            <div class="staffReq"><input type="text" th:value="${el.type}" onkeyup="checkParams()" id="type" name="type" placeholder="Тип комнаты"></div>
+                            <div class="staffReq"><input type="text" th:value="${el.price}" onkeyup="checkParams()" id="price" name="price" placeholder="Прайс"></div>
+                        </div>
 
-    <form  method="post">
-        <div  th:each="el : ${post}" class="editStaff">
-            <div class="wrap"><input type="text" th:value="${el.type}" onkeyup="checkParams()" id="type" name="type" placeholder="Тип"></div>
-            <div class="wrap"><input type="text" th:value="${el.price}" onkeyup="checkParams()" id="price" name="price" placeholder="Цена"></div>
-            <form th:action="@{/AllAccommodation}" method="post" class="wrap">
-                <input type="submit"   class="glow-button" value="Обновить"  >
-            </form>
+                        <form class="wrap" th:action="@{/AllAccommodation}" method="post" >
+
+                            <button class="btnDelete" type="submit">Обновить</button>
+                        </form>
+                    </form>
+                </div>
+            </div>
+
         </div>
-    </form>
-
-
+    </div>
 </section>
 
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

@@ -13,40 +13,53 @@
 </head>
 <body>
 
-<section class="newEvent">
-    <h3 >Мероприятия</h3>
-    <br>
+<section class="Rooms1">
+    <h1 >Добавить мероприятие</h1>
 
     <form th:action="@{/AdminEvent}" method="post">
         <div class="allDivEvent">
             <div class="DivEvent">
                 <textarea class="size" name="text" id="text" placeholder="Добавить мероприятие"></textarea>
             </div>
-            <div class="DivEvent">
-                <button  type="submit">Добавить</button>
+                <div class="DivEvent">
+                <button class="btnAdd"  type="submit">Добавить</button>
             </div>
         </div>
     </form>
 </section>
 
-<section class="AllActualInformation">
-    <h3 >Мероприятия</h3>
+<section class="Rooms">
+
+    <h1 >Мероприятия</h1>
     <div th:each="el : ${Events}" class="editInformation">
         <div>
-            <p th:text="${el.text}" class="size" name="text" id="text" placeholder="Текст"></p>
+            <p th:text="${el.text}" class="size" name="text" id="tet" placeholder="Текст"></p>
         </div>
 
-        <div class="edit">
-            <a th:href="'/AdminEvent/' + ${el.event_id} + '/edit'" class="test">Редактировать</a>
+
+        <div class="inline">
+            <div class="btnEdit"><a th:href="'/AdminEvent/' + ${el.event_id} + '/edit'">Редактировать</a></div>
+            <form  th:action="'/AdminEvent/' + ${el.event_id} +'/remove'" method="post">
+                <button class="btnDelete" type="submit">Удалить</button>
+            </form>
         </div>
-        <br>
-        <form class="edit"  th:action="'/AdminEvent/' + ${el.event_id} +'/remove'" method="post">
-            <button class="delete"  type="submit">Удалить</button>
-        </form>
-        <hr class="hh1">
+
+<!--        <div class="edit">-->
+<!--            <a th:href="'/AdminEvent/' + ${el.event_id} + '/edit'" class="test">Редактировать</a>-->
+<!--        </div>-->
+
+<!--        <form class="edit"  th:action="'/AdminEvent/' + ${el.event_id} +'/remove'" method="post">-->
+<!--            <button class="delete"  type="submit">Удалить</button>-->
+<!--        </form>-->
+
     </div>
+
 </section>
 
+
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

@@ -14,10 +14,9 @@
 
 
 <section class="sectionRequest">
-
     <section class="newRequest">
         <h1 >Написать заявку</h1>
-        <br>
+
         <form th:action="@{/StaffAccount}" method="post">
             <div class="allDivRequest">
 
@@ -172,7 +171,7 @@
                         <div th:text="${el.endDate}"class="staffReq"><input type="text" id="endDate5" name="endDate"></div>
                     </div>
 
-                    <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
+                    <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" >Ответить на заявку</a></div>
 
 
                 </div>

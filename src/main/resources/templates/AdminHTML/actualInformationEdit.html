@@ -15,8 +15,8 @@
 
 
 
-<section class="allDivctualInformation">
-    <h3 >Вся информация</h3>
+<section class="Rooms">
+    <h1 >Вся информация</h1>
 
 
     <div   th:each="el : ${post}" >
@@ -26,7 +26,7 @@
         </div>
 
         <form th:action="@{/AllActualInformation}" method="post"   class="DivActualInformation">
-            <input type="submit"   class="glow-button" value="Обновить">
+            <input type="submit"   class="btnDelete" value="Обновить">
         </form>
     </form>
     </div>
@@ -39,6 +39,9 @@
 <script src="/scripts/home.js"></script>
 
 
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 </body>
 

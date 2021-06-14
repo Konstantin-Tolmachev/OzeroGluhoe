@@ -13,37 +13,58 @@
 </head>
 <body>
 
-
 <section class="sectionComment">
-    <h3>Отзывы</h3>
-
-    <div th:each="el : ${comments}" class="allComments">
-
-        <div>
-            <p th:text="${el.name}" class="user" name="text" id="name" placeholder="Текст"></p>
+    <h1>Отзывы</h1>
+    <div th:each="el : ${comments}" class="allComments"  >
+        <div th:text="${el.name}" class="user" name="name"></div>
+        <div> <p th:text="${el.email}" class="email" name="email" id="email" placeholder="Текст"></p></div>
+        <div th:text="${el.commentDate}" class="date" name="commentDate"></div>
+        <div><p th:text="${el.text}" class="pSize" name="text" id="textUser" placeholder="Текст"></p>
         </div>
-
-        <div>
-            <p th:text="${el.email}" class="email" name="email" id="email" placeholder="Текст"></p>
-        </div>
-
-        <div>
-            <p th:text="${el.commentDate}" class="date" name="text" id="commentDate" placeholder="Текст"></p>
-        </div>
-
-        <div>
-            <p th:text="${el.text}" class="pSize" name="text" id="text" placeholder="Текст"></p>
-        </div>
-
-        <br>
-
-        <form class="edit"  th:action="'/AllComment/' + ${el.id} +'/remove'" method="post">
-            <button class="delete"  type="submit">Удалить</button>
+        <form  th:action="'/AllComment/' + ${el.id} +'/remove'" method="post">
+            <button class="btnDelete"  type="submit">Удалить</button>
         </form>
         <hr class="hh1">
     </div>
+
 </section>
 
+
+
+
+<!--<section class="sectionComment">-->
+<!--    <h3>Отзывы</h3>-->
+
+<!--    <div th:each="el : ${comments}" class="allComments">-->
+
+<!--        <div>-->
+<!--            <p th:text="${el.name}" class="user" name="text" id="name" placeholder="Текст"></p>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <p th:text="${el.email}" class="email" name="email" id="email" placeholder="Текст"></p>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <p th:text="${el.commentDate}" class="date" name="text" id="commentDate" placeholder="Текст"></p>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <p th:text="${el.text}" class="pSize" name="text" id="text" placeholder="Текст"></p>-->
+<!--        </div>-->
+
+<!--        <br>-->
+
+<!--        <form class="edit"  th:action="'/AllComment/' + ${el.id} +'/remove'" method="post">-->
+<!--            <button class="delete"  type="submit">Удалить</button>-->
+<!--        </form>-->
+<!--        <hr class="hh1">-->
+<!--    </div>-->
+<!--</section>-->
+
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

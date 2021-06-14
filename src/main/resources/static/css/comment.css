@@ -156,6 +156,19 @@ body {
     }
 }
 
+.n{
+    margin-top: 3%;
+    font-size: 2.2rem;
+}
+.name{
+    margin-left: 3%;
+    display: inline;
+}
+.name1{
+    margin-left: 1%;
+    display: inline;
+}
+
 
 
 
@@ -163,7 +176,6 @@ body {
     outline: 1px solid #228B22;
     padding: 1%;
     box-shadow: 0 0 3pt 2pt #9ACD32;
-    background: #228B22;
     margin-top: 3%;
     margin-left: 3%;
     margin-right: 3%;
@@ -249,7 +261,6 @@ input#name,#email{
     outline: 1px solid #228B22;
     padding: 1%;
     box-shadow: 0 0 3pt 2pt #9ACD32;
-    background: #228B22;
     margin-top: 3%;
     margin-left: 3%;
     margin-right: 3%;

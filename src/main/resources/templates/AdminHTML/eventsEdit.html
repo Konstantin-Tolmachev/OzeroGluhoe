@@ -15,8 +15,8 @@
 
 
 
-<section class="allDivEvent">
-    <h3 >Мероприятия</h3>
+<section class="Rooms">
+    <h1 >Мероприятия</h1>
 
     <div  th:each="el : ${post}" >
     <form  method="post">
@@ -24,13 +24,16 @@
             <textarea  class="size" name="text" id="text" placeholder="Обновить актуальную информацию" th:text="${el.text}"></textarea>
         </div>
         <form th:action="@{/AllEvent}" method="post" class="DivEvent">
-            <input type="submit"   class="glow-button" value="Обновить">
+            <input type="submit"   class="btnDelete" value="Обновить">
         </form>
     </form>
     </div>
 
 </section>
 
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

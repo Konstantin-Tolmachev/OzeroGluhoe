@@ -72,11 +72,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 
                 .antMatchers("/css/**","/img/**","/scripts/**").permitAll()
-                .antMatchers( "/resources/**", "/", "/PhotoGallery", "/AllTour",  "/Payment", "/Registration", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules", "/Comment", "/payment")
+                .antMatchers( "/resources/**", "/", "/PhotoGallery",   "/Payment", "/Registration", "/Accommodation", "/Infrastructure", "/Price", "/Сommunications", "/AboutUs", "/Rules",  "/payment")
                 .permitAll()
-                .antMatchers("/StaffAccount", "/StaffEvent").hasRole("STAFF")
-                .antMatchers("/MyAccount","/Event", "/Request").hasRole("CLIENT")
-                .antMatchers("/AdminHome", "/StaffFilter", "/AllActualInformation/**").hasRole("ADMIN")
+                .antMatchers("/StaffAccount", "/StaffEvent","/StaffTimeTable","StaffActualInformation").hasRole("STAFF")
+                .antMatchers("/MyAccount","/Event", "/Request","/Comment","/TimeTable","ActualInformation").hasRole("CLIENT")
+                .antMatchers("/AdminHome", "/StaffFilter", "/AllRequestAdminFilter", "/AdminRequest/**", "/AdminEvent/**",  "/RoomsAdmin/**", "/AdminActualInformation/**", "/AllComment/**", "/Staffs/**","/AllClients/**","/Accounts").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
 

@@ -12,22 +12,21 @@
 <body>
 
 
+<section class="sectionRequest">
+<section class="newRequest2">
+    <h1 >Написать заявку</h1>
 
-<section class="newRequest">
-    <h3 >Написать заявку</h3>
-    <br>
-    <!--  <form action="/Request" method="post"> <form th:action="@{/Request}" method="post"> -->
     <form th:action="@{/AdminRequest}" method="post">
         <div class="allDivRequest">
 
 
             <div class="DivRequest">
-                <input type="text" onkeyup="checkParams()" id="room" name="room" placeholder="№ корпуса - № комнаты (*-***)">
+                <input class="inn" type="text" onkeyup="checkParams()" id="rm" name="room" placeholder="№ корпуса - № комнаты (*-***)">
             </div>
 
             <div class="DivRequest">
-                <input  class="in" name="level" placeholder="Уровень заявки" id="level" />
-                <select onchange=document.getElementById('level').value=this.options[this.selectedIndex].value>
+                <input class="inn"  name="level" placeholder="Уровень заявки" id="levellevel" />
+                <select class="inn" onchange=document.getElementById('levellevel').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Уровень заявки</option>
                     <option class="" value="Срочный">Срочный</option>
                     <option class="" value="В течении дня">В течении дня</option>
@@ -35,8 +34,8 @@
             </div>
 
             <div class="DivRequest">
-                <input  class="in" name="fromWhom" placeholder="От кого заявка" id="fromWhom" />
-                <select onchange=document.getElementById('fromWhom').value=this.options[this.selectedIndex].value>
+                <input  class="inn" name="fromWhom" placeholder="От кого заявка" id="fromWhomfromWhom" />
+                <select class="inn" onchange=document.getElementById('fromWhomfromWhom').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Заявитель</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
@@ -59,8 +58,8 @@
 
 
             <div class="DivRequest">
-                <input  class="in" name="toWhom" placeholder="Кому заявка" id="position" />
-                <select onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
+                <input  class="inn" name="toWhom" placeholder="Кому заявка" id="position" />
+                <select class="inn" onchange=document.getElementById('position').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Исполнитель заявки</option>
                     <option class="" value="Электромонтер">Электромонтер</option>
                     <option class="" value="Сантехник">Сантехник</option>
@@ -102,34 +101,35 @@
                 </select>
             </div>
 
-            <div class="DivRequest2">
+            <div class="DivRequest">
                 <!--                <textarea  class="size" name="text" id="text" placeholder="Обновить актуальную информацию" th:text="${el.text}"></textarea>-->
 
-                <textarea class="size" name="text" id="text" placeholder="Выберете из списка что требуется или опишите пробелему сами"/></textarea>
+                <textarea class="size" name="text" id="texttext" placeholder="Выберете из списка что требуется или опишите пробелему сами"/></textarea>
             </div>
             <div class="DivRequest">
-                <button  type="submit">Отправить заявку</button>
+                <button class="btnComment"    type="submit">Отправить заявку</button>
             </div>
         </div>
     </form>
 </section>
+</section>
 
 
 <section class="sectionRequest">
-
-    <div class="newRequest">
-        <h3 >Список заявок</h3>
-        <br>
-        <div class="find" >
+    <div class="newRequest1">
+        <h1 >Список заявок</h1>
+        <div class="DivRequest" >
             <form method="post"  th:action="AllRequestAdminFilter">
-                <input class="" type="text" name="filter" placeholder="Поиск по статусу заявки" id="status2" />
-                <select onchange=document.getElementById('status2').value=this.options[this.selectedIndex].value>
+                <input class="inn"type="hidden" name="filter" placeholder="Поиск по статусу заявки" id="status2" />
+                <select class="inn" onchange=document.getElementById('status2').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Статус заявки</option>
                     <option class="" value="Выполнено">Выполнено</option>
                     <option class="" value="На выполнении">На выполнении</option>
                     <option class="" value="Не выполнено">Не выполнено</option>
                 </select>
-                <button type="submit">Найти</button>
+                <div class="DivRequest1" >
+                    <button class="btnComment" type="submit">Найти</button>
+                </div>
             </form>
         </div>
 
@@ -137,16 +137,16 @@
             <h4>Заказчик</h4>
             <div class="allDiv">
                 <div class="c1">
-                    <div class="name">Дата подачи заявки</div>
-                    <div class="name">Уровень</div>
-                    <div class="name">№ корпуса - № комнаты</div>
-                    <div class="name">Заказчик</div>
+                    <div class="staffReq">Дата подачи заявки</div>
+                    <div class="staffReq">Уровень</div>
+                    <div class="staffReq">№ корпуса - № комнаты</div>
+                    <div class="staffReq">Заказчик</div>
                 </div>
                 <div class="c1">
-                    <div th:text="${el.createDate}" class="wrap1"><input type="text" id="createDate" name="createDate"></div>
-                    <div th:text="${el.level}" class="wrap1"><input type="text" id="level" name="level"></div>
-                    <div th:text="${el.room}" class="wrap1"><input type="text" id="room" name="romm"></div>
-                    <div th:text="${el.fromWhom}" class="wrap1"><input type="text" id="fromWhom" name="fromWhom"></div>
+                    <div th:text="${el.createDate}" class="staffReq"><input type="text" id="createDate" name="createDate"></div>
+                    <div th:text="${el.level}" class="staffReq"><input type="text" id="level" name="level"></div>
+                    <div th:text="${el.room}" class="staffReq"><input type="text" id="room" name="romm"></div>
+                    <div th:text="${el.fromWhom}" class="staffReq"><input type="text" id="fromWhom" name="fromWhom"></div>
                 </div>
                 <h4>Именование заявки</h4>
                 <div class="c2">
@@ -154,43 +154,36 @@
                 </div>
                 <h4>Исполнитель</h4>
                 <div class="c1">
-                    <div  class="name">Исполнитель</div>
-                    <div  class="name">Статус</div>
-                    <div  class="name">ФИО исполнителя</div>
-                    <div  class="name">Дата выполнения</div>
+                    <div  class="staffReq">Исполнитель</div>
+                    <div  class="staffReq">Статус</div>
+                    <div  class="staffReq">ФИО исполнителя</div>
+                    <div  class="staffReq">Дата выполнения</div>
                 </div>
 
                 <div class="c1">
-                    <div th:text="${el.toWhom}" class="wrap1"><input type="text" id="toWhom" name="toWhom"></div>
-                    <div th:text="${el.status}" class="wrap1"><input type="text" id="status" name="status"></div>
-                    <div th:text="${el.fulfiled}" class="wrap1"><input type="text" id="fulfiled" name="fulfiled"></div>
-                    <div th:text="${el.endDate}"class="wrap1"><input type="text" id="endDate" name="endDate"></div>
+                    <div th:text="${el.toWhom}" class="staffReq"><input type="text" id="toWhom" name="toWhom"></div>
+                    <div th:text="${el.status}" class="staffReq"><input type="text" id="status" name="status"></div>
+                    <div th:text="${el.fulfiled}" class="staffReq"><input type="text" id="fulfiled" name="fulfiled"></div>
+                    <div th:text="${el.endDate}"class="staffReq"><input type="text" id="endDate" name="endDate"></div>
                 </div>
 
-                <div  class="delete"><a th:href="'/AdminRequest/' + ${el.id} + '/edit'" class="test">Редактировать</a></div>
-
+                <div class="inline">
+                     <div  class="btnEdit"><a th:href="'/AdminRequest/' + ${el.id} + '/edit'" >Редактировать</a></div>
                     <form th:action="'/AdminRequest/' + ${el.id} +'/remove'" method="post">
-                        <button class="delete" type="submit">Удалить</button>
+                        <button class="btnDelete" type="submit">Удалить</button>
                     </form>
+                </div>
                </div>
-
-
-
             </div>
-
-<!--        <div class="pad"></div>-->
        </div>
-
-<!--    <br>-->
-<!--    <br>-->
-<!--    <br>-->
-
 </section>
 
 
 
 
-
+<div class="footer">
+    <p> &copy; Санаторий профилакторий "Озеро Глухое" 2021.</p>
+</div>
 
 
 
