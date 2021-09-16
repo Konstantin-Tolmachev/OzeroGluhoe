@@ -417,28 +417,28 @@ public class AdminControllers {
                                   Model model) {
         Request post;
         if (level == "" && room == "" && fromWhom == "") {
-            post = new Request ("В течении дня", "-","Опаньки, заказчика не указали :(", text, toWhom,"Не выполнено","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request ("В течении дня", "-","Опаньки, заказчика не указали :(", text, toWhom,"Не выполнено","-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         else if(level == "" ) {
-            post = new Request("В течении дня", room, fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request("В течении дня", room, fromWhom, text, toWhom, "Не выполнено", "-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         else if(room == "" ) {
-            post = new Request(level, "-", fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request(level, "-", fromWhom, text, toWhom, "Не выполнено", "-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         else if(fromWhom == "" ) {
-            post = new Request(level, room, "Клиент", text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request(level, room, "Клиент", text, toWhom, "Не выполнено", "-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         else if(level == "" && room == "" ) {
-            post = new Request("В течении дня", "-", fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request("В течении дня", "-", fromWhom, text, toWhom, "Не выполнено", "-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         else if(level == "" && fromWhom == "") {
-            post = new Request("В течении дня", room, "Клиент", text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request("В течении дня", room, "Клиент", text, toWhom, "Не выполнено", "-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         else if(room == "" && fromWhom == "" ) {
-            post = new Request(level, "-", "Опаньки, заказчика не указали :(", text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request(level, "-", "Опаньки, заказчика не указали :(", text, toWhom, "Не выполнено", "-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         else {
-            post = new Request(level, room, fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request(level, room, fromWhom, text, toWhom, "Не выполнено", "-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }
         requestRepository.save(post);
 

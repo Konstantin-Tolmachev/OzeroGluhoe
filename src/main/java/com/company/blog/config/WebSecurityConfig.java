@@ -68,6 +68,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .anyRequest()
 //                .requiresSecure()
 //                .and()
+//                .csrf()
+//                .disable()
 
                 .authorizeRequests()
 

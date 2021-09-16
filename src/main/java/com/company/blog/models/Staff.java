@@ -5,7 +5,7 @@ package com.company.blog.models;
 import javax.persistence.*;
 
 @Entity
-//@Table(name = "Staff")
+@Table(name = "staff")
 public class Staff {
 
     @Id

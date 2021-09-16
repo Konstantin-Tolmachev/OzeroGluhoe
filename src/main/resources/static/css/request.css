@@ -297,6 +297,8 @@ input#room,#level,#toWhom{
     width: 100%;
     height: 100px;
     background-color: green;
+    font-size: 1.1rem;
+    color: white;
 }
 
 

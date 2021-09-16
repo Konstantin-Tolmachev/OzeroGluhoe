@@ -119,11 +119,11 @@
 
 
 <section class="sectionRequest">
-    <div class="newRequest">
+    <div class="newRequest1">
         <h1>Список заявок</h1>
         <div class="DivRequest" >
             <form method="post"  th:action="AllRequestStaffFilter">
-                <input class="inn" type="text" name="filter" placeholder="Поиск по статусу заявки" id="status" />
+                <input class="inn" type="hidden" name="filter" placeholder="Поиск по статусу заявки" id="status" />
                 <select class="inn" onchange=document.getElementById('status').value=this.options[this.selectedIndex].value>
                     <option disabled selected >Статус заявки</option>
                     <option class="" value="Выполнено">Выполнено</option>
@@ -154,7 +154,7 @@
                     </div>
                     <h4>Именование заявки:</h4>
                     <div class="c2">
-                        <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text5" name="text"></textarea></div>
+                        <div th:text="${el.text}" class="wrap2"><textarea  type="text" id="text5" name="text"></textarea></div>
                     </div>
                     <h4>Исполнитель:</h4>
                     <div class="c1">
@@ -239,7 +239,7 @@
                     <div class="c2">
                         <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text2" name="text"></textarea></div>
                     </div>
-                    <h4>Исполнитель</h4>
+                    <h4>Исполнитель:</h4>
                     <div class="c1">
                         <div  class="staffReq">Исполнитель</div>
                         <div  class="staffReq">Статус</div>
@@ -251,7 +251,7 @@
                         <div th:text="${el.toWhom}" class="staffReq"><input type="text" id="toWhom2" name="toWhom"></div>
                         <div th:text="${el.status}" class="staffReq"><input type="text" id="status2" name="status"></div>
                         <div th:text="${el.fulfiled}" class="staffReq"><input type="text" id="fulfiled2" name="fulfiled"></div>
-                        <div th:text="${el.endDate}"class="wrapstaffReq1"><input type="text" id="endDate2" name="endDate"></div>
+                        <div th:text="${el.endDate}"class="staffReq"><input type="text" id="endDate2" name="endDate"></div>
                     </div>
 
                     <div  class="delete"><a th:href="'/AllRequestStaff/' + ${el.id} + '/edit'" class="test">Ответить на заявку</a></div>
@@ -327,7 +327,7 @@
                     <div class="c2">
                         <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text4" name="text"></textarea></div>
                     </div>
-                    <h4>Исполнитель</h4>
+                    <h4>Исполнитель:</h4>
                     <div class="c1">
                         <div  class="staffReq">Исполнитель</div>
                         <div  class="staffReq">Статус</div>

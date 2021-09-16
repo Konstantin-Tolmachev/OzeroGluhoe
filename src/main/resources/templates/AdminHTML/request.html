@@ -134,7 +134,7 @@
         </div>
 
         <div th:each="el : ${requests}" class="request">
-            <h4>Заказчик</h4>
+            <h4>Заказчик:</h4>
             <div class="allDiv">
                 <div class="c1">
                     <div class="staffReq">Дата подачи заявки</div>
@@ -148,11 +148,11 @@
                     <div th:text="${el.room}" class="staffReq"><input type="text" id="room" name="romm"></div>
                     <div th:text="${el.fromWhom}" class="staffReq"><input type="text" id="fromWhom" name="fromWhom"></div>
                 </div>
-                <h4>Именование заявки</h4>
+                <h4>Именование заявки:</h4>
                 <div class="c2">
                     <div th:text="${el.text}" class="wrap2"><textarea type="text" id="text" name="text"></textarea></div>
                 </div>
-                <h4>Исполнитель</h4>
+                <h4>Исполнитель:</h4>
                 <div class="c1">
                     <div  class="staffReq">Исполнитель</div>
                     <div  class="staffReq">Статус</div>

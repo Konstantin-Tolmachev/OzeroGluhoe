@@ -187,26 +187,9 @@ body {
 }
 
 
-.btnDelete{
-    border: none;
-    margin-left: 1%;
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    font-size: .9rem;
-    cursor: pointer;
-    background: white;
-    color: black;
 
-}
 
-.btnDelete:hover{
-    padding: 2%;
-    box-shadow: 0 0 1px 0, 0 0 0.5px 1px green;
-    border: 1px solid transparent;
-    transition: all .2s ease-in-out;
-}
+
 input#roomsOneKorpusId, #typeOneKorpus,#freeOneKorpus,#roomsTwoKorpusId,#typeTwoKorpus,#freeTwoKorpus{
     width: 100%;
     height: 30px;
@@ -214,14 +197,14 @@ input#roomsOneKorpusId, #typeOneKorpus,#freeOneKorpus,#roomsTwoKorpusId,#typeTwo
 }
 
 .nameColumn{
-    column-count: 4;
+    column-count: 3;
     padding-right: 10px;
     padding-top: 5px; /*Растояние между строками*/
 }
 
 
 .editStaff{
-    column-count: 4;
+    column-count: 3;
     padding-right: 10px;
     padding-top: 5px; /*Растояние между строками*/
 }
@@ -300,6 +283,29 @@ h3 {
 
 
 
+.btnUpdate{
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: .9rem;
+    cursor: pointer;
+    background: white;
+    color: green;
+}
+
+.btnUpdate:hover{
+    box-shadow: 0 0 1px 0 white inset, 0 0 10px 1px green;
+    color: black;
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+
 .footer{
     left: 0;
     bottom:0;
@@ -308,6 +314,8 @@ h3 {
     width: 100%;
     height: 100px;
     background-color: green;
+    font-size: 1.1rem;
+    color: white;
 }
 
 

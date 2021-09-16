@@ -22,7 +22,7 @@
         <div class="wrap1">№ комнаты </div>
         <div class="wrap1">Тип комнаты</div>
         <div class="wrap1">Свободно мест</div>
-        <div class="wrap1"></div>
+
 
     </div>
 
@@ -33,10 +33,11 @@
             <div class="wrap"><input type="text" th:value="${el.typeTwoKorpus}" onkeyup="checkParams()" id="typeTwoKorpus" name="typeTwoKorpus" placeholder="Тип комнаты"></div>
             <div class="wrap"><input type="text" th:value="${el.freeTwoKorpus}" onkeyup="checkParams()" id="freeTwoKorpus" name="freeTwoKorpus" placeholder="Заселение"></div>
 
-            <form th:action="@{/KorpusTwoRoomsAdmin}" method="post" class="wrap">
-                <input type="submit"   class="btnDelete" value="Обновить"  >
-            </form>
+
         </div>
+        <form th:action="@{/KorpusTwoRoomsAdmin}" method="post" class="wrap">
+            <input type="submit"   class="btnUpdate" value="Обновить"  >
+        </form>
     </form>
 
 

@@ -4,9 +4,11 @@ package com.company.blog.controllers;
 import com.company.blog.models.ActualInformation;
 import com.company.blog.models.Event;
 import com.company.blog.models.Request;
+import com.company.blog.models.Staff;
 import com.company.blog.repo.ActualInformationRepository;
 import com.company.blog.repo.EventRepository;
 import com.company.blog.repo.RequestRepository;
+import com.company.blog.repo.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -29,6 +32,8 @@ public class AccountStaffControllers {
     private RequestRepository requestRepository;
     @Autowired
     private ActualInformationRepository actualInformationRepository;
+    @Autowired
+    private StaffRepository staffRepository;
 
 
 //    @GetMapping("/StaffAccount")
@@ -52,12 +57,17 @@ public class AccountStaffControllers {
 
         Request post;
         if (level == "" && room == "" ) {
-            post = new Request ("В течении дня", "-",fromWhom, text, toWhom,"Не выполнено","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
-
+            post = new Request ("В течении дня", "-",fromWhom, text, toWhom,"Не выполнено","-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "-");
+        }
+        else if ( room == "" ) {
+            post = new Request (level, "-",fromWhom, text, toWhom,"Не выполнено","-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "-");
+        }
+        else if (  level == "" ) {
+            post = new Request ("В течении дня", room,fromWhom, text, toWhom,"Не выполнено","-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "-");
         }
         else {
 
-            post = new Request(level, room, fromWhom, text, toWhom, "Не выполнено", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request(level, room, fromWhom, text, toWhom, "Не выполнено", "-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "-");
         }        requestRepository.save(post);
 //        return "StaffHTML/staffAccount";
         return "redirect:/StaffAccount";
@@ -103,6 +113,16 @@ public class AccountStaffControllers {
         ArrayList<Request> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
+
+
+        List<Staff> staff = new ArrayList<>();
+        model.addAttribute("staff", staff);
+        List<Staff> staffs = (List<Staff>) staffRepository.findByPosition("Электромонтер");
+        model.addAttribute("staffs", staffs);
+
+//        Iterable<Staff> staffs = staffRepository.findAll();
+//        model.addAttribute("staffs", staffs);
+
         return "StaffHTML/staffAllRequestEdit";
     }
 
@@ -110,31 +130,42 @@ public class AccountStaffControllers {
 
     @PostMapping("/AllRequestStaff/{id}/edit")
     public String AllRequestStaffUpdate(@PathVariable(value = "id") long id,
-                                   // @RequestParam("createDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,
                                    @RequestParam String level,
-//                                   @RequestParam String room,
-//                                   @RequestParam String fromWhom,
-//                                   @RequestParam String text,
-//                                   @RequestParam String toWhom,
-//                                   @RequestParam String endDay,
                                    @RequestParam String status,
                                    @RequestParam String fulfiled,
                                    Model model) throws Exception {
         Request post = requestRepository.findById(id).orElseThrow(Exception::new);
         post.setLevel(level);
-//        post.setRoom(room);
-//        post.setFromWhom(fromWhom);
-//        post.setText(text);
-//        post.setToWhom(toWhom);
         post.setStatus(status);
         post.setFulfiled(fulfiled);
         post.setEndDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
 
-        //   post = new Request(korpus, room, fromWhom, text, toWhom, "", "", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         requestRepository.save(post);
         return "redirect:/StaffAccount";
     }
 
+//
+//    @PostMapping("/AllRequestStaff/{id}/edit")
+//    public String AllRequestStaffUpdate(@PathVariable(value = "id") long id,
+//                                        @RequestParam String level,
+//                                        @RequestParam String status,
+//                                        @RequestParam String fulfiled,
+//                                        Model model) throws Exception {
+//
+//
+//        Request post ;
+//        if (status == "Не выполнено") {
+//            post = new Request (level, "room", "fromWhom", "text", "toWhom", status,"-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "-");
+//
+//
+//        }
+//        else {
+//
+//            post = new Request (level, "room", "fromWhom", "text", "toWhom", status, fulfiled, LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+//        }        requestRepository.save(post);
+//
+//        return "redirect:/StaffAccount";
+//    }
 
 
     @PostMapping("AllRequestStaffFilter")
@@ -175,27 +206,6 @@ public class AccountStaffControllers {
         model.addAttribute("title", "Фильтр");
         return "StaffHTML/staffAccount";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @GetMapping("/StaffEvent")

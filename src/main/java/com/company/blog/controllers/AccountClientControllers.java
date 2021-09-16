@@ -97,12 +97,12 @@ public class AccountClientControllers {
 
         Request post;
         if (level == "" ) {
-            post = new Request ("В течении дня", room,"Клиент",text, toWhom,"Не выполнено","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+            post = new Request ("В течении дня", room,"Клиент",text, toWhom,"Не выполнено","-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
 
         }
         else {
 
-        post = new Request (level, room,"Клиент",text, toWhom,"Не выполнено","", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
+        post = new Request (level, room,"Клиент",text, toWhom,"Не выполнено","-", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), "");
         }        requestRepository.save(post);
 
 
@@ -125,62 +125,6 @@ public class AccountClientControllers {
         model.addAttribute("title", "Фильтр");
         return "ClientHTML/request";
     }
-
-//    findAllByOrderByIdDesc
-
-
-//    @PostMapping("Request")
-//    public String AddRequestStaff(@RequestParam String startDay,
-//                                  @RequestParam String korpus,
-//                                  @RequestParam String room,
-//                                  @RequestParam String fromWhom,
-//                                  @RequestParam String text,
-//                                  @RequestParam String toWhom,
-//                                  @RequestParam String endDay,
-//                                  @RequestParam String status,
-//                                  @RequestParam String fulfilled,
-//                                  Model model) {
-//        Request post = new Request(startDay,korpus,room,fromWhom,text,toWhom,endDay,status,fulfilled);
-//        requestRepository.save(post);
-//        return "ClientHTML/request";
-//    }
-
-
-
-//        this.startDay = startDay;
-//        this.korpus = korpus;
-//        this.room = room;
-//        this.fromWhom = fromWhom;
-//        this.text = text;
-//        this.toWhom = toWhom;
-//        this.endDay = endDay;
-//        this.status = status;
-//        this.fulfilled = fulfilled;
-//    @PostMapping("/Request")
-////    @PostMapping(value = "date", method = RequestMethod.POST)
-//    public String Request( /*@RequestParam("localDate ") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createDate,*/
-//                           @RequestParam String nate,
-//                           @RequestParam String korpus,
-//                           @RequestParam String myRoomId,
-//                           @RequestParam String fromWhom,
-//                           @RequestParam String textRequest,
-//                           @RequestParam String toWhom,
-//                        //   @RequestParam("LocalDate ") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createEndDate,
-//                           @RequestParam  String EndDate,
-//                           @RequestParam String fulfilled,
-//                           Model model) {
-//
-////        LOGGER.info("Processing date: {}", createDate);
-////        dateTimeService.processDate(createDate);
-//
-////        LOGGER.info("Processing date: {}", createEndDate);
-////        dateTimeService.processDate(date);
-//
-//        Request post = new Request (nate, korpus, myRoomId, fromWhom, textRequest, toWhom, EndDate, fulfilled);
-//        requestRepository.save(post);
-//        return "ClientHTML/request";
-//    }
-
 
 
 }

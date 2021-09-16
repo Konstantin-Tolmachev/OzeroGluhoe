@@ -190,23 +190,25 @@ body {
 
 
 
-.btnDelete{
-    border: none;
-    padding-left: 2%;
-    padding-right: 2%;
+.btnUpdate{
+    margin-left: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
     padding-top: 1%;
     padding-bottom: 1%;
     font-size: .9rem;
     cursor: pointer;
     background: white;
-    color: black;
-
+    color: green;
 }
 
-.btnDelete:hover{
-    box-shadow: 0 0 1px 0, 0 0 0.5px 1px green;
-    border: 1px solid transparent;
-    transition: all .2s ease-in-out;
+.btnUpdate:hover{
+    box-shadow: 0 0 1px 0 white inset, 0 0 10px 1px green;
+    color: black;
+    opacity: 1;
+    cursor: pointer;
 }
 
 .DivEvent{
@@ -255,6 +257,8 @@ h3 {
     width: 100%;
     height: 100px;
     background-color: green;
+    font-size: 1.1rem;
+    color: white;
 }
 
 
